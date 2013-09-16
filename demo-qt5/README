@@ -1,0 +1,48 @@
+Demonstration program of the AcousticAVE library with Qt5.
+
+SETUP
+
+1) Copy a room model file, in Wavefront .OBJ format, to model.obj.
+
+2) Copy an anechoic sound, in 16-bit mono 44100Hz raw format, to source.raw
+
+BUILD
+
+GNU/Linux
+
+1) Edit demo.pro and uncomment the line appropriate for your CPU
+#LIBS += -Lisense -lisense64
+#LIBS += -Lisense -lisense32
+
+2) Build the program
+$ qmake
+$ make
+
+3) Edit isports.ini and edit the name of the device connected to the sensor
+Example: Port1 = /dev/ttyUSB0
+
+4) Set the library path to include the isense directory
+$ LD_LIBRARY_PATH=$PWD/isense
+
+5) Run the program
+$ ./demo
+
+Windows
+
+1) Edit demo.pro and uncomment the line appropriate for your CPU
+#LIBS += -Lisense -lisense64
+#LIBS += -Lisense -lisense32
+
+2) Build the program
+> qmake
+> mingw32-make
+
+3) Copy the appropriate dll to the program's directory
+> copy isense\isense32.dll isense.dll
+> copy isense\isense64.dll isense.dll
+
+4) Edit isports.ini and edit the name of the device connected to the sensor
+Example: Port1 = COM13
+
+5) Run the program
+> release\demo
