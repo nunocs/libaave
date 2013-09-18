@@ -44,6 +44,20 @@
 #define AAVE_DFT_BUFSIZE 1024
 
 /*
+ * Reverb pre-delay buffer size, in samples (must be a power of 2).
+ * This defines the maximum reverberation pre-delay time (echo):
+ * AAVE_REVERB_BUFSIZE1 / AAVE_FS = 32768 / 44100 ~= 743 ms
+ */
+#define AAVE_REVERB_BUFSIZE1 32768
+
+/*
+ * Reverb feedback delay buffer size, in samples (must be a power of 2).
+ * This defines the maximum reverberation feedback delay time (density):
+ * AAVE_REVERB_BUFSIZE2 / AAVE_FS = 1024 / 44100 ~= 23 ms
+ */
+#define AAVE_REVERB_BUFSIZE2 1024
+
+/*
  * Speed of sound in dry air at 20 degrees Celsius (m/s).
  * https://en.wikipedia.org/wiki/Speed_of_sound
  */
@@ -91,6 +105,12 @@ struct aave {
 
 	/* HRTF overlap-add buffer (2 32-bit channels). */
 	int hrtf_overlap_add_buffer[2][AAVE_MAX_HRTF];
+
+	/* Reverb. */
+	unsigned reverb_buffer1_index[2];
+	unsigned reverb_buffer2_index[2];
+	float reverb_buffer1[AAVE_REVERB_BUFSIZE1][2];
+	float reverb_buffer2[AAVE_REVERB_BUFSIZE2][2];
 };
 
 /*
@@ -241,3 +261,6 @@ extern void aave_init_source(struct aave *, struct aave_source *);
 
 /* obj.c */
 extern void aave_read_obj(struct aave *, const char *);
+
+/* reverb.c */
+extern void aave_reverb(struct aave *, short *, unsigned);

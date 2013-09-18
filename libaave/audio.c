@@ -208,6 +208,7 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
 		if (k > n)
 			k = n;
 		memcpy(buf, aave->hrtf_output_buffer + index * 2, k * 4);
+		aave_reverb(aave, buf, k);
 		n -= k;
 		index += k;
 		buf += k * 2;
