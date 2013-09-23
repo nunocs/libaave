@@ -8,7 +8,14 @@ LIBS += -Lisense -lisense64
 #LIBS += -Lisense -lisense32
 
 QT += widgets
-QT += multimedia # QAudio*
 
 HEADERS += audio.h geometry.h imu.h view.h
-SOURCES += audio.cpp geometry.cpp imu.cpp main.cpp view.cpp
+SOURCES += geometry.cpp imu.cpp main.cpp view.cpp
+
+unix {
+	LIBS += -lasound
+	SOURCES += audio-alsa.cpp
+} else {
+	QT += multimedia
+	SOURCES += audio-multimedia.cpp
+}

@@ -10,6 +10,9 @@ BUILD
 
 GNU/Linux
 
+Uses the Advanced Linux Sound Architecture library (libasound)
+for sound output and thus is compatible with both Qt4 and Qt5.
+
 1) Edit demo.pro and uncomment the line appropriate for your CPU
 #LIBS += -Lisense -lisense64
 #LIBS += -Lisense -lisense32
@@ -28,6 +31,8 @@ $ LD_LIBRARY_PATH=$PWD/isense
 $ ./demo
 
 Windows
+
+Uses the Qt multimedia module and thus requires Qt5.
 
 1) Edit demo.pro and uncomment the line appropriate for your CPU
 #LIBS += -Lisense -lisense64
