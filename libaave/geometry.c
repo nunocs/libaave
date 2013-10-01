@@ -270,6 +270,9 @@ static void aave_create_sound(struct aave *aave, struct aave_source *source,
 		}
 	}
 
+	/* Design the material absortion filter. */
+	aave_get_material_filter(aave, sound->surfaces, order, sound->filter);
+
 	/* Set the origin of the sound. */
 	if (order == 0)
 		sound->position = source->position;

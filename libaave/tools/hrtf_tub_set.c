@@ -20,6 +20,9 @@
  */
 #define N 1024
 
+/* DFT length (zero-padding). */
+#define DFT_N (N * 4)
+
 #define DFT_TYPE float
 #include "../dft.h"
 
@@ -27,8 +30,8 @@ int main(int argc, char **argv)
 {
 	FILE *f;
 	unsigned i, j;
-	DFT_TYPE hrir[N];
-	float hrtf[N*2];
+	static DFT_TYPE hrir[N * 2];
+	float hrtf[DFT_N];
 	int data[2048][360*2]; /* 2048 32-bit samples, 360 degrees * 2 ears */
 
 	if (argc != 2) {
@@ -58,15 +61,16 @@ int main(int argc, char **argv)
 
 	fclose(f);
 
-	printf("/* This file was automatically generated. See tools/hrtf_tub_set.c */\n"
-		"const float hrtf_tub_set[720][%u]={", N*2);
+	printf("/* This file was automatically generated."
+		" See tools/hrtf_tub_set.c */\n"
+		"const float hrtf_tub_set[720][%u]={", DFT_N);
 
 	for (i = 0; i < 360 * 2; i++) {
 		for (j = 0; j < N; j++)
 			hrir[j] = data[j][i] / 2147483648.;
-		dft(hrtf, hrir, N*2);
+		dft(hrtf, hrir, DFT_N);
 		printf("{");
-		for (j = 0; j < N*2; j++)
+		for (j = 0; j < DFT_N; j++)
 			printf("%e,", hrtf[j]);
 		printf("},");
 	}

@@ -45,6 +45,30 @@ static float fade_out_gain(unsigned i, unsigned frames)
 }
 
 /*
+ * Calculate the Complex MULtiplication:
+ * Y = A * B
+ * Y = (ar + j ai) * (br + j br)
+ * Y = (ar * br - ai * bi) + j (ar * bi + ai * br)
+ */
+static void cmul(float *y, const float *a, const float *b, unsigned n)
+{
+	float ar, ai, br, bi;
+	unsigned i;
+
+	y[0] = a[0] * b[0]; /* A[0] */
+	y[1] = a[1] * b[1]; /* A[N/2] */
+
+	for (i = 2; i < n; i += 2) {
+		ar = a[i];
+		ai = a[i+1];
+		br = b[i];
+		bi = b[i+1];
+		y[i] = ar * br - ai * bi;
+		y[i+1] = ar * bi + ai * br;
+	}
+}
+
+/*
  * Calculate the Complex Multiplication and ADDition:
  * Y += g * A * B
  * Y += g * (ar + j ai) * (br + j br)
@@ -83,6 +107,7 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 	unsigned c, d, i;
 	const float *xdft;
 	float gain, elevation, azimuth;
+	float y[AAVE_MAX_HRTF * 4];
 
 	delay += frames - sound->source->buffer_index;
 
@@ -99,9 +124,9 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 		d = sound->distance * (AAVE_FS / AAVE_SOUND_SPEED);
 		i = sound->source->dft_index - (d + delay) / frames;
 		xdft = sound->source->dft[i & (AAVE_DFT_BUFSIZE - 1)];
+		cmul(y, xdft, sound->filter, 2 * frames);
 		for (c = 0; c < 2; c++)
-			cmadd(ydft[0][c], xdft, sound->hrtf[c],
-							2 * frames, gain);
+			cmadd(ydft[0][c], y, sound->hrtf[c], 2 * frames, gain);
 	}
 
 	/* Get current parameters. */
@@ -118,15 +143,15 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 
 		/* DFT bus 1: previous block with current parameters. */
 		xdft = sound->source->dft[(i - 1) & (AAVE_DFT_BUFSIZE - 1)];
+		cmul(y, xdft, sound->filter, 2 * frames);
 		for (c = 0; c < 2; c++)
-			cmadd(ydft[1][c], xdft, sound->hrtf[c],
-							2 * frames, gain);
+			cmadd(ydft[1][c], y, sound->hrtf[c], 2 * frames, gain);
 
 		/* DFT bus 2: current block with current parameters. */
 		xdft = sound->source->dft[i & (AAVE_DFT_BUFSIZE - 1)];
+		cmul(y, xdft, sound->filter, 2 * frames);
 		for (c = 0; c < 2; c++)
-			cmadd(ydft[2][c], xdft, sound->hrtf[c],
-							2 * frames, gain);
+			cmadd(ydft[2][c], y, sound->hrtf[c], 2 * frames, gain);
 	}
 
 	/* Update the bitmap state of this sound. */
@@ -195,7 +220,7 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
 	unsigned frames, index;
 	unsigned k;
 
-	frames = aave->hrtf_frames;
+	frames = 2 * aave->hrtf_frames;
 	index = aave->hrtf_output_buffer_index;
 
 	while (n) {
@@ -224,7 +249,7 @@ void aave_put_audio(struct aave_source *source, const short *audio, unsigned n)
 {
 	unsigned hrtf_frames, buffer_index, dft_index, k, max;
 
-	hrtf_frames = source->aave->hrtf_frames;
+	hrtf_frames = 2 * source->aave->hrtf_frames;
 
 	buffer_index = source->buffer_index;
 	if (buffer_index) {

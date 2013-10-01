@@ -2,6 +2,7 @@ CC = gcc
 CFLAGS = -Wall -pedantic -O2 -flto # -g
 
 objects += audio.o
+objects += dftindex.o
 objects += dftsincos.o
 objects += geometry.o
 objects += hrtf_cipic.o
@@ -13,6 +14,7 @@ objects += hrtf_mit_set.o
 objects += hrtf_tub.o
 objects += hrtf_tub_set.o
 objects += init.o
+objects += material.o
 objects += obj.o
 objects += reverb.o
 

@@ -15,36 +15,39 @@
 #include <stdio.h>
 
 /* Number of samples of each CIPIC HRIR. */
-#define N 200
+#define HRIR_SIZE 200
 
 /* Next power of two of the number of samples. */
-#define N2 256
+#define HRIR_SIZE_2 256
+
+/* DFT length (zero-padding). */
+#define DFT_N (4 * HRIR_SIZE_2)
 
 #define DFT_TYPE float
 #include "../dft.h"
 
 int main(int argc, char **argv)
 {
-	static float hrir[N2];
-	float hrtf[N2*2];
+	static float hrir[HRIR_SIZE_2 * 2];
+	float hrtf[DFT_N];
 	unsigned i, j;
 	float x;
 
 	printf("/* This file was automatically generated. "
 		"See tools/hrtf_cipic_set.c */\n"
-		"const float hrtf_cipic_set[][%u]={", N2*2);
+		"const float hrtf_cipic_set[][%u]={", DFT_N);
 
 	for (i = 0; i < 25; i++) {
-		for (j = 0; j < N; j++) {
+		for (j = 0; j < HRIR_SIZE; j++) {
 			if (fscanf(stdin, "%f", &x) != 1) {
 				perror("fscanf");
 				return 1;
 			}
 			hrir[j] = x / 1.2; /* some samples exceed 1 !!! */
 		}
-		dft(hrtf, hrir, N2*2);
+		dft(hrtf, hrir, DFT_N);
 		printf("{");
-		for (j = 0; j < N2*2; j++)
+		for (j = 0; j < DFT_N; j++)
 			printf("%e,", hrtf[j]);
 		printf("},");
 	}

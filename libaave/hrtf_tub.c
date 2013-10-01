@@ -10,7 +10,7 @@
 
 #include "aave.h"
 
-extern const float hrtf_tub_set[720][2048];
+extern const float hrtf_tub_set[720][4096];
 
 /*
  * Select the HRTF pair for the specified azimuth angle.

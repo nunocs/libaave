@@ -12,7 +12,7 @@
 
 /* The specific CIPIC set to use. */
 #define hrtf_cipic_set hrtf_cipic_set_008
-extern const float hrtf_cipic_set_008[][512];
+extern const float hrtf_cipic_set_008[][1024];
 
 /*
  * Select the HRTF pair for the specified azimuth and elevation angles.

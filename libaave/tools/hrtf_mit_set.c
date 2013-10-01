@@ -17,7 +17,7 @@
 
 #define HRIR_SIZE 128
 
-#define DFT_N (2 * HRIR_SIZE)
+#define DFT_N (4 * HRIR_SIZE)
 #define DFT_TYPE float
 #include "../dft.h"
 
@@ -25,7 +25,7 @@ static void hrtf_mit(const char *filename)
 {
 	FILE *f;
 	short stereo[HRIR_SIZE * 2];
-	DFT_TYPE mono[HRIR_SIZE];
+	static DFT_TYPE mono[HRIR_SIZE * 2];
 	float hrtf[DFT_N];
 	unsigned i;
 
@@ -69,7 +69,8 @@ static void hrtf_mit(const char *filename)
 
 int main(int argc, char **argv)
 {
-	printf("/* This file was automatically generated. See tools/hrtf_mit_set.c */\n"
+	printf("/* This file was automatically generated."
+		" See tools/hrtf_mit_set.c */\n"
 		"const float hrtf_mit_set[][2][%u]={", DFT_N);
 
 	while (*++argv)

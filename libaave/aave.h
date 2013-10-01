@@ -58,6 +58,12 @@
 #define AAVE_REVERB_BUFSIZE2 1024
 
 /*
+ * The number of absorption coefficients of the materials.
+ * Octave band frequencies: 125, 250, 500, 1000, 2000, 4000, 8000 Hz.
+ */
+#define AAVE_MATERIAL_COEFFICIENTS 7
+
+/*
  * Speed of sound in dry air at 20 degrees Celsius (m/s).
  * https://en.wikipedia.org/wiki/Speed_of_sound
  */
@@ -134,7 +140,7 @@ struct aave_source {
 	unsigned buffer_index;
 
 	/* The DFT block buffers. */
-	float dft[AAVE_DFT_BUFSIZE][AAVE_MAX_HRTF];
+	float dft[AAVE_DFT_BUFSIZE][AAVE_MAX_HRTF * 4];
 
 	/* Index of the most recently inserted DFT block. */
 	unsigned dft_index;
@@ -149,6 +155,9 @@ struct aave_surface {
 
 	/* Pointer to the next surface (singly-linked list). */
 	struct aave_surface *next;
+
+	/* Material of the surface. */
+	const struct aave_material *material;
 
 	/*
 	 * Specification of the plane where this surface lays in
@@ -228,11 +237,29 @@ struct aave_sound {
 
 	/* The points [x,y,z] where this sound reflects. */
 	float reflection_points[AAVE_MAX_REFLECTIONS][3];
+
+	/* The material absorption filter DFT. */
+	float filter[AAVE_MAX_HRTF * 4];
+};
+
+/*
+ * Audio properties of the surface materials.
+ */
+struct aave_material {
+
+	/* Name used in the usemtl directives of the .obj files. */
+	const char *name;
+
+	/* Reflection coefficients (multiplied by 100) by frequency band. */
+	const unsigned char coefficients[AAVE_MATERIAL_COEFFICIENTS];
 };
 
 /* audio.c */
 extern void aave_get_audio(struct aave *, short *, unsigned);
 extern void aave_put_audio(struct aave_source *, const short *, unsigned);
+
+/* dftindex.c */
+extern unsigned dft_index(unsigned, unsigned);
 
 /* geometry.c */
 extern void aave_add_source(struct aave *, struct aave_source *);
@@ -258,6 +285,11 @@ extern void aave_hrtf_tub(struct aave *);
 /* init.c */
 extern void aave_init(struct aave *);
 extern void aave_init_source(struct aave *, struct aave_source *);
+
+/* material.c */
+extern const struct aave_material aave_material_none;
+extern const struct aave_material *aave_get_material(const char *);
+extern void aave_get_material_filter(struct aave *, struct aave_surface **, unsigned, float *);
 
 /* obj.c */
 extern void aave_read_obj(struct aave *, const char *);

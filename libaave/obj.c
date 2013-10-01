@@ -37,6 +37,8 @@ void aave_read_obj(struct aave *aave, const char *filename)
 	struct aave_surface *surface;
 	unsigned i, j;
 	int index;
+	char material_name[128];
+	const struct aave_material *material = &aave_material_none;
 
 	f = fopen(filename, "r");
 	if (!f)
@@ -58,6 +60,7 @@ void aave_read_obj(struct aave *aave, const char *filename)
 			surface = malloc(sizeof *surface);
 			if (!surface)
 				continue;
+			surface->material = material;
 			surface->npoints = 0;
 			for (i = 0; s[i]; i++) {
 				if (s[i] != ' ')
@@ -76,6 +79,8 @@ void aave_read_obj(struct aave *aave, const char *filename)
 				surface->npoints++;
 			}
 			aave_add_surface(aave, surface);
+		} else if (sscanf(s, "usemtl %s", material_name) == 1) {
+			material = aave_get_material(material_name);
 		}
 	}
 

@@ -10,7 +10,7 @@
 
 #include "aave.h"
 
-extern const float hrtf_mit_set[][2][256];
+extern const float hrtf_mit_set[][2][512];
 
 /*
  * Get the HRTF pair for the specified azimuth and elevation angles.

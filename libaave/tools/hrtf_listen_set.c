@@ -16,7 +16,10 @@
 #include <stdio.h>
 
 /* Frames per HRTF. */
-#define N 512
+#define HRIR_SIZE 512
+
+/* DFT length (zero-padding). */
+#define DFT_N (HRIR_SIZE * 4)
 
 #define DFT_TYPE float
 #include "../dft.h"
@@ -24,9 +27,9 @@
 static void hrtf_listen(const char *filename)
 {
 	FILE *f;
-	unsigned char stereo[N * 6]; /* 24 bits, 2 channels */
-	DFT_TYPE mono[N];
-	float hrtf[N*2];
+	unsigned char stereo[HRIR_SIZE * 6]; /* 24 bits, 2 channels */
+	static DFT_TYPE mono[HRIR_SIZE * 2];
+	float hrtf[DFT_N];
 	unsigned i;
 
 	f = fopen(filename, "rb");
@@ -41,7 +44,7 @@ static void hrtf_listen(const char *filename)
 		return;
 	}
 
-	if (fread(stereo, 6, N, f) != N) {
+	if (fread(stereo, 6, HRIR_SIZE, f) != HRIR_SIZE) {
 		fprintf(stderr, "read error in file %s\n", filename);
 		return;
 	}
@@ -50,18 +53,18 @@ static void hrtf_listen(const char *filename)
 
 	/* Left channel. */
 	printf("{{");
-	for (i = 0; i < N; i++)
+	for (i = 0; i < HRIR_SIZE; i++)
 		mono[i] = (stereo[6*i+0] | stereo[6*i+1]<<8 | ((signed char *)stereo)[6*i+2]<<16) / 16777215.;
-	dft(hrtf, mono, N*2);
-	for (i = 0; i < N*2; i++)
+	dft(hrtf, mono, DFT_N);
+	for (i = 0; i < DFT_N; i++)
 		printf("%e,", hrtf[i]);
 
 	/* Right channel. */
 	printf("},{");
-	for (i = 0; i < N; i++)
+	for (i = 0; i < HRIR_SIZE; i++)
 		mono[i] = (stereo[6*i+3] | stereo[6*i+4]<<8 | ((signed char *)stereo)[6*i+5]<<16) / 16777215.;
-	dft(hrtf, mono, N*2);
-	for (i = 0; i < N*2; i++)
+	dft(hrtf, mono, DFT_N);
+	for (i = 0; i < DFT_N; i++)
 		printf("%e,", hrtf[i]);
 
 	printf("}},");
@@ -69,8 +72,9 @@ static void hrtf_listen(const char *filename)
 
 int main(int argc, char **argv)
 {
-	printf("/* This file was automatically generated. See tools/hrtf_listen_set.c */\n"
-		"const float hrtf_listen_set_%s[][2][%u]={", *++argv, N*2);
+	printf("/* This file was automatically generated."
+		" See tools/hrtf_listen_set.c */\n"
+		"const float hrtf_listen_set_%s[][2][%u]={", *++argv, DFT_N);
 
 	while (*++argv)
 		hrtf_listen(*argv);
