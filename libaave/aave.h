@@ -28,20 +28,14 @@
 #define AAVE_MAX_HRTF 2048
 
 /*
- * The number of past DFT blocks to hold in the buffer of each sound source.
- * This defines the maximum distance an image-source can be:
- * max_distance = AAVE_DFT_BUFSIZE * hrtf_frames * AAVE_SOUND_SPEED / AAVE_FS.
- * Must be a power of 2 (for efficiency reasons).
+ * The number of past anechoic samples to hold for each sound source.
+ * This effectively defines the maximum distance that can be auralised:
+ * distance [m] = AAVE_SOURCE_BUFSIZE * AAVE_SOUND_SPEED [m/s] / AAVE_FS [Hz]
+ * Must be a power of 2 to allow for the most efficient implementation.
  * Some possible values (and corresponding maximum distances for fs=44100Hz):
- *
- *                    512    1024    2048
- * ----------------------------------------
- *  128 (MIT)         510m   1020m   2040m
- *  256 (CIPIC)      1020m   2040m   4080m
- *  512 (LISTEN)     2040m   4080m   8160m
- * 2048 (TU-Berlin)  8160m  16321m  32641m
+ * 32768 (255m), 65536 (510m), 131072 (1020m), 262144 (2040m), 524288 (4080m)
  */
-#define AAVE_DFT_BUFSIZE 1024
+#define AAVE_SOURCE_BUFSIZE 131072
 
 /*
  * Reverb pre-delay buffer size, in samples (must be a power of 2).
@@ -107,10 +101,10 @@ struct aave {
 	unsigned hrtf_output_buffer_index;
 
 	/* HRTF audio block output buffer (2 16-bit channels interleaved). */
-	short hrtf_output_buffer[AAVE_MAX_HRTF * 2];
+	short hrtf_output_buffer[AAVE_MAX_HRTF * 4];
 
 	/* HRTF overlap-add buffer (2 32-bit channels). */
-	int hrtf_overlap_add_buffer[2][AAVE_MAX_HRTF];
+	int hrtf_overlap_add_buffer[2][AAVE_MAX_HRTF * 2];
 
 	/* Reverb. */
 	unsigned reverb_buffer1_index[2];
@@ -133,17 +127,11 @@ struct aave_source {
 	/* Position of the source in the auralisation world [x,y,z] (m). */
 	float position[3];
 
-	/* Buffer to store samples until they reach one block. */
-	short buffer[AAVE_MAX_HRTF];
-
 	/* Index of the most recently inserted sample. */
 	unsigned buffer_index;
 
-	/* The DFT block buffers. */
-	float dft[AAVE_DFT_BUFSIZE][AAVE_MAX_HRTF * 4];
-
-	/* Index of the most recently inserted DFT block. */
-	unsigned dft_index;
+	/* Ring buffer to store the recent past anechoid samples. */
+	short buffer[AAVE_SOURCE_BUFSIZE];
 };
 
 /*
@@ -223,8 +211,11 @@ struct aave_sound {
 	#define SOUND_FADE_IN 1
 	#define SOUND_FADE_OUT 2
 
-	/* The previous distance value used (for the resampling). */
+	/* The previous distance value used (for the crossfading). */
 	float distance;
+
+	/* Smooth (low-pass filtered) distance value (for the resampling). */
+	float distance_smooth;
 
 	/* The previous HRTF pair used (for the crossfading). */
 	const float *hrtf[2];
@@ -237,6 +228,9 @@ struct aave_sound {
 
 	/* The points [x,y,z] where this sound reflects. */
 	float reflection_points[AAVE_MAX_REFLECTIONS][3];
+
+	/* The DFT of the previous audio block. */
+	float dft[AAVE_MAX_HRTF * 4];
 
 	/* The material absorption filter DFT. */
 	float filter[AAVE_MAX_HRTF * 4];

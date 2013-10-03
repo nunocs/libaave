@@ -21,6 +21,20 @@
 #include "idft.h"
 
 /*
+ * b1 coefficient of the low-pass recursive filter for the distance value.
+ * Design steps:
+ * d = number of samples for the filter to decay to 36.8%
+ * If the distance is updated at about 10Hz (0.1s), then we could make:
+ * d = 0.1 * fs = 0.1 * 44100 = 4410 samples
+ * Then obtain the b1 coefficient:
+ * b1 = exp(-1/d) = 0.99977
+ * Curiosity: the corresponding cut-off frequency would be:
+ * fc = ln(b1) * fs / -2 / PI = ln(0.99977) * 44100 / -2 / PI = 1.6145 Hz
+ * Reference: The Scientist and Engineer's Guide to DSP, chapter 19.
+ */
+#define AAVE_DISTANCE_B1 0.99977
+
+/*
  * Return the gain (attenuation) for a sound at the specified distance.
  */
 static float attenuation(float distance)
@@ -46,25 +60,25 @@ static float fade_out_gain(unsigned i, unsigned frames)
 
 /*
  * Calculate the Complex MULtiplication:
- * Y = A * B
- * Y = (ar + j ai) * (br + j br)
- * Y = (ar * br - ai * bi) + j (ar * bi + ai * br)
+ * A = A * B
+ * A = (ar + j ai) * (br + j br)
+ * A = (ar * br - ai * bi) + j (ar * bi + ai * br)
  */
-static void cmul(float *y, const float *a, const float *b, unsigned n)
+static void cmul(float *a, const float *b, unsigned n)
 {
 	float ar, ai, br, bi;
 	unsigned i;
 
-	y[0] = a[0] * b[0]; /* A[0] */
-	y[1] = a[1] * b[1]; /* A[N/2] */
+	a[0] = a[0] * b[0]; /* A[0] */
+	a[1] = a[1] * b[1]; /* A[N/2] */
 
 	for (i = 2; i < n; i += 2) {
 		ar = a[i];
 		ai = a[i+1];
 		br = b[i];
 		bi = b[i+1];
-		y[i] = ar * br - ai * bi;
-		y[i+1] = ar * bi + ai * br;
+		a[i] = ar * br - ai * bi;
+		a[i+1] = ar * bi + ai * br;
 	}
 }
 
@@ -101,58 +115,71 @@ static void cmadd(float *y, const float *a, const float *b, unsigned n, float g)
  * frames: number of frames to process
  */
 static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
-				float ydft[3][2][AAVE_MAX_HRTF * 2],
+				float ydft[3][2][AAVE_MAX_HRTF * 4],
 				unsigned delay, unsigned frames)
 {
-	unsigned c, d, i;
-	const float *xdft;
-	float gain, elevation, azimuth;
-	float y[AAVE_MAX_HRTF * 4];
+	unsigned c, d, i, j;
+	float f, gain, distance, elevation, azimuth;
+	const float *hrtf[2];
+	short x[AAVE_MAX_HRTF * 2];
 
-	delay += frames - sound->source->buffer_index;
+	/* Calculate the coordinates for the current positions. */
+	aave_get_coordinates(aave, sound->position, &distance, &elevation,
+								&azimuth);
 
+	/* Get the best HRTF pair for these coordinates. */
+	aave->hrtf_get(hrtf, elevation * (180/M_PI), azimuth * (180/M_PI));
+
+	/* Use sensible defaults for the first time the sound is auralised. */
 	if (!sound->hrtf[0]) {
-		aave_get_coordinates(aave, sound->position,
-				&sound->distance, &elevation, &azimuth);
-		aave->hrtf_get(sound->hrtf, elevation * (180 / M_PI),
-						azimuth * (180 / M_PI));
+		sound->distance = distance;
+		sound->distance_smooth = distance;
+		sound->hrtf[0] = hrtf[0];
+		sound->hrtf[1] = hrtf[1];
+	}
+
+	/* DFT bus 1: previous block with current parameters. */
+	if (sound->flags & SOUND_FADE_IN) {
+		gain = attenuation(distance);
+		for (c = 0; c < 2; c++)
+			cmadd(ydft[1][c], sound->dft, hrtf[c], frames*2, gain);
+	}
+
+	/* Generate the current audio block. */
+	d = sound->source->buffer_index - frames - delay;
+	f = sound->distance_smooth;
+	for (i = 0; i < frames; i++) {
+		f = AAVE_DISTANCE_B1 * f + (1 - AAVE_DISTANCE_B1) * distance;
+		j = d++ - (unsigned)(f * (AAVE_FS / AAVE_SOUND_SPEED));
+		x[i] = sound->source->buffer[j & (AAVE_SOURCE_BUFSIZE - 1)];
+	}
+	sound->distance_smooth = f;
+
+	/* Convert to the frequency domain, zero padded to 2 times. */
+	dft(sound->dft, x, frames * 2);
+
+	/* Apply the material absorption filter. */
+	cmul(sound->dft, sound->filter, frames * 2);
+
+	/* DFT bus 2: current block with current parameters. */
+	if (sound->flags & SOUND_FADE_IN) {
+		gain = attenuation(distance);
+		for (c = 0; c < 2; c++)
+			cmadd(ydft[2][c], sound->dft, hrtf[c], frames*2, gain);
 	}
 
 	/* DFT bus 0: current block with previous parameters. */
 	if (sound->flags & SOUND_FADE_OUT) {
 		gain = attenuation(sound->distance);
-		d = sound->distance * (AAVE_FS / AAVE_SOUND_SPEED);
-		i = sound->source->dft_index - (d + delay) / frames;
-		xdft = sound->source->dft[i & (AAVE_DFT_BUFSIZE - 1)];
-		cmul(y, xdft, sound->filter, 2 * frames);
 		for (c = 0; c < 2; c++)
-			cmadd(ydft[0][c], y, sound->hrtf[c], 2 * frames, gain);
+			cmadd(ydft[0][c], sound->dft, sound->hrtf[c],
+							frames * 2, gain);
 	}
 
-	/* Get current parameters. */
-	aave_get_coordinates(aave, sound->position,
-				&sound->distance, &elevation, &azimuth);
-	aave->hrtf_get(sound->hrtf, elevation * (180 / M_PI),
-					azimuth * (180 / M_PI));
-
-	/* DFT bus 1 and 2: current parameters. */
-	if (sound->flags & SOUND_FADE_IN) {
-		gain = attenuation(sound->distance);
-		d = sound->distance * (AAVE_FS / AAVE_SOUND_SPEED);
-		i = sound->source->dft_index - (d + delay) / frames;
-
-		/* DFT bus 1: previous block with current parameters. */
-		xdft = sound->source->dft[(i - 1) & (AAVE_DFT_BUFSIZE - 1)];
-		cmul(y, xdft, sound->filter, 2 * frames);
-		for (c = 0; c < 2; c++)
-			cmadd(ydft[1][c], y, sound->hrtf[c], 2 * frames, gain);
-
-		/* DFT bus 2: current block with current parameters. */
-		xdft = sound->source->dft[i & (AAVE_DFT_BUFSIZE - 1)];
-		cmul(y, xdft, sound->filter, 2 * frames);
-		for (c = 0; c < 2; c++)
-			cmadd(ydft[2][c], y, sound->hrtf[c], 2 * frames, gain);
-	}
+	/* Remember the parameters used for the current block. */
+	sound->distance = distance;
+	sound->hrtf[0] = hrtf[0];
+	sound->hrtf[1] = hrtf[1];
 
 	/* Update the bitmap state of this sound. */
 	if (sound->flags == SOUND_FADE_IN)
@@ -172,8 +199,8 @@ static void aave_hrtf_fill_output_buffer(struct aave *aave, unsigned delay,
 {
 	unsigned i, c;
 	struct aave_sound *s;
-	float ydft[3][2][AAVE_MAX_HRTF * 2];
-	int y[3][AAVE_MAX_HRTF * 2];
+	float ydft[3][2][AAVE_MAX_HRTF * 4];
+	int y[3][AAVE_MAX_HRTF * 4];
 	int x, *overlap_add_buffer;
 
 	for (i = 0; i < 3; i++)
@@ -247,41 +274,13 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
  */
 void aave_put_audio(struct aave_source *source, const short *audio, unsigned n)
 {
-	unsigned hrtf_frames, buffer_index, dft_index, k, max;
+	unsigned i = source->buffer_index;
+	short *buf = source->buffer;
 
-	hrtf_frames = 2 * source->aave->hrtf_frames;
-
-	buffer_index = source->buffer_index;
-	if (buffer_index) {
-		k = n;
-		max = hrtf_frames - buffer_index;
-		if (k > max)
-			k = max;
-		memcpy(source->buffer + buffer_index, audio, k * 2);
-		audio += k;
-		n -= k;
-		buffer_index += k;
-		if (buffer_index == hrtf_frames) {
-			dft_index = (source->dft_index + 1)
-						& (AAVE_DFT_BUFSIZE - 1);
-			source->dft_index = dft_index;
-			dft(source->dft[dft_index], source->buffer,
-							2 * hrtf_frames);
-			buffer_index = 0;
-		}
-		source->buffer_index = buffer_index;
+	while (n--) {
+		i = (i + 1) & (AAVE_SOURCE_BUFSIZE - 1);
+		buf[i] = *audio++;
 	}
 
-	while (n >= hrtf_frames) {
-		dft_index = (source->dft_index + 1) & (AAVE_DFT_BUFSIZE - 1);
-		source->dft_index = dft_index;
-		dft(source->dft[dft_index], audio, 2 * hrtf_frames);
-		audio += hrtf_frames;
-		n -= hrtf_frames;
-	}
-
-	if (n) {
-		memcpy(source->buffer, audio, n * 2);
-		source->buffer_index = n;
-	}
+	source->buffer_index = i;
 }
