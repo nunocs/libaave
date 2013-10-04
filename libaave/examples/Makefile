@@ -2,10 +2,10 @@
 LIBAAVE = ..
 
 CC = gcc
-CFLAGS = -Wall -pedantic -I$(LIBAAVE) -O2 -flto -g
+CFLAGS = -Wall -pedantic -I$(LIBAAVE) -O2 -flto
 LDFLAGS = $(LIBAAVE)/libaave.a -lm
 
-programs = circle elevation line
+programs = circle elevation line stream
 
 all: $(programs)
 
@@ -17,6 +17,9 @@ elevation: elevation.c
 
 line: line.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+
+stream: stream.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) -lasound -s
 
 clean:
 	$(RM) $(programs)
