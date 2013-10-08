@@ -8,6 +8,8 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/** @file material.c */
+
 #include <math.h>	/* M_PI, cos(), sin() */
 #include <string.h>	/* strcmp() */
 #include "aave.h"
@@ -20,13 +22,13 @@
 #define IDFT_TYPE float
 #include "idft.h"
 
-/*
+/**
  * The legth of the filter to design.
  * Should be the same length as the smallest HRIR (MIT = 128).
  */
 #define N 128
 
-/*
+/**
  * Table of materials, ordered by name.
  *
  * Reference:
@@ -43,14 +45,14 @@ static const struct aave_material aave_materials[] = {
 	{ "thin_plywood", { 58, 79, 90, 92, 94, 94, 94 } },
 };
 
-/*
+/**
  * If none of the above materials match, return this full reflective one.
  */
 const struct aave_material aave_material_none = {
 	0, { 100, 100, 100, 100, 100, 100, 100 }
 };
 
-/*
+/**
  * Find the material with the specified name.
  * Binary search algorithm (table of materials must be ordered by name).
  */
@@ -108,11 +110,15 @@ static void print_vec(const float *y, unsigned n)
 #define print_vec(h,n)
 #endif
 
-/*
+/**
  * Design the material absorption filter for the coefficients specified in K.
  * The filter DFT coefficients are stored in X, which must have
  * at least 4 * N elements to account for the zero-padding,
  * and where N is the size of the HRIRs of the HRTF currently in use.
+ *
+ * Reference:
+ * Udo Zolzer, "Digital Audio Signal Processing", 2nd Edition, Wiley,
+ * Section 5.3.3 Filter Design by Frequency Sampling.
  */
 static void aave_material_filter(const float *k, float *x, unsigned n)
 {
@@ -174,7 +180,7 @@ static void aave_material_filter(const float *k, float *x, unsigned n)
 	dft(x, y, 4 * n);
 }
 
-/*
+/**
  * Design the material absorption filter for the
  * specified combination of surfaces and reflection order.
  * The filter DFT coefficients is atored in FILTER, which must have

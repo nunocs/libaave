@@ -8,11 +8,19 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/**
+ * @file hrtf_mit.c
+ * MIT KEMAR HRTF compact set.
+ *
+ * References:
+ * http://sound.media.mit.edu/resources/KEMAR.html
+ */
+
 #include "aave.h"
 
 extern const float hrtf_mit_set[][2][512];
 
-/*
+/**
  * Get the HRTF pair for the specified azimuth and elevation angles.
  * Elevation is [-90;90] degrees. Azimuth is [-180;180] degrees.
  */
@@ -61,8 +69,8 @@ static void aave_hrtf_mit_get(const float *hrtf[2], int elevation, int azimuth)
 	}
 }
 
-/*
- * Initialise acousticave members to use the MIT KEMAR HRTF set.
+/**
+ * Use the MIT KEMAR HRTF set for the binauralisation of anechoic sounds.
  */
 void aave_hrtf_mit(struct aave *a)
 {

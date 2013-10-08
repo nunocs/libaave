@@ -8,11 +8,13 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/** @file geometry.c */
+
 #include <math.h> /* M_PI, acos(), atan2(), sqrt() */
 #include <stdlib.h> /* malloc() */
 #include "aave.h"
 
-/*
+/**
  * Calculate the dot product a . b
  */
 static float dot_product(const float a[3], const float b[3])
@@ -20,7 +22,7 @@ static float dot_product(const float a[3], const float b[3])
 	return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 }
 
-/*
+/**
  * Calculate the cross product n = a x b.
  */
 static void cross_product(float n[3], const float a[3], const float b[3])
@@ -30,7 +32,7 @@ static void cross_product(float n[3], const float a[3], const float b[3])
 	n[2] = a[0] * b[1] - a[1] * b[0];
 }
 
-/*
+/**
  * Calculate the norm of a vector.
  */
 static float norm(const float x[3])
@@ -38,7 +40,7 @@ static float norm(const float x[3])
 	return sqrt(x[0] * x[0] + x[1] * x[1] + x[2] * x[2]);
 }
 
-/*
+/**
  * "Normalise" a vector (divide it by its norm): y = x / norm(x)
  */
 static void normalise(float y[3], const float x[3])
@@ -52,7 +54,7 @@ static void normalise(float y[3], const float x[3])
 		y[i] = x[i] / n;
 }
 
-/*
+/**
  * Calculate the IMAGE-source position of SOURCE for SURFACE.
  */
 static void aave_image_source(const struct aave_surface *surface,
@@ -73,7 +75,7 @@ static void aave_image_source(const struct aave_surface *surface,
 		image[i] = source[i] - d * surface->normal[i];
 }
 
-/*
+/**
  * Calculate the coordinates Y of a point X
  * in the local coordinates of a SURFACE.
  */
@@ -89,7 +91,7 @@ static void local_coordinates(float y[2], const float x[3],
 		y[i] = dot_product(u, surface->versors[i]);
 }
 
-/*
+/**
  * Check if the vector V, a line segment from point A to point B,
  * intersects the specified surface.
  * Returns 0 if false or 1 if true, and the intersection point in XYZ.
@@ -128,7 +130,7 @@ static int aave_intersection(const struct aave_surface *surface,
 	/* Express the intersection point in surface local coordinates. */
 	local_coordinates(y, x, surface);
 
-	/*
+	/**
 	 * See if the intersection point passes through the surface:
 	 * count the number of times it crosses the edges in a direction;
 	 * if it passes through the surface, this count will be odd.
@@ -155,7 +157,7 @@ static int aave_intersection(const struct aave_surface *surface,
 	return count & 1;
 }
 
-/*
+/**
  * Check if the sound path from point A to point B is visible.
  * Returns 0 if the line segment B-A is intersected by any surface,
  * or 1 otherwise.
@@ -178,7 +180,7 @@ static int aave_is_visible(const struct aave *aave, const float a[3],
 	return 1;
 }
 
-/*
+/**
  * Create the sound path from SOURCE to the listerner
  * that reflects on the specified ORDER number of SURFACES.
  * Returns 1 if the sound path is "visible", or 0 otherwise.
@@ -225,7 +227,7 @@ static int aave_build_sound_path(struct aave *aave, struct aave_source *source,
 	return 1;
 }
 
-/*
+/**
  * Create a sound to be auralised by the audio processing.
  * aave: auralisation engine
  * order: order of reflection of the sound
@@ -287,7 +289,7 @@ static void aave_create_sound(struct aave *aave, struct aave_source *source,
 	aave->sounds[order] = sound;
 }
 
-/*
+/**
  * Create sounds for a source for all possible reflection paths recursively.
  * aave: auralisation engine
  * source: original source of the sound
@@ -324,7 +326,7 @@ static void aave_create_sounds_recursively(struct aave *aave,
 	}
 }
 
-/*
+/**
  * Create the sounds for the specified sound source
  * up to, and including, the specified reflection order.
  */
@@ -338,7 +340,7 @@ static void aave_create_sounds(struct aave *aave, struct aave_source *source,
 						surfaces, image_sources);
 }
 
-/*
+/**
  * Update the distance and azimuth of the listener relative to a sound source.
  * Calculate the (distance, elevation, azimuth) vector
  * from the listener-to-source vector (x, y, z)
@@ -367,7 +369,7 @@ static void aave_update_sound(struct aave *aave, struct aave_sound *sound,
 		sound->flags &= ~SOUND_FADE_IN;
 }
 
-/*
+/**
  * Get the distance (m), azimuth (rad) and elevation (rad) coordinates
  * of the position of a source relative to the listener.
  */
@@ -396,7 +398,7 @@ void aave_get_coordinates(const struct aave *aave, const float source_position[3
 	*distance = dist;
 }
 
-/*
+/**
  * Add a sound source to the auralisation world.
  */
 void aave_add_source(struct aave *aave, struct aave_source *source)
@@ -406,7 +408,7 @@ void aave_add_source(struct aave *aave, struct aave_source *source)
 	aave->sources = source;
 }
 
-/*
+/**
  * Add a surface to the auralisation world.
  */
 void aave_add_surface(struct aave *aave, struct aave_surface *surface)
@@ -449,7 +451,7 @@ void aave_add_surface(struct aave *aave, struct aave_surface *surface)
 	aave->nsurfaces++;
 }
 
-/*
+/**
  * Set the orientation of the listener's head.
  */
 void aave_set_listener_orientation(struct aave *aave,
@@ -475,7 +477,7 @@ void aave_set_listener_orientation(struct aave *aave,
 	aave->orientation[2][2] = cosr * cosp;
 }
 
-/*
+/**
  * Set the position of the listener.
  */
 void aave_set_listener_position(struct aave *aave,
@@ -486,7 +488,7 @@ void aave_set_listener_position(struct aave *aave,
 	aave->position[2] = z;
 }
 
-/*
+/**
  * Set the position of a sound source.
  */
 void aave_set_source_position(struct aave_source *source, float x, float y, float z)
@@ -496,7 +498,7 @@ void aave_set_source_position(struct aave_source *source, float x, float y, floa
 	source->position[2] = z;
 }
 
-/*
+/**
  * Update the whole state of the auralisation world.
  * Runs the visibility checks for all sounds from all sources.
  */

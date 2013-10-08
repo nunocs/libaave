@@ -8,7 +8,10 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
-/*
+/**
+ * @file obj.c
+ * Read room model from Wavefront .obj file.
+ *
  * References:
  * Wavefront .obj file: http://en.wikipedia.org/wiki/Wavefront_.obj_file
  */
@@ -18,13 +21,13 @@
 #include <string.h> /* strncmp */
 #include "aave.h"
 
-/*
+/**
  * Maximum number of vertices supported.
  * TODO: we could remove this limitation using dynamic memory allocation.
  */
 #define MAX_VERTICES 1024
 
-/*
+/**
  * Add the polygons in the obj file FILENAME to the auralization world.
  */
 void aave_read_obj(struct aave *aave, const char *filename)

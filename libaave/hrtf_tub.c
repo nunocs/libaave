@@ -8,11 +8,22 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/**
+ * @file hrtf_tub.c
+ * TU-Berlin HRTF set.
+ *
+ * References:
+ * Hagen Wierstorf, Matthias Geier, Alexander Raake and Sascha Spors,
+ * "A Free Database of Head-Related Impulse Response Measurements
+ * in the Horizontal Plane with Multiple Distances",
+ * 130th Convention of the Audio Engineering Society, May 2011.
+ */
+
 #include "aave.h"
 
 extern const float hrtf_tub_set[720][4096];
 
-/*
+/**
  * Select the HRTF pair for the specified azimuth angle.
  */
 static void aave_hrtf_tub_get(const float *hrtf[2], int elevation, int azimuth)
@@ -24,6 +35,9 @@ static void aave_hrtf_tub_get(const float *hrtf[2], int elevation, int azimuth)
 	hrtf[1] = hrtf_tub_set[azimuth * 2 + 1]; /* right */
 }
 
+/**
+ * Use the TU-Berlin HRTF set for the binauralisation of anechoic sounds.
+ */
 void aave_hrtf_tub(struct aave *a)
 {
 	a->hrtf_frames = 1024;

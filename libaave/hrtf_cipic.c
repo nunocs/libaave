@@ -8,13 +8,25 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/**
+ * @file hrtf_cipic.c
+ * CIPIC HRTF set.
+ *
+ * References:
+ * V. R. Algazi, R. O. Duda, D. M. Thompson and C. Avendano,
+ * "The CIPIC HRTF Database",
+ * Proc. 2001 IEEE Workshop on Applications of Signal Processing
+ * to Audio and Electroacoustics, pp. 99-102,
+ * Mohonk Mountain House, New Paltz, NY, Oct. 21-24, 2001.
+ */
+
 #include "aave.h"
 
 /* The specific CIPIC set to use. */
 #define hrtf_cipic_set hrtf_cipic_set_008
 extern const float hrtf_cipic_set_008[][1024];
 
-/*
+/**
  * Select the HRTF pair for the specified azimuth and elevation angles.
  * Elevation is [-90;90] degrees. Azimuth is [-180;180] degrees.
  */
@@ -98,6 +110,9 @@ static void aave_hrtf_cipic_get(const float *hrtf[2], int elevation, int azimuth
 	}
 }
 
+/**
+ * Use the CIPIC HRTF set for the binauralisation of anechoic sounds.
+ */
 void aave_hrtf_cipic(struct aave *a)
 {
 	a->hrtf_frames = 256;

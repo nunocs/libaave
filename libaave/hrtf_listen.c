@@ -8,11 +8,19 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/**
+ * @file hrtf_listen.c
+ * LISTEN (IRCAM/AKG) HRTF set.
+ *
+ * References:
+ * http://recherche.ircam.fr/equipes/salles/listen/
+ */
+
 #include "aave.h"
 
 extern const float hrtf_listen_set_1040[][2][2048];
 
-/*
+/**
  * Select the HRTF pair for the specified azimuth and elevation angles.
  * Elevation is [-90;90] degrees. Azimuth is [-180;180] degrees.
  */
@@ -37,6 +45,9 @@ static void aave_hrtf_listen_get(const float *hrtf[2], int elevation, int azimut
 	hrtf[1] = hrtf_listen_set_1040[i][1];
 }
 
+/**
+ * Use the LISTEN HRTF set for the binauralisation of anechoic sounds.
+ */
 void aave_hrtf_listen(struct aave *a)
 {
 	a->hrtf_frames = 512;

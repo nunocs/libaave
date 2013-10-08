@@ -8,6 +8,8 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/** @file audio.c */
+
 #include <math.h> /* M_PI */
 #include <string.h> /* memcpy() */
 #include "aave.h"
@@ -20,21 +22,29 @@
 #define IDFT_TYPE int
 #include "idft.h"
 
-/*
+/**
  * b1 coefficient of the low-pass recursive filter for the distance value.
  * Design steps:
+ *
  * d = number of samples for the filter to decay to 36.8%
+ *
  * If the distance is updated at about 10Hz (0.1s), then we could make:
+ *
  * d = 0.1 * fs = 0.1 * 44100 = 4410 samples
+ *
  * Then obtain the b1 coefficient:
+ *
  * b1 = exp(-1/d) = 0.99977
+ *
  * Curiosity: the corresponding cut-off frequency would be:
+ *
  * fc = ln(b1) * fs / -2 / PI = ln(0.99977) * 44100 / -2 / PI = 1.6145 Hz
+ *
  * Reference: The Scientist and Engineer's Guide to DSP, chapter 19.
  */
 #define AAVE_DISTANCE_B1 0.99977
 
-/*
+/**
  * Return the gain (attenuation) for a sound at the specified distance.
  */
 static float attenuation(float distance)
@@ -42,7 +52,7 @@ static float attenuation(float distance)
 	return 1 / (distance + 1);
 }
 
-/*
+/**
  * Return the fade-in gain at index i for a window of the specified frames.
  */
 static float fade_in_gain(unsigned i, unsigned frames)
@@ -50,7 +60,7 @@ static float fade_in_gain(unsigned i, unsigned frames)
 	return (float)i / frames;
 }
 
-/*
+/**
  * Return the fade-out gain at index i for a window of the specified frames.
  */
 static float fade_out_gain(unsigned i, unsigned frames)
@@ -58,10 +68,13 @@ static float fade_out_gain(unsigned i, unsigned frames)
 	return (float)(frames - i) / frames;
 }
 
-/*
+/**
  * Calculate the Complex MULtiplication:
+ *
  * A = A * B
+ *
  * A = (ar + j ai) * (br + j br)
+ *
  * A = (ar * br - ai * bi) + j (ar * bi + ai * br)
  */
 static void cmul(float *a, const float *b, unsigned n)
@@ -82,10 +95,13 @@ static void cmul(float *a, const float *b, unsigned n)
 	}
 }
 
-/*
+/**
  * Calculate the Complex Multiplication and ADDition:
+ *
  * Y += g * A * B
+ *
  * Y += g * (ar + j ai) * (br + j br)
+ *
  * Y += g * (ar * br - ai * bi) + j g * (ar * bi + ai * br)
  */
 static void cmadd(float *y, const float *a, const float *b, unsigned n, float g)
@@ -106,13 +122,13 @@ static void cmadd(float *y, const float *a, const float *b, unsigned n, float g)
 	}
 }
 
-/*
+/**
  * Process one sound and add it to the DFT busses.
- * aave: auralisation engine
- * sound: sound to process
- * ydft: DFT busses to add the sound to
- * delay: number of frames of pre-delay to apply to the sound
- * frames: number of frames to process
+ * aave: auralisation engine.
+ * sound: sound to process.
+ * ydft: DFT busses to add the sound to.
+ * delay: number of frames of pre-delay to apply to the sound.
+ * frames: number of frames to process.
  */
 static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 				float ydft[3][2][AAVE_MAX_HRTF * 4],
@@ -188,11 +204,11 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 		sound->flags = 0;
 }
 
-/*
+/**
  * Generate one audio buffer of binaural data of the auralisation world.
- * aave: auralisation engine
- * delay: number of frames of pre-delay to apply to all sounds
- * frames: number of frames to process
+ * aave: auralisation engine.
+ * delay: number of frames of pre-delay to apply to all sounds.
+ * frames: number of frames to process.
  */
 static void aave_hrtf_fill_output_buffer(struct aave *aave, unsigned delay,
 							unsigned frames)
@@ -238,7 +254,7 @@ static void aave_hrtf_fill_output_buffer(struct aave *aave, unsigned delay,
 	}
 }
 
-/*
+/**
  * Generate N 16-bit 2-channel frames and
  * put them in the memory location pointed by BUF.
  */
@@ -269,7 +285,7 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
 	aave->hrtf_output_buffer_index = index;
 }
 
-/*
+/**
  * Push the N frames pointed by AUDIO into the SOURCE's buffer.
  */
 void aave_put_audio(struct aave_source *source, const short *audio, unsigned n)

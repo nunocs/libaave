@@ -8,7 +8,9 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
-/*
+/**
+ * @file idft.h
+ *
  * This idft function calculates the N-point inverse discrete Fourier transform
  * of the X coefficients and stores the result in x.
  * X points to N elements in the format described in dft.h.

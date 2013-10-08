@@ -8,10 +8,12 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/** @file init.c */
+
 #include <string.h> /* memset() */
 #include "aave.h"
 
-/*
+/**
  * Initialise the auralisation data structure.
  *
  * The listener's initial position is (0, 0, 0).
@@ -24,6 +26,9 @@ void aave_init(struct aave *aave)
 	memset(aave, 0, sizeof *aave);
 }
 
+/**
+ * Initialise a sound source data structure to be used by the aave engine.
+ */
 void aave_init_source(struct aave *aave, struct aave_source *source)
 {
 	memset(source, 0, sizeof *source);

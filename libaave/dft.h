@@ -8,7 +8,9 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
-/*
+/**
+ * @file dft.h
+ *
  * This dft function calculates the N-point discrete Fourier transform of
  * the zero-padded real data values pointed by x and stores the result in X.
  * x points to N/2 elements (elements N/2 to N-1 would be 0).

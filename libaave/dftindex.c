@@ -8,7 +8,9 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
-/*
+/**
+ * @file dftindex.c
+ *
  * The implemented DFT stores the values in non-sequencial order.
  * This dft_index() function returns the index into the DFT data that
  * corresponds to the sequencial index I of a DFT of length N.

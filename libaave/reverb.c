@@ -8,15 +8,17 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
+/** @file reverb.c */
+
 #include "aave.h"
 
-/* Pre-delay { left, right }: about 743 ms (prime numbers work best). */
+/** Pre-delay { left, right }: about 743 ms (prime numbers work best). */
 static const int predelay[2] = { 32749, 32603 };
 
-/* Feedback delay { left, right }: about 23 ms (prime numbers work best). */
+/** Feedback delay { left, right }: about 23 ms (prime numbers work best). */
 static const int delay[2] = { 983, 1021 };
 
-/*
+/**
  * Add an artificial reverberation tail to the binaural N frames of AUDIO.
  */
 void aave_reverb(struct aave *aave, short *audio, unsigned n)
