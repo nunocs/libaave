@@ -139,6 +139,9 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 	const float *hrtf[2];
 	short x[AAVE_MAX_HRTF * 2];
 
+	if (sound->flags == SOUND_OFF)
+		return;
+
 	/* Calculate the coordinates for the current positions. */
 	aave_get_coordinates(aave, sound->position, &distance, &elevation,
 								&azimuth);
