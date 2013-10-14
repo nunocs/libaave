@@ -1,0 +1,58 @@
+digraph {
+	buffer [label="anechoic sound source buffer"]
+	resampler [shape=box]
+	DFT [shape=box]
+	material_filter [label="material\nabsorption\nfilter",shape=box]
+
+	z1 [label="1/z",shape=box]
+
+	distance0 [label="previous\ndistance\nattenuation",shape=box]
+	distance1 [label="current\ndistance\nattenuation",shape=box]
+	distance2 [label="current\ndistance\nattenuation",shape=box]
+
+	hrtf0l [label="previous\nHRTF\nleft",shape=box]
+	hrtf0r [label="previous\nHRTF\nright",shape=box]
+	hrtf1l [label="current\nHRTF\nleft",shape=box]
+	hrtf1r [label="current\nHRTF\nright",shape=box]
+	hrtf2l [label="current\nHRTF\nleft",shape=box]
+	hrtf2r [label="current\nHRTF\nright",shape=box]
+
+	bus0l [label="DFT\nbus 0\nleft"]
+	bus0r [label="DFT\nbus 0\nright"]
+	bus1l [label="DFT\nbus 1\nleft"]
+	bus1r [label="DFT\nbus 1\nright"]
+	bus2l [label="DFT\nbus 2\nleft"]
+	bus2r [label="DFT\nbus 2\nright"]
+
+	buffer -> resampler
+
+	subgraph cluster {
+		label="sound i"
+		labeljust=left
+
+		resampler -> DFT
+		DFT -> material_filter
+
+		material_filter -> distance0
+		material_filter -> z1
+		material_filter -> distance2
+
+		z1 -> distance1
+
+		distance0 -> hrtf0l
+		distance0 -> hrtf0r
+		distance1 -> hrtf1l
+		distance1 -> hrtf1r
+		distance2 -> hrtf2l
+		distance2 -> hrtf2r
+
+		{ rank = same; distance0; distance1; distance2 }
+	}
+
+	hrtf0l -> bus0l
+	hrtf0r -> bus0r
+	hrtf1l -> bus1l
+	hrtf1r -> bus1r
+	hrtf2l -> bus2l
+	hrtf2r -> bus2r
+}

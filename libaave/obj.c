@@ -12,6 +12,13 @@
  * @file obj.c
  * Read room model from Wavefront .obj file.
  *
+ * The following elements of the .obj specification are supported:
+ * v (vertex), f (face), usemtl (material name).
+ * All other elements are ignored, as they are irrelevant for auralisation.
+ *
+ * The material name in the usemtl element specify the material of
+ * the @ref aave_materials table to use for the succeeding face.
+ *
  * References:
  * Wavefront .obj file: http://en.wikipedia.org/wiki/Wavefront_.obj_file
  */
@@ -22,19 +29,21 @@
 #include "aave.h"
 
 /**
- * Maximum number of vertices supported.
- * TODO: we could remove this limitation using dynamic memory allocation.
+ * Maximum number of vertices in the .obj file.
+ * @todo Use dynamic memory allocation for the array of vertices
+ * to support "unlimited" number of vertices.
  */
 #define MAX_VERTICES 1024
 
 /**
- * Add the polygons in the obj file FILENAME to the auralization world.
+ * Read the .obj file @p filename and add its contents to the
+ * auralisation engine @p aave.
  */
 void aave_read_obj(struct aave *aave, const char *filename)
 {
 	FILE *f;
 	float x, y, z;
-	char s[256]; /* FIXME: hardcoded limit of character string length. */
+	char s[256];
 	float vertices[MAX_VERTICES][3];
 	int vertex_count;
 	struct aave_surface *surface;
