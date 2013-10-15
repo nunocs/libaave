@@ -11,28 +11,60 @@
 /**
  * @file dft.h
  *
- * This dft function calculates the N-point discrete Fourier transform of
- * the zero-padded real data values pointed by x and stores the result in X.
- * x points to N/2 elements (elements N/2 to N-1 would be 0).
- * X points to N elements as follows:
- * X[0] = X[0].real;
- * X[1] = X[N/2].real;
- * X[2] = X[N/4].real;
- * X[3] = X[N/4].imag;
- * etc...
- * X[N-2] = X[N/2-1].real;
- * X[N-1] = X[N/2-1].imag;
+ * The dft.h file implements the discrete Fourier transform (DFT) of
+ * real-input data of power-of-2 sizes, using the Cooley-Tukey FFT algorithm
+ * (http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm).
  *
- * Remember that, when the input data is real:
- * X[0].imag = 0;
- * X[N/2].imag = 0;
- * X[N/2+i].real = X[N/2-i].real;
- * X[N/2+i].imag = - X[N/2-i].imag;
+ * It is about 3 times faster than the equivalent real input to
+ * complex-Hermitian output plan fftw_plan_dft_r2c_1d of the fftw library
+ * (http://www.fftw.org/). Furthermore, it implicitly type-converts and
+ * zero-pads the input data to twice the size, making the comparison even
+ * more favorable for this implementation.
+ *
+ * The drawback is that the ouput Fourier coefficients end up unordered.
+ * However, this is irrevelant for our main purpose of performing fast
+ * convolutions, because the corresponding inverse discrete Fourier
+ * transform (IDFT) implemented in idft.h also uses the same order.
+ * For the case where it is necessary to know the order of the Fourier
+ * coefficients, namely the design of the material absorption filters
+ * in material.c, the function dft_index() can be used to retrieve the
+ * Fourier coefficients in any desired order.
+ *
+ * This dft.h file is implemented as a "template".
+ * To create a dft() function to use in your source code to transform
+ * input data of some type, for example type short (16-bit audio samples),
+ * include the following in your source code file:
+ * @code
+ * #define DFT_TYPE short
+ * #include "dft.h"
+ * @endcode
+ * This will insert a static dft() function in your source code file
+ * that calculates the Fourier coefficients of an array of short integers.
  */
 
-/* Table with the pre-calculated sin() and cos() values. */
+/** Table with the pre-calculated sin() and cos() values. */
 extern const float dftsincos[][2];
 
+/**
+ * This dft function calculates the @p n point discrete Fourier transform
+ * of the zero-padded real-input data values pointed by @p x
+ * and stores the Fourier coefficients in @p X.
+ * @p x points to @p n / 2 elements (elements @p n / 2 to @p n - 1 are
+ * implicitly zero-padded).
+ * @p X points to @p n elements, which correspond to the Fourier
+ * coefficients 0 to @p n / 2, (un)ordered as follows:
+ * - X[0] = X[0].real;
+ * - X[1] = X[N/2].real;
+ * - X[2] = X[N/4].real;
+ * - X[3] = X[N/4].imag;
+ * - etc... (see dft_index() for the complete ordering)
+ *
+ * Remember that when the input data is real:
+ * - X[0].imag = 0;
+ * - X[N/2].imag = 0;
+ * - X[N/2+i].real = X[N/2-i].real;
+ * - X[N/2+i].imag = - X[N/2-i].imag;
+ */
 static void dft(float *X, const DFT_TYPE *x, unsigned n)
 {
 	struct complex { float real; float imag; } *X0, *X1;

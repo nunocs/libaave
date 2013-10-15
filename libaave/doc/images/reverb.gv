@@ -1,0 +1,68 @@
+digraph {
+	rankdir = LR
+
+	{ rank = same; input_left -> mono; input_right -> mono }
+
+	input_left -> adder_left
+	adder_left -> output_left
+
+	input_right -> adder_right
+	adder_right -> output_right
+
+	subgraph cluster_left {
+		label = left
+		mono -> pre_delay_left
+		pre_delay_left -> pre_delay_mul_left
+		{ rank=same; attenuation_left -> pre_delay_mul_left }
+		pre_delay_mul_left -> delay_adder_left
+		{ rank=same; delay_adder_left; decay_left; delay_mul_left }
+		delay_adder_left -> delay_left
+		delay_left -> delay_mul_left
+		decay_left -> delay_mul_left
+		delay_mul_left -> delay_adder_left
+	}
+	delay_left -> adder_left
+
+	subgraph cluster_right {
+		label = right
+		mono -> pre_delay_right
+		pre_delay_right -> pre_delay_mul_right
+		{ rank=same; attenuation_right -> pre_delay_mul_right }
+		pre_delay_mul_right -> delay_adder_right
+		{ rank=same; delay_adder_right; decay_right; delay_mul_right }
+		delay_adder_right -> delay_right
+		delay_right -> delay_mul_right
+		decay_right -> delay_mul_right
+		delay_mul_right -> delay_adder_right
+	}
+	delay_right -> adder_right
+
+	input_left [label="left\ninput"]
+	input_right [label="right\ninput"]
+
+	output_left [label="left\noutput"]
+	output_right [label="right\noutput"]
+
+	mono [label="+"]
+	adder_left [label="+"]
+	adder_right [label="+"]
+	delay_adder_left [label="+"]
+	delay_adder_right [label="+"]
+
+	pre_delay_left [label="pre-delay",shape=box]
+	pre_delay_right [label="pre-delay",shape=box]
+	delay_left [label="delay",shape=box]
+	delay_right [label="delay",shape=box]
+
+	pre_delay_mul_left [label=x]
+	pre_delay_mul_right [label=x]
+
+	delay_mul_left [label=x]
+	delay_mul_right [label=x]
+
+	attenuation_left [label=attenuation,shape=plaintext]
+	attenuation_right [label=attenuation,shape=plaintext]
+
+	decay_left [label=decay,shape=plaintext]
+	decay_right [label=decay,shape=plaintext]
+}
