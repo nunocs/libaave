@@ -31,18 +31,21 @@
 /**
  * Table of materials, ordered by name.
  *
+ * The reflection factors are calculated from random-incidence absorption
+ * coefficient alpha values using the equation: r = sqrt(1 - alpha).
+ *
  * Reference:
- * "Auralization: Fundamentals of Acoustics, Modelling,
- * Simulation, Algorithms and Acoustic Virtual Reality",
+ * "Auralization: Fundamentals of Acoustics, Modelling, Simulation,
+ * Algorithms and Acoustic Virtual Reality", Michael Vorlander, 2008,
  * Annex - Tables of random-incidence absorption coefficients, alpha,
- * Michael Vorlander, 2008.
+ * and Section 11.3.2 Audability test.
  */
 static const struct aave_material aave_materials[] = {
-	{ "carpet", { 92, 92, 70, 40, 25, 20, 20 } },
-	{ "concrete", { 99, 97, 95, 98, 98, 98, 98 } },
-	{ "cotton_curtains", { 70, 55, 35, 44, 41, 29, 29 } },
-	{ "glass_window", { 90, 95, 96, 97, 97, 97, 97 } },
-	{ "thin_plywood", { 58, 79, 90, 92, 94, 94, 94 } },
+	{ "carpet", { 96, 96, 84, 63, 50, 45, 45 } },
+	{ "concrete", { 99, 98, 97, 99, 99, 99, 99 } },
+	{ "cotton_curtains", { 84, 74, 59, 66, 64, 54, 54 } },
+	{ "glass_window", { 95, 97, 98, 98, 98, 98, 98 } },
+	{ "thin_plywood", { 76, 89, 95, 96, 97, 97, 97 } },
 };
 
 /**

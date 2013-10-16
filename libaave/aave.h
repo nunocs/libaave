@@ -421,7 +421,7 @@ struct aave_material {
 	/** Name used in the usemtl directives of the .obj files. */
 	const char *name;
 
-	/** Reflection coefficients (multiplied by 100) by frequency band. */
+	/** Reflection factors (multiplied by 100), by frequency band. */
 	const unsigned char coefficients[AAVE_MATERIAL_COEFFICIENTS];
 };
 
