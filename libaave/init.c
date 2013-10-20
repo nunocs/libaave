@@ -8,7 +8,12 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
-/** @file init.c */
+/**
+ * @file init.c
+ *
+ * The init.c file contains the functions to initialise the data structures
+ * used in the AcousticAVE library.
+ */
 
 #include <string.h> /* memset() */
 #include "aave.h"

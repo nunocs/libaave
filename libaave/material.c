@@ -1,5 +1,5 @@
 /*
- * libaave/material.c: material absortion coefficient filtering
+ * libaave/material.c: material absorption filtering
  *
  * Copyright 2013 Universidade de Aveiro
  *
@@ -8,17 +8,42 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
-/** @file material.c */
+/**
+ * @file material.c
+ *
+ * The material.c file contains the table of materials, with their acoustic
+ * reflection factors by frequency band, and the functions to design the
+ * material absorption audio filters to apply those reflection factors.
+ *
+ * The filtering, implemented in audio.c, is performed in the frequency
+ * domain, taking advantage of the fact that the sounds are already
+ * converted to the frequency domain anyway to perform the HRTF filtering.
+ * This allows for the use of material absorption filters with linear
+ * phase (best audio quality) and long impulse response (best frequency
+ * resolution). The fixed delay induced by the length of the filter can be
+ * easily compensated upstream in the auralisation process, if needed.
+ *
+ * Calculating the Fourier coefficients of the filters is thus implemented
+ * using the technique of filter design by frequency sampling, shown in:
+ * Udo Zolzer, "Digital Audio Signal Processing", 2nd Edition, Wiley,
+ * Section 5.3.3 Filter Design by Frequency Sampling.
+ */
 
 #include <math.h>	/* M_PI, cos(), sin() */
 #include <string.h>	/* strcmp() */
 #include "aave.h"
 
-/* Create the dft() function to convert coefficients (floats) to frequency. */
+/**
+ * Create the dft() function to convert filter coefficients
+ * to Fourier coefficients.
+ */
 #define DFT_TYPE float
 #include "dft.h"
 
-/* Create the idft() function to convert frequency to coefficients (floats). */
+/**
+ * Create the idft() function to convert Fourier coefficients
+ * to filter coefficients.
+ */
 #define IDFT_TYPE float
 #include "idft.h"
 
@@ -49,15 +74,20 @@ static const struct aave_material aave_materials[] = {
 };
 
 /**
- * If none of the above materials match, return this full reflective one.
+ * Full reflective material to use when no material is specified for a
+ * surface, or when the specified material is not found in aave_materials.
  */
 const struct aave_material aave_material_none = {
 	0, { 100, 100, 100, 100, 100, 100, 100 }
 };
 
 /**
- * Find the material with the specified name.
- * Binary search algorithm (table of materials must be ordered by name).
+ * Return the material with the specified @p name.
+ * If no material is found with such name, return aave_material_none.
+ *
+ * The search is performed using the binary search algorithm
+ * (http://en.wikipedia.org/wiki/Binary_search_algorithm),
+ * that's why the table of materials must be ordered by name.
  */
 const struct aave_material *aave_get_material(const char *name)
 {
@@ -114,10 +144,10 @@ static void print_vec(const float *y, unsigned n)
 #endif
 
 /**
- * Design the material absorption filter for the coefficients specified in K.
- * The filter DFT coefficients are stored in X, which must have
- * at least 4 * N elements to account for the zero-padding,
- * and where N is the size of the HRIRs of the HRTF currently in use.
+ * Design the material absorption filter for the reflection factors @p k.
+ * The calculated DFT coefficients of the filter are stored in @p x, which
+ * must have at least 4 * @p n elements to account for the zero-padding,
+ * and where @p n is the size of the HRIRs of the HRTF currently in use.
  *
  * Reference:
  * Udo Zolzer, "Digital Audio Signal Processing", 2nd Edition, Wiley,
@@ -125,7 +155,7 @@ static void print_vec(const float *y, unsigned n)
  */
 static void aave_material_filter(const float *k, float *x, unsigned n)
 {
-	static const unsigned short fc[AAVE_MATERIAL_COEFFICIENTS] = {
+	static const unsigned short fc[AAVE_MATERIAL_REFLECTION_FACTORS] = {
 		125, 250, 500, 1000, 2000, 4000, 8000
 	};
 	unsigned i, j, w;
@@ -142,8 +172,8 @@ static void aave_material_filter(const float *k, float *x, unsigned n)
 		/* Calculate the magnitude (linear interpolation). */
 		if (f <= fc[0])
 			mag = k[0];
-		else if (f >= fc[AAVE_MATERIAL_COEFFICIENTS - 1])
-			mag = k[AAVE_MATERIAL_COEFFICIENTS - 1];
+		else if (f >= fc[AAVE_MATERIAL_REFLECTION_FACTORS - 1])
+			mag = k[AAVE_MATERIAL_REFLECTION_FACTORS - 1];
 		else {
 			while (f > fc[j])
 				j++;
@@ -164,7 +194,7 @@ static void aave_material_filter(const float *k, float *x, unsigned n)
 		x[w * 2 + 1] = imag;
 	}
 
-	print_vec(k, AAVE_MATERIAL_COEFFICIENTS);
+	print_vec(k, AAVE_MATERIAL_REFLECTION_FACTORS);
 	print_dft(x, N);
 
 	/* Convert filter frequency response to time-domain coefficients. */
@@ -184,9 +214,9 @@ static void aave_material_filter(const float *k, float *x, unsigned n)
 }
 
 /**
- * Design the material absorption filter for the
- * specified combination of surfaces and reflection order.
- * The filter DFT coefficients is atored in FILTER, which must have
+ * Design the material absorption filter for the specified sequence of
+ * @p surfaces and reflection order @p reflections. The calculated DFT
+ * coefficients of the filter are stored in @p filter, which must have
  * 4 times the elements of the HRIRs of the HRTF set currently in use.
  */
 void aave_get_material_filter(struct aave *aave,
@@ -194,18 +224,18 @@ void aave_get_material_filter(struct aave *aave,
 				unsigned reflections,
 				float *filter)
 {
-	float k[AAVE_MATERIAL_COEFFICIENTS];
+	float k[AAVE_MATERIAL_REFLECTION_FACTORS];
 	const unsigned char *c;
 	unsigned i, j;
 
 	/* Initialise the total coefficients to be 100% reflective. */
-	for (i = 0; i < AAVE_MATERIAL_COEFFICIENTS; i++)
+	for (i = 0; i < AAVE_MATERIAL_REFLECTION_FACTORS; i++)
 		k[i] = 1;
 
 	/* Multiply the coefficients of the materials of all surfaces. */
 	for (i = 0; i < reflections; i++) {
-		c = surfaces[i]->material->coefficients;
-		for (j = 0; j < AAVE_MATERIAL_COEFFICIENTS; j++)
+		c = surfaces[i]->material->reflection_factors;
+		for (j = 0; j < AAVE_MATERIAL_REFLECTION_FACTORS; j++)
 			k[j] *= c[j] * 0.01;
 	}
 

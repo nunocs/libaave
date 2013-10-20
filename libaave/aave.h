@@ -11,10 +11,41 @@
 /**
  * @file aave.h
  *
- * This is the public header file of the AcousticAAVE library (libaave).
- * It contains the declarations of the structures and functions
- * used and implemented by the library.
+ * The aave.h file is the public header file of the AcousticAAVE library
+ * (libaave). It contains the declarations of the structures and
+ * functions used and implemented by the library.
  * Include it from your program source files to use them.
+ *
+ * The following diagram provides an overview of the data structures
+ * in the library and their associations.
+ *
+ * @image html aave.png "Data structure diagram"
+ * @image latex aave.eps "Data structure diagram" width=\textwidth
+ *
+ * The aave structure is the main data structure of the AcousticAVE library.
+ * It contains all necessary information to completely define an
+ * auralisation world and its present auralisation state.
+ *
+ * The aave structure contains a list of aave_surface structures.
+ * These surfaces define the geometry of the auralisation world.
+ * The material of each surface is indicated by pointing to the
+ * corresponding element in the aave_materials table.
+ *
+ * The aave structure contains a list of aave_source structures,
+ * one for each sound source present in the auralisation world.
+ *
+ * The sound sources and surfaces in the auralisation world generate
+ * a number of sounds that reach the listener, and that are to be auralised
+ * by the library. These sounds are stored in the aave structure in
+ * a hash table indexed by the reflection order: direct sounds are put in
+ * the list of aave_sound structures pointed by sounds[0], 1st reflection
+ * sounds are put in sounds[1], 2nd reflections in sounds[2], etc...
+ * The aave_update() function is responsible for maintaining the hash table
+ * up to date, and the aave_get_audio() function is responsible for
+ * auralising all sounds currently in it.
+ *
+ * Each aave_sound structure contains a reference to its sound source
+ * and references to each surface where that sound reflects.
  */
 
 /**
@@ -34,7 +65,6 @@
  * libaave performs in real-time for virtual rooms of some complexity
  * (number of surfaces) and some order of sound reflections
  * (configured by the user) that depend on the processor speed.
- * @todo Insert link to the performance time measurements.
  *
  * @section installation Installation
  *
@@ -72,39 +102,39 @@
  *
  * @section overview Overview
  *
- * The file @ref aave.h is the public header file of libaave.
+ * The file aave.h is the public header file of libaave.
  * Include it from your program source files to use its structures
  * and functions.
  *
- * The file @ref geometry.c implements all functions related to geometry
+ * The file geometry.c implements all functions related to geometry
  * processing: construction of the 3D room model, coordinate conversions,
  * determining the image-source positions, the sound reflection paths,
  * the audible and non-audible sound paths, and passing all this
  * information to the audio processing functions.
  *
- * The file @ref obj.c contains a convenience function that reads a 3D model
+ * The file obj.c contains a convenience function that reads a 3D model
  * from a Wavefront .OBJ file and calls the appropriate functions in
- * @ref geometry.c to construct the room to be auralised in just one step.
+ * geometry.c to construct the room to be auralised in just one step.
  *
- * The file @ref audio.c implements the core of the audio processing:
+ * The file audio.c implements the core of the audio processing:
  * receiving anechoic audio data from the sound sources,
  * head-related transfer function (HRTF) processing, and generating
  * the corresponding auralised audio data in binaural format.
  *
- * The files @ref hrtf_cipic.c, @ref hrtf_listen.c, @ref hrtf_mit.c, and
- * @ref hrtf_tub.c implement the interface functions for using the
+ * The files hrtf_cipic.c, hrtf_listen.c, hrtf_mit.c, and hrtf_tub.c
+ * implement the interface functions for using the
  * CIPIC, LISTEN, MIT, and TU-Berlin HRTF sets, respectively.
  *
- * The files @ref dft.h and @ref idft.h implement the Discrete Fourier
- * Transform and Inverse Discrete Fourier Transform algorithms,
+ * The files dft.h and idft.h implement the Discrete Fourier Transform
+ * and Inverse Discrete Fourier Transform algorithms,
  * respectively, used mainly for the HRTF processing.
  *
- * The file @ref material.c implements the functions related to the
+ * The file material.c implements the functions related to the
  * sound absorption caused by the different surface materials:
  * the table of material reflection coefficients by frequency band,
  * the table lookup, and the design of the audio filters.
  *
- * The file @ref reverb.c implements an artificial reverberation algorithm
+ * The file reverb.c implements an artificial reverberation algorithm
  * that adds a tail of late reflections to the auralisation output.
  *
  * The directory tools contains the programs used to automatically generate
@@ -113,17 +143,14 @@
  * for the DFT and IDFT algorithms, and miscellaneous utility programs
  * to handle or generate audio files.
  *
- * The directory tests contains programs to verify the correctness
+ * The directory tests/ contains programs to verify the correctness
  * of the functions implemented in libaave.
  *
- * The directory examples contains programs to show how libaave
+ * The directory examples/ contains programs to show how libaave
  * can be used for different auralisation applications.
  *
- * The directory doc contains the files to generate this document
+ * The directory doc/ contains the files to generate this document
  * from the documentation written in the source files.
- *
- * @todo Try to make an image with a diagram showing, at least,
- * the geometry and audio data flow through the source files.
  *
  * @section acknowledgements Acknowledgements
  *
@@ -222,10 +249,11 @@
 #define AAVE_REVERB_BUFSIZE2 1024
 
 /**
- * The number of absorption coefficients of the materials.
- * Octave band frequencies: 125, 250, 500, 1000, 2000, 4000, 8000 Hz.
+ * The number of reflection factors that specify each material.
+ * The corresponding frequencies are:
+ * 125, 250, 500, 1000, 2000, 4000, 8000 Hz.
  */
-#define AAVE_MATERIAL_COEFFICIENTS 7
+#define AAVE_MATERIAL_REFLECTION_FACTORS 7
 
 /**
  * Speed of sound in dry air at 20 degrees Celsius (m/s).
@@ -235,7 +263,8 @@
 #define AAVE_SOUND_SPEED 343.2
 
 /**
- * AcousticAVE engine data.
+ * The AcousticAVE main data structure. It contains all the information
+ * that defines one acoustic world and its present auralisation state.
  */
 struct aave {
 
@@ -259,8 +288,6 @@ struct aave {
 
 	/** Maximum number of reflections to calculate for each source. */
 	unsigned reflections;
-
-	/* Data for the HRTF processing: */
 
 	/** The number of frames of the HRTFs currently in use (power of 2). */
 	unsigned hrtf_frames;
@@ -313,8 +340,8 @@ struct aave_source {
 
 /**
  * Data for each surface that makes the auralisation world.
- * For now, a surface is defined as an n-point planar polygon.
- * Points are specified in anti-clockwise order.
+ * A surface is defined as an n-point planar polygon.
+ * The points are specified in anti-clockwise order.
  */
 struct aave_surface {
 
@@ -325,11 +352,11 @@ struct aave_surface {
 	const struct aave_material *material;
 
 	/**
-	 * Specification of the plane where this surface lays in
+	 * Specification of the plane where this surface lays, in
 	 * Hessian normal form: unit normal vector and distance from origin.
 	 * (http://mathworld.wolfram.com/HessianNormalForm.html)
-	 * The distance is used to calculate the position of the image sources.
-	 * The unit normal vector is used just about everywhere.
+	 * The distance is used to calculate the position of the image
+	 * sources. The unit normal vector is used just about everywhere.
 	 */
 	float normal[3];
 	float distance;
@@ -350,16 +377,16 @@ struct aave_surface {
 	 * (counter-clockwise normal).
 	 *
 	 * World coordinates:
-	 * x = points[i][0]
-	 * y = points[i][1]
-	 * z = points[i][2]
+	 * - x = points[i][0]
+	 * - y = points[i][1]
+	 * - z = points[i][2]
 	 *
-	 * Local coordinates:
-	 * ex = points[i][3]
-	 * ex = points[i][4]
-	 * (internally used by the polygon-line intersection algorithm)
+	 * Local coordinates (internally used by the polygon-line
+	 * intersection algorithm):
+	 * - ex = points[i][3]
+	 * - ex = points[i][4]
 	 *
-	 * FIXME: hardcoded limit of maximum number of points.
+	 * @todo Remove hardcoded maximum number of points per surface.
 	 */
 	float points[32][3 + 2];
 };
@@ -414,7 +441,7 @@ struct aave_sound {
 };
 
 /**
- * Audio properties of the surface materials.
+ * Acoustic properties of a material.
  */
 struct aave_material {
 
@@ -422,7 +449,7 @@ struct aave_material {
 	const char *name;
 
 	/** Reflection factors (multiplied by 100), by frequency band. */
-	const unsigned char coefficients[AAVE_MATERIAL_COEFFICIENTS];
+	const unsigned char reflection_factors[AAVE_MATERIAL_REFLECTION_FACTORS];
 };
 
 /* audio.c */

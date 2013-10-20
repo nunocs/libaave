@@ -8,7 +8,26 @@
  * Written by Andre B. Oliveira <abo@ua.pt>
  */
 
-/** @file geometry.c */
+/**
+ * @file geometry.c
+ *
+ * The geometry.c file contains the functions that implement the geometry
+ * part of the auralisation process, based on the image source model shown
+ * in: "Auralization: Fundamentals of Acoustics, Modelling, Simulation,
+ * Algorithms and Acoustic Virtual Reality", Michael Vorlander, 2008,
+ * Section 11.3 Image source model.
+ *
+ * At startup, the aave_add_surface() function is called for each surface,
+ * and the aave_add_source() function is called for each sound source,
+ * to build the auralisation world.
+ *
+ * At runtime, the aave_set_listener_position() or aave_set_source_position()
+ * functions are called when the listener or sound sources move,
+ * followed by aave_update() to perform all geometric calculations
+ * to discover the audible sounds for the new positions, and the
+ * aave_set_listener_orientation() function is called when the
+ * listener moves her head.
+ */
 
 #include <math.h> /* M_PI, acos(), atan2(), sqrt() */
 #include <stdlib.h> /* malloc() */
@@ -55,7 +74,13 @@ static void normalise(float y[3], const float x[3])
 }
 
 /**
- * Calculate the IMAGE-source position of SOURCE for SURFACE.
+ * Calculate the position [x,y,z] of the image-source of the sound source
+ * at position @p source created by the surface pointed by @p surface.
+ * The position of the image-source is returned in @p image.
+ *
+ * Reference: "Auralization: Fundamentals of Acoustics, Modelling,
+ * Simulation, Algorithms and Acoustic Virtual Reality",
+ * Michael Vorlander, 2008, Section 11.3.1 Classical model.
  */
 static void aave_image_source(const struct aave_surface *surface,
 				const float source[3], float image[3])
@@ -76,8 +101,8 @@ static void aave_image_source(const struct aave_surface *surface,
 }
 
 /**
- * Calculate the coordinates Y of a point X
- * in the local coordinates of a SURFACE.
+ * Calculate the coordinates @p y [x,y] of the point @p x [x,y,z]
+ * in the local coordinates of the surface pointed by @p surface.
  */
 static void local_coordinates(float y[2], const float x[3],
 					const struct aave_surface *surface)
@@ -92,9 +117,12 @@ static void local_coordinates(float y[2], const float x[3],
 }
 
 /**
- * Check if the vector V, a line segment from point A to point B,
- * intersects the specified surface.
- * Returns 0 if false or 1 if true, and the intersection point in XYZ.
+ * Check if the vector @p v (a line segment from point @p a to point @p b)
+ * intersects the surface pointed by @p surface.
+ * Returns 0 if false or 1 if true, and the intersection point in @p xyz.
+ *
+ * Reference: PNPOLY - Point Inclusion in Polygon Test, W. Randolph Franklin,
+ * http://www.ecse.rpi.edu/~wrf/Research/Short_Notes/pnpoly.html
  */
 static int aave_intersection(const struct aave_surface *surface,
 				const float a[3], const float b[3],
@@ -130,13 +158,11 @@ static int aave_intersection(const struct aave_surface *surface,
 	/* Express the intersection point in surface local coordinates. */
 	local_coordinates(y, x, surface);
 
-	/**
-	 * See if the intersection point passes through the surface:
+	/*
+	 * See if the intersection point passes through the surface
+	 * (pnpoly - point inclusion in polygon test):
 	 * count the number of times it crosses the edges in a direction;
 	 * if it passes through the surface, this count will be odd.
-	 *
-	 * PNPOLY - Point Inclusion in Polygon Test
-	 * Copyright (c) 1970-2003, Wm. Randolph Franklin
 	 */
 	count = 0;
 	for (i = 0; i < surface->npoints; i++) {
@@ -158,8 +184,8 @@ static int aave_intersection(const struct aave_surface *surface,
 }
 
 /**
- * Check if the sound path from point A to point B is visible.
- * Returns 0 if the line segment B-A is intersected by any surface,
+ * Check if the sound path from point @p a to point @p b is visible.
+ * Returns 0 if the line segment b-a is intersected by any surface,
  * or 1 otherwise.
  */
 static int aave_is_visible(const struct aave *aave, const float a[3],
@@ -181,15 +207,11 @@ static int aave_is_visible(const struct aave *aave, const float a[3],
 }
 
 /**
- * Create the sound path from SOURCE to the listerner
- * that reflects on the specified ORDER number of SURFACES.
- * Returns 1 if the sound path is "visible", or 0 otherwise.
- * aave: auralisation engine
- * source: sound source
- * order: order of reflections to consider
- * surfaces: the surfaces that cause the reflections
- * image_sources: the corresponding image-source positions calculated
- * x: the corresponding reflection points calculated
+ * Create the sound path from the source pointed by @source to the listerner,
+ * for reflection order @p order, that reflects on the specified sequence of
+ * @p surfaces, with corresponding image source positions @p image_sources.
+ * The calculated reflection points are stored in @p x.
+ * Returns 1 if the sound path is audible, or 0 otherwise.
  */
 static int aave_build_sound_path(struct aave *aave, struct aave_source *source,
 			unsigned order, struct aave_surface *surfaces[],
@@ -229,10 +251,10 @@ static int aave_build_sound_path(struct aave *aave, struct aave_source *source,
 
 /**
  * Create a sound to be auralised by the audio processing.
- * aave: auralisation engine
- * order: order of reflection of the sound
- * surfaces: the surfaces that the sound reflects on
- * image_sources: the corresponding image-source positions
+ * @p source is the sound source that originates the sound,
+ * @p order is the reflection order of the sound,
+ * @p surfaces is the sequence of surfaces where the sound reflects, and
+ * @p image_sources are the positions of the corresponding image-sources.
  */
 static void aave_create_sound(struct aave *aave, struct aave_source *source,
 			unsigned order, struct aave_surface *surfaces[],
@@ -290,13 +312,15 @@ static void aave_create_sound(struct aave *aave, struct aave_source *source,
 }
 
 /**
- * Create sounds for a source for all possible reflection paths recursively.
- * aave: auralisation engine
- * source: original source of the sound
- * order: maximum reflection order to recurse
- * o: current reflection order
- * surfaces: stack of surfaces where the sound reflects
- * image_sources: stack of corresponding image-sources
+ * Recursively create all audible sounds of a given reflection order
+ * that originate from a sound source.
+ * @p source is the sound source,
+ * @p order is the reflection order,
+ * @p o is the current reflection order in the recursive process,
+ * @p surfaces is the stack of surfaces where the current sound reflects,
+ * @p image_sources is the stack of corresponding image source positions.
+ *
+ * @todo Implement the iterative version of this recursive algorithm.
  */
 static void aave_create_sounds_recursively(struct aave *aave,
 				struct aave_source *source, unsigned order,
@@ -327,7 +351,7 @@ static void aave_create_sounds_recursively(struct aave *aave,
 }
 
 /**
- * Create the sounds for the specified sound source
+ * Create all audible sounds originated from the specified sound source
  * up to, and including, the specified reflection order.
  */
 static void aave_create_sounds(struct aave *aave, struct aave_source *source,
@@ -370,10 +394,11 @@ static void aave_update_sound(struct aave *aave, struct aave_sound *sound,
 }
 
 /**
- * Get the distance (m), azimuth (rad) and elevation (rad) coordinates
- * of the position of a source relative to the listener.
+ * Get the @p distance (m), @p azimuth (rad) and @p elevation (rad)
+ * coordinates of the position @p source_position of a source
+ * relative to the listener.
  */
-void aave_get_coordinates(const struct aave *aave, const float source_position[3], float *distance, float *elevation, float *azimuth)
+void aave_get_coordinates(const struct aave *aave, const float *source_position, float *distance, float *elevation, float *azimuth)
 {
 	float vector[3], v[3], dist, phi, theta;
 	unsigned i;
@@ -479,6 +504,9 @@ void aave_set_listener_orientation(struct aave *aave,
 
 /**
  * Set the position of the listener.
+ *
+ * The aave_update() function should be called afterwards to update the
+ * state of the auralisation engine to reflect the new position.
  */
 void aave_set_listener_position(struct aave *aave,
 					float x, float y, float z)
@@ -490,6 +518,9 @@ void aave_set_listener_position(struct aave *aave,
 
 /**
  * Set the position of a sound source.
+ *
+ * The aave_update() function should be called afterwards to update the
+ * state of the auralisation engine to reflect the new position.
  */
 void aave_set_source_position(struct aave_source *source, float x, float y, float z)
 {

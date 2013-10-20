@@ -1,0 +1,122 @@
+digraph {
+	rankdir = LR
+
+	node [ shape = record ]
+
+	aave [ shape = none, margin = 0, label = <
+		<table border="0" cellborder="1" cellspacing="0">
+		<tr><td colspan="2" bgcolor="lightgrey">aave</td></tr>
+		<tr><td colspan="2" port="surfaces">surfaces</td></tr>
+		<tr><td colspan="2" port="sources">sources</td></tr>
+		<tr><td rowspan="4">sounds</td>
+		    <td port="sounds0">0</td></tr>
+		<tr><td port="sounds1">1</td></tr>
+		<tr><td port="sounds2">2</td></tr>
+		<tr><td>...</td></tr>
+		<tr><td colspan="2">...</td></tr>
+		</table>> ]
+
+	subgraph cluster_surfaces {
+		color = invis
+		node [ shape = none, margin = 0, label = <
+			<table border="0" cellborder="1" cellspacing="0">
+			<tr><td bgcolor="lightgrey">aave_surface</td></tr>
+			<tr><td port="next">next</td></tr>
+			<tr><td port="material">material</td></tr>
+			<tr><td>points</td></tr>
+			<tr><td>...</td></tr>
+			</table>> ]
+		surface0:next -> surface1:next
+		surface1:next -> surface2:next
+		surface2:next -> surface3
+		surface3 [ shape = plaintext, label = "..." ]
+	}
+
+	subgraph cluster_sources {
+		color = invis
+		node [ shape = none, margin = 0, label = <
+			<table border="0" cellborder="1" cellspacing="0">
+			<tr><td bgcolor="lightgrey">aave_source</td></tr>
+			<tr><td port="next">next</td></tr>
+			<tr><td>position</td></tr>
+			<tr><td>buffer</td></tr>
+			<tr><td>...</td></tr>
+			</table>> ]
+		source0:next -> source1:next
+		source1:next -> source2
+		source2 [ shape = plaintext, label = "..." ]
+	}
+
+	node [ shape = none, margin = 0, label = <
+		<table border="0" cellborder="1" cellspacing="0">
+		<tr><td bgcolor="lightgrey">aave_sound</td></tr>
+		<tr><td port="next">next</td></tr>
+		<tr><td port="source">source</td></tr>
+		<tr><td port="reflections">reflections</td></tr>
+		<tr><td>...</td></tr>
+		</table>> ]
+
+	subgraph cluster_sounds0 {
+		color = invis
+		sound00:next -> sound01
+		sound01 [ shape = plaintext, label = "..." ]
+	}
+
+	subgraph cluster_sounds1 {
+		color = invis
+		sound10:next -> sound11:next
+		sound11:next -> sound12
+		sound12 [ shape = plaintext, label = "..." ]
+	}
+
+	subgraph cluster_sounds2 {
+		color = invis
+		sound20:next -> sound21:next
+		sound21:next -> sound22:next
+		sound22:next -> sound23:next
+		sound23:next -> sound24
+		sound24 [ shape = plaintext, label = "..." ]
+	}
+
+	materials [ shape = none, margin = 0, label = <
+		<table border="0" cellborder="1" cellspacing="0">
+		<tr><td bgcolor="lightgrey">aave_materials</td></tr>
+		<tr><td port="0">carpet</td></tr>
+		<tr><td port="1">concrete</td></tr>
+		<tr><td port="2">glass</td></tr>
+		<tr><td port="3">plywood</td></tr>
+		<tr><td>...</td></tr>
+		</table>> ]
+
+	aave:surfaces -> surface0:next
+	aave:sources -> source0:next
+	aave:sounds0 -> sound00:next
+	aave:sounds1 -> sound10:next
+	aave:sounds2 -> sound20:next
+
+	surface0:material -> materials:1
+	surface1:material -> materials:3
+	surface2:material -> materials:3
+
+	edge [ constraint = false ]
+
+	sound00:source:e -> source0
+
+	sound10:source:e -> source1
+	sound10:reflections:e -> surface1
+
+	sound11:source:e -> source1
+	sound11:reflections:e -> surface2
+
+	sound20:source:e -> source0
+	sound20:reflections:e -> { surface0 surface1 }
+
+	sound21:source:e -> source1
+	sound21:reflections:e -> { surface1 surface2 }
+
+	sound22:source:e -> source1
+	sound22:reflections:e -> { surface1 surface0 }
+
+	sound23:source:e -> source1
+	sound23:reflections:e -> { surface2 surface0 }
+}
