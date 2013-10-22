@@ -25,10 +25,14 @@
  *
  * The listener's head initial orientation is invalid!
  * You must call aave_set_listener_orientation()!
+ *
+ * The initial output gain is 1 (0dB).
  */
 void aave_init(struct aave *aave)
 {
 	memset(aave, 0, sizeof *aave);
+
+	aave->gain = 1;
 }
 
 /**

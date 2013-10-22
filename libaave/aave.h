@@ -289,6 +289,9 @@ struct aave {
 	/** Maximum number of reflections to calculate for each source. */
 	unsigned reflections;
 
+	/** Gain to apply to the output sound. */
+	float gain;
+
 	/** The number of frames of the HRTFs currently in use (power of 2). */
 	unsigned hrtf_frames;
 

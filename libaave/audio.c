@@ -416,10 +416,11 @@ static void aave_hrtf_fill_output_buffer(struct aave *aave, unsigned delay,
 			idft(y[i], ydft[i][c], frames * 2);
 
 		for (i = 0; i < frames; i++) {
-			x = (overlap_add_buffer[i] + y[0][i])
+			x = aave->gain *
+				((overlap_add_buffer[i] + y[0][i])
 						* fade_out_gain(i, frames)
 				+ (y[1][i+frames] + y[2][i])
-						* fade_in_gain(i, frames);
+						* fade_in_gain(i, frames));
 			/* Clip samples that overflow signed 16 bits. */
 			if (x > 32767)
 				x = 32767;
