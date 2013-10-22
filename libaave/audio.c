@@ -266,6 +266,45 @@ static void cmadd(float *y, const float *a, const float *b, unsigned n, float g)
 }
 
 /**
+ * Generate one audio source block.
+ * @p sound is the sound whose source to get the anechoic audio data from,
+ * @p distance is the distance from the (image) source to the listener,
+ * @p x is the buffer to store the generated audio data,
+ * @p frames is the number of frames (anechoic samples) to generate, and
+ * @p delay is the number of frames of pre-delay to apply to the sound
+ * to account for audio user blocks larger than the size of the HRTFs.
+ *
+ * The distance value changes abruptly between audio blocks every time
+ * the listener or the sound source move. To generate audio blocks without
+ * discontinuities, the anechoic samples of the sound source are resampled,
+ * using first-order interpolation (linear interpolation), a good compromise
+ * between audio quality and processing time, to match an upsampled and low-
+ * pass filtered version of the discontinuous distance value, as described in
+ * Peter Brinkman and Michael Gogins, "Doppler effects without equations",
+ * Proc. of the 16th Int. Conf. on Digital Audio Effects (DAFx-13).
+ */
+static void aave_audio_source_block(struct aave_sound *sound, float distance,
+				short *x, unsigned frames, unsigned delay)
+{
+	unsigned d, i, j;
+	short x1, x2;
+	float f, a;
+
+	d = sound->source->buffer_index - frames - delay;
+	f = sound->distance_smooth;
+	for (i = 0; i < frames; i++) {
+		f = AAVE_DISTANCE_B1 * f + (1 - AAVE_DISTANCE_B1) * distance;
+		a = f * (AAVE_FS / AAVE_SOUND_SPEED);
+		j = d++ - (unsigned)a;
+		a = a - (unsigned)a;
+		x1 = sound->source->buffer[j & (AAVE_SOURCE_BUFSIZE - 1)];
+		x2 = sound->source->buffer[(j-1) & (AAVE_SOURCE_BUFSIZE - 1)];
+		x[i] = x1 * (1 - a) + x2 * a;
+	}
+	sound->distance_smooth = f;
+}
+
+/**
  * Process one @p sound and add it to the DFT busses @p ydft.
  * @p frames is the number of frames to process.
  * @p delay is the number of frames of pre-delay to apply to the sound
@@ -275,8 +314,8 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 				float ydft[3][2][AAVE_MAX_HRTF * 4],
 				unsigned delay, unsigned frames)
 {
-	unsigned c, d, i, j;
-	float f, gain, distance, elevation, azimuth;
+	unsigned c;
+	float gain, distance, elevation, azimuth;
 	const float *hrtf[2];
 	short x[AAVE_MAX_HRTF * 2];
 
@@ -306,14 +345,7 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 	}
 
 	/* Generate the current audio block (resampler). */
-	d = sound->source->buffer_index - frames - delay;
-	f = sound->distance_smooth;
-	for (i = 0; i < frames; i++) {
-		f = AAVE_DISTANCE_B1 * f + (1 - AAVE_DISTANCE_B1) * distance;
-		j = d++ - (unsigned)(f * (AAVE_FS / AAVE_SOUND_SPEED));
-		x[i] = sound->source->buffer[j & (AAVE_SOURCE_BUFSIZE - 1)];
-	}
-	sound->distance_smooth = f;
+	aave_audio_source_block(sound, distance, x, frames, delay);
 
 	/* Convert to the frequency domain, zero padded to 2 times. */
 	dft(sound->dft, x, frames * 2);
