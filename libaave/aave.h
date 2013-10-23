@@ -64,7 +64,11 @@
  *
  * libaave performs in real-time for virtual rooms of some complexity
  * (number of surfaces) and some order of sound reflections
- * (configured by the user) that depend on the processor speed.
+ * (configured by the user), more specifically the total number of sounds,
+ * that depend on the processor used. Benchmarks:
+ * - Intel Atom N2600 1.6GHz: 66 sounds
+ * - Intel Xeon 2GHz: 89 sounds
+ * - AMD Opteron 248 2.2GHz: 193 sounds
  *
  * @section installation Installation
  *
