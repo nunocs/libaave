@@ -1,0 +1,24 @@
+digraph {
+	node [ shape = box ]
+
+	init -> load_model
+	load_model -> add_source
+	add_source -> add_source
+	add_source -> update
+	update -> put_audio [ weight = 2 ]
+	put_audio -> put_audio
+	put_audio -> get_audio [ weight = 2 ]
+	get_audio:w -> update:w
+
+	init [ label = "Initialise auralisation engine:\naave_init()\naave_hrtf_*()\naave->reflections = n" ]
+
+	load_model [ label = "Load room model:\naave_read_obj()" ]
+
+	add_source [ label = "Add sound source(s):\naave_init_source()\naave_add_source()" ]
+
+	update [ label = "Update auralisation world:\naave_set_listener_orientation()\naave_set_listener_position()\naave_set_source_position()\naave_update()" ]
+
+	put_audio [ label = "Put anechoid audio of sound source(s):\naave_put_audio()" ]
+
+	get_audio [ label = "Get binaural audio of auralisation:\naave_get_audio()" ]
+}

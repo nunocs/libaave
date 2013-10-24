@@ -52,11 +52,14 @@
  * @mainpage Introduction
  *
  * The AcousticAVE library (libaave) is an auralisation library.
- * It is the equivalent of a 3D graphics visualisation library,
- * but for audio: given a model of a room, the positions of the sound
- * sources, and the position and head orientation of the listener,
- * libaave produces the 3D soundfield that would be heard by that
- * listener in that virtual environment.
+ * It is the equivalent of a 3D graphics visualisation library, but for
+ * audio: given a model of a room, the positions of the sound sources, the
+ * position and head orientation of the listener, and the anechoic audio
+ * stream of each sound source, libaave produces the 3D binaural soundfield
+ * that would be heard by that listener in that virtual environment.
+ *
+ * @image html libaave.png "Role of the AcousticAVE library"
+ * @image latex libaave.eps "Role of the AcousticAVE library"
  *
  * libaave supports moving sound sources and listener, therefore it can
  * be used for auralisation of interactive virtual reality environments,
@@ -108,7 +111,11 @@
  *
  * The file aave.h is the public header file of libaave.
  * Include it from your program source files to use its structures
- * and functions.
+ * and functions. The following diagram illustrates a typical program
+ * that uses the AcousticAVE library.
+ *
+ * @image html usage.png "Usage of the AcousticAVE library"
+ * @image latex usage.eps "Usage of the AcousticAVE library"
  *
  * The file geometry.c implements all functions related to geometry
  * processing: construction of the 3D room model, coordinate conversions,

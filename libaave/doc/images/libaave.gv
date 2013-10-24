@@ -1,0 +1,20 @@
+digraph {
+	room_model [label="room\nmodel",shape=plaintext]
+	source_positions [label="sound source\npositions",shape=plaintext]
+	listener_position [label="listener\nposition",shape=plaintext]
+	listener_orientation [label="listener\norientation",shape=plaintext]
+
+	anechoic_sounds [label="sound source\nanechoic sounds",shape=plaintext]
+	binaural_sound [label="auralisation\nbinaural sound",shape=plaintext]
+
+	libaave [label="AcousticAVE library\n(libaave)",shape=box]
+
+	room_model -> libaave
+	source_positions -> libaave
+	listener_position -> libaave
+	listener_orientation -> libaave
+	anechoic_sounds -> libaave
+	libaave -> binaural_sound
+
+	{ rank = same; anechoic_sounds; libaave; binaural_sound }
+}
