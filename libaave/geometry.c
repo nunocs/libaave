@@ -303,7 +303,7 @@ static void aave_create_sound(struct aave *aave, struct aave_source *source,
 	else
 		sound->position = sound->image_sources[order - 1];
 
-	sound->flags = SOUND_FADE_IN;
+	sound->audible = 1;
 	sound->source = source;
 
 	/* Add sound to the list of sounds to be auralised. */
@@ -385,12 +385,9 @@ static void aave_update_sound(struct aave *aave, struct aave_sound *sound,
 		a = sound->image_sources[i];
 	}
 
-	if (aave_build_sound_path(aave, sound->source, order,
+	sound->audible = aave_build_sound_path(aave, sound->source, order,
 					sound->surfaces, sound->image_sources,
-					sound->reflection_points))
-		sound->flags |= SOUND_FADE_IN;
-	else
-		sound->flags &= ~SOUND_FADE_IN;
+					sound->reflection_points);
 }
 
 /**

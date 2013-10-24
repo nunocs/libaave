@@ -416,11 +416,14 @@ struct aave_sound {
 	 */
 	float *position;
 
-	/** Bitmap of the state of the sound. */
-	int flags;
-	#define SOUND_OFF 0
-	#define SOUND_FADE_IN 1
-	#define SOUND_FADE_OUT 2
+	/** Flag that indicates if the sound is audible (1) or not (0). */
+	int audible;
+
+	/**
+	 * The previous fade-in/out sample count value used
+	 * (for the fade-in/out of appearing/disappearing sounds).
+	 */
+	unsigned fade_samples;
 
 	/** The previous distance value used (for the crossfading). */
 	float distance;

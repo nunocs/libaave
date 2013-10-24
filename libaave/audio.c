@@ -97,7 +97,7 @@
  * simply by calculating N complex multiplications, in cmul().
  * The design of the filter is implemented in material.c.
  *
- * Next, the anechoic sound is turned into binaural by applying the
+ * The anechoic sound is turned into binaural by applying the
  * HRTF pair that corresponds to the direction (elevation and azimuth)
  * of arrival of the sound relative to the listener's head.
  * When the listener moves her head, the HRTF pair changes.
@@ -112,10 +112,11 @@
  * positioning", Proc. of the 15th Int. Conf. on Digital Audio Effects
  * (DAFx12).
  *
- * The amplitude attenuation of the sounds with distance is also performed
- * in the frequency domain, taking advantage that it can be applied at the
- * same time the HRTF filter is, simply by multiplying the magnitude of
- * the frequency response by the appropriate gain value, in cmadd().
+ * The fade-in/out gains of appearing/disappearing sounds and the
+ * amplitude attenuations of sounds with distance are also performed
+ * in the frequency domain, taking advantage that they can be applied at the
+ * same time the HRTF filter is, simply by multiplying the magnitude of the
+ * frequency response by the appropriate combined gain value, in cmadd().
  *
  * The result of each sound processing block is therefore 3 binaural audio
  * signals (6 total), still in the frequency domain: DFT bus 0 with the
@@ -160,6 +161,13 @@
 /** Create an idft() function to convert frequency to 32-bit audio samples. */
 #define IDFT_TYPE int
 #include "idft.h"
+
+/**
+ * Duration of the fade-in/out for appearing/disappering sounds,
+ * in number of audio samples (must be a multiple of AAVE_MAX_HRTF):
+ * 4096 samples / 44100 Hz ~= 93ms.
+ */
+#define AAVE_FADE_SAMPLES 4096
 
 /**
  * The b1 coefficient of the single-pole, low-pass, recursive filter
@@ -314,12 +322,13 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 				float ydft[3][2][AAVE_MAX_HRTF * 4],
 				unsigned delay, unsigned frames)
 {
-	unsigned c;
+	unsigned fade_samples, c;
 	float gain, distance, elevation, azimuth;
 	const float *hrtf[2];
 	short x[AAVE_MAX_HRTF * 2];
 
-	if (sound->flags == SOUND_OFF)
+	/* Do nothing if the sound is inaudible and the fade-out is done. */
+	if (!sound->audible && !sound->fade_samples)
 		return;
 
 	/* Calculate the coordinates for the current positions. */
@@ -329,20 +338,28 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 	/* Get the best HRTF pair for these coordinates. */
 	aave->hrtf_get(hrtf, elevation * (180/M_PI), azimuth * (180/M_PI));
 
-	/* Use sensible defaults for the first time the sound is auralised. */
-	if (!sound->hrtf[0]) {
-		sound->distance = distance;
-		sound->distance_smooth = distance;
-		sound->hrtf[0] = hrtf[0];
-		sound->hrtf[1] = hrtf[1];
-	}
+	/* Update the fade-in/out sample count. */
+	fade_samples = sound->fade_samples;
+	if (sound->audible) {
+		if (fade_samples < AAVE_FADE_SAMPLES) {
+			if (!fade_samples) {
+				/* Set defaults for the first iteration. */
+				sound->distance = distance;
+				sound->distance_smooth = distance;
+				sound->hrtf[0] = hrtf[0];
+				sound->hrtf[1] = hrtf[1];
+			}
+			fade_samples += frames;
+		}
+	} else if (fade_samples > 0)
+			fade_samples -= frames;
+
+	/* Current gain parameter. */
+	gain = attenuation(distance) * fade_samples / AAVE_FADE_SAMPLES;
 
 	/* DFT bus 1: previous block with current parameters. */
-	if (sound->flags & SOUND_FADE_IN) {
-		gain = attenuation(distance);
-		for (c = 0; c < 2; c++)
-			cmadd(ydft[1][c], sound->dft, hrtf[c], frames*2, gain);
-	}
+	for (c = 0; c < 2; c++)
+		cmadd(ydft[1][c], sound->dft, hrtf[c], frames * 2, gain);
 
 	/* Generate the current audio block (resampler). */
 	aave_audio_source_block(sound, distance, x, frames, delay);
@@ -354,30 +371,22 @@ static void aave_hrtf_add_sound(struct aave *aave, struct aave_sound *sound,
 	cmul(sound->dft, sound->filter, frames * 2);
 
 	/* DFT bus 2: current block with current parameters. */
-	if (sound->flags & SOUND_FADE_IN) {
-		gain = attenuation(distance);
-		for (c = 0; c < 2; c++)
-			cmadd(ydft[2][c], sound->dft, hrtf[c], frames*2, gain);
-	}
+	for (c = 0; c < 2; c++)
+		cmadd(ydft[2][c], sound->dft, hrtf[c], frames * 2, gain);
+
+	/* Previous gain parameter. */
+	gain = attenuation(sound->distance) * sound->fade_samples
+							/ AAVE_FADE_SAMPLES;
 
 	/* DFT bus 0: current block with previous parameters. */
-	if (sound->flags & SOUND_FADE_OUT) {
-		gain = attenuation(sound->distance);
-		for (c = 0; c < 2; c++)
-			cmadd(ydft[0][c], sound->dft, sound->hrtf[c],
-							frames * 2, gain);
-	}
+	for (c = 0; c < 2; c++)
+		cmadd(ydft[0][c], sound->dft, sound->hrtf[c], frames*2, gain);
 
 	/* Remember the parameters used for the current block. */
+	sound->fade_samples = fade_samples;
 	sound->distance = distance;
 	sound->hrtf[0] = hrtf[0];
 	sound->hrtf[1] = hrtf[1];
-
-	/* Update the bitmap state of this sound. */
-	if (sound->flags == SOUND_FADE_IN)
-		sound->flags = SOUND_FADE_IN | SOUND_FADE_OUT;
-	else if (sound->flags == SOUND_FADE_OUT)
-		sound->flags = 0;
 }
 
 /**

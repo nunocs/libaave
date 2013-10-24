@@ -6,9 +6,13 @@ digraph {
 
 	z1 [label="1/z",shape=box]
 
-	distance0 [label="previous\ndistance\nattenuation",shape=box]
-	distance1 [label="current\ndistance\nattenuation",shape=box]
-	distance2 [label="current\ndistance\nattenuation",shape=box]
+	fade0 [label="previous\nfade gain",shape=box]
+	fade1 [label="current\nfade gain",shape=box]
+	fade2 [label="current\nfade gain",shape=box]
+
+	distance0 [label="previous\ndistance attenuation",shape=box]
+	distance1 [label="current\ndistance attenuation",shape=box]
+	distance2 [label="current\ndistance attenuation",shape=box]
 
 	hrtf0l [label="previous\nHRTF\nleft",shape=box]
 	hrtf0r [label="previous\nHRTF\nright",shape=box]
@@ -33,11 +37,17 @@ digraph {
 		resampler -> DFT
 		DFT -> material_filter
 
-		material_filter -> distance0
+		material_filter -> fade0
 		material_filter -> z1
-		material_filter -> distance2
+		material_filter -> fade2
 
-		z1 -> distance1
+		z1 -> fade1
+
+		fade0 -> distance0
+		fade1 -> distance1
+		fade2 -> distance2
+
+		{ rank = same; fade0; fade1; fade2 }
 
 		distance0 -> hrtf0l
 		distance0 -> hrtf0r
