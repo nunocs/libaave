@@ -165,6 +165,23 @@ void View::keyPressEvent(QKeyEvent *event)
 		yaw = x;
 		aave_set_listener_orientation(aave, roll, pitch, yaw);
 		break;
+	case Qt::Key_Up:
+		aave_set_listener_position(aave, aave->position[0] + 0.2,
+				aave->position[1], aave->position[2]);
+		break;
+	case Qt::Key_Down:
+		aave_set_listener_position(aave, aave->position[0] - 0.2,
+				aave->position[1], aave->position[2]);
+		break;
+	case Qt::Key_G:
+		aave->gain *= 2;
+		break;
+	case Qt::Key_H:
+		aave->gain /= 2;
+		break;
+	case Qt::Key_R:
+		aave->reverb ^= 1;
+		break;
 	default:
 		QWidget::keyPressEvent(event);
 		return;
@@ -252,7 +269,7 @@ void View::paintEvent(QPaintEvent *event)
 		};
 		painter.setPen(pens[i & 7]);
 		for (snd = aave->sounds[i]; snd; snd = snd->next) {
-			if (!snd->flags)
+			if (!snd->audible)
 				continue;
 			float *a = snd->source->position;
 			for (unsigned j = 0; j < i; j++) {

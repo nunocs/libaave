@@ -17,6 +17,7 @@ objects += init.o
 objects += material.o
 objects += obj.o
 objects += reverb.o
+objects += reverb_dattorro.o
 
 libaave.a: $(objects)
 	$(AR) crs $@ $+

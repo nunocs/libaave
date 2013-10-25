@@ -145,8 +145,9 @@
  * the table of material reflection coefficients by frequency band,
  * the table lookup, and the design of the audio filters.
  *
- * The file reverb.c implements an artificial reverberation algorithm
+ * The file reverb.c implements a simple artificial reverberation algorithm
  * that adds a tail of late reflections to the auralisation output.
+ * The file reverb_dattorro.c implements the Dattorro reverberator.
  *
  * The directory tools contains the programs used to automatically generate
  * the hrtf_*_set*.c source files from the respective HRTF data sets,
@@ -299,6 +300,12 @@ struct aave {
 
 	/** Maximum number of reflections to calculate for each source. */
 	unsigned reflections;
+
+	/**
+	 * Flag to indicate whether to enable (1) or disable (0)
+	 * the artificial reverberation tail.
+	 */
+	int reverb;
 
 	/** Gain to apply to the output sound. */
 	float gain;
@@ -511,3 +518,6 @@ extern void aave_read_obj(struct aave *, const char *);
 
 /* reverb.c */
 extern void aave_reverb(struct aave *, short *, unsigned);
+
+/* reverb_dattorro.c */
+extern void aave_reverb_dattorro(struct aave *, short *, unsigned);

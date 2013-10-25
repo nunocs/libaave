@@ -27,12 +27,15 @@
  * You must call aave_set_listener_orientation()!
  *
  * The initial output gain is 1 (0dB).
+ *
+ * The artificial reverberation tail is initially enabled.
  */
 void aave_init(struct aave *aave)
 {
 	memset(aave, 0, sizeof *aave);
 
 	aave->gain = 1;
+	aave->reverb = 1;
 }
 
 /**
