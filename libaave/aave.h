@@ -73,6 +73,16 @@
  * - Intel Xeon 2GHz: 89 sounds
  * - AMD Opteron 248 2.2GHz: 193 sounds
  *
+ * The following diagrams illustrate typical usages of the AcousticAVE
+ * library for developing auralisation programs, one single-threaded and
+ * one multi-threaded.
+ *
+ * @image html usage1.png "Single-thread usage example"
+ * @image latex usage1.eps "Single-thread usage example"
+ *
+ * @image html usage2.png "Multi-thread usage example"
+ * @image latex usage2.eps "Multi-thread usage example" width=\textwidth
+ *
  * @section installation Installation
  *
  * libaave is implemented in ANSI C and does not depend on any external
@@ -111,11 +121,7 @@
  *
  * The file aave.h is the public header file of libaave.
  * Include it from your program source files to use its structures
- * and functions. The following diagram illustrates a typical program
- * that uses the AcousticAVE library.
- *
- * @image html usage.png "Usage of the AcousticAVE library"
- * @image latex usage.eps "Usage of the AcousticAVE library"
+ * and functions.
  *
  * The file geometry.c implements all functions related to geometry
  * processing: construction of the 3D room model, coordinate conversions,
