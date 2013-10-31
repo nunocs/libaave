@@ -25,7 +25,7 @@ $ make
 Example: Port1 = /dev/ttyUSB0
 
 4) Set the library path to include the isense directory
-$ LD_LIBRARY_PATH=$PWD/isense
+$ export LD_LIBRARY_PATH=$PWD/isense
 
 5) Run the program
 $ ./demo
