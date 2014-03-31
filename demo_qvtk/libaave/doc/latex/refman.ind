@@ -1,0 +1,825 @@
+\begin{theindex}
+
+  \item {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}B1}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{44}
+  \item {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{45}
+  \item {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}S}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{30}
+  \item {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}F}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{30}
+  \item {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}F\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}S}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{30}
+  \item {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}U\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{30}
+  \item {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}U\discretionary {-}{}{}R\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}B\discretionary {-}{}{}U\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{30}
+  \item {aave}, \hyperpage{11}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{19}
+    \subitem {area}, \hyperpage{12}
+    \subitem {gain}, \hyperpage{12}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}frames}, 
+		\hyperpage{12}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}get}, 
+		\hyperpage{12}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}, 
+		\hyperpage{12}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer\discretionary {-}{}{}\_\discretionary {-}{}{}index}, 
+		\hyperpage{12}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}overlap\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}, 
+		\hyperpage{13}
+    \subitem {nsurfaces}, \hyperpage{13}
+    \subitem {orientation}, \hyperpage{13}
+    \subitem {position}, \hyperpage{13}
+    \subitem {reflections}, \hyperpage{13}
+    \subitem {reverb}, \hyperpage{13}
+    \subitem {room\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}absorption}, 
+		\hyperpage{13}
+    \subitem {sounds}, \hyperpage{13}
+    \subitem {sources}, \hyperpage{13}
+    \subitem {surfaces}, \hyperpage{13}
+    \subitem {volume}, \hyperpage{13}
+  \item {aave.\discretionary {-}{}{}h}, \hyperpage{27}
+    \subitem {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}S}, 
+		\hyperpage{30}
+    \subitem {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}F}, 
+		\hyperpage{30}
+    \subitem {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}U\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}, 
+		\hyperpage{30}
+    \subitem {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}U\discretionary {-}{}{}R\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}B\discretionary {-}{}{}U\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}, 
+		\hyperpage{30}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{31}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{31}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}audio}, 
+		\hyperpage{32}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}, 
+		\hyperpage{32}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material}, 
+		\hyperpage{33}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{33}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic}, 
+		\hyperpage{34}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen}, 
+		\hyperpage{34}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit}, 
+		\hyperpage{35}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub}, 
+		\hyperpage{35}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}init}, 
+		\hyperpage{35}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{36}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}none}, 
+		\hyperpage{40}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}put\discretionary {-}{}{}\_\discretionary {-}{}{}audio}, 
+		\hyperpage{36}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}read\discretionary {-}{}{}\_\discretionary {-}{}{}obj}, 
+		\hyperpage{36}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro}, 
+		\hyperpage{37}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot}, 
+		\hyperpage{37}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}orientation}, 
+		\hyperpage{38}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}position}, 
+		\hyperpage{38}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}position}, 
+		\hyperpage{38}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}update}, 
+		\hyperpage{39}
+    \subitem {dft\discretionary {-}{}{}\_\discretionary {-}{}{}index}, 
+		\hyperpage{39}
+    \subitem {F\discretionary {-}{}{}D\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R}, 
+		\hyperpage{31}
+    \subitem {init\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{39}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}source}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{31}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{54}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}surface}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{31}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{54}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}audio\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}block}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{45}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}build\discretionary {-}{}{}\_\discretionary {-}{}{}sound\discretionary {-}{}{}\_\discretionary {-}{}{}path}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{54}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sound}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{55}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sounds}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{55}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sounds\discretionary {-}{}{}\_\discretionary {-}{}{}recursively}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{56}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}audio}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{32}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{46}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{32}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{56}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{33}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{73}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{33}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{73}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}sound}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{46}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{34}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic.\discretionary {-}{}{}c}, 
+		\hyperpage{63}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}get}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic.\discretionary {-}{}{}c}, 
+		\hyperpage{63}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}fill\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{47}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{34}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen.\discretionary {-}{}{}c}, 
+		\hyperpage{64}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen\discretionary {-}{}{}\_\discretionary {-}{}{}get}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen.\discretionary {-}{}{}c}, 
+		\hyperpage{65}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{35}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit.\discretionary {-}{}{}c}, 
+		\hyperpage{67}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit\discretionary {-}{}{}\_\discretionary {-}{}{}get}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit.\discretionary {-}{}{}c}, 
+		\hyperpage{67}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{35}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub.\discretionary {-}{}{}c}, 
+		\hyperpage{68}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub\discretionary {-}{}{}\_\discretionary {-}{}{}get}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub.\discretionary {-}{}{}c}, 
+		\hyperpage{69}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}image\discretionary {-}{}{}\_\discretionary {-}{}{}source}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{57}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}init}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{35}
+    \subitem {init.\discretionary {-}{}{}c}, \hyperpage{71}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}source}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{36}
+    \subitem {init.\discretionary {-}{}{}c}, \hyperpage{71}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}intersection}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{58}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}visible}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{58}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material}, 
+		\hyperpage{14}
+    \subitem {name}, \hyperpage{14}
+    \subitem {reflection\discretionary {-}{}{}\_\discretionary {-}{}{}factors}, 
+		\hyperpage{14}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{74}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}none}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{40}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{75}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}materials}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{75}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}put\discretionary {-}{}{}\_\discretionary {-}{}{}audio}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{36}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{48}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}read\discretionary {-}{}{}\_\discretionary {-}{}{}obj}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{36}
+    \subitem {obj.\discretionary {-}{}{}c}, \hyperpage{76}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{14}
+    \subitem {absorption\discretionary {-}{}{}\_\discretionary {-}{}{}bandwidth}, 
+		\hyperpage{15}
+    \subitem {absorption\discretionary {-}{}{}\_\discretionary {-}{}{}gain}, 
+		\hyperpage{15}
+    \subitem {active}, \hyperpage{15}
+    \subitem {alpha}, \hyperpage{15}
+    \subitem {beta}, \hyperpage{15}
+    \subitem {decorrelation\discretionary {-}{}{}\_\discretionary {-}{}{}coefs}, 
+		\hyperpage{15}
+    \subitem {fdn\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}taps}, 
+		\hyperpage{15}
+    \subitem {level}, \hyperpage{15}
+    \subitem {mix}, \hyperpage{15}
+    \subitem {pre\discretionary {-}{}{}\_\discretionary {-}{}{}delay}, 
+		\hyperpage{15}
+    \subitem {R\discretionary {-}{}{}T60}, \hyperpage{15}
+    \subitem {rc}, \hyperpage{15}
+    \subitem {Tmixing}, \hyperpage{15}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{37}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{79}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{37}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{83}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}orientation}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{38}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{59}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}position}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{38}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{59}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}position}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{38}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{59}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{16}
+    \subitem {audible}, \hyperpage{17}
+    \subitem {dft}, \hyperpage{17}
+    \subitem {distance}, \hyperpage{17}
+    \subitem {distance\discretionary {-}{}{}\_\discretionary {-}{}{}smooth}, 
+		\hyperpage{17}
+    \subitem {fade\discretionary {-}{}{}\_\discretionary {-}{}{}samples}, 
+		\hyperpage{17}
+    \subitem {filter}, \hyperpage{17}
+    \subitem {hrtf}, \hyperpage{17}
+    \subitem {image\discretionary {-}{}{}\_\discretionary {-}{}{}sources}, 
+		\hyperpage{17}
+    \subitem {next}, \hyperpage{17}
+    \subitem {position}, \hyperpage{17}
+    \subitem {reflection\discretionary {-}{}{}\_\discretionary {-}{}{}points}, 
+		\hyperpage{18}
+    \subitem {source}, \hyperpage{18}
+    \subitem {surfaces}, \hyperpage{18}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{18}
+    \subitem {aave}, \hyperpage{19}
+    \subitem {buffer}, \hyperpage{19}
+    \subitem {buffer\discretionary {-}{}{}\_\discretionary {-}{}{}index}, 
+		\hyperpage{19}
+    \subitem {next}, \hyperpage{19}
+    \subitem {position}, \hyperpage{19}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{19}
+    \subitem {avg\discretionary {-}{}{}\_\discretionary {-}{}{}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}coef}, 
+		\hyperpage{20}
+    \subitem {material}, \hyperpage{20}
+    \subitem {next}, \hyperpage{20}
+    \subitem {normal}, \hyperpage{20}
+    \subitem {npoints}, \hyperpage{20}
+    \subitem {points}, \hyperpage{21}
+    \subitem {versors}, \hyperpage{21}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}update}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{39}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{59}
+  \item {aave\discretionary {-}{}{}\_\discretionary {-}{}{}update\discretionary {-}{}{}\_\discretionary {-}{}{}sound}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{59}
+  \item {absorption\discretionary {-}{}{}\_\discretionary {-}{}{}bandwidth}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {absorption\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{21}
+    \subitem {y}, \hyperpage{21}
+  \item {absorption\discretionary {-}{}{}\_\discretionary {-}{}{}gain}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {active}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {allpass}, \hyperpage{22}
+    \subitem {buffer}, \hyperpage{22}
+    \subitem {index}, \hyperpage{22}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{79}
+    \subitem {tap}, \hyperpage{22}
+  \item {alpha}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {ap}
+    \subitem {decay\discretionary {-}{}{}\_\discretionary {-}{}{}block}, 
+		\hyperpage{23}
+  \item {area}
+    \subitem {aave}, \hyperpage{12}
+  \item {attenuation}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{48}
+  \item {audible}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+  \item {audio.\discretionary {-}{}{}c}, \hyperpage{40}
+    \subitem {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}B1}, 
+		\hyperpage{44}
+    \subitem {A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}, 
+		\hyperpage{45}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}audio\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}block}, 
+		\hyperpage{45}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}audio}, 
+		\hyperpage{46}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{46}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}fill\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}, 
+		\hyperpage{47}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}put\discretionary {-}{}{}\_\discretionary {-}{}{}audio}, 
+		\hyperpage{48}
+    \subitem {attenuation}, \hyperpage{48}
+    \subitem {cmadd}, \hyperpage{48}
+    \subitem {cmul}, \hyperpage{49}
+    \subitem {D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}, 
+		\hyperpage{45}
+    \subitem {fade\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}gain}, 
+		\hyperpage{49}
+    \subitem {fade\discretionary {-}{}{}\_\discretionary {-}{}{}out\discretionary {-}{}{}\_\discretionary {-}{}{}gain}, 
+		\hyperpage{49}
+    \subitem {I\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}, 
+		\hyperpage{45}
+  \item {avg\discretionary {-}{}{}\_\discretionary {-}{}{}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}coef}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{20}
+
+  \indexspace
+
+  \item {b}
+    \subitem {dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{22}
+  \item {B\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{78}
+  \item {beta}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {buffer}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{19}
+    \subitem {allpass}, \hyperpage{22}
+    \subitem {delay}, \hyperpage{24}
+    \subitem {delay\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{25}
+  \item {buffer\discretionary {-}{}{}\_\discretionary {-}{}{}index}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{19}
+
+  \indexspace
+
+  \item {cmadd}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{48}
+  \item {cmul}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{49}
+  \item {cross\discretionary {-}{}{}\_\discretionary {-}{}{}product}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{60}
+
+  \indexspace
+
+  \item {D\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{78}
+  \item {D\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}Y}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{78}
+  \item {D\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}F\discretionary {-}{}{}F\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}1}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{78}
+  \item {D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{45}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{73}
+  \item {dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{22}
+    \subitem {b}, \hyperpage{22}
+    \subitem {x}, \hyperpage{22}
+    \subitem {y}, \hyperpage{23}
+  \item {decay\discretionary {-}{}{}\_\discretionary {-}{}{}block}, 
+		\hyperpage{23}
+    \subitem {ap}, \hyperpage{23}
+    \subitem {delay}, \hyperpage{23}
+    \subitem {lp}, \hyperpage{23}
+    \subitem {out}, \hyperpage{24}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{79}
+  \item {decorrelation\discretionary {-}{}{}\_\discretionary {-}{}{}coefs}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {delay}, \hyperpage{24}
+    \subitem {buffer}, \hyperpage{24}
+    \subitem {decay\discretionary {-}{}{}\_\discretionary {-}{}{}block}, 
+		\hyperpage{23}
+    \subitem {index}, \hyperpage{24}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{80}
+  \item {delay\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{24}
+    \subitem {buffer}, \hyperpage{25}
+    \subitem {index}, \hyperpage{25}
+  \item {dft}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+    \subitem {dft.\discretionary {-}{}{}h}, \hyperpage{51}
+  \item {dft.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {dft}, \hyperpage{51}
+    \subitem {dftsincos}, \hyperpage{51}
+  \item {dft\discretionary {-}{}{}\_\discretionary {-}{}{}index}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{39}
+    \subitem {dftindex.\discretionary {-}{}{}c}, \hyperpage{52}
+  \item {dft\discretionary {-}{}{}\_\discretionary {-}{}{}index\discretionary {-}{}{}\_\discretionary {-}{}{}table}
+    \subitem {dftindex.\discretionary {-}{}{}c}, \hyperpage{52}
+  \item {dftindex.\discretionary {-}{}{}c}, \hyperpage{51}
+    \subitem {dft\discretionary {-}{}{}\_\discretionary {-}{}{}index}, 
+		\hyperpage{52}
+    \subitem {dft\discretionary {-}{}{}\_\discretionary {-}{}{}index\discretionary {-}{}{}\_\discretionary {-}{}{}table}, 
+		\hyperpage{52}
+  \item {dftsincos}
+    \subitem {dft.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {idft.\discretionary {-}{}{}h}, \hyperpage{70}
+  \item {distance}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+  \item {distance\discretionary {-}{}{}\_\discretionary {-}{}{}smooth}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+  \item {dot\discretionary {-}{}{}\_\discretionary {-}{}{}product}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{60}
+
+  \indexspace
+
+  \item {F\discretionary {-}{}{}D\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{31}
+  \item {fade\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}gain}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{49}
+  \item {fade\discretionary {-}{}{}\_\discretionary {-}{}{}out\discretionary {-}{}{}\_\discretionary {-}{}{}gain}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{49}
+  \item {fade\discretionary {-}{}{}\_\discretionary {-}{}{}samples}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+  \item {fdn\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}taps}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {feedback\discretionary {-}{}{}\_\discretionary {-}{}{}delays}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{85}
+  \item {filter}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+
+  \indexspace
+
+  \item {gain}
+    \subitem {aave}, \hyperpage{12}
+  \item {geometry.\discretionary {-}{}{}c}, \hyperpage{52}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{54}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{54}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}build\discretionary {-}{}{}\_\discretionary {-}{}{}sound\discretionary {-}{}{}\_\discretionary {-}{}{}path}, 
+		\hyperpage{54}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{55}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sounds}, 
+		\hyperpage{55}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sounds\discretionary {-}{}{}\_\discretionary {-}{}{}recursively}, 
+		\hyperpage{56}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}, 
+		\hyperpage{56}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}image\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{57}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}intersection}, 
+		\hyperpage{58}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}visible}, 
+		\hyperpage{58}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}orientation}, 
+		\hyperpage{59}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}position}, 
+		\hyperpage{59}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}position}, 
+		\hyperpage{59}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}update}, 
+		\hyperpage{59}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}update\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{59}
+    \subitem {cross\discretionary {-}{}{}\_\discretionary {-}{}{}product}, 
+		\hyperpage{60}
+    \subitem {dot\discretionary {-}{}{}\_\discretionary {-}{}{}product}, 
+		\hyperpage{60}
+    \subitem {local\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}, 
+		\hyperpage{60}
+    \subitem {norm}, \hyperpage{61}
+    \subitem {normalise}, \hyperpage{61}
+
+  \indexspace
+
+  \item {hrtf}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic.\discretionary {-}{}{}c}, 
+		\hyperpage{62}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic}, 
+		\hyperpage{63}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}get}, 
+		\hyperpage{63}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}set}, 
+		\hyperpage{63}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}008}, 
+		\hyperpage{64}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}set}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic.\discretionary {-}{}{}c}, 
+		\hyperpage{63}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}008}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic.\discretionary {-}{}{}c}, 
+		\hyperpage{64}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}frames}
+    \subitem {aave}, \hyperpage{12}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}get}
+    \subitem {aave}, \hyperpage{12}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen.\discretionary {-}{}{}c}, 
+		\hyperpage{64}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen}, 
+		\hyperpage{64}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen\discretionary {-}{}{}\_\discretionary {-}{}{}get}, 
+		\hyperpage{65}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}1040}, 
+		\hyperpage{65}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}1040}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen.\discretionary {-}{}{}c}, 
+		\hyperpage{65}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit.\discretionary {-}{}{}c}, 
+		\hyperpage{66}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit}, 
+		\hyperpage{67}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit\discretionary {-}{}{}\_\discretionary {-}{}{}get}, 
+		\hyperpage{67}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit\discretionary {-}{}{}\_\discretionary {-}{}{}set}, 
+		\hyperpage{67}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit\discretionary {-}{}{}\_\discretionary {-}{}{}set}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit.\discretionary {-}{}{}c}, 
+		\hyperpage{67}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}
+    \subitem {aave}, \hyperpage{12}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer\discretionary {-}{}{}\_\discretionary {-}{}{}index}
+    \subitem {aave}, \hyperpage{12}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}overlap\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}
+    \subitem {aave}, \hyperpage{13}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub.\discretionary {-}{}{}c}, 
+		\hyperpage{68}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub}, 
+		\hyperpage{68}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub\discretionary {-}{}{}\_\discretionary {-}{}{}get}, 
+		\hyperpage{69}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub\discretionary {-}{}{}\_\discretionary {-}{}{}set}, 
+		\hyperpage{69}
+  \item {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub\discretionary {-}{}{}\_\discretionary {-}{}{}set}
+    \subitem {hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub.\discretionary {-}{}{}c}, 
+		\hyperpage{69}
+
+  \indexspace
+
+  \item {I\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}
+    \subitem {audio.\discretionary {-}{}{}c}, \hyperpage{45}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{73}
+  \item {I\discretionary {-}{}{}N\discretionary {-}{}{}P\discretionary {-}{}{}U\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}F\discretionary {-}{}{}F\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}1}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{78}
+  \item {idft}
+    \subitem {idft.\discretionary {-}{}{}h}, \hyperpage{70}
+  \item {idft.\discretionary {-}{}{}h}, \hyperpage{69}
+    \subitem {dftsincos}, \hyperpage{70}
+    \subitem {idft}, \hyperpage{70}
+  \item {image\discretionary {-}{}{}\_\discretionary {-}{}{}sources}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+  \item {index}
+    \subitem {allpass}, \hyperpage{22}
+    \subitem {delay}, \hyperpage{24}
+    \subitem {delay\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{25}
+  \item {init.\discretionary {-}{}{}c}, \hyperpage{71}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}init}, 
+		\hyperpage{71}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{71}
+  \item {init\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}
+    \subitem {aave.\discretionary {-}{}{}h}, \hyperpage{39}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{83}
+
+  \indexspace
+
+  \item {level}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {local\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{60}
+  \item {lowpass}, \hyperpage{25}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{80}
+    \subitem {y}, \hyperpage{25}
+  \item {lp}
+    \subitem {decay\discretionary {-}{}{}\_\discretionary {-}{}{}block}, 
+		\hyperpage{23}
+
+  \indexspace
+
+  \item {M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}M\discretionary {-}{}{}E}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{83}
+  \item {M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}S}
+    \subitem {obj.\discretionary {-}{}{}c}, \hyperpage{76}
+  \item {material}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{20}
+  \item {material.\discretionary {-}{}{}c}, \hyperpage{72}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material}, 
+		\hyperpage{73}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{73}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{74}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}none}, 
+		\hyperpage{75}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}materials}, 
+		\hyperpage{75}
+    \subitem {D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}, 
+		\hyperpage{73}
+    \subitem {I\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}, 
+		\hyperpage{73}
+    \subitem {N}, \hyperpage{73}
+  \item {mix}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+
+  \indexspace
+
+  \item {N}
+    \subitem {material.\discretionary {-}{}{}c}, \hyperpage{73}
+  \item {name}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material}, 
+		\hyperpage{14}
+  \item {next}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{19}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{20}
+  \item {norm}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{61}
+  \item {normal}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{20}
+  \item {normalise}
+    \subitem {geometry.\discretionary {-}{}{}c}, \hyperpage{61}
+  \item {npoints}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{20}
+  \item {nsurfaces}
+    \subitem {aave}, \hyperpage{13}
+
+  \indexspace
+
+  \item {obj.\discretionary {-}{}{}c}, \hyperpage{75}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}read\discretionary {-}{}{}\_\discretionary {-}{}{}obj}, 
+		\hyperpage{76}
+    \subitem {M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}S}, 
+		\hyperpage{76}
+  \item {orientation}
+    \subitem {aave}, \hyperpage{13}
+  \item {out}
+    \subitem {decay\discretionary {-}{}{}\_\discretionary {-}{}{}block}, 
+		\hyperpage{24}
+
+  \indexspace
+
+  \item {P\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{78}
+  \item {points}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{21}
+  \item {position}
+    \subitem {aave}, \hyperpage{13}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{17}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}source}, 
+		\hyperpage{19}
+  \item {pre\discretionary {-}{}{}\_\discretionary {-}{}{}delay}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {process\discretionary {-}{}{}\_\discretionary {-}{}{}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}filter}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{84}
+  \item {process\discretionary {-}{}{}\_\discretionary {-}{}{}dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{84}
+  \item {process\discretionary {-}{}{}\_\discretionary {-}{}{}delay\discretionary {-}{}{}\_\discretionary {-}{}{}filter}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{84}
+  \item {process\discretionary {-}{}{}\_\discretionary {-}{}{}tone\discretionary {-}{}{}\_\discretionary {-}{}{}correction\discretionary {-}{}{}\_\discretionary {-}{}{}filter}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{85}
+
+  \indexspace
+
+  \item {R\discretionary {-}{}{}T60}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {rc}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {reflection\discretionary {-}{}{}\_\discretionary {-}{}{}factors}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}material}, 
+		\hyperpage{14}
+  \item {reflection\discretionary {-}{}{}\_\discretionary {-}{}{}points}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{18}
+  \item {reflections}
+    \subitem {aave}, \hyperpage{13}
+  \item {reverb}
+    \subitem {aave}, \hyperpage{13}
+  \item {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{77}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro}, 
+		\hyperpage{79}
+    \subitem {allpass}, \hyperpage{79}
+    \subitem {B\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}, 
+		\hyperpage{78}
+    \subitem {D\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G}, 
+		\hyperpage{78}
+    \subitem {D\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}Y}, 
+		\hyperpage{78}
+    \subitem {D\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}F\discretionary {-}{}{}F\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}1}, 
+		\hyperpage{78}
+    \subitem {decay\discretionary {-}{}{}\_\discretionary {-}{}{}block}, 
+		\hyperpage{79}
+    \subitem {delay}, \hyperpage{80}
+    \subitem {I\discretionary {-}{}{}N\discretionary {-}{}{}P\discretionary {-}{}{}U\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}F\discretionary {-}{}{}F\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}1}, 
+		\hyperpage{78}
+    \subitem {lowpass}, \hyperpage{80}
+    \subitem {P\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y}, 
+		\hyperpage{78}
+    \subitem {W\discretionary {-}{}{}E\discretionary {-}{}{}T}, 
+		\hyperpage{78}
+  \item {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c}, 
+		\hyperpage{81}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot}, 
+		\hyperpage{83}
+    \subitem {feedback\discretionary {-}{}{}\_\discretionary {-}{}{}delays}, 
+		\hyperpage{85}
+    \subitem {init\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{83}
+    \subitem {M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}M\discretionary {-}{}{}E}, 
+		\hyperpage{83}
+    \subitem {process\discretionary {-}{}{}\_\discretionary {-}{}{}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{84}
+    \subitem {process\discretionary {-}{}{}\_\discretionary {-}{}{}dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{84}
+    \subitem {process\discretionary {-}{}{}\_\discretionary {-}{}{}delay\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{84}
+    \subitem {process\discretionary {-}{}{}\_\discretionary {-}{}{}tone\discretionary {-}{}{}\_\discretionary {-}{}{}correction\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{85}
+  \item {room\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}absorption}
+    \subitem {aave}, \hyperpage{13}
+
+  \indexspace
+
+  \item {sounds}
+    \subitem {aave}, \hyperpage{13}
+  \item {source}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{18}
+  \item {sources}
+    \subitem {aave}, \hyperpage{13}
+  \item {surfaces}
+    \subitem {aave}, \hyperpage{13}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound}, 
+		\hyperpage{18}
+
+  \indexspace
+
+  \item {tap}
+    \subitem {allpass}, \hyperpage{22}
+  \item {Tmixing}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}, 
+		\hyperpage{15}
+  \item {tone\discretionary {-}{}{}\_\discretionary {-}{}{}correction\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{25}
+    \subitem {y}, \hyperpage{25}
+
+  \indexspace
+
+  \item {versors}
+    \subitem {aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface}, 
+		\hyperpage{21}
+  \item {volume}
+    \subitem {aave}, \hyperpage{13}
+
+  \indexspace
+
+  \item {W\discretionary {-}{}{}E\discretionary {-}{}{}T}
+    \subitem {reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c}, 
+		\hyperpage{78}
+
+  \indexspace
+
+  \item {x}
+    \subitem {dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{22}
+
+  \indexspace
+
+  \item {y}
+    \subitem {absorption\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{21}
+    \subitem {dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{23}
+    \subitem {lowpass}, \hyperpage{25}
+    \subitem {tone\discretionary {-}{}{}\_\discretionary {-}{}{}correction\discretionary {-}{}{}\_\discretionary {-}{}{}filter}, 
+		\hyperpage{25}
+
+\end{theindex}

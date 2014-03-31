@@ -1,0 +1,5 @@
+<map id="decay_block" name="decay_block">
+<area shape="rect" id="node3" href="$reverb__dattorro_8c.html#a63533538546edde6ae7f3c88192ae6a3" title="allpass" alt="" coords="155,5,216,35"/>
+<area shape="rect" id="node5" href="$reverb__dattorro_8c.html#a71156a2bb7fe5562368cb958346b2766" title="delay" alt="" coords="159,59,212,88"/>
+<area shape="rect" id="node7" href="$reverb__dattorro_8c.html#a6cd56cc133948b76c116f4fac4f2ea8e" title="lowpass" alt="" coords="151,112,220,141"/>
+</map>

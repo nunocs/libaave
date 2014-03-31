@@ -1,0 +1,66 @@
+\hypertarget{idft_8h}{\section{idft.\-h File Reference}
+\label{idft_8h}\index{idft.\-h@{idft.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{idft_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{idft_8h_a797484e3f3d53d566ececbcfcd90f537}{idft} (\hyperlink{material_8c_afd47bdf71dbf8a1adbddc63efd267700}{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E} $\ast$x, float $\ast$X, unsigned n)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \hyperlink{idft_8h_a3196640d8e9b871f615b6a42a6b77123}{dftsincos} \mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{idft_8h}{idft.\-h} file implements the inverse discrete Fourier transform (I\-D\-F\-T) of Fourier coefficients of real-\/input data of power-\/of-\/2 sizes, using the Cooley-\/\-Tukey F\-F\-T algorithm (\href{http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm}{\tt http\-://en.\-wikipedia.\-org/wiki/\-Cooley\%\-E2\%80\%93\-Tukey\-\_\-\-F\-F\-T\-\_\-algorithm}).
+
+It is about 2 times faster than the equivalent complex-\/\-Hermitian input to real output plan fftw\-\_\-plan\-\_\-dft\-\_\-c2r\-\_\-1d of the fftw library (\href{http://www.fftw.org/}{\tt http\-://www.\-fftw.\-org/}).
+
+The input Fourier coefficients use the same order as returned by the discrete Fourier transform implemented in \hyperlink{dft_8h}{dft.\-h}. However, the ouput real data values are correctly ordered.
+
+This \hyperlink{idft_8h}{idft.\-h} file is implemented as a \char`\"{}template\char`\"{}. To create an \hyperlink{idft_8h_a797484e3f3d53d566ececbcfcd90f537}{idft()} function to use in your source code to transform Fourier coefficients back into real data of some type, for example type int (32-\/bit audio samples), include the following in your source code\-: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define IDFT\_TYPE int}
+\textcolor{preprocessor}{#include "idft.h"}
+\end{DoxyCode}
+ This will insert a static \hyperlink{idft_8h_a797484e3f3d53d566ececbcfcd90f537}{idft()} function in your source code file that transforms Fourier coefficients back into the corresponding integers. 
+
+\subsection{Function Documentation}
+\hypertarget{idft_8h_a797484e3f3d53d566ececbcfcd90f537}{\index{idft.\-h@{idft.\-h}!idft@{idft}}
+\index{idft@{idft}!idft.h@{idft.\-h}}
+\subsubsection[{idft}]{\setlength{\rightskip}{0pt plus 5cm}static void idft (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-D\-F\-T\-\_\-\-T\-Y\-P\-E} $\ast$}]{x, }
+\item[{float $\ast$}]{X, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{idft_8h_a797484e3f3d53d566ececbcfcd90f537}
+This idft function calculates the {\ttfamily n} point inverse discrete Fourier transform of the Fourier coefficients pointed by {\ttfamily X} and stores the real output data in {\ttfamily x}. {\ttfamily X} points to {\ttfamily n} elements, which correspond to the Fourier coefficients 0 to {\ttfamily n} / 2, in the order described in \hyperlink{dft_8h}{dft.\-h}. {\ttfamily x} points to {\ttfamily n} elements correctly ordered. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000010}{Todo}]round instead of truncate \end{DoxyRefDesc}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{idft_8h_a797484e3f3d53d566ececbcfcd90f537_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{idft_8h_a3196640d8e9b871f615b6a42a6b77123}{\index{idft.\-h@{idft.\-h}!dftsincos@{dftsincos}}
+\index{dftsincos@{dftsincos}!idft.h@{idft.\-h}}
+\subsubsection[{dftsincos}]{\setlength{\rightskip}{0pt plus 5cm}const float dftsincos\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}}}\label{idft_8h_a3196640d8e9b871f615b6a42a6b77123}
+Table with the pre-\/calculated sin() and cos() values. 

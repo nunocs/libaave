@@ -1,0 +1,95 @@
+\hypertarget{structaave__sound}{\section{aave\-\_\-sound Struct Reference}
+\label{structaave__sound}\index{aave\-\_\-sound@{aave\-\_\-sound}}
+}
+
+
+{\ttfamily \#include $<$aave.\-h$>$}
+
+
+
+Collaboration diagram for aave\-\_\-sound\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structaave__sound__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structaave__sound}{aave\-\_\-sound} $\ast$ \hyperlink{structaave__sound_a3e64f8a8399ae64de4d5ebd266fd7eb3}{next}
+\item 
+struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$ \hyperlink{structaave__sound_ac56f4ab64afcb0668832301110e3bfdb}{source}
+\item 
+float $\ast$ \hyperlink{structaave__sound_a04a3c01ca0a54233061a2e2ebac1b464}{position}
+\item 
+int \hyperlink{structaave__sound_ad452524fd55cf2d6490a7a7b9a1c85b7}{audible}
+\item 
+unsigned \hyperlink{structaave__sound_ad4ce9aa0eca1519c53465d9704fd6efa}{fade\-\_\-samples}
+\item 
+float \hyperlink{structaave__sound_abefe2c52139bd0fcad1413d82ce1635e}{distance}
+\item 
+float \hyperlink{structaave__sound_a32919a754ba68db947c74eaadad979c2}{distance\-\_\-smooth}
+\item 
+const float $\ast$ \hyperlink{structaave__sound_a01efd817868c055126f2aea812a44d1a}{hrtf} \mbox{[}2\mbox{]}
+\item 
+struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$ \hyperlink{structaave__sound_a4d8cbff05fc5af52a18ac1c9015cfc97}{surfaces} \mbox{[}\hyperlink{aave_8h_a5cc7807cca10cf0933038ad388171181}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}
+\item 
+float \hyperlink{structaave__sound_a0627e96d3a12a30fec75a65cc6f402a7}{image\-\_\-sources} \mbox{[}\hyperlink{aave_8h_a5cc7807cca10cf0933038ad388171181}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}\mbox{[}3\mbox{]}
+\item 
+float \hyperlink{structaave__sound_a06b4b094d9e92084c8b10a99bfe74e5e}{reflection\-\_\-points} \mbox{[}\hyperlink{aave_8h_a5cc7807cca10cf0933038ad388171181}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}\mbox{[}3\mbox{]}
+\item 
+float \hyperlink{structaave__sound_aa94c4070b91409c6cac4189fc599f6f9}{dft} \mbox{[}\hyperlink{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$4\mbox{]}
+\item 
+float \hyperlink{structaave__sound_a6e27d4a259442303d940706031c2ee83}{filter} \mbox{[}\hyperlink{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data for each sound to auralise. 
+
+\subsection{Field Documentation}
+\hypertarget{structaave__sound_ad452524fd55cf2d6490a7a7b9a1c85b7}{\index{aave\-\_\-sound@{aave\-\_\-sound}!audible@{audible}}
+\index{audible@{audible}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{audible}]{\setlength{\rightskip}{0pt plus 5cm}int aave\-\_\-sound\-::audible}}\label{structaave__sound_ad452524fd55cf2d6490a7a7b9a1c85b7}
+Flag that indicates if the sound is audible (1) or not (0). \hypertarget{structaave__sound_aa94c4070b91409c6cac4189fc599f6f9}{\index{aave\-\_\-sound@{aave\-\_\-sound}!dft@{dft}}
+\index{dft@{dft}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{dft}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-sound\-::dft\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$4\mbox{]}}}\label{structaave__sound_aa94c4070b91409c6cac4189fc599f6f9}
+The D\-F\-T of the previous audio block. \hypertarget{structaave__sound_abefe2c52139bd0fcad1413d82ce1635e}{\index{aave\-\_\-sound@{aave\-\_\-sound}!distance@{distance}}
+\index{distance@{distance}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-sound\-::distance}}\label{structaave__sound_abefe2c52139bd0fcad1413d82ce1635e}
+The previous distance value used (for the crossfading). \hypertarget{structaave__sound_a32919a754ba68db947c74eaadad979c2}{\index{aave\-\_\-sound@{aave\-\_\-sound}!distance\-\_\-smooth@{distance\-\_\-smooth}}
+\index{distance\-\_\-smooth@{distance\-\_\-smooth}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{distance\-\_\-smooth}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-sound\-::distance\-\_\-smooth}}\label{structaave__sound_a32919a754ba68db947c74eaadad979c2}
+Smooth (low-\/pass filtered) distance value (for the resampling). \hypertarget{structaave__sound_ad4ce9aa0eca1519c53465d9704fd6efa}{\index{aave\-\_\-sound@{aave\-\_\-sound}!fade\-\_\-samples@{fade\-\_\-samples}}
+\index{fade\-\_\-samples@{fade\-\_\-samples}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{fade\-\_\-samples}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-\_\-sound\-::fade\-\_\-samples}}\label{structaave__sound_ad4ce9aa0eca1519c53465d9704fd6efa}
+The previous fade-\/in/out sample count value used (for the fade-\/in/out of appearing/disappearing sounds). \hypertarget{structaave__sound_a6e27d4a259442303d940706031c2ee83}{\index{aave\-\_\-sound@{aave\-\_\-sound}!filter@{filter}}
+\index{filter@{filter}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-sound\-::filter\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$4\mbox{]}}}\label{structaave__sound_a6e27d4a259442303d940706031c2ee83}
+The material absorption filter D\-F\-T. \hypertarget{structaave__sound_a01efd817868c055126f2aea812a44d1a}{\index{aave\-\_\-sound@{aave\-\_\-sound}!hrtf@{hrtf}}
+\index{hrtf@{hrtf}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{hrtf}]{\setlength{\rightskip}{0pt plus 5cm}const float$\ast$ aave\-\_\-sound\-::hrtf\mbox{[}2\mbox{]}}}\label{structaave__sound_a01efd817868c055126f2aea812a44d1a}
+The previous H\-R\-T\-F pair used (for the crossfading). \hypertarget{structaave__sound_a0627e96d3a12a30fec75a65cc6f402a7}{\index{aave\-\_\-sound@{aave\-\_\-sound}!image\-\_\-sources@{image\-\_\-sources}}
+\index{image\-\_\-sources@{image\-\_\-sources}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{image\-\_\-sources}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-sound\-::image\-\_\-sources\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}\mbox{[}3\mbox{]}}}\label{structaave__sound_a0627e96d3a12a30fec75a65cc6f402a7}
+The image-\/source positions calculated for each reflection. \hypertarget{structaave__sound_a3e64f8a8399ae64de4d5ebd266fd7eb3}{\index{aave\-\_\-sound@{aave\-\_\-sound}!next@{next}}
+\index{next@{next}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-sound}$\ast$ aave\-\_\-sound\-::next}}\label{structaave__sound_a3e64f8a8399ae64de4d5ebd266fd7eb3}
+Pointer to the next sound (singly-\/linked list). \hypertarget{structaave__sound_a04a3c01ca0a54233061a2e2ebac1b464}{\index{aave\-\_\-sound@{aave\-\_\-sound}!position@{position}}
+\index{position@{position}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ aave\-\_\-sound\-::position}}\label{structaave__sound_a04a3c01ca0a54233061a2e2ebac1b464}
+Position of the source or image-\/source of this sound \mbox{[}x,y,z\mbox{]} (m). If this is a direct sound, this points to source-\/$>$position. If it is a reflection, this points to image\-\_\-sources\mbox{[}order\mbox{]}. \hypertarget{structaave__sound_a06b4b094d9e92084c8b10a99bfe74e5e}{\index{aave\-\_\-sound@{aave\-\_\-sound}!reflection\-\_\-points@{reflection\-\_\-points}}
+\index{reflection\-\_\-points@{reflection\-\_\-points}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{reflection\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-sound\-::reflection\-\_\-points\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}\mbox{[}3\mbox{]}}}\label{structaave__sound_a06b4b094d9e92084c8b10a99bfe74e5e}
+The points \mbox{[}x,y,z\mbox{]} where this sound reflects. \hypertarget{structaave__sound_ac56f4ab64afcb0668832301110e3bfdb}{\index{aave\-\_\-sound@{aave\-\_\-sound}!source@{source}}
+\index{source@{source}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{source}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-source}$\ast$ aave\-\_\-sound\-::source}}\label{structaave__sound_ac56f4ab64afcb0668832301110e3bfdb}
+The sound source that is producing this sound. \hypertarget{structaave__sound_a4d8cbff05fc5af52a18ac1c9015cfc97}{\index{aave\-\_\-sound@{aave\-\_\-sound}!surfaces@{surfaces}}
+\index{surfaces@{surfaces}!aave_sound@{aave\-\_\-sound}}
+\subsubsection[{surfaces}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-surface}$\ast$ aave\-\_\-sound\-::surfaces\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}}}\label{structaave__sound_a4d8cbff05fc5af52a18ac1c9015cfc97}
+The surfaces where this sound reflects. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aave_8h}{aave.\-h}\end{DoxyCompactItemize}

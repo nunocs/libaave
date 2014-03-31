@@ -1,0 +1,79 @@
+\hypertarget{dft_8h}{\section{dft.\-h File Reference}
+\label{dft_8h}\index{dft.\-h@{dft.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{dft_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{dft} (float $\ast$X, const \hyperlink{material_8c_a11ddec9c2a797ebe5e6b6f2ae522404f}{D\-F\-T\-\_\-\-T\-Y\-P\-E} $\ast$x, unsigned n)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \hyperlink{dft_8h_a3196640d8e9b871f615b6a42a6b77123}{dftsincos} \mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{dft_8h}{dft.\-h} file implements the discrete Fourier transform (D\-F\-T) of real-\/input data of power-\/of-\/2 sizes, using the Cooley-\/\-Tukey F\-F\-T algorithm (\href{http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm}{\tt http\-://en.\-wikipedia.\-org/wiki/\-Cooley\%\-E2\%80\%93\-Tukey\-\_\-\-F\-F\-T\-\_\-algorithm}).
+
+It is about 3 times faster than the equivalent real input to complex-\/\-Hermitian output plan fftw\-\_\-plan\-\_\-dft\-\_\-r2c\-\_\-1d of the fftw library (\href{http://www.fftw.org/}{\tt http\-://www.\-fftw.\-org/}). Furthermore, it implicitly type-\/converts and zero-\/pads the input data to twice the size, making the comparison even more favorable for this implementation.
+
+The drawback is that the ouput Fourier coefficients end up unordered. However, this is irrevelant for our main purpose of performing fast convolutions, because the corresponding inverse discrete Fourier transform (I\-D\-F\-T) implemented in \hyperlink{idft_8h}{idft.\-h} also uses the same order. For the case where it is necessary to know the order of the Fourier coefficients, namely the design of the material absorption filters in \hyperlink{material_8c}{material.\-c}, the function \hyperlink{aave_8h_a5b453c8df5597105b3a7cde336e83e0e}{dft\-\_\-index()} can be used to retrieve the Fourier coefficients in any desired order.
+
+This \hyperlink{dft_8h}{dft.\-h} file is implemented as a \char`\"{}template\char`\"{}. To create a \hyperlink{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{dft()} function to use in your source code to transform input data of some type, for example type short (16-\/bit audio samples), include the following in your source code file\-: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define DFT\_TYPE short}
+\textcolor{preprocessor}{#include "dft.h"}
+\end{DoxyCode}
+ This will insert a static \hyperlink{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{dft()} function in your source code file that calculates the Fourier coefficients of an array of short integers. 
+
+\subsection{Function Documentation}
+\hypertarget{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{\index{dft.\-h@{dft.\-h}!dft@{dft}}
+\index{dft@{dft}!dft.h@{dft.\-h}}
+\subsubsection[{dft}]{\setlength{\rightskip}{0pt plus 5cm}static void dft (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{X, }
+\item[{const {\bf D\-F\-T\-\_\-\-T\-Y\-P\-E} $\ast$}]{x, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}
+This dft function calculates the {\ttfamily n} point discrete Fourier transform of the zero-\/padded real-\/input data values pointed by {\ttfamily x} and stores the Fourier coefficients in {\ttfamily X}. {\ttfamily x} points to {\ttfamily n} / 2 elements (elements {\ttfamily n} / 2 to {\ttfamily n} -\/ 1 are implicitly zero-\/padded). {\ttfamily X} points to {\ttfamily n} elements, which correspond to the Fourier coefficients 0 to {\ttfamily n} / 2, (un)ordered as follows\-:
+\begin{DoxyItemize}
+\item X\mbox{[}0\mbox{]} = X\mbox{[}0\mbox{]}.real;
+\item X\mbox{[}1\mbox{]} = X\mbox{[}N/2\mbox{]}.real;
+\item X\mbox{[}2\mbox{]} = X\mbox{[}N/4\mbox{]}.real;
+\item X\mbox{[}3\mbox{]} = X\mbox{[}N/4\mbox{]}.imag;
+\item etc... (see \hyperlink{aave_8h_a5b453c8df5597105b3a7cde336e83e0e}{dft\-\_\-index()} for the complete ordering)
+\end{DoxyItemize}
+
+Remember that when the input data is real\-:
+\begin{DoxyItemize}
+\item X\mbox{[}0\mbox{]}.imag = 0;
+\item X\mbox{[}N/2\mbox{]}.imag = 0;
+\item X\mbox{[}N/2+i\mbox{]}.real = X\mbox{[}N/2-\/i\mbox{]}.real;
+\item X\mbox{[}N/2+i\mbox{]}.imag = -\/ X\mbox{[}N/2-\/i\mbox{]}.imag; 
+\end{DoxyItemize}
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dft_8h_ad9584a3bdc946bf6faece23f05dc797d_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{dft_8h_a3196640d8e9b871f615b6a42a6b77123}{\index{dft.\-h@{dft.\-h}!dftsincos@{dftsincos}}
+\index{dftsincos@{dftsincos}!dft.h@{dft.\-h}}
+\subsubsection[{dftsincos}]{\setlength{\rightskip}{0pt plus 5cm}const float dftsincos\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}}}\label{dft_8h_a3196640d8e9b871f615b6a42a6b77123}
+Table with the pre-\/calculated sin() and cos() values. 

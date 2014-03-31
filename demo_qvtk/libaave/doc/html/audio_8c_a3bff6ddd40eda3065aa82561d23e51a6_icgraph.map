@@ -1,0 +1,4 @@
+<map id="fade_out_gain" name="fade_out_gain">
+<area shape="rect" id="node3" href="$audio_8c.html#a0435bc74e8d5edca85e72ab93a72bc37" title="aave_hrtf_fill_output\l_buffer" alt="" coords="157,5,296,51"/>
+<area shape="rect" id="node5" href="$audio_8c.html#afe43a0d12af335e2f133c0da2a99422f" title="aave_get_audio" alt="" coords="345,13,457,43"/>
+</map>

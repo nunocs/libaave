@@ -1,0 +1,575 @@
+\hypertarget{geometry_8c}{\section{geometry.\-c File Reference}
+\label{geometry_8c}\index{geometry.\-c@{geometry.\-c}}
+}
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+Include dependency graph for geometry.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{geometry_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{geometry_8c_a373b4381636c15ec96dbc6f3e4655798}{dot\-\_\-product} (const float a\mbox{[}3\mbox{]}, const float b\mbox{[}3\mbox{]})
+\item 
+static void \hyperlink{geometry_8c_a5e59594bab3bc1ecd8e25ad887a4372f}{cross\-\_\-product} (float n\mbox{[}3\mbox{]}, const float a\mbox{[}3\mbox{]}, const float b\mbox{[}3\mbox{]})
+\item 
+static float \hyperlink{geometry_8c_adbb79889a33b12c8b090faa854af8109}{norm} (const float x\mbox{[}3\mbox{]})
+\item 
+static void \hyperlink{geometry_8c_a87c81ecc33ad5301b6c3b1584fc84525}{normalise} (float y\mbox{[}3\mbox{]}, const float x\mbox{[}3\mbox{]})
+\item 
+static void \hyperlink{geometry_8c_ab40fce8a1525cf5d9194e909227c942d}{aave\-\_\-image\-\_\-source} (const struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surface, const float source\mbox{[}3\mbox{]}, float image\mbox{[}3\mbox{]})
+\item 
+static void \hyperlink{geometry_8c_abfbdee9c2e4714938fd9e458f08cbd40}{local\-\_\-coordinates} (float y\mbox{[}2\mbox{]}, const float x\mbox{[}3\mbox{]}, const struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surface)
+\item 
+static int \hyperlink{geometry_8c_a4b47f01d4d88d73e92bdcca2d690140a}{aave\-\_\-intersection} (const struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surface, const float a\mbox{[}3\mbox{]}, const float b\mbox{[}3\mbox{]}, const float v\mbox{[}3\mbox{]}, float xyz\mbox{[}3\mbox{]})
+\item 
+static int \hyperlink{geometry_8c_a2a9db056c43a4f4b2aece2329a98e2eb}{aave\-\_\-is\-\_\-visible} (const struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, const float a\mbox{[}3\mbox{]}, const float b\mbox{[}3\mbox{]})
+\item 
+static int \hyperlink{geometry_8c_a814ea9c79e9276c9e6407192d3bfb3c1}{aave\-\_\-build\-\_\-sound\-\_\-path} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source, unsigned order, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surfaces\mbox{[}$\,$\mbox{]}, float image\-\_\-sources\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, float x\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]})
+\item 
+static void \hyperlink{geometry_8c_a59ff10a7f9bd39866063bb05918d3df0}{aave\-\_\-create\-\_\-sound} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source, unsigned order, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surfaces\mbox{[}$\,$\mbox{]}, float image\-\_\-sources\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]})
+\item 
+static void \hyperlink{geometry_8c_a2c55d6e06ff73570a887d18807442412}{aave\-\_\-create\-\_\-sounds\-\_\-recursively} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source, unsigned order, unsigned o, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surfaces\mbox{[}$\,$\mbox{]}, float image\-\_\-sources\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]})
+\item 
+static void \hyperlink{geometry_8c_ab67540c77da19bfc111eaa423d500d33}{aave\-\_\-create\-\_\-sounds} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source, unsigned order)
+\item 
+static void \hyperlink{geometry_8c_afd54b3e8b06cda8e2f3aaf0e61b61e3b}{aave\-\_\-update\-\_\-sound} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__sound}{aave\-\_\-sound} $\ast$sound, unsigned order)
+\item 
+void \hyperlink{geometry_8c_a8e3a9e9e5e071df68f28a10dd9165ee5}{aave\-\_\-get\-\_\-coordinates} (const struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, const float $\ast$source\-\_\-position, float $\ast$distance, float $\ast$elevation, float $\ast$azimuth)
+\item 
+void \hyperlink{geometry_8c_a2e076058a0c5db597a069c1c83f03f9f}{aave\-\_\-add\-\_\-source} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source)
+\item 
+void \hyperlink{geometry_8c_a28df3e4ac0fb06ac989de8c42f9f4ab7}{aave\-\_\-add\-\_\-surface} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surface)
+\item 
+void \hyperlink{geometry_8c_a3d6cc2d0548455d9fcd01a8f6057979b}{aave\-\_\-set\-\_\-listener\-\_\-orientation} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, float roll, float pitch, float yaw)
+\item 
+void \hyperlink{geometry_8c_a78ea9243574f5e2ae0328e05ce9de845}{aave\-\_\-set\-\_\-listener\-\_\-position} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, float x, float y, float z)
+\item 
+void \hyperlink{geometry_8c_a168e1e4d6eb11b303db5272f8a4c22df}{aave\-\_\-set\-\_\-source\-\_\-position} (struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source, float x, float y, float z)
+\item 
+void \hyperlink{geometry_8c_a128fc0893ce9e549392265802bf62d20}{aave\-\_\-update} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{geometry_8c}{geometry.\-c} file contains the functions that implement the geometry part of the auralisation process, based on the image source model shown in\-: \char`\"{}\-Auralization\-: Fundamentals of Acoustics, Modelling, Simulation,
+\-Algorithms and Acoustic Virtual Reality\char`\"{}, Michael Vorlander, 2008, Section 11.\-3 Image source model.
+
+At startup, the \hyperlink{aave_8h_a20e98109bd38d422444f2959c0a6b80c}{aave\-\_\-add\-\_\-surface()} function is called for each surface, and the \hyperlink{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}{aave\-\_\-add\-\_\-source()} function is called for each sound source, to build the auralisation world.
+
+At runtime, the \hyperlink{aave_8h_a41a4224263cd8432d79099871d542b2e}{aave\-\_\-set\-\_\-listener\-\_\-position()} or \hyperlink{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}{aave\-\_\-set\-\_\-source\-\_\-position()} functions are called when the listener or sound sources move, followed by \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\-\_\-update()} to perform all geometric calculations to discover the audible sounds for the new positions, and the \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\-\_\-set\-\_\-listener\-\_\-orientation()} function is called when the listener moves her head. 
+
+\subsection{Function Documentation}
+\hypertarget{geometry_8c_a2e076058a0c5db597a069c1c83f03f9f}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-add\-\_\-source@{aave\-\_\-add\-\_\-source}}
+\index{aave\-\_\-add\-\_\-source@{aave\-\_\-add\-\_\-source}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-add\-\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-add\-\_\-source (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source}
+\end{DoxyParamCaption}
+)}}\label{geometry_8c_a2e076058a0c5db597a069c1c83f03f9f}
+Add a sound source to the auralisation world. \hypertarget{geometry_8c_a28df3e4ac0fb06ac989de8c42f9f4ab7}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-add\-\_\-surface@{aave\-\_\-add\-\_\-surface}}
+\index{aave\-\_\-add\-\_\-surface@{aave\-\_\-add\-\_\-surface}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-add\-\_\-surface}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-add\-\_\-surface (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}}\label{geometry_8c_a28df3e4ac0fb06ac989de8c42f9f4ab7}
+Add a surface to the auralisation world. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a28df3e4ac0fb06ac989de8c42f9f4ab7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{geometry_8c_a28df3e4ac0fb06ac989de8c42f9f4ab7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a814ea9c79e9276c9e6407192d3bfb3c1}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-build\-\_\-sound\-\_\-path@{aave\-\_\-build\-\_\-sound\-\_\-path}}
+\index{aave\-\_\-build\-\_\-sound\-\_\-path@{aave\-\_\-build\-\_\-sound\-\_\-path}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-build\-\_\-sound\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}static int aave\-\_\-build\-\_\-sound\-\_\-path (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{unsigned}]{order, }
+\item[{struct {\bf aave\-\_\-surface} $\ast$}]{surfaces\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{image\-\_\-sources\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{float}]{x\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a814ea9c79e9276c9e6407192d3bfb3c1}
+Create the sound path from the source pointed by  to the listerner, for reflection order {\ttfamily order}, that reflects on the specified sequence of {\ttfamily surfaces}, with corresponding image source positions {\ttfamily image\-\_\-sources}. The calculated reflection points are stored in {\ttfamily x}. Returns 1 if the sound path is audible, or 0 otherwise. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a814ea9c79e9276c9e6407192d3bfb3c1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a814ea9c79e9276c9e6407192d3bfb3c1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a59ff10a7f9bd39866063bb05918d3df0}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-create\-\_\-sound@{aave\-\_\-create\-\_\-sound}}
+\index{aave\-\_\-create\-\_\-sound@{aave\-\_\-create\-\_\-sound}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-create\-\_\-sound}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-create\-\_\-sound (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{unsigned}]{order, }
+\item[{struct {\bf aave\-\_\-surface} $\ast$}]{surfaces\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{image\-\_\-sources\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a59ff10a7f9bd39866063bb05918d3df0}
+Create a sound to be auralised by the audio processing. {\ttfamily source} is the sound source that originates the sound, {\ttfamily order} is the reflection order of the sound, {\ttfamily surfaces} is the sequence of surfaces where the sound reflects, and {\ttfamily image\-\_\-sources} are the positions of the corresponding image-\/sources. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a59ff10a7f9bd39866063bb05918d3df0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a59ff10a7f9bd39866063bb05918d3df0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_ab67540c77da19bfc111eaa423d500d33}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-create\-\_\-sounds@{aave\-\_\-create\-\_\-sounds}}
+\index{aave\-\_\-create\-\_\-sounds@{aave\-\_\-create\-\_\-sounds}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-create\-\_\-sounds}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-create\-\_\-sounds (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{unsigned}]{order}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_ab67540c77da19bfc111eaa423d500d33}
+Create all audible sounds originated from the specified sound source up to, and including, the specified reflection order. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_ab67540c77da19bfc111eaa423d500d33_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{geometry_8c_ab67540c77da19bfc111eaa423d500d33_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a2c55d6e06ff73570a887d18807442412}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-create\-\_\-sounds\-\_\-recursively@{aave\-\_\-create\-\_\-sounds\-\_\-recursively}}
+\index{aave\-\_\-create\-\_\-sounds\-\_\-recursively@{aave\-\_\-create\-\_\-sounds\-\_\-recursively}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-create\-\_\-sounds\-\_\-recursively}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-create\-\_\-sounds\-\_\-recursively (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{unsigned}]{order, }
+\item[{unsigned}]{o, }
+\item[{struct {\bf aave\-\_\-surface} $\ast$}]{surfaces\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{image\-\_\-sources\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a2c55d6e06ff73570a887d18807442412}
+Recursively create all audible sounds of a given reflection order that originate from a sound source. {\ttfamily source} is the sound source, {\ttfamily order} is the reflection order, {\ttfamily o} is the current reflection order in the recursive process, {\ttfamily surfaces} is the stack of surfaces where the current sound reflects, {\ttfamily image\-\_\-sources} is the stack of corresponding image source positions.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000007}{Todo}]Implement the iterative version of this recursive algorithm. \end{DoxyRefDesc}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a2c55d6e06ff73570a887d18807442412_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a2c55d6e06ff73570a887d18807442412_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a8e3a9e9e5e071df68f28a10dd9165ee5}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-get\-\_\-coordinates@{aave\-\_\-get\-\_\-coordinates}}
+\index{aave\-\_\-get\-\_\-coordinates@{aave\-\_\-get\-\_\-coordinates}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-get\-\_\-coordinates}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-get\-\_\-coordinates (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf aave} $\ast$}]{aave, }
+\item[{const float $\ast$}]{source\-\_\-position, }
+\item[{float $\ast$}]{distance, }
+\item[{float $\ast$}]{elevation, }
+\item[{float $\ast$}]{azimuth}
+\end{DoxyParamCaption}
+)}}\label{geometry_8c_a8e3a9e9e5e071df68f28a10dd9165ee5}
+Get the {\ttfamily distance} (m), {\ttfamily azimuth} (rad) and {\ttfamily elevation} (rad) coordinates of the position {\ttfamily source\-\_\-position} of a source relative to the listener. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{geometry_8c_a8e3a9e9e5e071df68f28a10dd9165ee5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a8e3a9e9e5e071df68f28a10dd9165ee5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_ab40fce8a1525cf5d9194e909227c942d}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-image\-\_\-source@{aave\-\_\-image\-\_\-source}}
+\index{aave\-\_\-image\-\_\-source@{aave\-\_\-image\-\_\-source}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-image\-\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-image\-\_\-source (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf aave\-\_\-surface} $\ast$}]{surface, }
+\item[{const float}]{source\mbox{[}3\mbox{]}, }
+\item[{float}]{image\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_ab40fce8a1525cf5d9194e909227c942d}
+Calculate the position \mbox{[}x,y,z\mbox{]} of the image-\/source of the sound source at position {\ttfamily source} created by the surface pointed by {\ttfamily surface}. The position of the image-\/source is returned in {\ttfamily image}.
+
+Reference\-: \char`\"{}\-Auralization\-: Fundamentals of Acoustics, Modelling,
+\-Simulation, Algorithms and Acoustic Virtual Reality\char`\"{}, Michael Vorlander, 2008, Section 11.\-3.\-1 Classical model. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{geometry_8c_ab40fce8a1525cf5d9194e909227c942d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_ab40fce8a1525cf5d9194e909227c942d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a4b47f01d4d88d73e92bdcca2d690140a}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-intersection@{aave\-\_\-intersection}}
+\index{aave\-\_\-intersection@{aave\-\_\-intersection}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-intersection}]{\setlength{\rightskip}{0pt plus 5cm}static int aave\-\_\-intersection (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf aave\-\_\-surface} $\ast$}]{surface, }
+\item[{const float}]{a\mbox{[}3\mbox{]}, }
+\item[{const float}]{b\mbox{[}3\mbox{]}, }
+\item[{const float}]{v\mbox{[}3\mbox{]}, }
+\item[{float}]{xyz\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a4b47f01d4d88d73e92bdcca2d690140a}
+Check if the vector {\ttfamily v} (a line segment from point {\ttfamily a} to point {\ttfamily b}) intersects the surface pointed by {\ttfamily surface}. Returns 0 if false or 1 if true, and the intersection point in {\ttfamily xyz}.
+
+Reference\-: P\-N\-P\-O\-L\-Y -\/ Point Inclusion in Polygon Test, W. Randolph Franklin, \href{http://www.ecse.rpi.edu/~wrf/Research/Short_Notes/pnpoly.html}{\tt http\-://www.\-ecse.\-rpi.\-edu/$\sim$wrf/\-Research/\-Short\-\_\-\-Notes/pnpoly.\-html} 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a4b47f01d4d88d73e92bdcca2d690140a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a4b47f01d4d88d73e92bdcca2d690140a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a2a9db056c43a4f4b2aece2329a98e2eb}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-is\-\_\-visible@{aave\-\_\-is\-\_\-visible}}
+\index{aave\-\_\-is\-\_\-visible@{aave\-\_\-is\-\_\-visible}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-is\-\_\-visible}]{\setlength{\rightskip}{0pt plus 5cm}static int aave\-\_\-is\-\_\-visible (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf aave} $\ast$}]{aave, }
+\item[{const float}]{a\mbox{[}3\mbox{]}, }
+\item[{const float}]{b\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a2a9db056c43a4f4b2aece2329a98e2eb}
+Check if the sound path from point {\ttfamily a} to point {\ttfamily b} is visible. Returns 0 if the line segment b-\/a is intersected by any surface, or 1 otherwise. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a2a9db056c43a4f4b2aece2329a98e2eb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a2a9db056c43a4f4b2aece2329a98e2eb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a3d6cc2d0548455d9fcd01a8f6057979b}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-set\-\_\-listener\-\_\-orientation@{aave\-\_\-set\-\_\-listener\-\_\-orientation}}
+\index{aave\-\_\-set\-\_\-listener\-\_\-orientation@{aave\-\_\-set\-\_\-listener\-\_\-orientation}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-set\-\_\-listener\-\_\-orientation}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-set\-\_\-listener\-\_\-orientation (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{float}]{roll, }
+\item[{float}]{pitch, }
+\item[{float}]{yaw}
+\end{DoxyParamCaption}
+)}}\label{geometry_8c_a3d6cc2d0548455d9fcd01a8f6057979b}
+Set the orientation of the listener's head. \hypertarget{geometry_8c_a78ea9243574f5e2ae0328e05ce9de845}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-set\-\_\-listener\-\_\-position@{aave\-\_\-set\-\_\-listener\-\_\-position}}
+\index{aave\-\_\-set\-\_\-listener\-\_\-position@{aave\-\_\-set\-\_\-listener\-\_\-position}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-set\-\_\-listener\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-set\-\_\-listener\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{geometry_8c_a78ea9243574f5e2ae0328e05ce9de845}
+Set the position of the listener.
+
+The \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\-\_\-update()} function should be called afterwards to update the state of the auralisation engine to reflect the new position. \hypertarget{geometry_8c_a168e1e4d6eb11b303db5272f8a4c22df}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-set\-\_\-source\-\_\-position@{aave\-\_\-set\-\_\-source\-\_\-position}}
+\index{aave\-\_\-set\-\_\-source\-\_\-position@{aave\-\_\-set\-\_\-source\-\_\-position}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-set\-\_\-source\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-set\-\_\-source\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{geometry_8c_a168e1e4d6eb11b303db5272f8a4c22df}
+Set the position of a sound source.
+
+The \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\-\_\-update()} function should be called afterwards to update the state of the auralisation engine to reflect the new position. \hypertarget{geometry_8c_a128fc0893ce9e549392265802bf62d20}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-update@{aave\-\_\-update}}
+\index{aave\-\_\-update@{aave\-\_\-update}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave}
+\end{DoxyParamCaption}
+)}}\label{geometry_8c_a128fc0893ce9e549392265802bf62d20}
+Update the whole state of the auralisation world. Runs the visibility checks for all sounds from all sources. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a128fc0893ce9e549392265802bf62d20_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_afd54b3e8b06cda8e2f3aaf0e61b61e3b}{\index{geometry.\-c@{geometry.\-c}!aave\-\_\-update\-\_\-sound@{aave\-\_\-update\-\_\-sound}}
+\index{aave\-\_\-update\-\_\-sound@{aave\-\_\-update\-\_\-sound}!geometry.c@{geometry.\-c}}
+\subsubsection[{aave\-\_\-update\-\_\-sound}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-update\-\_\-sound (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-sound} $\ast$}]{sound, }
+\item[{unsigned}]{order}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_afd54b3e8b06cda8e2f3aaf0e61b61e3b}
+Update the distance and azimuth of the listener relative to a sound source. Calculate the (distance, elevation, azimuth) vector from the listener-\/to-\/source vector (x, y, z) with listener orientation (roll, pitch, yaw). Angles in radians. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_afd54b3e8b06cda8e2f3aaf0e61b61e3b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{geometry_8c_afd54b3e8b06cda8e2f3aaf0e61b61e3b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a5e59594bab3bc1ecd8e25ad887a4372f}{\index{geometry.\-c@{geometry.\-c}!cross\-\_\-product@{cross\-\_\-product}}
+\index{cross\-\_\-product@{cross\-\_\-product}!geometry.c@{geometry.\-c}}
+\subsubsection[{cross\-\_\-product}]{\setlength{\rightskip}{0pt plus 5cm}static void cross\-\_\-product (
+\begin{DoxyParamCaption}
+\item[{float}]{n\mbox{[}3\mbox{]}, }
+\item[{const float}]{a\mbox{[}3\mbox{]}, }
+\item[{const float}]{b\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a5e59594bab3bc1ecd8e25ad887a4372f}
+Calculate the cross product n = a x b. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a5e59594bab3bc1ecd8e25ad887a4372f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a373b4381636c15ec96dbc6f3e4655798}{\index{geometry.\-c@{geometry.\-c}!dot\-\_\-product@{dot\-\_\-product}}
+\index{dot\-\_\-product@{dot\-\_\-product}!geometry.c@{geometry.\-c}}
+\subsubsection[{dot\-\_\-product}]{\setlength{\rightskip}{0pt plus 5cm}static float dot\-\_\-product (
+\begin{DoxyParamCaption}
+\item[{const float}]{a\mbox{[}3\mbox{]}, }
+\item[{const float}]{b\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a373b4381636c15ec96dbc6f3e4655798}
+Calculate the dot product a . b 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a373b4381636c15ec96dbc6f3e4655798_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_abfbdee9c2e4714938fd9e458f08cbd40}{\index{geometry.\-c@{geometry.\-c}!local\-\_\-coordinates@{local\-\_\-coordinates}}
+\index{local\-\_\-coordinates@{local\-\_\-coordinates}!geometry.c@{geometry.\-c}}
+\subsubsection[{local\-\_\-coordinates}]{\setlength{\rightskip}{0pt plus 5cm}static void local\-\_\-coordinates (
+\begin{DoxyParamCaption}
+\item[{float}]{y\mbox{[}2\mbox{]}, }
+\item[{const float}]{x\mbox{[}3\mbox{]}, }
+\item[{const struct {\bf aave\-\_\-surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_abfbdee9c2e4714938fd9e458f08cbd40}
+Calculate the coordinates {\ttfamily y} \mbox{[}x,y\mbox{]} of the point {\ttfamily x} \mbox{[}x,y,z\mbox{]} in the local coordinates of the surface pointed by {\ttfamily surface}. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{geometry_8c_abfbdee9c2e4714938fd9e458f08cbd40_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_abfbdee9c2e4714938fd9e458f08cbd40_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_adbb79889a33b12c8b090faa854af8109}{\index{geometry.\-c@{geometry.\-c}!norm@{norm}}
+\index{norm@{norm}!geometry.c@{geometry.\-c}}
+\subsubsection[{norm}]{\setlength{\rightskip}{0pt plus 5cm}static float norm (
+\begin{DoxyParamCaption}
+\item[{const float}]{x\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_adbb79889a33b12c8b090faa854af8109}
+Calculate the norm of a vector. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_adbb79889a33b12c8b090faa854af8109_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{geometry_8c_a87c81ecc33ad5301b6c3b1584fc84525}{\index{geometry.\-c@{geometry.\-c}!normalise@{normalise}}
+\index{normalise@{normalise}!geometry.c@{geometry.\-c}}
+\subsubsection[{normalise}]{\setlength{\rightskip}{0pt plus 5cm}static void normalise (
+\begin{DoxyParamCaption}
+\item[{float}]{y\mbox{[}3\mbox{]}, }
+\item[{const float}]{x\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{geometry_8c_a87c81ecc33ad5301b6c3b1584fc84525}
+\char`\"{}\-Normalise\char`\"{} a vector (divide it by its norm)\-: y = x / norm(x) 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{geometry_8c_a87c81ecc33ad5301b6c3b1584fc84525_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry_8c_a87c81ecc33ad5301b6c3b1584fc84525_icgraph}
+\end{center}
+\end{figure}
+
+

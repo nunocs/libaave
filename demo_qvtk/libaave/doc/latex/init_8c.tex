@@ -1,0 +1,62 @@
+\hypertarget{init_8c}{\section{init.\-c File Reference}
+\label{init_8c}\index{init.\-c@{init.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdio.\-h\char`\"{}}\\*
+Include dependency graph for init.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{init_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{init_8c_a7cbcde7ec76c57309c7b84ab91f753a7}{aave\-\_\-init} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, unsigned rt60)
+\item 
+void \hyperlink{init_8c_a4b94a9fb1e04a85c89d727879a3a8d4a}{aave\-\_\-init\-\_\-source} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{init_8c}{init.\-c} file contains the functions to initialise the data structures used in the Acoustic\-A\-V\-E library. 
+
+\subsection{Function Documentation}
+\hypertarget{init_8c_a7cbcde7ec76c57309c7b84ab91f753a7}{\index{init.\-c@{init.\-c}!aave\-\_\-init@{aave\-\_\-init}}
+\index{aave\-\_\-init@{aave\-\_\-init}!init.c@{init.\-c}}
+\subsubsection[{aave\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{unsigned}]{rt60}
+\end{DoxyParamCaption}
+)}}\label{init_8c_a7cbcde7ec76c57309c7b84ab91f753a7}
+Initialise the auralisation data structure.
+
+The listener's initial position is (0, 0, 0).
+
+The listener's head initial orientation is invalid! You must call \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\-\_\-set\-\_\-listener\-\_\-orientation()}!
+
+The initial output gain is 1 (0d\-B).
+
+The artificial reverberation tail is initially enabled. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{init_8c_a7cbcde7ec76c57309c7b84ab91f753a7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{init_8c_a4b94a9fb1e04a85c89d727879a3a8d4a}{\index{init.\-c@{init.\-c}!aave\-\_\-init\-\_\-source@{aave\-\_\-init\-\_\-source}}
+\index{aave\-\_\-init\-\_\-source@{aave\-\_\-init\-\_\-source}!init.c@{init.\-c}}
+\subsubsection[{aave\-\_\-init\-\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-init\-\_\-source (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source}
+\end{DoxyParamCaption}
+)}}\label{init_8c_a4b94a9fb1e04a85c89d727879a3a8d4a}
+Initialise a sound source data structure to be used by the aave engine. 

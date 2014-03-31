@@ -1,0 +1,96 @@
+\hypertarget{examples_2circle_8c-example}{\section{examples/circle.\-c}
+}
+An example of auralisation of a moving sound source describing a circle around the listener.
+
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{ * libaave/examples/circle.c: sinusoid sound circling around listener}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Copyright 2013 Universidade de Aveiro}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Written by Andre B. Oliveira <abo@ua.pt>}
+\textcolor{comment}{ */}
+
+\textcolor{comment}{/*}
+\textcolor{comment}{ * Usage: ./circle > output.raw}
+\textcolor{comment}{ */}
+
+\textcolor{preprocessor}{#include <math.h>}
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <stdlib.h>}
+\textcolor{preprocessor}{#include "\hyperlink{aave_8h}{aave.h}"}
+
+\textcolor{comment}{/* The frequency of the sinusoid (Hz). */}
+\textcolor{preprocessor}{#define F 1000}
+\textcolor{preprocessor}{}
+\textcolor{comment}{/* The distance the sound source is from the listener (m). */}
+\textcolor{preprocessor}{#define D 1}
+\textcolor{preprocessor}{}
+\textcolor{comment}{/* The angular velocity that the sound source is moving at (rad/s). */}
+\textcolor{preprocessor}{#if 0}
+\textcolor{preprocessor}{}\textcolor{preprocessor}{#define W (2 * M\_PI / 10) }\textcolor{comment}{/* do one full circle in 10 seconds */}\textcolor{preprocessor}{}
+\textcolor{preprocessor}{}\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{}\textcolor{preprocessor}{#define W (2 * M\_PI) }\textcolor{comment}{/* do one full circle per second */}\textcolor{preprocessor}{}
+\textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+\textcolor{preprocessor}{}
+\textcolor{keywordtype}{int} main()
+\{
+    \textcolor{keyword}{struct }\hyperlink{structaave}{aave} *\hyperlink{structaave}{aave};
+    \textcolor{keyword}{struct }\hyperlink{structaave__source}{aave\_source} *source;
+    \textcolor{keywordtype}{double} angle;
+    \textcolor{keywordtype}{float} x, y;
+    \textcolor{keywordtype}{unsigned} n;
+    \textcolor{keywordtype}{short} in, out[2];
+
+    \textcolor{comment}{/* Initialise auralisation engine. */}
+    aave = malloc(\textcolor{keyword}{sizeof} *aave);
+    \hyperlink{aave_8h_a044e13c0826108a728f0b6324c23fbab}{aave\_init}(aave);
+
+    \textcolor{comment}{/* Select the HRTF set to use. */}
+    \textcolor{comment}{/* aave\_hrtf\_cipic(aave); */}
+    \textcolor{comment}{/* aave\_hrtf\_listen(aave); */}
+    \hyperlink{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{aave\_hrtf\_mit}(aave);
+    \textcolor{comment}{/* aave\_hrtf\_tub(aave); */}
+
+    \textcolor{comment}{/* Set position and orientation of the listener. */}
+    \hyperlink{aave_8h_a41a4224263cd8432d79099871d542b2e}{aave\_set\_listener\_position}(aave, 0, 0, 0);
+    \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\_set\_listener\_orientation}(aave, 0, 0, 0);
+
+    \textcolor{comment}{/* Add the sound source to the auralisation world. */}
+    source = malloc(\textcolor{keyword}{sizeof} *source);
+    \hyperlink{aave_8h_a3682cd98f3556ad2b8c8e0bc8502371c}{aave\_init\_source}(aave, source);
+    \hyperlink{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}{aave\_add\_source}(aave, source);
+
+    \textcolor{comment}{/* Number of samples processed so far. */}
+    n = 0;
+
+    \textcolor{comment}{/* Process one sample at a time until we do 10 full circles. */}
+    \textcolor{keywordflow}{for} (angle = 0; angle <= 10 * 2 * M\_PI; angle += W / \hyperlink{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{AAVE\_FS}) \{
+
+        \textcolor{comment}{/* Set the position of the source for this sample. */}
+        x = D * cos(angle);
+        y = D * sin(angle);
+        \hyperlink{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}{aave\_set\_source\_position}(source, x, y, 0);
+
+        \textcolor{comment}{/* Update the geometry state of the auralisation engine. */}
+        \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\_update}(aave);
+
+        \textcolor{comment}{/* Generate one sample of audio for the sound source. */}
+        in = sin(2 * M\_PI * F / \hyperlink{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{AAVE\_FS} * n++) * 32767;
+        \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\_put\_audio}(source, &in, 1);
+
+        \textcolor{comment}{/* Collect the two samples of auralised binaural output. */}
+        \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\_get\_audio}(aave, out, 1);
+
+        \textcolor{comment}{/* Write the output to stdout in raw format. */}
+        \textcolor{keywordflow}{if} (fwrite(out, \textcolor{keyword}{sizeof}(out[0]), 2, stdout) != 2)
+            \textcolor{keywordflow}{return} 1;
+    \}
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ 

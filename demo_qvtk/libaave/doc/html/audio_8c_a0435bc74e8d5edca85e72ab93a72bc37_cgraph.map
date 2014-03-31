@@ -1,0 +1,15 @@
+<map id="aave_hrtf_fill_output_buffer" name="aave_hrtf_fill_output_buffer">
+<area shape="rect" id="node3" href="$audio_8c.html#a74e68044085a9e60e9d9065100a520b0" title="aave_hrtf_add_sound" alt="" coords="192,165,339,195"/>
+<area shape="rect" id="node23" href="$idft_8h.html#a797484e3f3d53d566ececbcfcd90f537" title="idft" alt="" coords="245,219,285,248"/>
+<area shape="rect" id="node25" href="$audio_8c.html#a3bff6ddd40eda3065aa82561d23e51a6" title="fade_out_gain" alt="" coords="215,272,316,301"/>
+<area shape="rect" id="node27" href="$audio_8c.html#a0ed45f17383de6ca52241b5ac60a10b2" title="fade_in_gain" alt="" coords="219,325,312,355"/>
+<area shape="rect" id="node5" href="$aave_8h.html#a98cd836fde1ac54fc6dcbb3aab416d8b" title="aave_get_coordinates" alt="" coords="399,32,548,61"/>
+<area shape="rect" id="node11" href="$audio_8c.html#a01cdef4fc35ac0cf58e59bed7c2af7d9" title="attenuation" alt="" coords="431,85,516,115"/>
+<area shape="rect" id="node13" href="$audio_8c.html#a4e6a8bd6af1e6e28fb9f4a59802913d6" title="cmadd" alt="" coords="443,139,504,168"/>
+<area shape="rect" id="node15" href="$audio_8c.html#a8dfc247d60dfeb02fe97ae7353731506" title="aave_audio_source_block" alt="" coords="388,192,559,221"/>
+<area shape="rect" id="node19" href="$dft_8h.html#ad9584a3bdc946bf6faece23f05dc797d" title="dft" alt="" coords="455,245,492,275"/>
+<area shape="rect" id="node21" href="$audio_8c.html#a5949cca50430419a0d66b75f6bf5793a" title="cmul" alt="" coords="448,299,499,328"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#adbb79889a33b12c8b090faa854af8109" title="norm" alt="" coords="628,5,679,35"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#a373b4381636c15ec96dbc6f3e4655798" title="dot_product" alt="" coords="608,59,699,88"/>
+<area shape="rect" id="node17" href="$reverb__dattorro_8c.html#a71156a2bb7fe5562368cb958346b2766" title="delay" alt="" coords="627,192,680,221"/>
+</map>

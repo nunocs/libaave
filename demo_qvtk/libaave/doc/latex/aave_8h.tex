@@ -1,0 +1,638 @@
+\hypertarget{aave_8h}{\section{aave.\-h File Reference}
+\label{aave_8h}\index{aave.\-h@{aave.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structaave}{aave}
+\item 
+struct \hyperlink{structaave__source}{aave\-\_\-source}
+\item 
+struct \hyperlink{structaave__surface}{aave\-\_\-surface}
+\item 
+struct \hyperlink{structaave__sound}{aave\-\_\-sound}
+\item 
+struct \hyperlink{structaave__material}{aave\-\_\-material}
+\item 
+struct \hyperlink{structaave__reverb}{aave\-\_\-reverb}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{A\-A\-V\-E\-\_\-\-F\-S}~44100
+\item 
+\#define \hyperlink{aave_8h_a5cc7807cca10cf0933038ad388171181}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}~16
+\item 
+\#define \hyperlink{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F}~2048
+\item 
+\#define \hyperlink{aave_8h_a0b7b591faf4644c56f374fef7a6141bc}{A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E}~131072
+\item 
+\#define \hyperlink{aave_8h_ad76f6ee2a275c27185c10ff7ea5187b2}{A\-A\-V\-E\-\_\-\-M\-A\-T\-E\-R\-I\-A\-L\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-\_\-\-F\-A\-C\-T\-O\-R\-S}~7
+\item 
+\#define \hyperlink{aave_8h_a94b17b055640b1a1593d032048ba3ed2}{A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D}~343.\-2
+\item 
+\#define \hyperlink{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}~64
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\-\_\-get\-\_\-audio} (struct \hyperlink{structaave}{aave} $\ast$, short $\ast$, unsigned)
+\item 
+void \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\-\_\-put\-\_\-audio} (struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$, const short $\ast$, unsigned)
+\item 
+unsigned \hyperlink{aave_8h_a5b453c8df5597105b3a7cde336e83e0e}{dft\-\_\-index} (unsigned, unsigned)
+\item 
+void \hyperlink{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}{aave\-\_\-add\-\_\-source} (struct \hyperlink{structaave}{aave} $\ast$, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$)
+\item 
+void \hyperlink{aave_8h_a20e98109bd38d422444f2959c0a6b80c}{aave\-\_\-add\-\_\-surface} (struct \hyperlink{structaave}{aave} $\ast$, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$)
+\item 
+void \hyperlink{aave_8h_a98cd836fde1ac54fc6dcbb3aab416d8b}{aave\-\_\-get\-\_\-coordinates} (const struct \hyperlink{structaave}{aave} $\ast$, const float $\ast$, float $\ast$, float $\ast$, float $\ast$)
+\item 
+void \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\-\_\-set\-\_\-listener\-\_\-orientation} (struct \hyperlink{structaave}{aave} $\ast$, float, float, float)
+\item 
+void \hyperlink{aave_8h_a41a4224263cd8432d79099871d542b2e}{aave\-\_\-set\-\_\-listener\-\_\-position} (struct \hyperlink{structaave}{aave} $\ast$, float, float, float)
+\item 
+void \hyperlink{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}{aave\-\_\-set\-\_\-source\-\_\-position} (struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$, float, float, float)
+\item 
+void \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\-\_\-update} (struct \hyperlink{structaave}{aave} $\ast$)
+\item 
+void \hyperlink{aave_8h_a9332f29f538c0e54272f61de0e420348}{aave\-\_\-hrtf\-\_\-cipic} (struct \hyperlink{structaave}{aave} $\ast$)
+\item 
+void \hyperlink{aave_8h_a1714770c36978ec1bfc9b4b5148e42be}{aave\-\_\-hrtf\-\_\-listen} (struct \hyperlink{structaave}{aave} $\ast$)
+\item 
+void \hyperlink{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{aave\-\_\-hrtf\-\_\-mit} (struct \hyperlink{structaave}{aave} $\ast$)
+\item 
+void \hyperlink{aave_8h_afbc85e87d1aaab2c91c7f15d1d5a9906}{aave\-\_\-hrtf\-\_\-tub} (struct \hyperlink{structaave}{aave} $\ast$)
+\item 
+void \hyperlink{aave_8h_a044e13c0826108a728f0b6324c23fbab}{aave\-\_\-init} (struct \hyperlink{structaave}{aave} $\ast$, unsigned)
+\item 
+void \hyperlink{aave_8h_a3682cd98f3556ad2b8c8e0bc8502371c}{aave\-\_\-init\-\_\-source} (struct \hyperlink{structaave}{aave} $\ast$, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$)
+\item 
+struct \hyperlink{structaave__material}{aave\-\_\-material} $\ast$ \hyperlink{aave_8h_a952abc42265cb150fa647c008e8ee937}{aave\-\_\-get\-\_\-material} (const char $\ast$)
+\item 
+void \hyperlink{aave_8h_a300799824871774e895676f347905cf3}{aave\-\_\-get\-\_\-material\-\_\-filter} (struct \hyperlink{structaave}{aave} $\ast$, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$$\ast$, unsigned, float $\ast$)
+\item 
+void \hyperlink{aave_8h_a7e664852f336438524336bdcac8be8bc}{aave\-\_\-read\-\_\-obj} (struct \hyperlink{structaave}{aave} $\ast$, const char $\ast$, unsigned, unsigned)
+\item 
+void \hyperlink{aave_8h_a87108aa6128bb303f58c46307a4b4ebb}{aave\-\_\-reverb\-\_\-dattorro} (struct \hyperlink{structaave}{aave} $\ast$, short $\ast$, unsigned)
+\item 
+void \hyperlink{aave_8h_aa5850eee4b27f5b7f2732f3457e00d79}{aave\-\_\-reverb\-\_\-jot} (struct \hyperlink{structaave}{aave} $\ast$, short $\ast$, unsigned)
+\item 
+void \hyperlink{aave_8h_a08e9496e914691f6f87708b74992020e}{init\-\_\-reverb} (struct \hyperlink{structaave__reverb}{aave\-\_\-reverb} $\ast$, float, float, float)
+\item 
+\hypertarget{aave_8h_a4b8e2ff48d88c6d2cbb9959f7d870d7c}{void {\bfseries print\-\_\-reverb\-\_\-parameters} (struct \hyperlink{structaave}{aave} $\ast$, struct \hyperlink{structaave__reverb}{aave\-\_\-reverb} $\ast$)}\label{aave_8h_a4b8e2ff48d88c6d2cbb9959f7d870d7c}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structaave__material}{aave\-\_\-material} \hyperlink{aave_8h_a49ce2ac99af8e6a499e6b6dfa8962e58}{aave\-\_\-material\-\_\-none}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{aave_8h}{aave.\-h} file is the public header file of the Acoustic\-A\-A\-V\-E library (libaave). It contains the declarations of the structures and functions used and implemented by the library. Include it from your program source files to use them.
+
+The following diagram provides an overview of the data structures in the library and their associations.
+
+
+\begin{DoxyImage}
+\includegraphics[width=\textwidth]{aave}
+\caption{Data structure diagram}
+\end{DoxyImage}
+
+
+The aave structure is the main data structure of the Acoustic\-A\-V\-E library. It contains all necessary information to completely define an auralisation world and its present auralisation state.
+
+The aave structure contains a list of \hyperlink{structaave__surface}{aave\-\_\-surface} structures. These surfaces define the geometry of the auralisation world. The material of each surface is indicated by pointing to the corresponding element in the aave\-\_\-materials table.
+
+The aave structure contains a list of \hyperlink{structaave__source}{aave\-\_\-source} structures, one for each sound source present in the auralisation world.
+
+The sound sources and surfaces in the auralisation world generate a number of sounds that reach the listener, and that are to be auralised by the library. These sounds are stored in the aave structure in a hash table indexed by the reflection order\-: direct sounds are put in the list of \hyperlink{structaave__sound}{aave\-\_\-sound} structures pointed by sounds\mbox{[}0\mbox{]}, 1st reflection sounds are put in sounds\mbox{[}1\mbox{]}, 2nd reflections in sounds\mbox{[}2\mbox{]}, etc... The \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\-\_\-update()} function is responsible for maintaining the hash table up to date, and the \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\-\_\-get\-\_\-audio()} function is responsible for auralising all sounds currently in it.
+
+Each \hyperlink{structaave__sound}{aave\-\_\-sound} structure contains a reference to its sound source and references to each surface where that sound reflects. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{\index{aave.\-h@{aave.\-h}!A\-A\-V\-E\-\_\-\-F\-S@{A\-A\-V\-E\-\_\-\-F\-S}}
+\index{A\-A\-V\-E\-\_\-\-F\-S@{A\-A\-V\-E\-\_\-\-F\-S}!aave.h@{aave.\-h}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-F\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-F\-S~44100}}\label{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}
+The audio sampling frequency, in Hz, used throughout the library. In particular, libaave expects the anechoic input data of the sound sources to be delivered in this sampling frequency. The auralisation binaural output data is also in this sampling frequency.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]To support different audio sampling frequencies without having to recompile the library, this value would be set in a member of the aave structure at runtime instead. Of course, that would incur in performance penalties, most importantly in the audio processing (one floating-\/point division per audio sample per auralised sound). Furthermore, the H\-R\-T\-F data sets would have to be resampled to the desired sampling frequency. \end{DoxyRefDesc}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, and \hyperlink{examples_2line_8c-example}{examples/line.\-c}.\end{Desc}
+\hypertarget{aave_8h_ad76f6ee2a275c27185c10ff7ea5187b2}{\index{aave.\-h@{aave.\-h}!A\-A\-V\-E\-\_\-\-M\-A\-T\-E\-R\-I\-A\-L\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-\_\-\-F\-A\-C\-T\-O\-R\-S@{A\-A\-V\-E\-\_\-\-M\-A\-T\-E\-R\-I\-A\-L\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-\_\-\-F\-A\-C\-T\-O\-R\-S}}
+\index{A\-A\-V\-E\-\_\-\-M\-A\-T\-E\-R\-I\-A\-L\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-\_\-\-F\-A\-C\-T\-O\-R\-S@{A\-A\-V\-E\-\_\-\-M\-A\-T\-E\-R\-I\-A\-L\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-\_\-\-F\-A\-C\-T\-O\-R\-S}!aave.h@{aave.\-h}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-M\-A\-T\-E\-R\-I\-A\-L\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-\_\-\-F\-A\-C\-T\-O\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-M\-A\-T\-E\-R\-I\-A\-L\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-\_\-\-F\-A\-C\-T\-O\-R\-S~7}}\label{aave_8h_ad76f6ee2a275c27185c10ff7ea5187b2}
+The number of reflection factors that specify each material. The corresponding frequencies are\-: 125, 250, 500, 1000, 2000, 4000, 8000 Hz. \hypertarget{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{\index{aave.\-h@{aave.\-h}!A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F@{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F}}
+\index{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F@{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F}!aave.h@{aave.\-h}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F~2048}}\label{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}
+The maximum number of frames of an H\-R\-T\-F. (The longest H\-R\-T\-Fs are T\-U-\/\-Berlin's\-: 2048).
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]When using H\-R\-T\-Fs with less frames (M\-I\-T only has 128) there is a considerable waste of memory throughout the library. However, this way the code is much simpler, and slightly faster. Nevertheless, it would be nice if this value could be changed at runtime when the user selects the H\-R\-T\-F set to use. \end{DoxyRefDesc}
+\hypertarget{aave_8h_a5cc7807cca10cf0933038ad388171181}{\index{aave.\-h@{aave.\-h}!A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S@{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}}
+\index{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S@{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}!aave.h@{aave.\-h}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S~16}}\label{aave_8h_a5cc7807cca10cf0933038ad388171181}
+The maximum order of reflections supported. This defines the maximum value the user can select for the order of reflections to calculate in the auralisation process.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]To support different maximum orders of reflections per instance, this value would be set in a member of the aave structure at runtime and the sounds hash table allocated accordingly. However, I think this is not worth the trouble. Just change this value and recompile, if you want more orders of reflections (and your computer can handle them). The waste is only 4 or 8 bytes per reflection order that is not used, for 32-\/bit or 64-\/bit processors respectively. \end{DoxyRefDesc}
+\hypertarget{aave_8h_a94b17b055640b1a1593d032048ba3ed2}{\index{aave.\-h@{aave.\-h}!A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D@{A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D}}
+\index{A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D@{A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D}!aave.h@{aave.\-h}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D~343.\-2}}\label{aave_8h_a94b17b055640b1a1593d032048ba3ed2}
+Speed of sound in dry air at 20 degrees Celsius (m/s).
+
+Reference\-: \href{https://en.wikipedia.org/wiki/Speed_of_sound}{\tt https\-://en.\-wikipedia.\-org/wiki/\-Speed\-\_\-of\-\_\-sound} \hypertarget{aave_8h_a0b7b591faf4644c56f374fef7a6141bc}{\index{aave.\-h@{aave.\-h}!A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E@{A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E}}
+\index{A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E@{A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E}!aave.h@{aave.\-h}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E~131072}}\label{aave_8h_a0b7b591faf4644c56f374fef7a6141bc}
+The number of past anechoic samples to hold for each sound source. This effectively defines the maximum distance that can be auralised\-:
+
+distance \mbox{[}m\mbox{]} = A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E $\ast$ A\-A\-V\-E\-\_\-\-S\-O\-U\-N\-D\-\_\-\-S\-P\-E\-E\-D \mbox{[}m/s\mbox{]} / A\-A\-V\-E\-\_\-\-F\-S \mbox{[}Hz\mbox{]}
+
+Must be a power of 2 to allow for the most efficient implementation. Some possible values (and corresponding maximum distances for fs=44100\-Hz)\-:
+
+32768 (255m), 65536 (510m), 131072 (1020m), 262144 (2040m), 524288 (4080m) \hypertarget{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}{\index{aave.\-h@{aave.\-h}!F\-D\-N\-\_\-\-O\-R\-D\-E\-R@{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}}
+\index{F\-D\-N\-\_\-\-O\-R\-D\-E\-R@{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}!aave.h@{aave.\-h}}
+\subsubsection[{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-D\-N\-\_\-\-O\-R\-D\-E\-R~64}}\label{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}
+The order of the circulation matrix for the F\-D\-N late reverberator. 
+
+\subsection{Function Documentation}
+\hypertarget{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}{\index{aave.\-h@{aave.\-h}!aave\-\_\-add\-\_\-source@{aave\-\_\-add\-\_\-source}}
+\index{aave\-\_\-add\-\_\-source@{aave\-\_\-add\-\_\-source}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-add\-\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-add\-\_\-source (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}
+Add a sound source to the auralisation world. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{aave_8h_a20e98109bd38d422444f2959c0a6b80c}{\index{aave.\-h@{aave.\-h}!aave\-\_\-add\-\_\-surface@{aave\-\_\-add\-\_\-surface}}
+\index{aave\-\_\-add\-\_\-surface@{aave\-\_\-add\-\_\-surface}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-add\-\_\-surface}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-add\-\_\-surface (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-surface} $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a20e98109bd38d422444f2959c0a6b80c}
+Add a surface to the auralisation world. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a20e98109bd38d422444f2959c0a6b80c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{aave_8h_a20e98109bd38d422444f2959c0a6b80c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{\index{aave.\-h@{aave.\-h}!aave\-\_\-get\-\_\-audio@{aave\-\_\-get\-\_\-audio}}
+\index{aave\-\_\-get\-\_\-audio@{aave\-\_\-get\-\_\-audio}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-get\-\_\-audio}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-get\-\_\-audio (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{short $\ast$}]{buf, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}
+Generate {\ttfamily n} 16-\/bit 2-\/channel frames of the auralisation world {\ttfamily aave} and put them in the memory location pointed by {\ttfamily buf}. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a8a63aae9a55200e05235e6e89990f1c6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a98cd836fde1ac54fc6dcbb3aab416d8b}{\index{aave.\-h@{aave.\-h}!aave\-\_\-get\-\_\-coordinates@{aave\-\_\-get\-\_\-coordinates}}
+\index{aave\-\_\-get\-\_\-coordinates@{aave\-\_\-get\-\_\-coordinates}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-get\-\_\-coordinates}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-get\-\_\-coordinates (
+\begin{DoxyParamCaption}
+\item[{const struct {\bf aave} $\ast$}]{aave, }
+\item[{const float $\ast$}]{source\-\_\-position, }
+\item[{float $\ast$}]{distance, }
+\item[{float $\ast$}]{elevation, }
+\item[{float $\ast$}]{azimuth}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a98cd836fde1ac54fc6dcbb3aab416d8b}
+Get the {\ttfamily distance} (m), {\ttfamily azimuth} (rad) and {\ttfamily elevation} (rad) coordinates of the position {\ttfamily source\-\_\-position} of a source relative to the listener. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{aave_8h_a98cd836fde1ac54fc6dcbb3aab416d8b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a98cd836fde1ac54fc6dcbb3aab416d8b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a952abc42265cb150fa647c008e8ee937}{\index{aave.\-h@{aave.\-h}!aave\-\_\-get\-\_\-material@{aave\-\_\-get\-\_\-material}}
+\index{aave\-\_\-get\-\_\-material@{aave\-\_\-get\-\_\-material}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-get\-\_\-material}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-material}$\ast$ aave\-\_\-get\-\_\-material (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a952abc42265cb150fa647c008e8ee937}
+Return the material with the specified {\ttfamily name}. If no material is found with such name, return aave\-\_\-material\-\_\-none.
+
+The search is performed using the binary search algorithm (\href{http://en.wikipedia.org/wiki/Binary_search_algorithm}{\tt http\-://en.\-wikipedia.\-org/wiki/\-Binary\-\_\-search\-\_\-algorithm}), that's why the table of materials must be ordered by name. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{aave_8h_a952abc42265cb150fa647c008e8ee937_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a300799824871774e895676f347905cf3}{\index{aave.\-h@{aave.\-h}!aave\-\_\-get\-\_\-material\-\_\-filter@{aave\-\_\-get\-\_\-material\-\_\-filter}}
+\index{aave\-\_\-get\-\_\-material\-\_\-filter@{aave\-\_\-get\-\_\-material\-\_\-filter}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-get\-\_\-material\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-get\-\_\-material\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-surface} $\ast$$\ast$}]{surfaces, }
+\item[{unsigned}]{reflections, }
+\item[{float $\ast$}]{filter}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a300799824871774e895676f347905cf3}
+Design the material absorption filter for the specified sequence of {\ttfamily surfaces} and reflection order {\ttfamily reflections}. The calculated D\-F\-T coefficients of the filter are stored in {\ttfamily filter}, which must have 4 times the elements of the H\-R\-I\-Rs of the H\-R\-T\-F set currently in use. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a300799824871774e895676f347905cf3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a300799824871774e895676f347905cf3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a9332f29f538c0e54272f61de0e420348}{\index{aave.\-h@{aave.\-h}!aave\-\_\-hrtf\-\_\-cipic@{aave\-\_\-hrtf\-\_\-cipic}}
+\index{aave\-\_\-hrtf\-\_\-cipic@{aave\-\_\-hrtf\-\_\-cipic}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-cipic}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-hrtf\-\_\-cipic (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a9332f29f538c0e54272f61de0e420348}
+Select the C\-I\-P\-I\-C H\-R\-T\-F set for the auralisation process. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{aave_8h_a9332f29f538c0e54272f61de0e420348_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a1714770c36978ec1bfc9b4b5148e42be}{\index{aave.\-h@{aave.\-h}!aave\-\_\-hrtf\-\_\-listen@{aave\-\_\-hrtf\-\_\-listen}}
+\index{aave\-\_\-hrtf\-\_\-listen@{aave\-\_\-hrtf\-\_\-listen}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-listen}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-hrtf\-\_\-listen (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a1714770c36978ec1bfc9b4b5148e42be}
+Select the L\-I\-S\-T\-E\-N H\-R\-T\-F set for the auralisation process. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{aave_8h_a1714770c36978ec1bfc9b4b5148e42be_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{\index{aave.\-h@{aave.\-h}!aave\-\_\-hrtf\-\_\-mit@{aave\-\_\-hrtf\-\_\-mit}}
+\index{aave\-\_\-hrtf\-\_\-mit@{aave\-\_\-hrtf\-\_\-mit}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-mit}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-hrtf\-\_\-mit (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}
+Select the M\-I\-T K\-E\-M\-A\-R H\-R\-T\-F compact set for the auralisation process. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_afbc85e87d1aaab2c91c7f15d1d5a9906}{\index{aave.\-h@{aave.\-h}!aave\-\_\-hrtf\-\_\-tub@{aave\-\_\-hrtf\-\_\-tub}}
+\index{aave\-\_\-hrtf\-\_\-tub@{aave\-\_\-hrtf\-\_\-tub}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-tub}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-hrtf\-\_\-tub (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_afbc85e87d1aaab2c91c7f15d1d5a9906}
+Select the T\-U-\/\-Berlin H\-R\-T\-F set for the auralisation process. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{aave_8h_afbc85e87d1aaab2c91c7f15d1d5a9906_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a044e13c0826108a728f0b6324c23fbab}{\index{aave.\-h@{aave.\-h}!aave\-\_\-init@{aave\-\_\-init}}
+\index{aave\-\_\-init@{aave\-\_\-init}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{unsigned}]{rt60}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a044e13c0826108a728f0b6324c23fbab}
+Initialise the auralisation data structure.
+
+The listener's initial position is (0, 0, 0).
+
+The listener's head initial orientation is invalid! You must call \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\-\_\-set\-\_\-listener\-\_\-orientation()}!
+
+The initial output gain is 1 (0d\-B).
+
+The artificial reverberation tail is initially enabled. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{aave_8h_a044e13c0826108a728f0b6324c23fbab_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a3682cd98f3556ad2b8c8e0bc8502371c}{\index{aave.\-h@{aave.\-h}!aave\-\_\-init\-\_\-source@{aave\-\_\-init\-\_\-source}}
+\index{aave\-\_\-init\-\_\-source@{aave\-\_\-init\-\_\-source}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-init\-\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-init\-\_\-source (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a3682cd98f3556ad2b8c8e0bc8502371c}
+Initialise a sound source data structure to be used by the aave engine. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{\index{aave.\-h@{aave.\-h}!aave\-\_\-put\-\_\-audio@{aave\-\_\-put\-\_\-audio}}
+\index{aave\-\_\-put\-\_\-audio@{aave\-\_\-put\-\_\-audio}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-put\-\_\-audio}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-put\-\_\-audio (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{const short $\ast$}]{audio, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}
+Put the {\ttfamily n} frames pointed by {\ttfamily audio} in the ring buffer of {\ttfamily source}. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{aave_8h_a7e664852f336438524336bdcac8be8bc}{\index{aave.\-h@{aave.\-h}!aave\-\_\-read\-\_\-obj@{aave\-\_\-read\-\_\-obj}}
+\index{aave\-\_\-read\-\_\-obj@{aave\-\_\-read\-\_\-obj}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-read\-\_\-obj}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-read\-\_\-obj (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{const char $\ast$}]{filename, }
+\item[{unsigned}]{volume, }
+\item[{unsigned}]{area}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a7e664852f336438524336bdcac8be8bc}
+Read the .obj file {\ttfamily filename} and add its contents to the auralisation engine {\ttfamily aave}. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a7e664852f336438524336bdcac8be8bc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a87108aa6128bb303f58c46307a4b4ebb}{\index{aave.\-h@{aave.\-h}!aave\-\_\-reverb\-\_\-dattorro@{aave\-\_\-reverb\-\_\-dattorro}}
+\index{aave\-\_\-reverb\-\_\-dattorro@{aave\-\_\-reverb\-\_\-dattorro}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-reverb\-\_\-dattorro}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-reverb\-\_\-dattorro (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{short $\ast$}]{audio, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a87108aa6128bb303f58c46307a4b4ebb}
+Run a Dattorro reverberator to add an artificial reverberation tail to the {\ttfamily n} binaural frames (2 $\ast$ {\ttfamily n} samples) pointed by {\ttfamily audio}. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a87108aa6128bb303f58c46307a4b4ebb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_aa5850eee4b27f5b7f2732f3457e00d79}{\index{aave.\-h@{aave.\-h}!aave\-\_\-reverb\-\_\-jot@{aave\-\_\-reverb\-\_\-jot}}
+\index{aave\-\_\-reverb\-\_\-jot@{aave\-\_\-reverb\-\_\-jot}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-reverb\-\_\-jot}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-reverb\-\_\-jot (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{short $\ast$}]{audio, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_aa5850eee4b27f5b7f2732f3457e00d79}
+Run a Jot F\-D\-N reverberator to add an artificial reverberation tail to the {\ttfamily n} single channel frames ({\ttfamily n} samples) of each anechoic sound source pointed by {\ttfamily aave-\/$>$sources}. Store output in {\ttfamily audio}. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{aave_8h_aa5850eee4b27f5b7f2732f3457e00d79_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{aave_8h_aa5850eee4b27f5b7f2732f3457e00d79_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_aee300969973298dab868f91f7b94724d}{\index{aave.\-h@{aave.\-h}!aave\-\_\-set\-\_\-listener\-\_\-orientation@{aave\-\_\-set\-\_\-listener\-\_\-orientation}}
+\index{aave\-\_\-set\-\_\-listener\-\_\-orientation@{aave\-\_\-set\-\_\-listener\-\_\-orientation}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-set\-\_\-listener\-\_\-orientation}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-set\-\_\-listener\-\_\-orientation (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{float}]{roll, }
+\item[{float}]{pitch, }
+\item[{float}]{yaw}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_aee300969973298dab868f91f7b94724d}
+Set the orientation of the listener's head. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{aave_8h_a41a4224263cd8432d79099871d542b2e}{\index{aave.\-h@{aave.\-h}!aave\-\_\-set\-\_\-listener\-\_\-position@{aave\-\_\-set\-\_\-listener\-\_\-position}}
+\index{aave\-\_\-set\-\_\-listener\-\_\-position@{aave\-\_\-set\-\_\-listener\-\_\-position}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-set\-\_\-listener\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-set\-\_\-listener\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a41a4224263cd8432d79099871d542b2e}
+Set the position of the listener.
+
+The \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\-\_\-update()} function should be called afterwards to update the state of the auralisation engine to reflect the new position. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}{\index{aave.\-h@{aave.\-h}!aave\-\_\-set\-\_\-source\-\_\-position@{aave\-\_\-set\-\_\-source\-\_\-position}}
+\index{aave\-\_\-set\-\_\-source\-\_\-position@{aave\-\_\-set\-\_\-source\-\_\-position}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-set\-\_\-source\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-set\-\_\-source\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}
+Set the position of a sound source.
+
+The \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\-\_\-update()} function should be called afterwards to update the state of the auralisation engine to reflect the new position. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{\index{aave.\-h@{aave.\-h}!aave\-\_\-update@{aave\-\_\-update}}
+\index{aave\-\_\-update@{aave\-\_\-update}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}
+Update the whole state of the auralisation world. Runs the visibility checks for all sounds from all sources. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a5b453c8df5597105b3a7cde336e83e0e}{\index{aave.\-h@{aave.\-h}!dft\-\_\-index@{dft\-\_\-index}}
+\index{dft\-\_\-index@{dft\-\_\-index}!aave.h@{aave.\-h}}
+\subsubsection[{dft\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}unsigned dft\-\_\-index (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{i, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a5b453c8df5597105b3a7cde336e83e0e}
+This function returns the index into the D\-F\-T data calculated by \hyperlink{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{dft()} that contains the Fourier coefficient {\ttfamily i} for a D\-F\-T of size {\ttfamily n}. {\ttfamily n} is a power of 2, up to the maximum supported by dft\-\_\-index\-\_\-table (currently 128). {\ttfamily i} is a value from 0 up to {\ttfamily n} / 2 -\/ 1, since the input data is real\-:
+\begin{DoxyItemize}
+\item X\mbox{[}0\mbox{]} = X\mbox{[}0\mbox{]}.real; X\mbox{[}0\mbox{]}.imag = 0;
+\item X\mbox{[}1\mbox{]} = X\mbox{[}N/2\mbox{]}.real; X\mbox{[}N/2\mbox{]}.imag = 0;
+\item X\mbox{[}N/2+i\mbox{]}.real = X\mbox{[}N/2-\/i\mbox{]}.real;
+\item X\mbox{[}N/2+i\mbox{]}.imag = -\/ X\mbox{[}N/2-\/i\mbox{]}.imag; 
+\end{DoxyItemize}
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aave_8h_a5b453c8df5597105b3a7cde336e83e0e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aave_8h_a08e9496e914691f6f87708b74992020e}{\index{aave.\-h@{aave.\-h}!init\-\_\-reverb@{init\-\_\-reverb}}
+\index{init\-\_\-reverb@{init\-\_\-reverb}!aave.h@{aave.\-h}}
+\subsubsection[{init\-\_\-reverb}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-reverb (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave\-\_\-reverb} $\ast$}]{reverb, }
+\item[{float}]{volume, }
+\item[{float}]{area, }
+\item[{float}]{abs}
+\end{DoxyParamCaption}
+)}}\label{aave_8h_a08e9496e914691f6f87708b74992020e}
+Initialize reverb parameters. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{aave_8h_a08e9496e914691f6f87708b74992020e_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{aave_8h_a49ce2ac99af8e6a499e6b6dfa8962e58}{\index{aave.\-h@{aave.\-h}!aave\-\_\-material\-\_\-none@{aave\-\_\-material\-\_\-none}}
+\index{aave\-\_\-material\-\_\-none@{aave\-\_\-material\-\_\-none}!aave.h@{aave.\-h}}
+\subsubsection[{aave\-\_\-material\-\_\-none}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-material} aave\-\_\-material\-\_\-none}}\label{aave_8h_a49ce2ac99af8e6a499e6b6dfa8962e58}
+Full reflective material to use when no material is specified for a surface, or when the specified material is not found in aave\-\_\-materials. 

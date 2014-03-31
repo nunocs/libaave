@@ -1,0 +1,18 @@
+<map id="dot_product" name="dot_product">
+<area shape="rect" id="node3" href="$geometry_8c.html#ab40fce8a1525cf5d9194e909227c942d" title="aave_image_source" alt="" coords="733,15,872,44"/>
+<area shape="rect" id="node14" href="$geometry_8c.html#abfbdee9c2e4714938fd9e458f08cbd40" title="local_coordinates" alt="" coords="157,121,280,151"/>
+<area shape="rect" id="node16" href="$geometry_8c.html#a4b47f01d4d88d73e92bdcca2d690140a" title="aave_intersection" alt="" coords="353,93,476,123"/>
+<area shape="rect" id="node27" href="$geometry_8c.html#a28df3e4ac0fb06ac989de8c42f9f4ab7" title="aave_add_surface" alt="" coords="351,171,479,200"/>
+<area shape="rect" id="node32" href="$geometry_8c.html#a8e3a9e9e5e071df68f28a10dd9165ee5" title="aave_get_coordinates" alt="" coords="144,227,293,256"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#a2c55d6e06ff73570a887d18807442412" title="aave_create_sounds\l_recursively" alt="" coords="1119,5,1260,51"/>
+<area shape="rect" id="node11" href="$geometry_8c.html#afd54b3e8b06cda8e2f3aaf0e61b61e3b" title="aave_update_sound" alt="" coords="931,65,1069,95"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#ab67540c77da19bfc111eaa423d500d33" title="aave_create_sounds" alt="" coords="1311,17,1452,47"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#a128fc0893ce9e549392265802bf62d20" title="aave_update" alt="" coords="1501,45,1597,75"/>
+<area shape="rect" id="node18" href="$geometry_8c.html#a2a9db056c43a4f4b2aece2329a98e2eb" title="aave_is_visible" alt="" coords="551,117,660,147"/>
+<area shape="rect" id="node20" href="$geometry_8c.html#a814ea9c79e9276c9e6407192d3bfb3c1" title="aave_build_sound_path" alt="" coords="724,93,881,123"/>
+<area shape="rect" id="node22" href="$geometry_8c.html#a59ff10a7f9bd39866063bb05918d3df0" title="aave_create_sound" alt="" coords="933,119,1067,148"/>
+<area shape="rect" id="node29" href="$obj_8c.html#a16aaf0dde89fdd12cecac35ab3ba1cd6" title="aave_read_obj" alt="" coords="552,171,659,200"/>
+<area shape="rect" id="node34" href="$audio_8c.html#a74e68044085a9e60e9d9065100a520b0" title="aave_hrtf_add_sound" alt="" coords="341,228,488,257"/>
+<area shape="rect" id="node36" href="$audio_8c.html#a0435bc74e8d5edca85e72ab93a72bc37" title="aave_hrtf_fill_output\l_buffer" alt="" coords="536,223,675,270"/>
+<area shape="rect" id="node38" href="$audio_8c.html#afe43a0d12af335e2f133c0da2a99422f" title="aave_get_audio" alt="" coords="747,232,859,261"/>
+</map>

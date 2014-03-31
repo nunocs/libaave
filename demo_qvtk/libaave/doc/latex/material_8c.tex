@@ -1,0 +1,185 @@
+\hypertarget{material_8c}{\section{material.\-c File Reference}
+\label{material_8c}\index{material.\-c@{material.\-c}}
+}
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dft.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}idft.\-h\char`\"{}}\\*
+Include dependency graph for material.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{material_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{material_8c_a11ddec9c2a797ebe5e6b6f2ae522404f}{D\-F\-T\-\_\-\-T\-Y\-P\-E}~float
+\item 
+\#define \hyperlink{material_8c_afd47bdf71dbf8a1adbddc63efd267700}{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}~float
+\item 
+\#define \hyperlink{material_8c_a0240ac851181b84ac374872dc5434ee4}{N}~128
+\item 
+\hypertarget{material_8c_a6df66bfa2f1c4bca84340012518d9c07}{\#define {\bfseries print\-\_\-dft}(x, n)}\label{material_8c_a6df66bfa2f1c4bca84340012518d9c07}
+
+\item 
+\hypertarget{material_8c_a0f23bbd4a3904fab2e33fb5bb9ddf8b2}{\#define {\bfseries print\-\_\-vec}(h, n)}\label{material_8c_a0f23bbd4a3904fab2e33fb5bb9ddf8b2}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structaave__material}{aave\-\_\-material} $\ast$ \hyperlink{material_8c_ad135daefc3f5aa5c8176cb3b8a4f2b55}{aave\-\_\-get\-\_\-material} (const char $\ast$name)
+\item 
+static void \hyperlink{material_8c_a6dc2bc04b22f0f36f848d5ac79376153}{aave\-\_\-material\-\_\-filter} (const float $\ast$k, float $\ast$x, unsigned n)
+\item 
+void \hyperlink{material_8c_a1f3208f696d3dbfbe5ac76fbb739f922}{aave\-\_\-get\-\_\-material\-\_\-filter} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$$\ast$surfaces, unsigned reflections, float $\ast$filter)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static struct \hyperlink{structaave__material}{aave\-\_\-material} \hyperlink{material_8c_a5c81bfe35bdf2a21271d436b78c62ceb}{aave\-\_\-materials} \mbox{[}$\,$\mbox{]}
+\item 
+struct \hyperlink{structaave__material}{aave\-\_\-material} \hyperlink{material_8c_a49ce2ac99af8e6a499e6b6dfa8962e58}{aave\-\_\-material\-\_\-none}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{material_8c}{material.\-c} file contains the table of materials, with their acoustic reflection factors by frequency band, and the functions to design the material absorption audio filters to apply those reflection factors.
+
+The filtering, implemented in \hyperlink{audio_8c}{audio.\-c}, is performed in the frequency domain, taking advantage of the fact that the sounds are already converted to the frequency domain anyway to perform the H\-R\-T\-F filtering. This allows for the use of material absorption filters with linear phase (best audio quality) and long impulse response (best frequency resolution). The fixed delay induced by the length of the filter can be easily compensated upstream in the auralisation process, if needed.
+
+Calculating the Fourier coefficients of the filters is thus implemented using the technique of filter design by frequency sampling, shown in\-: Udo Zolzer, \char`\"{}\-Digital Audio Signal Processing\char`\"{}, 2nd Edition, Wiley, Section 5.\-3.\-3 Filter Design by Frequency Sampling. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{material_8c_a11ddec9c2a797ebe5e6b6f2ae522404f}{\index{material.\-c@{material.\-c}!D\-F\-T\-\_\-\-T\-Y\-P\-E@{D\-F\-T\-\_\-\-T\-Y\-P\-E}}
+\index{D\-F\-T\-\_\-\-T\-Y\-P\-E@{D\-F\-T\-\_\-\-T\-Y\-P\-E}!material.c@{material.\-c}}
+\subsubsection[{D\-F\-T\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-F\-T\-\_\-\-T\-Y\-P\-E~float}}\label{material_8c_a11ddec9c2a797ebe5e6b6f2ae522404f}
+Create the \hyperlink{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{dft()} function to convert filter coefficients to Fourier coefficients. \hypertarget{material_8c_afd47bdf71dbf8a1adbddc63efd267700}{\index{material.\-c@{material.\-c}!I\-D\-F\-T\-\_\-\-T\-Y\-P\-E@{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}}
+\index{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E@{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}!material.c@{material.\-c}}
+\subsubsection[{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-D\-F\-T\-\_\-\-T\-Y\-P\-E~float}}\label{material_8c_afd47bdf71dbf8a1adbddc63efd267700}
+Create the \hyperlink{idft_8h_a797484e3f3d53d566ececbcfcd90f537}{idft()} function to convert Fourier coefficients to filter coefficients. \hypertarget{material_8c_a0240ac851181b84ac374872dc5434ee4}{\index{material.\-c@{material.\-c}!N@{N}}
+\index{N@{N}!material.c@{material.\-c}}
+\subsubsection[{N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N~128}}\label{material_8c_a0240ac851181b84ac374872dc5434ee4}
+The legth of the filter to design. Should be the same length as the smallest H\-R\-I\-R (M\-I\-T = 128). 
+
+\subsection{Function Documentation}
+\hypertarget{material_8c_ad135daefc3f5aa5c8176cb3b8a4f2b55}{\index{material.\-c@{material.\-c}!aave\-\_\-get\-\_\-material@{aave\-\_\-get\-\_\-material}}
+\index{aave\-\_\-get\-\_\-material@{aave\-\_\-get\-\_\-material}!material.c@{material.\-c}}
+\subsubsection[{aave\-\_\-get\-\_\-material}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-material}$\ast$ aave\-\_\-get\-\_\-material (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{material_8c_ad135daefc3f5aa5c8176cb3b8a4f2b55}
+Return the material with the specified {\ttfamily name}. If no material is found with such name, return aave\-\_\-material\-\_\-none.
+
+The search is performed using the binary search algorithm (\href{http://en.wikipedia.org/wiki/Binary_search_algorithm}{\tt http\-://en.\-wikipedia.\-org/wiki/\-Binary\-\_\-search\-\_\-algorithm}), that's why the table of materials must be ordered by name. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{material_8c_ad135daefc3f5aa5c8176cb3b8a4f2b55_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{material_8c_a1f3208f696d3dbfbe5ac76fbb739f922}{\index{material.\-c@{material.\-c}!aave\-\_\-get\-\_\-material\-\_\-filter@{aave\-\_\-get\-\_\-material\-\_\-filter}}
+\index{aave\-\_\-get\-\_\-material\-\_\-filter@{aave\-\_\-get\-\_\-material\-\_\-filter}!material.c@{material.\-c}}
+\subsubsection[{aave\-\_\-get\-\_\-material\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-get\-\_\-material\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-surface} $\ast$$\ast$}]{surfaces, }
+\item[{unsigned}]{reflections, }
+\item[{float $\ast$}]{filter}
+\end{DoxyParamCaption}
+)}}\label{material_8c_a1f3208f696d3dbfbe5ac76fbb739f922}
+Design the material absorption filter for the specified sequence of {\ttfamily surfaces} and reflection order {\ttfamily reflections}. The calculated D\-F\-T coefficients of the filter are stored in {\ttfamily filter}, which must have 4 times the elements of the H\-R\-I\-Rs of the H\-R\-T\-F set currently in use. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{material_8c_a1f3208f696d3dbfbe5ac76fbb739f922_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{material_8c_a1f3208f696d3dbfbe5ac76fbb739f922_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{material_8c_a6dc2bc04b22f0f36f848d5ac79376153}{\index{material.\-c@{material.\-c}!aave\-\_\-material\-\_\-filter@{aave\-\_\-material\-\_\-filter}}
+\index{aave\-\_\-material\-\_\-filter@{aave\-\_\-material\-\_\-filter}!material.c@{material.\-c}}
+\subsubsection[{aave\-\_\-material\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-material\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{const float $\ast$}]{k, }
+\item[{float $\ast$}]{x, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{material_8c_a6dc2bc04b22f0f36f848d5ac79376153}
+Design the material absorption filter for the reflection factors {\ttfamily k}. The calculated D\-F\-T coefficients of the filter are stored in {\ttfamily x}, which must have at least 4 $\ast$ {\ttfamily n} elements to account for the zero-\/padding, and where {\ttfamily n} is the size of the H\-R\-I\-Rs of the H\-R\-T\-F currently in use.
+
+Reference\-: Udo Zolzer, \char`\"{}\-Digital Audio Signal Processing\char`\"{}, 2nd Edition, Wiley, Section 5.\-3.\-3 Filter Design by Frequency Sampling. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{material_8c_a6dc2bc04b22f0f36f848d5ac79376153_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{material_8c_a6dc2bc04b22f0f36f848d5ac79376153_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{material_8c_a49ce2ac99af8e6a499e6b6dfa8962e58}{\index{material.\-c@{material.\-c}!aave\-\_\-material\-\_\-none@{aave\-\_\-material\-\_\-none}}
+\index{aave\-\_\-material\-\_\-none@{aave\-\_\-material\-\_\-none}!material.c@{material.\-c}}
+\subsubsection[{aave\-\_\-material\-\_\-none}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-material} aave\-\_\-material\-\_\-none}}\label{material_8c_a49ce2ac99af8e6a499e6b6dfa8962e58}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    0, \{ 100, 100, 100, 100, 100, 100, 100 \}
+\}
+\end{DoxyCode}
+Full reflective material to use when no material is specified for a surface, or when the specified material is not found in aave\-\_\-materials. \hypertarget{material_8c_a5c81bfe35bdf2a21271d436b78c62ceb}{\index{material.\-c@{material.\-c}!aave\-\_\-materials@{aave\-\_\-materials}}
+\index{aave\-\_\-materials@{aave\-\_\-materials}!material.c@{material.\-c}}
+\subsubsection[{aave\-\_\-materials}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-material} aave\-\_\-materials\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{material_8c_a5c81bfe35bdf2a21271d436b78c62ceb}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{ \textcolor{stringliteral}{"carpet"}, \{ 96, 96, 84, 63, 50, 45, 45 \} \},
+    \{ \textcolor{stringliteral}{"concrete"}, \{ 99, 98, 97, 99, 99, 99, 99 \} \},
+    \{ \textcolor{stringliteral}{"cotton\_curtains"}, \{ 84, 74, 59, 66, 64, 54, 54 \} \},
+    \{ \textcolor{stringliteral}{"glass\_window"}, \{ 95, 97, 98, 98, 98, 98, 98 \} \},
+    \{ \textcolor{stringliteral}{"thin\_plywood"}, \{ 76, 89, 95, 96, 97, 97, 97 \} \},
+\}
+\end{DoxyCode}
+Table of materials, ordered by name.
+
+The reflection factors are calculated from random-\/incidence absorption coefficient alpha values using the equation\-: r = sqrt(1 -\/ alpha).
+
+Reference\-: \char`\"{}\-Auralization\-: Fundamentals of Acoustics, Modelling, Simulation,
+\-Algorithms and Acoustic Virtual Reality\char`\"{}, Michael Vorlander, 2008, Annex -\/ Tables of random-\/incidence absorption coefficients, alpha, and Section 11.\-3.\-2 Audability test. 

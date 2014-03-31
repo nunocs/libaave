@@ -1,0 +1,7 @@
+<map id="aave_build_sound_path" name="aave_build_sound_path">
+<area shape="rect" id="node3" href="$geometry_8c.html#a59ff10a7f9bd39866063bb05918d3df0" title="aave_create_sound" alt="" coords="215,16,348,45"/>
+<area shape="rect" id="node11" href="$geometry_8c.html#afd54b3e8b06cda8e2f3aaf0e61b61e3b" title="aave_update_sound" alt="" coords="400,75,539,104"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#a2c55d6e06ff73570a887d18807442412" title="aave_create_sounds\l_recursively" alt="" coords="399,5,540,51"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#ab67540c77da19bfc111eaa423d500d33" title="aave_create_sounds" alt="" coords="591,16,732,45"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#a128fc0893ce9e549392265802bf62d20" title="aave_update" alt="" coords="781,44,877,73"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="delay" name="delay">
+<area shape="rect" id="node3" href="$audio_8c.html#a8dfc247d60dfeb02fe97ae7353731506" title="aave_audio_source_block" alt="" coords="108,13,279,43"/>
+<area shape="rect" id="node11" href="$reverb__dattorro_8c.html#a32b115d634b84a7f386f1568b00c6a25" title="decay_block" alt="" coords="147,67,240,96"/>
+<area shape="rect" id="node13" href="$reverb__dattorro_8c.html#afe013ab7aabd3541de9962c0de103efd" title="aave_reverb_dattorro" alt="" coords="329,92,473,121"/>
+<area shape="rect" id="node5" href="$audio_8c.html#a74e68044085a9e60e9d9065100a520b0" title="aave_hrtf_add_sound" alt="" coords="328,13,475,43"/>
+<area shape="rect" id="node7" href="$audio_8c.html#a0435bc74e8d5edca85e72ab93a72bc37" title="aave_hrtf_fill_output\l_buffer" alt="" coords="523,5,661,51"/>
+<area shape="rect" id="node9" href="$audio_8c.html#afe43a0d12af335e2f133c0da2a99422f" title="aave_get_audio" alt="" coords="711,13,823,43"/>
+</map>

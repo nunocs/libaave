@@ -1,0 +1,77 @@
+
+#include "aave.h"
+#include "stdio.h"
+#include "string.h"
+#define IMPULSE_SIZE 44100
+#define FRAMES 8192 /* 186ms at 44100Hz */
+
+void compute_reverb_params() {
+
+/*short unit_impulse[IMPULSE_SIZE];*/
+unsigned n,i;
+
+unsigned bufhead = 0;
+unsigned bufsize = IMPULSE_SIZE;
+short *buf;
+short buffer[IMPULSE_SIZE];
+
+struct aave *aave = (struct aave *)malloc(sizeof *aave);
+struct aave_source *source;
+
+memset(aave, 0, sizeof *aave);
+aave->reflections = 2;
+aave->reverb = 1;
+aave->gain = 1;
+aave_hrtf_tub(aave);
+aave_read_obj(aave, "../Geometry/church_aave.obj");
+aave_set_listener_position(aave,0,0,0);
+aave_set_listener_orientation(aave, 0,0,45 * 3.14/180.0);
+
+source = (struct aave_source *)malloc(sizeof *source);
+aave_init_source(aave, source);
+aave_add_source(aave, source);
+aave_set_source_position(source,5,0,0);
+aave_update(aave);
+
+printf("Computing reverb gain...\n\n");
+
+	buf = malloc(sizeof(short) * IMPULSE_SIZE);
+
+	for (i=0;i<IMPULSE_SIZE;i++) {
+		if (i==0) {buf[i]=32767;}
+		else buf[i]=0;
+	}
+
+	/* Read the source.raw file (44100Hz 16 bits mono) into a buffer. */
+
+	source = aave->sources;
+
+	for (;;) {
+		/*
+		 * Put this number of frames of the anechoic sound buffer
+		 * into the sound source buffer (loop if necessary).
+		 */
+		for (i = 0; i < FRAMES; i += n) {
+			n = FRAMES - i;
+			if (n > bufsize - bufhead) n = bufsize - bufhead;
+
+			aave_put_audio(source, buf, n);			
+
+			bufhead += n;
+			if (bufhead == bufsize) return; 
+			printf("buffer_head = %d\n",bufhead);
+		}
+
+	//for (i=0;i<10;i++) {printf("buffer[%d] = %d\n",i,buffer[i]);}
+
+
+
+		/* Get the frames of binaural data from the engine. */
+		aave_get_audio(aave, buffer, FRAMES);
+
+		if (bufhead==0) {printf("looping..\n");return;}
+	}
+
+printf("Finished computing reverb gain...\n\n");
+
+}

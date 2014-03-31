@@ -1,0 +1,97 @@
+\hypertarget{hrtf__cipic_8c}{\section{hrtf\-\_\-cipic.\-c File Reference}
+\label{hrtf__cipic_8c}\index{hrtf\-\_\-cipic.\-c@{hrtf\-\_\-cipic.\-c}}
+}
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+Include dependency graph for hrtf\-\_\-cipic.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{hrtf__cipic_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hrtf__cipic_8c_af2772a1db6305567eacedcc49222733a}{hrtf\-\_\-cipic\-\_\-set}~\hyperlink{hrtf__cipic_8c_ad7826c92f4b287a863202d4ca3243894}{hrtf\-\_\-cipic\-\_\-set\-\_\-008}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{hrtf__cipic_8c_a4b3a15263cf86760cf69027db5aab73a}{aave\-\_\-hrtf\-\_\-cipic\-\_\-get} (const float $\ast$hrtf\mbox{[}2\mbox{]}, int elevation, int azimuth)
+\item 
+void \hyperlink{hrtf__cipic_8c_a00796d04f8c40370849ef30069d57129}{aave\-\_\-hrtf\-\_\-cipic} (struct \hyperlink{structaave}{aave} $\ast$a)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \hyperlink{hrtf__cipic_8c_ad7826c92f4b287a863202d4ca3243894}{hrtf\-\_\-cipic\-\_\-set\-\_\-008} \mbox{[}$\,$\mbox{]}\mbox{[}1024\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{hrtf__cipic_8c}{hrtf\-\_\-cipic.\-c} file implements the interface to use the C\-I\-P\-I\-C H\-R\-T\-F set. To select this set for the auralisation process, call \hyperlink{aave_8h_a9332f29f538c0e54272f61de0e420348}{aave\-\_\-hrtf\-\_\-cipic()} after initialising the aave structure and before calling \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\-\_\-put\-\_\-audio()}.
+
+The C\-I\-P\-I\-C H\-R\-T\-F set consists of head-\/related impulse responses (H\-R\-I\-R) of 45 subjects. This interface admits using one of them at a time, chosen at compile time.
+
+For each subject, H\-R\-I\-R measurements are available for 64 elevations in 5.\-625 degree steps (360/64) and the following azimuths\-: -\/80, -\/65, -\/55, -\/45 to 45 in 5 degree steps, 55, 65 and 80 degrees. This interface supports all azimuths, but currently only elevation 0.
+
+Each H\-R\-I\-R is 200 samples long at 44100\-Hz ($\sim$4.5ms). Because the discrete Fourier transform (D\-F\-T) implemented in \hyperlink{dft_8h}{dft.\-h} is optimized for powers of 2, each H\-R\-I\-R is zero-\/padded to 256 samples for use in this interface.
+
+References\-: V. R. Algazi, R. O. Duda, D. M. Thompson and C. Avendano, \char`\"{}\-The C\-I\-P\-I\-C H\-R\-T\-F Database\char`\"{}, Proc. 2001 I\-E\-E\-E Workshop on Applications of Signal Processing to Audio and Electroacoustics, pp. 99-\/102, Mohonk Mountain House, New Paltz, N\-Y, Oct. 21-\/24, 2001. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{hrtf__cipic_8c_af2772a1db6305567eacedcc49222733a}{\index{hrtf\-\_\-cipic.\-c@{hrtf\-\_\-cipic.\-c}!hrtf\-\_\-cipic\-\_\-set@{hrtf\-\_\-cipic\-\_\-set}}
+\index{hrtf\-\_\-cipic\-\_\-set@{hrtf\-\_\-cipic\-\_\-set}!hrtf_cipic.c@{hrtf\-\_\-cipic.\-c}}
+\subsubsection[{hrtf\-\_\-cipic\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}\#define hrtf\-\_\-cipic\-\_\-set~{\bf hrtf\-\_\-cipic\-\_\-set\-\_\-008}}}\label{hrtf__cipic_8c_af2772a1db6305567eacedcc49222733a}
+The subject of the C\-I\-P\-I\-C H\-R\-T\-F set to use (subject 008). 
+
+\subsection{Function Documentation}
+\hypertarget{hrtf__cipic_8c_a00796d04f8c40370849ef30069d57129}{\index{hrtf\-\_\-cipic.\-c@{hrtf\-\_\-cipic.\-c}!aave\-\_\-hrtf\-\_\-cipic@{aave\-\_\-hrtf\-\_\-cipic}}
+\index{aave\-\_\-hrtf\-\_\-cipic@{aave\-\_\-hrtf\-\_\-cipic}!hrtf_cipic.c@{hrtf\-\_\-cipic.\-c}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-cipic}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-hrtf\-\_\-cipic (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{hrtf__cipic_8c_a00796d04f8c40370849ef30069d57129}
+Select the C\-I\-P\-I\-C H\-R\-T\-F set for the auralisation process. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{hrtf__cipic_8c_a00796d04f8c40370849ef30069d57129_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hrtf__cipic_8c_a4b3a15263cf86760cf69027db5aab73a}{\index{hrtf\-\_\-cipic.\-c@{hrtf\-\_\-cipic.\-c}!aave\-\_\-hrtf\-\_\-cipic\-\_\-get@{aave\-\_\-hrtf\-\_\-cipic\-\_\-get}}
+\index{aave\-\_\-hrtf\-\_\-cipic\-\_\-get@{aave\-\_\-hrtf\-\_\-cipic\-\_\-get}!hrtf_cipic.c@{hrtf\-\_\-cipic.\-c}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-cipic\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-hrtf\-\_\-cipic\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{const float $\ast$}]{hrtf\mbox{[}2\mbox{]}, }
+\item[{int}]{elevation, }
+\item[{int}]{azimuth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{hrtf__cipic_8c_a4b3a15263cf86760cf69027db5aab73a}
+Get the closest H\-R\-T\-F pair for the specified coordinates. {\ttfamily elevation} is \mbox{[}-\/90;90\mbox{]} degrees. {\ttfamily azimuth} is \mbox{[}-\/180;180\mbox{]} degrees. {\ttfamily hrtf}\mbox{[}0\mbox{]} will be the left H\-R\-T\-F, {\ttfamily hrtf}\mbox{[}1\mbox{]} the right H\-R\-T\-F.
+
+Currently, all elevations map to elevation 0. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000008}{Todo}]Use all elevation measures available, not just 0 degrees. \end{DoxyRefDesc}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{hrtf__cipic_8c_a4b3a15263cf86760cf69027db5aab73a_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{hrtf__cipic_8c_ad7826c92f4b287a863202d4ca3243894}{\index{hrtf\-\_\-cipic.\-c@{hrtf\-\_\-cipic.\-c}!hrtf\-\_\-cipic\-\_\-set\-\_\-008@{hrtf\-\_\-cipic\-\_\-set\-\_\-008}}
+\index{hrtf\-\_\-cipic\-\_\-set\-\_\-008@{hrtf\-\_\-cipic\-\_\-set\-\_\-008}!hrtf_cipic.c@{hrtf\-\_\-cipic.\-c}}
+\subsubsection[{hrtf\-\_\-cipic\-\_\-set\-\_\-008}]{\setlength{\rightskip}{0pt plus 5cm}const float hrtf\-\_\-cipic\-\_\-set\-\_\-008\mbox{[}$\,$\mbox{]}\mbox{[}1024\mbox{]}}}\label{hrtf__cipic_8c_ad7826c92f4b287a863202d4ca3243894}
+The H\-R\-T\-F set, generated by tools/hrtf\-\_\-cipic\-\_\-set.\-c (subject 008). 

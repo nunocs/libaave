@@ -1,0 +1,21 @@
+<map id="aave_get_audio" name="aave_get_audio">
+<area shape="rect" id="node3" href="$audio_8c.html#a0435bc74e8d5edca85e72ab93a72bc37" title="aave_hrtf_fill_output\l_buffer" alt="" coords="168,263,307,310"/>
+<area shape="rect" id="node31" href="$aave_8h.html#aa5850eee4b27f5b7f2732f3457e00d79" title="aave_reverb_jot" alt="" coords="180,440,295,469"/>
+<area shape="rect" id="node5" href="$audio_8c.html#a74e68044085a9e60e9d9065100a520b0" title="aave_hrtf_add_sound" alt="" coords="364,165,511,195"/>
+<area shape="rect" id="node25" href="$idft_8h.html#a797484e3f3d53d566ececbcfcd90f537" title="idft" alt="" coords="417,219,457,248"/>
+<area shape="rect" id="node27" href="$audio_8c.html#a3bff6ddd40eda3065aa82561d23e51a6" title="fade_out_gain" alt="" coords="387,272,488,301"/>
+<area shape="rect" id="node29" href="$audio_8c.html#a0ed45f17383de6ca52241b5ac60a10b2" title="fade_in_gain" alt="" coords="391,325,484,355"/>
+<area shape="rect" id="node7" href="$aave_8h.html#a98cd836fde1ac54fc6dcbb3aab416d8b" title="aave_get_coordinates" alt="" coords="580,32,729,61"/>
+<area shape="rect" id="node13" href="$audio_8c.html#a01cdef4fc35ac0cf58e59bed7c2af7d9" title="attenuation" alt="" coords="612,85,697,115"/>
+<area shape="rect" id="node15" href="$audio_8c.html#a4e6a8bd6af1e6e28fb9f4a59802913d6" title="cmadd" alt="" coords="624,139,685,168"/>
+<area shape="rect" id="node17" href="$audio_8c.html#a8dfc247d60dfeb02fe97ae7353731506" title="aave_audio_source_block" alt="" coords="569,192,740,221"/>
+<area shape="rect" id="node21" href="$dft_8h.html#ad9584a3bdc946bf6faece23f05dc797d" title="dft" alt="" coords="636,245,673,275"/>
+<area shape="rect" id="node23" href="$audio_8c.html#a5949cca50430419a0d66b75f6bf5793a" title="cmul" alt="" coords="629,299,680,328"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#adbb79889a33b12c8b090faa854af8109" title="norm" alt="" coords="809,5,860,35"/>
+<area shape="rect" id="node11" href="$geometry_8c.html#a373b4381636c15ec96dbc6f3e4655798" title="dot_product" alt="" coords="789,59,880,88"/>
+<area shape="rect" id="node19" href="$reverb__dattorro_8c.html#a71156a2bb7fe5562368cb958346b2766" title="delay" alt="" coords="808,192,861,221"/>
+<area shape="rect" id="node33" href="$reverb__jot_8c.html#adfb45e598332882d56cac622886147ae" title="process_delay_filter" alt="" coords="368,379,507,408"/>
+<area shape="rect" id="node35" href="$reverb__jot_8c.html#a4753c93200af2f79be012df00c909ad2" title="process_absorption\l_filter" alt="" coords="371,431,504,478"/>
+<area shape="rect" id="node37" href="$reverb__jot_8c.html#a904becb2ca4872b962837189114bfaab" title="process_tone_correction\l_filter" alt="" coords="356,501,519,547"/>
+<area shape="rect" id="node39" href="$reverb__jot_8c.html#a23bb515e413d3a0cfea9371ec630309c" title="process_dc_block_filter" alt="" coords="359,571,516,600"/>
+</map>

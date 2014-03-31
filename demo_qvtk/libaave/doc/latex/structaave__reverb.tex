@@ -1,0 +1,79 @@
+\hypertarget{structaave__reverb}{\section{aave\-\_\-reverb Struct Reference}
+\label{structaave__reverb}\index{aave\-\_\-reverb@{aave\-\_\-reverb}}
+}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{structaave__reverb_a61f593c67c5e0ac18c2255c3c0830bc1}{R\-T60}
+\item 
+float \hyperlink{structaave__reverb_aa650231c06910bb5e352682b1bd6bd19}{Tmixing}
+\item 
+float \hyperlink{structaave__reverb_a2bc62b21b9ba27d56575f7ddbf23ff89}{rc}
+\item 
+float \hyperlink{structaave__reverb_a338401b5113dcb382637d43dba5f4aa5}{pre\-\_\-delay}
+\item 
+float \hyperlink{structaave__reverb_a797c24d78e79d4a3bfec25e5a625dc46}{alpha}
+\item 
+short \hyperlink{structaave__reverb_a2e40ddc7cc824ddf535c1e80fb1145d5}{decorrelation\-\_\-coefs} \mbox{[}\hyperlink{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}\mbox{[}2\mbox{]}
+\item 
+float \hyperlink{structaave__reverb_a7df2091982d7d299e1c657c015696bc7}{beta}
+\item 
+float \hyperlink{structaave__reverb_a1236e5a13384cac788a3f255cf0b9628}{fdn\-\_\-output\-\_\-taps} \mbox{[}\hyperlink{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}
+\item 
+float \hyperlink{structaave__reverb_a6f410c8899e7f65ae336f974939fb9f4}{absorption\-\_\-gain} \mbox{[}\hyperlink{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}
+\item 
+float \hyperlink{structaave__reverb_ab0c29338df0fe247476f5afed0c78dd8}{absorption\-\_\-bandwidth} \mbox{[}\hyperlink{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}
+\item 
+float \hyperlink{structaave__reverb_a1d02d0947a2ba910470d895e03e210d4}{mix}
+\item 
+float \hyperlink{structaave__reverb_a7d35fe8d4163e93cf8a54779151a17bf}{level}
+\item 
+short \hyperlink{structaave__reverb_a117b8425b9574ffd1d6cde92bc0a6de0}{active}
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\hypertarget{structaave__reverb_ab0c29338df0fe247476f5afed0c78dd8}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!absorption\-\_\-bandwidth@{absorption\-\_\-bandwidth}}
+\index{absorption\-\_\-bandwidth@{absorption\-\_\-bandwidth}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{absorption\-\_\-bandwidth}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::absorption\-\_\-bandwidth\mbox{[}{\bf F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}}}\label{structaave__reverb_ab0c29338df0fe247476f5afed0c78dd8}
+Bandwidth for the absorption (lowpass) filters. \hypertarget{structaave__reverb_a6f410c8899e7f65ae336f974939fb9f4}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!absorption\-\_\-gain@{absorption\-\_\-gain}}
+\index{absorption\-\_\-gain@{absorption\-\_\-gain}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{absorption\-\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::absorption\-\_\-gain\mbox{[}{\bf F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}}}\label{structaave__reverb_a6f410c8899e7f65ae336f974939fb9f4}
+Amplitude attenuation for the absorption (lowpass) filters. \hypertarget{structaave__reverb_a117b8425b9574ffd1d6cde92bc0a6de0}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!active@{active}}
+\index{active@{active}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{active}]{\setlength{\rightskip}{0pt plus 5cm}short aave\-\_\-reverb\-::active}}\label{structaave__reverb_a117b8425b9574ffd1d6cde92bc0a6de0}
+Flag to activate/deactivate late reverberation. \hypertarget{structaave__reverb_a797c24d78e79d4a3bfec25e5a625dc46}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!alpha@{alpha}}
+\index{alpha@{alpha}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{alpha}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::alpha}}\label{structaave__reverb_a797c24d78e79d4a3bfec25e5a625dc46}
+alpha = Tr(pi) / Tr(0). Ratio of the R\-T at the Nyquist frequency and the D\-C frequency. \hypertarget{structaave__reverb_a7df2091982d7d299e1c657c015696bc7}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!beta@{beta}}
+\index{beta@{beta}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{beta}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::beta}}\label{structaave__reverb_a7df2091982d7d299e1c657c015696bc7}
+beta = 1 -\/ sqrt(alpha) / 1 + sqrt(alpha). Bandwidth coeficient for the tone correction (highpass) filter. \hypertarget{structaave__reverb_a2e40ddc7cc824ddf535c1e80fb1145d5}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!decorrelation\-\_\-coefs@{decorrelation\-\_\-coefs}}
+\index{decorrelation\-\_\-coefs@{decorrelation\-\_\-coefs}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{decorrelation\-\_\-coefs}]{\setlength{\rightskip}{0pt plus 5cm}short aave\-\_\-reverb\-::decorrelation\-\_\-coefs\mbox{[}{\bf F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}\mbox{[}2\mbox{]}}}\label{structaave__reverb_a2e40ddc7cc824ddf535c1e80fb1145d5}
+Decorrelation coeficients for producing a decorrelated stereo output. \hypertarget{structaave__reverb_a1236e5a13384cac788a3f255cf0b9628}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!fdn\-\_\-output\-\_\-taps@{fdn\-\_\-output\-\_\-taps}}
+\index{fdn\-\_\-output\-\_\-taps@{fdn\-\_\-output\-\_\-taps}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{fdn\-\_\-output\-\_\-taps}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::fdn\-\_\-output\-\_\-taps\mbox{[}{\bf F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]}}}\label{structaave__reverb_a1236e5a13384cac788a3f255cf0b9628}
+Circulating matrix outputs storage after every multiplication. \hypertarget{structaave__reverb_a7d35fe8d4163e93cf8a54779151a17bf}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!level@{level}}
+\index{level@{level}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{level}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::level}}\label{structaave__reverb_a7d35fe8d4163e93cf8a54779151a17bf}
+Gain/attenuation for managing the level of the late reverberation. \hypertarget{structaave__reverb_a1d02d0947a2ba910470d895e03e210d4}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!mix@{mix}}
+\index{mix@{mix}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{mix}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::mix}}\label{structaave__reverb_a1d02d0947a2ba910470d895e03e210d4}
+Constant attenuation to the stereo output of the reverberator. \hypertarget{structaave__reverb_a338401b5113dcb382637d43dba5f4aa5}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!pre\-\_\-delay@{pre\-\_\-delay}}
+\index{pre\-\_\-delay@{pre\-\_\-delay}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{pre\-\_\-delay}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::pre\-\_\-delay}}\label{structaave__reverb_a338401b5113dcb382637d43dba5f4aa5}
+Reverb predelay (samples). Sum of perceptual delay (Tmixing) and latency due to H\-R\-T\-F buffering. \hypertarget{structaave__reverb_a2bc62b21b9ba27d56575f7ddbf23ff89}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!rc@{rc}}
+\index{rc@{rc}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{rc}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::rc}}\label{structaave__reverb_a2bc62b21b9ba27d56575f7ddbf23ff89}
+Crital distance at which the direct sound preassure is equal to the reverberation sound pressure. \hypertarget{structaave__reverb_a61f593c67c5e0ac18c2255c3c0830bc1}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!R\-T60@{R\-T60}}
+\index{R\-T60@{R\-T60}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{R\-T60}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-\_\-reverb\-::\-R\-T60}}\label{structaave__reverb_a61f593c67c5e0ac18c2255c3c0830bc1}
+Reverberation time (miliseconds). \hypertarget{structaave__reverb_aa650231c06910bb5e352682b1bd6bd19}{\index{aave\-\_\-reverb@{aave\-\_\-reverb}!Tmixing@{Tmixing}}
+\index{Tmixing@{Tmixing}!aave_reverb@{aave\-\_\-reverb}}
+\subsubsection[{Tmixing}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-reverb\-::\-Tmixing}}\label{structaave__reverb_aa650231c06910bb5e352682b1bd6bd19}
+Tmixing = sqrt(\-Volume) (miliseconds). Predelay of the late reverberation. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aave_8h}{aave.\-h}\end{DoxyCompactItemize}

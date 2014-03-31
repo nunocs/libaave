@@ -1,0 +1,37 @@
+[00000,223] InterSense Library ver. 4.2381 32-bit
+[00000,223] Copyright 1998-2012 InterSense, LLC
+[00000,224] http://www.intersense.com
+[00000,224] Tel: 781-541-6330
+[00000,224]
+[00000,224] Thu Mar 13 17:51:22 2014
+[00000,224]
+[00000,224] Looking for InterSense tracking device number 1. Please wait 
+[00000,225]
+[00000,225] File isports.ini is present and will be used.
+[00000,225] isports.ini: /dev/ttyUSB0 (PORT:1 TYPE:1 BAUD:0)
+[00000,225] Looking for IS-X00 device on port 1 (0,22)
+[00000,226] Opened /dev/ttyS0
+[00000,226] Error Configuring Port 1
+[00000,226] Failed to set speed for port /dev/ttyS0
+[00000,226] Error writing to port 1: Input/output error
+[00000,226] Error writing to port 1: Input/output error
+[00000,226] Error writing to port 1: Input/output error
+[00000,266] Error writing to port 1: Input/output error
+[00000,306] Error writing to port 1: Input/output error
+[00000,346]
+[00000,346] Looking for SDP devices (0,35)
+[00000,365] DEVWRN: Device config file not found: isradio.ini
+[00000,366] Opening port: /dev/ttyUSB0 (S:1 N:0 DP:1 DT:1 RT:0)
+[00000,367] Opened /dev/ttyUSB0
+[00001,394] Tracker model: InertiaCube/InterTrax
+[00001,394] Configuring the system
+[00001,422] Loaded is903277.cal
+[00001,425]
+[00001,425]
+[00001,425] InertiaCube3 device detected
+[00001,425]
+[00001,425] Finished SDP detection (1,42)
+[00001,425] Configuring from isenseC1.cfg
+[00001,425] Finished configuring from file
+[00001,425] Writing configuration file isenseC1.cfg
+[00001,425] Finished writing to file

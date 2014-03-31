@@ -1,0 +1,8 @@
+# Hashes of file build rules.
+ebd4c3cf50c1ea7967eff86e7a625423 moc_audio.cxx
+12bfca1dd1b346ef6c43f777f869bcf3 moc_demo.cxx
+d61db4003de2d675c6285a8509e44e16 moc_global.cxx
+67d94c28b66a91addf874bf96874bc68 moc_imu.cxx
+6242d766768c968d4b30796dac31b4e6 moc_ui_Demo1QT.cxx
+e56f8de6f9f1e48cfb404cebe22f2fbd moc_ui_demo.cxx
+d0147784cf3a08afec9e72fd75d081f0 ui_Demo1QT.h

@@ -1,0 +1,12 @@
+<map id="local_coordinates" name="local_coordinates">
+<area shape="rect" id="node3" href="$geometry_8c.html#a4b47f01d4d88d73e92bdcca2d690140a" title="aave_intersection" alt="" coords="179,71,301,100"/>
+<area shape="rect" id="node21" href="$geometry_8c.html#a28df3e4ac0fb06ac989de8c42f9f4ab7" title="aave_add_surface" alt="" coords="176,124,304,153"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#a2a9db056c43a4f4b2aece2329a98e2eb" title="aave_is_visible" alt="" coords="353,20,463,49"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#a814ea9c79e9276c9e6407192d3bfb3c1" title="aave_build_sound_path" alt="" coords="513,47,671,76"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#a59ff10a7f9bd39866063bb05918d3df0" title="aave_create_sound" alt="" coords="721,16,855,45"/>
+<area shape="rect" id="node17" href="$geometry_8c.html#afd54b3e8b06cda8e2f3aaf0e61b61e3b" title="aave_update_sound" alt="" coords="907,75,1045,104"/>
+<area shape="rect" id="node11" href="$geometry_8c.html#a2c55d6e06ff73570a887d18807442412" title="aave_create_sounds\l_recursively" alt="" coords="905,5,1047,51"/>
+<area shape="rect" id="node13" href="$geometry_8c.html#ab67540c77da19bfc111eaa423d500d33" title="aave_create_sounds" alt="" coords="1097,16,1239,45"/>
+<area shape="rect" id="node15" href="$geometry_8c.html#a128fc0893ce9e549392265802bf62d20" title="aave_update" alt="" coords="1288,44,1384,73"/>
+<area shape="rect" id="node23" href="$obj_8c.html#a16aaf0dde89fdd12cecac35ab3ba1cd6" title="aave_read_obj" alt="" coords="355,124,461,153"/>
+</map>

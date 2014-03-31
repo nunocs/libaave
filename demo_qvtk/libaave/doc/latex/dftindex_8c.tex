@@ -1,0 +1,52 @@
+\hypertarget{dftindex_8c}{\section{dftindex.\-c File Reference}
+\label{dftindex_8c}\index{dftindex.\-c@{dftindex.\-c}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{dftindex_8c_a5e34ce91dceab1bfa22527c9fbba970b}{dft\-\_\-index} (unsigned i, unsigned n)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned char \hyperlink{dftindex_8c_ad9fc4c6b2778357224f5341cf268f78c}{dft\-\_\-index\-\_\-table} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The discrete Fourier transform (D\-F\-T) implementation in \hyperlink{dft_8h}{dft.\-h} stores the Fourier coefficients in non-\/sequential order. This \hyperlink{dftindex_8c}{dftindex.\-c} file implements a \hyperlink{aave_8h_a5b453c8df5597105b3a7cde336e83e0e}{dft\-\_\-index()} function that returns the index into the calculated D\-F\-T data that corresponds to each Fourier coefficient. 
+
+\subsection{Function Documentation}
+\hypertarget{dftindex_8c_a5e34ce91dceab1bfa22527c9fbba970b}{\index{dftindex.\-c@{dftindex.\-c}!dft\-\_\-index@{dft\-\_\-index}}
+\index{dft\-\_\-index@{dft\-\_\-index}!dftindex.c@{dftindex.\-c}}
+\subsubsection[{dft\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}unsigned dft\-\_\-index (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{i, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{dftindex_8c_a5e34ce91dceab1bfa22527c9fbba970b}
+This function returns the index into the D\-F\-T data calculated by \hyperlink{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{dft()} that contains the Fourier coefficient {\ttfamily i} for a D\-F\-T of size {\ttfamily n}. {\ttfamily n} is a power of 2, up to the maximum supported by dft\-\_\-index\-\_\-table (currently 128). {\ttfamily i} is a value from 0 up to {\ttfamily n} / 2 -\/ 1, since the input data is real\-:
+\begin{DoxyItemize}
+\item X\mbox{[}0\mbox{]} = X\mbox{[}0\mbox{]}.real; X\mbox{[}0\mbox{]}.imag = 0;
+\item X\mbox{[}1\mbox{]} = X\mbox{[}N/2\mbox{]}.real; X\mbox{[}N/2\mbox{]}.imag = 0;
+\item X\mbox{[}N/2+i\mbox{]}.real = X\mbox{[}N/2-\/i\mbox{]}.real;
+\item X\mbox{[}N/2+i\mbox{]}.imag = -\/ X\mbox{[}N/2-\/i\mbox{]}.imag; 
+\end{DoxyItemize}
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dftindex_8c_a5e34ce91dceab1bfa22527c9fbba970b_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{dftindex_8c_ad9fc4c6b2778357224f5341cf268f78c}{\index{dftindex.\-c@{dftindex.\-c}!dft\-\_\-index\-\_\-table@{dft\-\_\-index\-\_\-table}}
+\index{dft\-\_\-index\-\_\-table@{dft\-\_\-index\-\_\-table}!dftindex.c@{dftindex.\-c}}
+\subsubsection[{dft\-\_\-index\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char dft\-\_\-index\-\_\-table\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}}\label{dftindex_8c_ad9fc4c6b2778357224f5341cf268f78c}
+The D\-F\-T index lookup table, for N = 128. This means the \hyperlink{aave_8h_a5b453c8df5597105b3a7cde336e83e0e}{dft\-\_\-index()} function therefore only supports N $<$= 128. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000006}{Todo}]If the order of the material absorption filter designed in \hyperlink{material_8c}{material.\-c} increases to N $>$ 128, increase this table accordingly. \end{DoxyRefDesc}

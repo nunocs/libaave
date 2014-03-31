@@ -1,0 +1,122 @@
+\hypertarget{examples_2stream_8c-example}{\section{examples/stream.\-c}
+}
+An example of auralisation of a streaming input sound, in real-\/time, with a user-\/specified room model and reflection order, using the Advanced Linux Sound Architecture.
+
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{ * libaave/examples/stream.c: auralise a streaming input sound}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Copyright 2013 Universidade de Aveiro}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Written by Andre B. Oliveira <abo@ua.pt>}
+\textcolor{comment}{ */}
+
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <alsa/asoundlib.h>}
+\textcolor{preprocessor}{#include "\hyperlink{aave_8h}{aave.h}"}
+
+\textcolor{comment}{/* Number of frames to capture/playback per loop. */}
+\textcolor{preprocessor}{#define FRAMES 2048}
+\textcolor{preprocessor}{}
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv)
+\{
+    \textcolor{keyword}{struct }\hyperlink{structaave}{aave} *\hyperlink{structaave}{aave};
+    \textcolor{keyword}{struct }\hyperlink{structaave__source}{aave\_source} *source;
+    snd\_pcm\_t *capture, *playback;
+    \textcolor{keywordtype}{int} n;
+    \textcolor{keywordtype}{short} \hyperlink{structaave__source_a25b0c8024c657431c670e52128c429fc}{buffer}[FRAMES * 2];
+
+    \textcolor{keywordflow}{if} (argc != 3) \{
+        fprintf(stderr,
+            \textcolor{stringliteral}{"Usage: %s MODEL.OBJ REFLECTION\_ORDER\(\backslash\)n"}, argv[0]);
+        \textcolor{keywordflow}{return} 1;
+    \}
+
+    \textcolor{comment}{/* Initialise auralisation engine. */}
+    aave = malloc(\textcolor{keyword}{sizeof} *aave);
+    \hyperlink{aave_8h_a044e13c0826108a728f0b6324c23fbab}{aave\_init}(aave);
+
+    \textcolor{comment}{/* Select the HRTF set to use. */}
+    \textcolor{comment}{/* aave\_hrtf\_cipic(aave); */}
+    \textcolor{comment}{/* aave\_hrtf\_listen(aave); */}
+    \hyperlink{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{aave\_hrtf\_mit}(aave);
+    \textcolor{comment}{/* aave\_hrtf\_tub(aave); */}
+
+    \textcolor{comment}{/* Read the room model file. */}
+    \hyperlink{aave_8h_a7e664852f336438524336bdcac8be8bc}{aave\_read\_obj}(aave, argv[1]);
+
+    \textcolor{comment}{/* Set the highest order of reflections to generate. */}
+    aave->\hyperlink{structaave_a89d048be9cbd805d11b23d0c8d118eb8}{reflections} = atoi(argv[2]);
+
+    \textcolor{comment}{/* Set the position and orientation of the listener. */}
+    \hyperlink{aave_8h_a41a4224263cd8432d79099871d542b2e}{aave\_set\_listener\_position}(aave, 0, 0, 0);
+    \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\_set\_listener\_orientation}(aave, 0, 0, 0);
+
+    \textcolor{comment}{/* Add the sound source to the auralisation world. */}
+    source = malloc(\textcolor{keyword}{sizeof} *source);
+    \hyperlink{aave_8h_a3682cd98f3556ad2b8c8e0bc8502371c}{aave\_init\_source}(aave, source);
+    \hyperlink{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}{aave\_add\_source}(aave, source);
+    \hyperlink{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}{aave\_set\_source\_position}(source, 3, 0, 0);
+
+    \textcolor{comment}{/* Perform the geometry calculations. */}
+    \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\_update}(aave);
+
+    \textcolor{comment}{/* Open ALSA capture device. */}
+    n = snd\_pcm\_open(&capture, \textcolor{stringliteral}{"default"}, SND\_PCM\_STREAM\_CAPTURE, 0);
+    \textcolor{keywordflow}{if} (n < 0) \{
+        fprintf(stderr, \textcolor{stringliteral}{"snd\_pcm\_open: %s\(\backslash\)n"}, snd\_strerror(n));
+        \textcolor{keywordflow}{return} 1;
+    \}
+    n = snd\_pcm\_set\_params(capture, SND\_PCM\_FORMAT\_S16,
+                SND\_PCM\_ACCESS\_RW\_INTERLEAVED,
+                1, 44100, 0, 100000); \textcolor{comment}{/* 100ms latency */}
+    \textcolor{keywordflow}{if} (n < 0) \{
+        fprintf(stderr, \textcolor{stringliteral}{"snd\_pcm\_set\_params: %s\(\backslash\)n"}, snd\_strerror(n));
+        \textcolor{keywordflow}{return} 1;
+    \}
+
+    \textcolor{comment}{/* Open ALSA playback device. */}
+    n = snd\_pcm\_open(&playback, \textcolor{stringliteral}{"hw"}, SND\_PCM\_STREAM\_PLAYBACK, 0);
+    \textcolor{keywordflow}{if} (n < 0) \{
+        fprintf(stderr, \textcolor{stringliteral}{"snd\_pcm\_open: %s\(\backslash\)n"}, snd\_strerror(n));
+        \textcolor{keywordflow}{return} 1;
+    \}
+    n = snd\_pcm\_set\_params(playback, SND\_PCM\_FORMAT\_S16,
+                SND\_PCM\_ACCESS\_RW\_INTERLEAVED,
+                2, 44100, 0, 100000); \textcolor{comment}{/* 100ms latency */}
+    \textcolor{keywordflow}{if} (n < 0) \{
+        fprintf(stderr, \textcolor{stringliteral}{"snd\_pcm\_set\_params: %s\(\backslash\)n"}, snd\_strerror(n));
+        \textcolor{keywordflow}{return} 1;
+    \}
+
+    \textcolor{keywordflow}{for} (;;) \{
+        \textcolor{comment}{/* Read the mono frames from the capture device. */}
+        n = snd\_pcm\_readi(capture, buffer, FRAMES);
+        \textcolor{keywordflow}{if} (n < 0) \{
+            fprintf(stderr, \textcolor{stringliteral}{"snd\_pcm\_readi: %s\(\backslash\)n"},
+                            snd\_strerror(n));
+            \textcolor{keywordflow}{return} 1;
+        \}
+
+        \textcolor{comment}{/* Feed the mono frames to the sound source. */}
+        \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\_put\_audio}(source, buffer, n);
+
+        \textcolor{comment}{/* Get the binaural frames of the auralisation result. */}
+        \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\_get\_audio}(aave, buffer, n);
+
+        \textcolor{comment}{/* Write the binaural frames to the playback device. */}
+        n = snd\_pcm\_writei(playback, buffer, n);
+        \textcolor{keywordflow}{if} (n < 0) \{
+            fprintf(stderr, \textcolor{stringliteral}{"snd\_pcm\_writei: %s\(\backslash\)n"},
+                 snd\_strerror(n));
+            \textcolor{keywordflow}{return} 1;
+        \}
+    \}
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ 

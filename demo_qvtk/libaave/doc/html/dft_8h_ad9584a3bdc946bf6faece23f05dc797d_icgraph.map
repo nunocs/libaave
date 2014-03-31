@@ -1,0 +1,11 @@
+<map id="dft" name="dft">
+<area shape="rect" id="node3" href="$audio_8c.html#a74e68044085a9e60e9d9065100a520b0" title="aave_hrtf_add_sound" alt="" coords="93,16,240,45"/>
+<area shape="rect" id="node9" href="$material_8c.html#a6dc2bc04b22f0f36f848d5ac79376153" title="aave_material_filter" alt="" coords="100,71,233,100"/>
+<area shape="rect" id="node5" href="$audio_8c.html#a0435bc74e8d5edca85e72ab93a72bc37" title="aave_hrtf_fill_output\l_buffer" alt="" coords="299,5,437,51"/>
+<area shape="rect" id="node7" href="$audio_8c.html#afe43a0d12af335e2f133c0da2a99422f" title="aave_get_audio" alt="" coords="508,13,620,43"/>
+<area shape="rect" id="node11" href="$material_8c.html#a1f3208f696d3dbfbe5ac76fbb739f922" title="aave_get_material_filter" alt="" coords="288,75,448,104"/>
+<area shape="rect" id="node13" href="$geometry_8c.html#a59ff10a7f9bd39866063bb05918d3df0" title="aave_create_sound" alt="" coords="497,75,631,104"/>
+<area shape="rect" id="node15" href="$geometry_8c.html#a2c55d6e06ff73570a887d18807442412" title="aave_create_sounds\l_recursively" alt="" coords="681,66,823,113"/>
+<area shape="rect" id="node17" href="$geometry_8c.html#ab67540c77da19bfc111eaa423d500d33" title="aave_create_sounds" alt="" coords="873,75,1015,104"/>
+<area shape="rect" id="node19" href="$geometry_8c.html#a128fc0893ce9e549392265802bf62d20" title="aave_update" alt="" coords="1064,75,1160,104"/>
+</map>

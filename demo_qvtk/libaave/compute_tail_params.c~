@@ -1,0 +1,48 @@
+
+#include "aave.h"
+#define IMPULSE_SIZE 4*44100
+#define FRAMES 8192 /* 186ms at 44100Hz */
+
+void compute_reverb_params () {
+
+short unit_impulse[IMPULSE_SIZE];
+unsigned n;
+
+printf("Computing reverb gain...\n\n");
+
+
+for (int i=0;i<IMPULSE_SIZE;i++) {
+	if (i==0) unit_impulse[i]=1;
+	else unit_impulse[i]=0;
+}
+
+
+/*
+	for (;;) {
+		/*
+		 * Put this number of frames of the anechoic sound buffer
+		 * into the sound source buffer (loop if necessary).
+		 */
+		for (unsigned i = 0; i < FRAMES; i += n) {
+			n = FRAMES - i;
+			if (n > bufsize - bufhead)
+				n = bufsize - bufhead;
+			aave_put_audio(source, buf + bufhead, n);
+			bufhead += n;
+			if (bufhead == bufsize)
+				bufhead = 0;
+		}
+
+		/* Get the frames of binaural data from the engine. */
+		aave_get_audio(aave, buffer, FRAMES);
+
+		/* Write the frames to the audio device (blocking write). */
+		/* err = snd_pcm_writei(handle, buffer, FRAMES);
+		if (err != FRAMES) {
+			fprintf(stderr, "snd_pcm_writei: %s\n",
+				 snd_strerror (err));
+			break;
+		} */
+	}*/
+
+}

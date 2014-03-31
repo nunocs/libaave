@@ -1,0 +1,7 @@
+<map id="aave_add_surface" name="aave_add_surface">
+<area shape="rect" id="node3" href="$geometry_8c.html#a5e59594bab3bc1ecd8e25ad887a4372f" title="cross_product" alt="" coords="191,5,295,35"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#a87c81ecc33ad5301b6c3b1584fc84525" title="normalise" alt="" coords="204,59,281,88"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#a373b4381636c15ec96dbc6f3e4655798" title="dot_product" alt="" coords="352,137,443,167"/>
+<area shape="rect" id="node11" href="$geometry_8c.html#abfbdee9c2e4714938fd9e458f08cbd40" title="local_coordinates" alt="" coords="181,163,304,192"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#adbb79889a33b12c8b090faa854af8109" title="norm" alt="" coords="372,59,423,88"/>
+</map>

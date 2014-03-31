@@ -1,0 +1,5 @@
+<map id="decay_block" name="decay_block">
+<area shape="rect" id="node2" href="$structallpass.html" title="allpass" alt="" coords="5,5,67,35"/>
+<area shape="rect" id="node4" href="$structlowpass.html" title="lowpass" alt="" coords="91,5,160,35"/>
+<area shape="rect" id="node6" href="$structdelay.html" title="delay" alt="" coords="184,5,237,35"/>
+</map>

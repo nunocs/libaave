@@ -1,0 +1,5 @@
+<map id="attenuation" name="attenuation">
+<area shape="rect" id="node3" href="$audio_8c.html#a74e68044085a9e60e9d9065100a520b0" title="aave_hrtf_add_sound" alt="" coords="141,13,288,43"/>
+<area shape="rect" id="node5" href="$audio_8c.html#a0435bc74e8d5edca85e72ab93a72bc37" title="aave_hrtf_fill_output\l_buffer" alt="" coords="336,5,475,51"/>
+<area shape="rect" id="node7" href="$audio_8c.html#afe43a0d12af335e2f133c0da2a99422f" title="aave_get_audio" alt="" coords="524,13,636,43"/>
+</map>

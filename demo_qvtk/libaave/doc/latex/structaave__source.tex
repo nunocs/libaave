@@ -1,0 +1,61 @@
+\hypertarget{structaave__source}{\section{aave\-\_\-source Struct Reference}
+\label{structaave__source}\index{aave\-\_\-source@{aave\-\_\-source}}
+}
+
+
+{\ttfamily \#include $<$aave.\-h$>$}
+
+
+
+Collaboration diagram for aave\-\_\-source\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structaave__source__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$ \hyperlink{structaave__source_a987a6e5c5f722296854d0d1699fd53fa}{next}
+\item 
+struct \hyperlink{structaave}{aave} $\ast$ \hyperlink{structaave__source_a5c8d463d1960b8f5c9150f17e31ca230}{aave}
+\item 
+float \hyperlink{structaave__source_a1c5c2c95f27b846dac60d97cd3d6104e}{position} \mbox{[}3\mbox{]}
+\item 
+unsigned \hyperlink{structaave__source_a78b8739c3487c7f4cae4529e61063d64}{buffer\-\_\-index}
+\item 
+short \hyperlink{structaave__source_a25b0c8024c657431c670e52128c429fc}{buffer} \mbox{[}\hyperlink{aave_8h_a0b7b591faf4644c56f374fef7a6141bc}{A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data for each sound source in the auralisation world. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+
+
+\subsection{Field Documentation}
+\hypertarget{structaave__source_a5c8d463d1960b8f5c9150f17e31ca230}{\index{aave\-\_\-source@{aave\-\_\-source}!aave@{aave}}
+\index{aave@{aave}!aave_source@{aave\-\_\-source}}
+\subsubsection[{aave}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave}$\ast$ aave\-\_\-source\-::aave}}\label{structaave__source_a5c8d463d1960b8f5c9150f17e31ca230}
+The Acoustic\-A\-V\-E engine this sound source is associated with. \hypertarget{structaave__source_a25b0c8024c657431c670e52128c429fc}{\index{aave\-\_\-source@{aave\-\_\-source}!buffer@{buffer}}
+\index{buffer@{buffer}!aave_source@{aave\-\_\-source}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}short aave\-\_\-source\-::buffer\mbox{[}{\bf A\-A\-V\-E\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-B\-U\-F\-S\-I\-Z\-E}\mbox{]}}}\label{structaave__source_a25b0c8024c657431c670e52128c429fc}
+Ring buffer to store the recent past anechoic samples. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{structaave__source_a78b8739c3487c7f4cae4529e61063d64}{\index{aave\-\_\-source@{aave\-\_\-source}!buffer\-\_\-index@{buffer\-\_\-index}}
+\index{buffer\-\_\-index@{buffer\-\_\-index}!aave_source@{aave\-\_\-source}}
+\subsubsection[{buffer\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-\_\-source\-::buffer\-\_\-index}}\label{structaave__source_a78b8739c3487c7f4cae4529e61063d64}
+Index of the most recently inserted sample. \hypertarget{structaave__source_a987a6e5c5f722296854d0d1699fd53fa}{\index{aave\-\_\-source@{aave\-\_\-source}!next@{next}}
+\index{next@{next}!aave_source@{aave\-\_\-source}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-source}$\ast$ aave\-\_\-source\-::next}}\label{structaave__source_a987a6e5c5f722296854d0d1699fd53fa}
+Pointer to the next source (singly-\/linked list). \hypertarget{structaave__source_a1c5c2c95f27b846dac60d97cd3d6104e}{\index{aave\-\_\-source@{aave\-\_\-source}!position@{position}}
+\index{position@{position}!aave_source@{aave\-\_\-source}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-source\-::position\mbox{[}3\mbox{]}}}\label{structaave__source_a1c5c2c95f27b846dac60d97cd3d6104e}
+Position of the source in the auralisation world \mbox{[}x,y,z\mbox{]} (m). 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aave_8h}{aave.\-h}\end{DoxyCompactItemize}

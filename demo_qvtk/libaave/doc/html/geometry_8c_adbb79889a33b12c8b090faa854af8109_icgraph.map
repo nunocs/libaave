@@ -1,0 +1,9 @@
+<map id="norm" name="norm">
+<area shape="rect" id="node3" href="$geometry_8c.html#a87c81ecc33ad5301b6c3b1584fc84525" title="normalise" alt="" coords="140,8,217,37"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#a8e3a9e9e5e071df68f28a10dd9165ee5" title="aave_get_coordinates" alt="" coords="104,63,253,92"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#a28df3e4ac0fb06ac989de8c42f9f4ab7" title="aave_add_surface" alt="" coords="311,7,439,36"/>
+<area shape="rect" id="node7" href="$obj_8c.html#a16aaf0dde89fdd12cecac35ab3ba1cd6" title="aave_read_obj" alt="" coords="512,5,619,35"/>
+<area shape="rect" id="node11" href="$audio_8c.html#a74e68044085a9e60e9d9065100a520b0" title="aave_hrtf_add_sound" alt="" coords="301,63,448,92"/>
+<area shape="rect" id="node13" href="$audio_8c.html#a0435bc74e8d5edca85e72ab93a72bc37" title="aave_hrtf_fill_output\l_buffer" alt="" coords="496,58,635,105"/>
+<area shape="rect" id="node15" href="$audio_8c.html#afe43a0d12af335e2f133c0da2a99422f" title="aave_get_audio" alt="" coords="684,67,796,96"/>
+</map>

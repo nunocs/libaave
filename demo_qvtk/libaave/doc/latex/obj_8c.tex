@@ -1,0 +1,65 @@
+\hypertarget{obj_8c}{\section{obj.\-c File Reference}
+\label{obj_8c}\index{obj.\-c@{obj.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+Include dependency graph for obj.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{obj_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{obj_8c_a0fdb7b933ef091574ff57d1f36dd4167}{M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{obj_8c_a16aaf0dde89fdd12cecac35ab3ba1cd6}{aave\-\_\-read\-\_\-obj} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, const char $\ast$filename, unsigned volume, unsigned area)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read room model from Wavefront .obj file.
+
+The following elements of the .obj specification are supported\-: v (vertex), f (face), usemtl (material name). All other elements are ignored, as they are irrelevant for auralisation.
+
+The material name in the usemtl element specify the material of the \hyperlink{material_8c_a5c81bfe35bdf2a21271d436b78c62ceb}{aave\-\_\-materials} table to use for the succeeding face.
+
+References\-: Wavefront .obj file\-: \href{http://en.wikipedia.org/wiki/Wavefront_.obj_file}{\tt http\-://en.\-wikipedia.\-org/wiki/\-Wavefront\-\_\-.\-obj\-\_\-file} 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{obj_8c_a0fdb7b933ef091574ff57d1f36dd4167}{\index{obj.\-c@{obj.\-c}!M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S@{M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S}}
+\index{M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S@{M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S}!obj.c@{obj.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S~1024}}\label{obj_8c_a0fdb7b933ef091574ff57d1f36dd4167}
+Maximum number of vertices in the .obj file. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000011}{Todo}]Use dynamic memory allocation for the array of vertices to support \char`\"{}unlimited\char`\"{} number of vertices. \end{DoxyRefDesc}
+
+
+\subsection{Function Documentation}
+\hypertarget{obj_8c_a16aaf0dde89fdd12cecac35ab3ba1cd6}{\index{obj.\-c@{obj.\-c}!aave\-\_\-read\-\_\-obj@{aave\-\_\-read\-\_\-obj}}
+\index{aave\-\_\-read\-\_\-obj@{aave\-\_\-read\-\_\-obj}!obj.c@{obj.\-c}}
+\subsubsection[{aave\-\_\-read\-\_\-obj}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-read\-\_\-obj (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{const char $\ast$}]{filename, }
+\item[{unsigned}]{volume, }
+\item[{unsigned}]{area}
+\end{DoxyParamCaption}
+)}}\label{obj_8c_a16aaf0dde89fdd12cecac35ab3ba1cd6}
+Read the .obj file {\ttfamily filename} and add its contents to the auralisation engine {\ttfamily aave}. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{obj_8c_a16aaf0dde89fdd12cecac35ab3ba1cd6_cgraph}
+\end{center}
+\end{figure}
+
+

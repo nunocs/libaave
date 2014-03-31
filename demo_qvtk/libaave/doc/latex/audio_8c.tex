@@ -1,0 +1,386 @@
+\hypertarget{audio_8c}{\section{audio.\-c File Reference}
+\label{audio_8c}\index{audio.\-c@{audio.\-c}}
+}
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dft.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}idft.\-h\char`\"{}}\\*
+Include dependency graph for audio.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{audio_8c_a11ddec9c2a797ebe5e6b6f2ae522404f}{D\-F\-T\-\_\-\-T\-Y\-P\-E}~short
+\item 
+\#define \hyperlink{audio_8c_afd47bdf71dbf8a1adbddc63efd267700}{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}~int
+\item 
+\#define \hyperlink{audio_8c_addce93e897e9f71ef5c263ffd893f831}{A\-A\-V\-E\-\_\-\-F\-A\-D\-E\-\_\-\-S\-A\-M\-P\-L\-E\-S}~4096
+\item 
+\#define \hyperlink{audio_8c_a7921e52736402cbfff73045ce89695e7}{A\-A\-V\-E\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-\_\-\-B1}~0.\-99977
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{audio_8c_a01cdef4fc35ac0cf58e59bed7c2af7d9}{attenuation} (float distance)
+\item 
+static float \hyperlink{audio_8c_a0ed45f17383de6ca52241b5ac60a10b2}{fade\-\_\-in\-\_\-gain} (unsigned i, unsigned frames)
+\item 
+static float \hyperlink{audio_8c_a3bff6ddd40eda3065aa82561d23e51a6}{fade\-\_\-out\-\_\-gain} (unsigned i, unsigned frames)
+\item 
+static void \hyperlink{audio_8c_a5949cca50430419a0d66b75f6bf5793a}{cmul} (float $\ast$a, const float $\ast$b, unsigned n)
+\item 
+static void \hyperlink{audio_8c_a4e6a8bd6af1e6e28fb9f4a59802913d6}{cmadd} (float $\ast$y, const float $\ast$a, const float $\ast$b, unsigned n, float g)
+\item 
+static void \hyperlink{audio_8c_a8dfc247d60dfeb02fe97ae7353731506}{aave\-\_\-audio\-\_\-source\-\_\-block} (struct \hyperlink{structaave__sound}{aave\-\_\-sound} $\ast$sound, float distance, short $\ast$x, unsigned frames, unsigned \hyperlink{structdelay}{delay})
+\item 
+static void \hyperlink{audio_8c_a74e68044085a9e60e9d9065100a520b0}{aave\-\_\-hrtf\-\_\-add\-\_\-sound} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__sound}{aave\-\_\-sound} $\ast$sound, float ydft\mbox{[}3\mbox{]}\mbox{[}2\mbox{]}\mbox{[}\hyperlink{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$4\mbox{]}, unsigned \hyperlink{structdelay}{delay}, unsigned frames)
+\item 
+static void \hyperlink{audio_8c_a0435bc74e8d5edca85e72ab93a72bc37}{aave\-\_\-hrtf\-\_\-fill\-\_\-output\-\_\-buffer} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, unsigned \hyperlink{structdelay}{delay}, unsigned frames)
+\item 
+void \hyperlink{audio_8c_afe43a0d12af335e2f133c0da2a99422f}{aave\-\_\-get\-\_\-audio} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, short $\ast$buf, unsigned n)
+\item 
+void \hyperlink{audio_8c_a8652f21a39abdea73f6ad975ad7af5fd}{aave\-\_\-put\-\_\-audio} (struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source, const short $\ast$audio, unsigned n)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{audio_8c}{audio.\-c} file contains the functions that implement the core of the auralisation audio processing of the Acoustic\-A\-V\-E library (libaave). The following image illustrates the audio processing model of the library, as seen by the user.
+
+
+\begin{DoxyImage}
+\includegraphics[width=\textwidth]{audio1}
+\caption{Audio processing model}
+\end{DoxyImage}
+
+
+The user passes the anechoic audio data of each sound source in the auralisation world to the library using \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\-\_\-put\-\_\-audio()} and then retrieves the calculated auralisation binaural audio data using \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\-\_\-get\-\_\-audio()}.
+
+Although the library supports processing one audio frame at a time, users would typically work with blocks of audio frames at a time, for efficiency reasons of the underlying operating system. Each time, the number of anechoic audio frames (samples) in the blocks passed to each source using \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\-\_\-put\-\_\-audio()} must be the same for all sources, and the same number of binaural audio frames (samples times 2) must be retrieved using \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\-\_\-get\-\_\-audio()}.
+
+The current implementation of the library runs most efficiently when the number of audio frames per block is a multiple of the number of samples of the selected head-\/related transfer functions (H\-R\-T\-F), times 2, as that is the size of the discrete Fourier transforms (D\-F\-T) performed internally.
+
+The H\-R\-T\-F set to use for the auralisation process can be selected by calling one of \hyperlink{aave_8h_a9332f29f538c0e54272f61de0e420348}{aave\-\_\-hrtf\-\_\-cipic()}, \hyperlink{aave_8h_a1714770c36978ec1bfc9b4b5148e42be}{aave\-\_\-hrtf\-\_\-listen()}, \hyperlink{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{aave\-\_\-hrtf\-\_\-mit()}, or \hyperlink{aave_8h_afbc85e87d1aaab2c91c7f15d1d5a9906}{aave\-\_\-hrtf\-\_\-tub()}, for the C\-I\-P\-I\-C, L\-I\-S\-T\-E\-N, M\-I\-T, or T\-U-\/\-Berlin H\-R\-T\-F sets, respectively, and it must be done before ever calling \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\-\_\-put\-\_\-audio()}.
+
+The following describes the internal implementation details of the audio processing performed by the library to produce the auralisation. Mere users of the library may want to skip the rest of this section.
+
+
+\begin{DoxyImage}
+\includegraphics[width=\textwidth]{audio2}
+\caption{Overall audio processing block diagram}
+\end{DoxyImage}
+
+
+The above image illustrates the entire auralisation audio processing, performed by \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\-\_\-get\-\_\-audio()}, from the anechoic audio data of all sound sources present, to the resulting auralisation left and right (binaural) audio data.
+
+Each sound source originates a number of sounds that reach the listener (direct sound and reflection sounds, as many as the \hyperlink{geometry_8c}{geometry.\-c} part of the auralisation process is able to find in a given amount of time). Each sound is processed differently according to the travelled distance, direction of arrival, and materials of the reflection surfaces, mainly. This audio processing is represented by the sound-\/i boxes in the image above and is further expanded in the image below.
+
+
+\begin{DoxyImage}
+\includegraphics[width=\textwidth]{audio3}
+\caption{Individual sound processing block diagram}
+\end{DoxyImage}
+
+
+The anechoic sound source buffer is a ring buffer that contains the anechoic audio data of the sound source, supplied by \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\-\_\-put\-\_\-audio()}. Each sound originated from this sound source gets its input audio data from this ring buffer, from the delayed audio sample position corresponding to the travelled distance of that particular sound.
+
+When the listener or sound sources move, the travelled distances change, in a discontinuous manner, since the positions' update rate is usually much lower than the audio sampling rate. The resampler block is responsible for producing a stream of audio data without discontinuities, from the discontinuous distance values. It does this by upsampling and low-\/pass filtering the distance values, and then interpolating (zero-\/order) the audio samples in the ring buffer with the corresponding fractional delay, as described in\-: Peter Brinkman and Michael Gogins, \char`\"{}\-Doppler effects without equations\char`\"{}, Proc. of the 16th Int. Conf. on Digital Audio Effects (D\-A\-Fx-\/13).
+
+The H\-R\-T\-F processing is performed in the frequency domain, using the fast convolution method mentioned in\-: Udo Zolzer, \char`\"{}\-Digital Audio Signal
+\-Processing\char`\"{}, 2nd Edition, Section 5.\-3 Nonrecursive Audio Filters. The D\-F\-T block thus zero-\/pads and converts the audio data from time domain to frequency domain, in \hyperlink{dft_8h}{dft.\-h}. Note that, without the resampler block, three D\-F\-T blocks would be needed instead of just one.
+
+The material absorption filter block implements the sound attenuation by frequency band of the materials of the surfaces where the sound reflects. This filtering is efficiently performed in the frequency domain simply by calculating N complex multiplications, in \hyperlink{audio_8c_a5949cca50430419a0d66b75f6bf5793a}{cmul()}. The design of the filter is implemented in \hyperlink{material_8c}{material.\-c}.
+
+The anechoic sound is turned into binaural by applying the H\-R\-T\-F pair that corresponds to the direction (elevation and azimuth) of arrival of the sound relative to the listener's head. When the listener moves her head, the H\-R\-T\-F pair changes. This causes discontinuities in the output binaural sound, mainly due to the phase differences between the previous and current H\-R\-T\-F pair. The greater the movement, the more audible these discontinuities are. To mask these discontinuities, it is implemented a method that applies both H\-R\-T\-F pairs, corresponding to the previous and current directions, and then fades-\/out the previous and fades-\/in the current. It is a multiple-\/sound and binaural version of the algorithm described in\-: Tom Barker et al, \char`\"{}\-Real-\/time auralisation system for virtual microphone
+positioning\char`\"{}, Proc. of the 15th Int. Conf. on Digital Audio Effects (D\-A\-Fx12).
+
+The fade-\/in/out gains of appearing/disappearing sounds and the amplitude attenuations of sounds with distance are also performed in the frequency domain, taking advantage that they can be applied at the same time the H\-R\-T\-F filter is, simply by multiplying the magnitude of the frequency response by the appropriate combined gain value, in \hyperlink{audio_8c_a4e6a8bd6af1e6e28fb9f4a59802913d6}{cmadd()}.
+
+The result of each sound processing block is therefore 3 binaural audio signals (6 total), still in the frequency domain\-: D\-F\-T bus 0 with the current anechoic audio block processed with the previous distance and direction parametres, D\-F\-T bus 1 with the previous block processed with the current parametres, and D\-F\-T bus 2 with the current block processed with the current parametres.
+
+The binaural audio signals now need to be converted back to the time domain. But instead of performing 6 inverse discrete Fourier transforms (I\-D\-F\-T) per sound and then summing them in the time domain, the different sounds are summed still in the frequency domain, into the D\-F\-T busses pictured. This way, only 6 I\-D\-F\-T are performed in total, independently of the number of sounds.
+
+To complete the fast convolution method, the sounds in the 6 busses, now in the time domain, are overlap-\/added, as described in\-: Udo Zolzer, \char`\"{}\-Digital Audio Signal Processing\char`\"{}, 2nd Edition, Section 5.\-3.\-2 Fast Convolution of Long Sequences. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000005}{Todo}]Here, it might be more efficient to use the overlap-\/save method instead of the overlap-\/add method.\end{DoxyRefDesc}
+
+
+Linear fade-\/outs and fade-\/ins are then applied to the previous and current parametre busses, respectively, to complete the crossfade method described in Tom Barker et al (see above).
+
+At this point, the left and right signals contain the binaural auralisation of the direct sounds and reflection sounds up to a given reflection order. An artificial reverberation tail, implemented in reverb.\-c, is finally added to simulate the late reflections that the \hyperlink{geometry_8c}{geometry.\-c} part could not calculate. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{audio_8c_a7921e52736402cbfff73045ce89695e7}{\index{audio.\-c@{audio.\-c}!A\-A\-V\-E\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-\_\-\-B1@{A\-A\-V\-E\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-\_\-\-B1}}
+\index{A\-A\-V\-E\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-\_\-\-B1@{A\-A\-V\-E\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-\_\-\-B1}!audio.c@{audio.\-c}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-\_\-\-B1}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E\-\_\-\-B1~0.\-99977}}\label{audio_8c_a7921e52736402cbfff73045ce89695e7}
+The b1 coefficient of the single-\/pole, low-\/pass, recursive filter implemented in the resampler block to smooth the distance values\-:
+
+y\mbox{[}n\mbox{]} = b1 $\ast$ y\mbox{[}n-\/1\mbox{]} + (1 -\/ b1) $\ast$ x\mbox{[}n\mbox{]}
+
+Design steps\-:
+
+d = number of samples for the filter to decay to 36.\-8\%
+
+If the distance is updated at about 10\-Hz (0.\-1s), then we could make\-:
+
+d = 0.\-1 $\ast$ fs = 0.\-1 $\ast$ 44100 = 4410 samples
+
+Then obtain the b1 coefficient\-:
+
+b1 = exp(-\/1/d) = exp(-\/1/4410) $\sim$= 0.\-99977
+
+Reference\-: The Scientist and Engineer's Guide to D\-S\-P, chapter 19. \hypertarget{audio_8c_addce93e897e9f71ef5c263ffd893f831}{\index{audio.\-c@{audio.\-c}!A\-A\-V\-E\-\_\-\-F\-A\-D\-E\-\_\-\-S\-A\-M\-P\-L\-E\-S@{A\-A\-V\-E\-\_\-\-F\-A\-D\-E\-\_\-\-S\-A\-M\-P\-L\-E\-S}}
+\index{A\-A\-V\-E\-\_\-\-F\-A\-D\-E\-\_\-\-S\-A\-M\-P\-L\-E\-S@{A\-A\-V\-E\-\_\-\-F\-A\-D\-E\-\_\-\-S\-A\-M\-P\-L\-E\-S}!audio.c@{audio.\-c}}
+\subsubsection[{A\-A\-V\-E\-\_\-\-F\-A\-D\-E\-\_\-\-S\-A\-M\-P\-L\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-A\-V\-E\-\_\-\-F\-A\-D\-E\-\_\-\-S\-A\-M\-P\-L\-E\-S~4096}}\label{audio_8c_addce93e897e9f71ef5c263ffd893f831}
+Duration of the fade-\/in/out for appearing/disappering sounds, in number of audio samples (must be a multiple of A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F)\-: 4096 samples / 44100 Hz $\sim$= 93ms. \hypertarget{audio_8c_a11ddec9c2a797ebe5e6b6f2ae522404f}{\index{audio.\-c@{audio.\-c}!D\-F\-T\-\_\-\-T\-Y\-P\-E@{D\-F\-T\-\_\-\-T\-Y\-P\-E}}
+\index{D\-F\-T\-\_\-\-T\-Y\-P\-E@{D\-F\-T\-\_\-\-T\-Y\-P\-E}!audio.c@{audio.\-c}}
+\subsubsection[{D\-F\-T\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-F\-T\-\_\-\-T\-Y\-P\-E~short}}\label{audio_8c_a11ddec9c2a797ebe5e6b6f2ae522404f}
+Create a \hyperlink{dft_8h_ad9584a3bdc946bf6faece23f05dc797d}{dft()} function to convert 16-\/bit audio samples to frequency. \hypertarget{audio_8c_afd47bdf71dbf8a1adbddc63efd267700}{\index{audio.\-c@{audio.\-c}!I\-D\-F\-T\-\_\-\-T\-Y\-P\-E@{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}}
+\index{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E@{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}!audio.c@{audio.\-c}}
+\subsubsection[{I\-D\-F\-T\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-D\-F\-T\-\_\-\-T\-Y\-P\-E~int}}\label{audio_8c_afd47bdf71dbf8a1adbddc63efd267700}
+Create an \hyperlink{idft_8h_a797484e3f3d53d566ececbcfcd90f537}{idft()} function to convert frequency to 32-\/bit audio samples. 
+
+\subsection{Function Documentation}
+\hypertarget{audio_8c_a8dfc247d60dfeb02fe97ae7353731506}{\index{audio.\-c@{audio.\-c}!aave\-\_\-audio\-\_\-source\-\_\-block@{aave\-\_\-audio\-\_\-source\-\_\-block}}
+\index{aave\-\_\-audio\-\_\-source\-\_\-block@{aave\-\_\-audio\-\_\-source\-\_\-block}!audio.c@{audio.\-c}}
+\subsubsection[{aave\-\_\-audio\-\_\-source\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-audio\-\_\-source\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave\-\_\-sound} $\ast$}]{sound, }
+\item[{float}]{distance, }
+\item[{short $\ast$}]{x, }
+\item[{unsigned}]{frames, }
+\item[{unsigned}]{delay}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a8dfc247d60dfeb02fe97ae7353731506}
+Generate one audio source block. {\ttfamily sound} is the sound whose source to get the anechoic audio data from, {\ttfamily distance} is the distance from the (image) source to the listener, {\ttfamily x} is the buffer to store the generated audio data, {\ttfamily frames} is the number of frames (anechoic samples) to generate, and {\ttfamily delay} is the number of frames of pre-\/delay to apply to the sound to account for audio user blocks larger than the size of the H\-R\-T\-Fs.
+
+The distance value changes abruptly between audio blocks every time the listener or the sound source move. To generate audio blocks without discontinuities, the anechoic samples of the sound source are resampled, using first-\/order interpolation (linear interpolation), a good compromise between audio quality and processing time, to match an upsampled and low-\/ pass filtered version of the discontinuous distance value, as described in Peter Brinkman and Michael Gogins, \char`\"{}\-Doppler effects without equations\char`\"{}, Proc. of the 16th Int. Conf. on Digital Audio Effects (D\-A\-Fx-\/13). 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{audio_8c_a8dfc247d60dfeb02fe97ae7353731506_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a8dfc247d60dfeb02fe97ae7353731506_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_afe43a0d12af335e2f133c0da2a99422f}{\index{audio.\-c@{audio.\-c}!aave\-\_\-get\-\_\-audio@{aave\-\_\-get\-\_\-audio}}
+\index{aave\-\_\-get\-\_\-audio@{aave\-\_\-get\-\_\-audio}!audio.c@{audio.\-c}}
+\subsubsection[{aave\-\_\-get\-\_\-audio}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-get\-\_\-audio (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{short $\ast$}]{buf, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{audio_8c_afe43a0d12af335e2f133c0da2a99422f}
+Generate {\ttfamily n} 16-\/bit 2-\/channel frames of the auralisation world {\ttfamily aave} and put them in the memory location pointed by {\ttfamily buf}. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_afe43a0d12af335e2f133c0da2a99422f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_a74e68044085a9e60e9d9065100a520b0}{\index{audio.\-c@{audio.\-c}!aave\-\_\-hrtf\-\_\-add\-\_\-sound@{aave\-\_\-hrtf\-\_\-add\-\_\-sound}}
+\index{aave\-\_\-hrtf\-\_\-add\-\_\-sound@{aave\-\_\-hrtf\-\_\-add\-\_\-sound}!audio.c@{audio.\-c}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-add\-\_\-sound}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-hrtf\-\_\-add\-\_\-sound (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{struct {\bf aave\-\_\-sound} $\ast$}]{sound, }
+\item[{float}]{ydft\mbox{[}3\mbox{]}\mbox{[}2\mbox{]}\mbox{[}\-A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F $\ast$4\mbox{]}, }
+\item[{unsigned}]{delay, }
+\item[{unsigned}]{frames}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a74e68044085a9e60e9d9065100a520b0}
+Process one {\ttfamily sound} and add it to the D\-F\-T busses {\ttfamily ydft}. {\ttfamily frames} is the number of frames to process. {\ttfamily delay} is the number of frames of pre-\/delay to apply to the sound to account for audio user blocks larger than the size of the H\-R\-T\-Fs. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a74e68044085a9e60e9d9065100a520b0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a74e68044085a9e60e9d9065100a520b0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_a0435bc74e8d5edca85e72ab93a72bc37}{\index{audio.\-c@{audio.\-c}!aave\-\_\-hrtf\-\_\-fill\-\_\-output\-\_\-buffer@{aave\-\_\-hrtf\-\_\-fill\-\_\-output\-\_\-buffer}}
+\index{aave\-\_\-hrtf\-\_\-fill\-\_\-output\-\_\-buffer@{aave\-\_\-hrtf\-\_\-fill\-\_\-output\-\_\-buffer}!audio.c@{audio.\-c}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-fill\-\_\-output\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-hrtf\-\_\-fill\-\_\-output\-\_\-buffer (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{unsigned}]{delay, }
+\item[{unsigned}]{frames}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a0435bc74e8d5edca85e72ab93a72bc37}
+Generate one audio buffer of binaural data for the auralisation world {\ttfamily aave} with all sounds in it. {\ttfamily frames} is the number of frames to generate. {\ttfamily delay} is the number of frames of pre-\/delay to apply to all sounds to account for audio user blocks larger than the size of the H\-R\-T\-Fs. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a0435bc74e8d5edca85e72ab93a72bc37_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{audio_8c_a0435bc74e8d5edca85e72ab93a72bc37_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_a8652f21a39abdea73f6ad975ad7af5fd}{\index{audio.\-c@{audio.\-c}!aave\-\_\-put\-\_\-audio@{aave\-\_\-put\-\_\-audio}}
+\index{aave\-\_\-put\-\_\-audio@{aave\-\_\-put\-\_\-audio}!audio.c@{audio.\-c}}
+\subsubsection[{aave\-\_\-put\-\_\-audio}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-put\-\_\-audio (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave\-\_\-source} $\ast$}]{source, }
+\item[{const short $\ast$}]{audio, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{audio_8c_a8652f21a39abdea73f6ad975ad7af5fd}
+Put the {\ttfamily n} frames pointed by {\ttfamily audio} in the ring buffer of {\ttfamily source}. \hypertarget{audio_8c_a01cdef4fc35ac0cf58e59bed7c2af7d9}{\index{audio.\-c@{audio.\-c}!attenuation@{attenuation}}
+\index{attenuation@{attenuation}!audio.c@{audio.\-c}}
+\subsubsection[{attenuation}]{\setlength{\rightskip}{0pt plus 5cm}static float attenuation (
+\begin{DoxyParamCaption}
+\item[{float}]{distance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a01cdef4fc35ac0cf58e59bed7c2af7d9}
+Return the gain corresponding to the amplitude attenuation of a sound at the specified {\ttfamily distance} (m). 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a01cdef4fc35ac0cf58e59bed7c2af7d9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_a4e6a8bd6af1e6e28fb9f4a59802913d6}{\index{audio.\-c@{audio.\-c}!cmadd@{cmadd}}
+\index{cmadd@{cmadd}!audio.c@{audio.\-c}}
+\subsubsection[{cmadd}]{\setlength{\rightskip}{0pt plus 5cm}static void cmadd (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{y, }
+\item[{const float $\ast$}]{a, }
+\item[{const float $\ast$}]{b, }
+\item[{unsigned}]{n, }
+\item[{float}]{g}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a4e6a8bd6af1e6e28fb9f4a59802913d6}
+Calculate the Complex Multiplication and A\-D\-Dition {\ttfamily y} += {\ttfamily g} $\ast$ {\ttfamily a} $\ast$ {\ttfamily b} of size {\ttfamily n}.
+
+Y += g $\ast$ A $\ast$ B
+
+Y += g $\ast$ (ar + j ai) $\ast$ (br + j br)
+
+Y += g $\ast$ (ar $\ast$ br -\/ ai $\ast$ bi) + j g $\ast$ (ar $\ast$ bi + ai $\ast$ br) 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a4e6a8bd6af1e6e28fb9f4a59802913d6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_a5949cca50430419a0d66b75f6bf5793a}{\index{audio.\-c@{audio.\-c}!cmul@{cmul}}
+\index{cmul@{cmul}!audio.c@{audio.\-c}}
+\subsubsection[{cmul}]{\setlength{\rightskip}{0pt plus 5cm}static void cmul (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{a, }
+\item[{const float $\ast$}]{b, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a5949cca50430419a0d66b75f6bf5793a}
+Calculate the Complex M\-U\-Ltiplication {\ttfamily a} = {\ttfamily a} $\ast$ {\ttfamily b} of size {\ttfamily n}.
+
+A = A $\ast$ B
+
+A = (ar + j ai) $\ast$ (br + j br)
+
+A = (ar $\ast$ br -\/ ai $\ast$ bi) + j (ar $\ast$ bi + ai $\ast$ br) 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a5949cca50430419a0d66b75f6bf5793a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_a0ed45f17383de6ca52241b5ac60a10b2}{\index{audio.\-c@{audio.\-c}!fade\-\_\-in\-\_\-gain@{fade\-\_\-in\-\_\-gain}}
+\index{fade\-\_\-in\-\_\-gain@{fade\-\_\-in\-\_\-gain}!audio.c@{audio.\-c}}
+\subsubsection[{fade\-\_\-in\-\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}static float fade\-\_\-in\-\_\-gain (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{i, }
+\item[{unsigned}]{frames}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a0ed45f17383de6ca52241b5ac60a10b2}
+Return the fade-\/in gain at index {\ttfamily i} for a window of the specified {\ttfamily frames}. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a0ed45f17383de6ca52241b5ac60a10b2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{audio_8c_a3bff6ddd40eda3065aa82561d23e51a6}{\index{audio.\-c@{audio.\-c}!fade\-\_\-out\-\_\-gain@{fade\-\_\-out\-\_\-gain}}
+\index{fade\-\_\-out\-\_\-gain@{fade\-\_\-out\-\_\-gain}!audio.c@{audio.\-c}}
+\subsubsection[{fade\-\_\-out\-\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}static float fade\-\_\-out\-\_\-gain (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{i, }
+\item[{unsigned}]{frames}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{audio_8c_a3bff6ddd40eda3065aa82561d23e51a6}
+Return the fade-\/out gain at index {\ttfamily i} for a window of the specified {\ttfamily frames}. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{audio_8c_a3bff6ddd40eda3065aa82561d23e51a6_icgraph}
+\end{center}
+\end{figure}
+
+

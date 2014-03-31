@@ -1,0 +1,6 @@
+<map id="aave_reverb_dattorro" name="aave_reverb_dattorro">
+<area shape="rect" id="node3" href="$reverb__dattorro_8c.html#a71156a2bb7fe5562368cb958346b2766" title="delay" alt="" coords="351,5,404,35"/>
+<area shape="rect" id="node5" href="$reverb__dattorro_8c.html#a6cd56cc133948b76c116f4fac4f2ea8e" title="lowpass" alt="" coords="343,64,412,93"/>
+<area shape="rect" id="node7" href="$reverb__dattorro_8c.html#a63533538546edde6ae7f3c88192ae6a3" title="allpass" alt="" coords="347,129,408,159"/>
+<area shape="rect" id="node9" href="$reverb__dattorro_8c.html#a32b115d634b84a7f386f1568b00c6a25" title="decay_block" alt="" coords="199,51,292,80"/>
+</map>

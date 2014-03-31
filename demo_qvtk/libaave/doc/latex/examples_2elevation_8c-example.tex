@@ -1,0 +1,104 @@
+\hypertarget{examples_2elevation_8c-example}{\section{examples/elevation.\-c}
+}
+An example of auralisation of multiple sound source at different heights with the listener passing by.
+
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{ * libaave/examples/elevation.c: multiple sound source heights}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Copyright 2013 Universidade de Aveiro}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Written by Andre B. Oliveira <abo@ua.pt>}
+\textcolor{comment}{ */}
+
+\textcolor{comment}{/*}
+\textcolor{comment}{ * Usage: ./elevation sound1.raw sound2.raw ... > binaural.raw}
+\textcolor{comment}{ */}
+
+\textcolor{preprocessor}{#include <math.h>}
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <stdlib.h>}
+\textcolor{preprocessor}{#include "\hyperlink{aave_8h}{aave.h}"}
+
+\textcolor{comment}{/* The height distance between each sound source (m). */}
+\textcolor{preprocessor}{#define H 10}
+\textcolor{preprocessor}{}
+\textcolor{comment}{/* The horizontal distance between listener and sound sources (m). */}
+\textcolor{preprocessor}{#define D 2}
+\textcolor{preprocessor}{}
+\textcolor{comment}{/* The velocity that the listener is moving up (m/s). */}
+\textcolor{preprocessor}{#define V 1.5}
+\textcolor{preprocessor}{}
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv)
+\{
+    \textcolor{keyword}{struct }\hyperlink{structaave}{aave} *\hyperlink{structaave}{aave};
+    \textcolor{keyword}{struct }\hyperlink{structaave__source}{aave\_source} *sources;
+    FILE **sounds;
+    \textcolor{keywordtype}{short} in[1], out[2];
+    \textcolor{keywordtype}{unsigned} i, k, n;
+
+    \textcolor{comment}{/* Initialise the auralisation engine. */}
+    aave = malloc(\textcolor{keyword}{sizeof} *aave);
+    \hyperlink{aave_8h_a044e13c0826108a728f0b6324c23fbab}{aave\_init}(aave);
+
+    \textcolor{comment}{/* Select the HRTF set to use. */}
+    \textcolor{comment}{/* aave\_hrtf\_cipic(aave); */}
+    \textcolor{comment}{/* aave\_hrtf\_listen(aave); */}
+    \hyperlink{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{aave\_hrtf\_mit}(aave);
+    \textcolor{comment}{/* aave\_hrtf\_tub(aave); */}
+
+    \textcolor{comment}{/* Set the orientation of the listener. */}
+    \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\_set\_listener\_orientation}(aave, 0, 0, 0);
+
+    \textcolor{comment}{/* Number of sounds specified in the arguments. */}
+    n = argc - 1;
+
+    \textcolor{comment}{/* Initialise the sound sources. */}
+    sources = malloc(n * \textcolor{keyword}{sizeof} *sources);
+    sounds = malloc(n * \textcolor{keyword}{sizeof} *sounds);
+    \textcolor{keywordflow}{for} (i = 0; i < n; i++) \{
+        \hyperlink{aave_8h_a3682cd98f3556ad2b8c8e0bc8502371c}{aave\_init\_source}(aave, &sources[i]);
+        \hyperlink{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}{aave\_add\_source}(aave, &sources[i]);
+        \hyperlink{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}{aave\_set\_source\_position}(&sources[i], D, 0, i * H);
+        sounds[i] = fopen(argv[i+1], \textcolor{stringliteral}{"rb"});
+        \textcolor{keywordflow}{if} (!sounds[i]) \{
+            fprintf(stderr, \textcolor{stringliteral}{"error opening file %s\(\backslash\)n"}, argv[i+1]);
+            \textcolor{keywordflow}{return} 1;
+        \}
+    \}
+
+    \textcolor{comment}{/* Process one sample at a time until we get to the highest source. */}
+    \textcolor{keywordflow}{for} (k = 0; k <= n * (\hyperlink{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{AAVE\_FS} * H / (float)V); k++) \{
+
+        \textcolor{comment}{/* Update the position of the listener. */}
+        \hyperlink{aave_8h_a41a4224263cd8432d79099871d542b2e}{aave\_set\_listener\_position}(aave, 0, 0, k * (V/(\textcolor{keywordtype}{float})
+      \hyperlink{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{AAVE\_FS}));
+
+        \textcolor{comment}{/* Update the geometry state of the auralisation engine. */}
+        \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\_update}(aave);
+
+        \textcolor{comment}{/*}
+\textcolor{comment}{         * Read one sample from each sound file and give it to}
+\textcolor{comment}{         * its sound source. If the file ends, give it a 0 sample.}
+\textcolor{comment}{         */}
+        \textcolor{keywordflow}{for} (i = 0; i < n; i++) \{
+            \textcolor{keywordflow}{if} (fread(in, \textcolor{keyword}{sizeof}(in[0]), 1, sounds[i]) != 1)
+                in[0] = 0;
+            \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\_put\_audio}(&sources[i], in, 1);
+        \}
+
+        \textcolor{comment}{/* Run the engine to get the corresponding binaural frame. */}
+        \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\_get\_audio}(aave, out, 1);
+
+        \textcolor{comment}{/* Write the binaural frame (2 samples) to stdout. */}
+        \textcolor{keywordflow}{if} (fwrite(out, \textcolor{keyword}{sizeof}(out[0]), 2, stdout) != 2)
+            \textcolor{keywordflow}{return} 1;
+    \}
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ 

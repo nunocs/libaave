@@ -1,0 +1,11 @@
+<map id="aave_hrtf_add_sound" name="aave_hrtf_add_sound">
+<area shape="rect" id="node3" href="$aave_8h.html#a98cd836fde1ac54fc6dcbb3aab416d8b" title="aave_get_coordinates" alt="" coords="212,32,361,61"/>
+<area shape="rect" id="node9" href="$audio_8c.html#a01cdef4fc35ac0cf58e59bed7c2af7d9" title="attenuation" alt="" coords="244,85,329,115"/>
+<area shape="rect" id="node11" href="$audio_8c.html#a4e6a8bd6af1e6e28fb9f4a59802913d6" title="cmadd" alt="" coords="256,139,317,168"/>
+<area shape="rect" id="node13" href="$audio_8c.html#a8dfc247d60dfeb02fe97ae7353731506" title="aave_audio_source_block" alt="" coords="201,192,372,221"/>
+<area shape="rect" id="node17" href="$dft_8h.html#ad9584a3bdc946bf6faece23f05dc797d" title="dft" alt="" coords="268,245,305,275"/>
+<area shape="rect" id="node19" href="$audio_8c.html#a5949cca50430419a0d66b75f6bf5793a" title="cmul" alt="" coords="261,299,312,328"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#adbb79889a33b12c8b090faa854af8109" title="norm" alt="" coords="441,5,492,35"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#a373b4381636c15ec96dbc6f3e4655798" title="dot_product" alt="" coords="421,59,512,88"/>
+<area shape="rect" id="node15" href="$reverb__dattorro_8c.html#a71156a2bb7fe5562368cb958346b2766" title="delay" alt="" coords="440,192,493,221"/>
+</map>

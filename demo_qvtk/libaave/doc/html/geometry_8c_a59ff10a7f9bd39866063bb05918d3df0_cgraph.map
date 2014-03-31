@@ -1,0 +1,12 @@
+<map id="aave_create_sound" name="aave_create_sound">
+<area shape="rect" id="node3" href="$geometry_8c.html#a814ea9c79e9276c9e6407192d3bfb3c1" title="aave_build_sound_path" alt="" coords="191,57,348,87"/>
+<area shape="rect" id="node15" href="$aave_8h.html#a300799824871774e895676f347905cf3" title="aave_get_material_filter" alt="" coords="189,112,349,141"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#a4b47f01d4d88d73e92bdcca2d690140a" title="aave_intersection" alt="" coords="583,5,705,35"/>
+<area shape="rect" id="node12" href="$geometry_8c.html#a2a9db056c43a4f4b2aece2329a98e2eb" title="aave_is_visible" alt="" coords="411,57,520,87"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#a373b4381636c15ec96dbc6f3e4655798" title="dot_product" alt="" coords="925,7,1016,36"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#abfbdee9c2e4714938fd9e458f08cbd40" title="local_coordinates" alt="" coords="755,32,877,61"/>
+<area shape="rect" id="node17" href="$material_8c.html#a6dc2bc04b22f0f36f848d5ac79376153" title="aave_material_filter" alt="" coords="399,112,532,141"/>
+<area shape="rect" id="node19" href="$aave_8h.html#a5b453c8df5597105b3a7cde336e83e0e" title="dft_index" alt="" coords="607,59,681,88"/>
+<area shape="rect" id="node21" href="$idft_8h.html#a797484e3f3d53d566ececbcfcd90f537" title="idft" alt="" coords="624,112,664,141"/>
+<area shape="rect" id="node23" href="$dft_8h.html#ad9584a3bdc946bf6faece23f05dc797d" title="dft" alt="" coords="625,165,663,195"/>
+</map>

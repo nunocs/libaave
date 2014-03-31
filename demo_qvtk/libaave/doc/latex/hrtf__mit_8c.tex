@@ -1,0 +1,90 @@
+\hypertarget{hrtf__mit_8c}{\section{hrtf\-\_\-mit.\-c File Reference}
+\label{hrtf__mit_8c}\index{hrtf\-\_\-mit.\-c@{hrtf\-\_\-mit.\-c}}
+}
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+Include dependency graph for hrtf\-\_\-mit.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{hrtf__mit_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{hrtf__mit_8c_acb99517636bb964ef212195fd246b7f8}{aave\-\_\-hrtf\-\_\-mit\-\_\-get} (const float $\ast$hrtf\mbox{[}2\mbox{]}, int elevation, int azimuth)
+\item 
+void \hyperlink{hrtf__mit_8c_a9dc7b281da804f481dadec10fec9cae6}{aave\-\_\-hrtf\-\_\-mit} (struct \hyperlink{structaave}{aave} $\ast$a)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \hyperlink{hrtf__mit_8c_aacbef727a5126117eca03ebed420d6d9}{hrtf\-\_\-mit\-\_\-set} \mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}\mbox{[}512\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{hrtf__mit_8c}{hrtf\-\_\-mit.\-c} file implements the interface to use the M\-I\-T K\-E\-M\-A\-R H\-R\-T\-F compact set. To select this set for the auralisation process, call \hyperlink{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{aave\-\_\-hrtf\-\_\-mit()} after initialising the aave structure and before calling \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\-\_\-put\-\_\-audio()}.
+
+The M\-I\-T K\-E\-M\-A\-R H\-R\-T\-F compact set consists of head-\/related impulse responses (H\-R\-I\-R) of a K\-E\-M\-A\-R dummy at 1.\-4m distance, data-\/reduced by post-\/processing to be made more compact. Each H\-R\-I\-R is 128 samples long at 44100\-Hz ($\sim$2.9ms) and only the left ear is stored (the right ear is assumed to be symmetric).
+
+H\-R\-I\-R measurements are available for elevations from -\/40 to 90 degrees in 10 degree steps. Depending on the elevation, the available azimuths are\-:
+\begin{DoxyItemize}
+\item elevation 90\-: 1 azimuth measure
+\item elevation 80\-: azimuths in 30 degree steps
+\item elevation 70\-: azimuths in 15 degree steps
+\item elevation 60\-: azimuths in 10 degree steps
+\item elevation 50\-: azimuths in 8 degree steps
+\item elevation 40 and -\/40\-: azimuths in 6.\-5 degree steps
+\item elevation 30 and -\/30\-: azimuths in 6 degree steps
+\item elevation 20 to -\/20\-: azimuths in 5 degree steps
+\end{DoxyItemize}
+
+References\-: \href{http://sound.media.mit.edu/resources/KEMAR.html}{\tt http\-://sound.\-media.\-mit.\-edu/resources/\-K\-E\-M\-A\-R.\-html} 
+
+\subsection{Function Documentation}
+\hypertarget{hrtf__mit_8c_a9dc7b281da804f481dadec10fec9cae6}{\index{hrtf\-\_\-mit.\-c@{hrtf\-\_\-mit.\-c}!aave\-\_\-hrtf\-\_\-mit@{aave\-\_\-hrtf\-\_\-mit}}
+\index{aave\-\_\-hrtf\-\_\-mit@{aave\-\_\-hrtf\-\_\-mit}!hrtf_mit.c@{hrtf\-\_\-mit.\-c}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-mit}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-hrtf\-\_\-mit (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{hrtf__mit_8c_a9dc7b281da804f481dadec10fec9cae6}
+Select the M\-I\-T K\-E\-M\-A\-R H\-R\-T\-F compact set for the auralisation process. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{hrtf__mit_8c_a9dc7b281da804f481dadec10fec9cae6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{hrtf__mit_8c_acb99517636bb964ef212195fd246b7f8}{\index{hrtf\-\_\-mit.\-c@{hrtf\-\_\-mit.\-c}!aave\-\_\-hrtf\-\_\-mit\-\_\-get@{aave\-\_\-hrtf\-\_\-mit\-\_\-get}}
+\index{aave\-\_\-hrtf\-\_\-mit\-\_\-get@{aave\-\_\-hrtf\-\_\-mit\-\_\-get}!hrtf_mit.c@{hrtf\-\_\-mit.\-c}}
+\subsubsection[{aave\-\_\-hrtf\-\_\-mit\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}static void aave\-\_\-hrtf\-\_\-mit\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{const float $\ast$}]{hrtf\mbox{[}2\mbox{]}, }
+\item[{int}]{elevation, }
+\item[{int}]{azimuth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{hrtf__mit_8c_acb99517636bb964ef212195fd246b7f8}
+Get the closest H\-R\-T\-F pair for the specified coordinates. {\ttfamily elevation} is \mbox{[}-\/90;90\mbox{]} degrees. {\ttfamily azimuth} is \mbox{[}-\/180;180\mbox{]} degrees. {\ttfamily hrtf}\mbox{[}0\mbox{]} will be the left H\-R\-T\-F, {\ttfamily hrtf}\mbox{[}1\mbox{]} the right H\-R\-T\-F. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{hrtf__mit_8c_acb99517636bb964ef212195fd246b7f8_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{hrtf__mit_8c_aacbef727a5126117eca03ebed420d6d9}{\index{hrtf\-\_\-mit.\-c@{hrtf\-\_\-mit.\-c}!hrtf\-\_\-mit\-\_\-set@{hrtf\-\_\-mit\-\_\-set}}
+\index{hrtf\-\_\-mit\-\_\-set@{hrtf\-\_\-mit\-\_\-set}!hrtf_mit.c@{hrtf\-\_\-mit.\-c}}
+\subsubsection[{hrtf\-\_\-mit\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}const float hrtf\-\_\-mit\-\_\-set\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}\mbox{[}512\mbox{]}}}\label{hrtf__mit_8c_aacbef727a5126117eca03ebed420d6d9}
+The H\-R\-T\-F set, generated by tools/hrtf\-\_\-mit\-\_\-set.\-c. 

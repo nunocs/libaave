@@ -1,0 +1,17 @@
+<map id="aave_update" name="aave_update">
+<area shape="rect" id="node3" href="$geometry_8c.html#afd54b3e8b06cda8e2f3aaf0e61b61e3b" title="aave_update_sound" alt="" coords="344,80,483,109"/>
+<area shape="rect" id="node20" href="$geometry_8c.html#ab67540c77da19bfc111eaa423d500d33" title="aave_create_sounds" alt="" coords="151,137,292,167"/>
+<area shape="rect" id="node5" href="$geometry_8c.html#ab40fce8a1525cf5d9194e909227c942d" title="aave_image_source" alt="" coords="533,109,672,139"/>
+<area shape="rect" id="node9" href="$geometry_8c.html#a814ea9c79e9276c9e6407192d3bfb3c1" title="aave_build_sound_path" alt="" coords="721,57,879,87"/>
+<area shape="rect" id="node7" href="$geometry_8c.html#a373b4381636c15ec96dbc6f3e4655798" title="dot_product" alt="" coords="1456,57,1547,87"/>
+<area shape="rect" id="node11" href="$geometry_8c.html#a4b47f01d4d88d73e92bdcca2d690140a" title="aave_intersection" alt="" coords="1113,5,1236,35"/>
+<area shape="rect" id="node17" href="$geometry_8c.html#a2a9db056c43a4f4b2aece2329a98e2eb" title="aave_is_visible" alt="" coords="941,5,1051,35"/>
+<area shape="rect" id="node14" href="$geometry_8c.html#abfbdee9c2e4714938fd9e458f08cbd40" title="local_coordinates" alt="" coords="1285,57,1408,87"/>
+<area shape="rect" id="node22" href="$geometry_8c.html#a2c55d6e06ff73570a887d18807442412" title="aave_create_sounds\l_recursively" alt="" coords="343,133,484,179"/>
+<area shape="rect" id="node24" href="$geometry_8c.html#a59ff10a7f9bd39866063bb05918d3df0" title="aave_create_sound" alt="" coords="536,163,669,192"/>
+<area shape="rect" id="node27" href="$aave_8h.html#a300799824871774e895676f347905cf3" title="aave_get_material_filter" alt="" coords="720,188,880,217"/>
+<area shape="rect" id="node29" href="$material_8c.html#a6dc2bc04b22f0f36f848d5ac79376153" title="aave_material_filter" alt="" coords="929,201,1063,231"/>
+<area shape="rect" id="node31" href="$aave_8h.html#a5b453c8df5597105b3a7cde336e83e0e" title="dft_index" alt="" coords="1137,161,1212,191"/>
+<area shape="rect" id="node33" href="$idft_8h.html#a797484e3f3d53d566ececbcfcd90f537" title="idft" alt="" coords="1155,215,1195,244"/>
+<area shape="rect" id="node35" href="$dft_8h.html#ad9584a3bdc946bf6faece23f05dc797d" title="dft" alt="" coords="1156,268,1193,297"/>
+</map>

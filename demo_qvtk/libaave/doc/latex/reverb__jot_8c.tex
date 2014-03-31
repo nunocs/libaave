@@ -1,0 +1,224 @@
+\hypertarget{reverb__jot_8c}{\section{reverb\-\_\-jot.\-c File Reference}
+\label{reverb__jot_8c}\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}}
+}
+{\ttfamily \#include \char`\"{}aave.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdio.\-h\char`\"{}}\\*
+Include dependency graph for reverb\-\_\-jot.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{reverb__jot_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdelay__filter}{delay\-\_\-filter}
+\item 
+struct \hyperlink{structabsorption__filter}{absorption\-\_\-filter}
+\item 
+struct \hyperlink{structtone__correction__filter}{tone\-\_\-correction\-\_\-filter}
+\item 
+struct \hyperlink{structdc__block__filter}{dc\-\_\-block\-\_\-filter}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{reverb__jot_8c_a92d268dc3052f4e79fedd139859b0c8f}{M\-A\-X\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-T\-I\-M\-E}~8820
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{reverb__jot_8c_adfb45e598332882d56cac622886147ae}{process\-\_\-delay\-\_\-filter} (struct \hyperlink{structdelay__filter}{delay\-\_\-filter} $\ast$d, float x, unsigned k)
+\item 
+static float \hyperlink{reverb__jot_8c_a4753c93200af2f79be012df00c909ad2}{process\-\_\-absorption\-\_\-filter} (struct \hyperlink{structabsorption__filter}{absorption\-\_\-filter} $\ast$af, float x, float g, float b)
+\item 
+static float \hyperlink{reverb__jot_8c_a904becb2ca4872b962837189114bfaab}{process\-\_\-tone\-\_\-correction\-\_\-filter} (struct \hyperlink{structtone__correction__filter}{tone\-\_\-correction\-\_\-filter} $\ast$tcf, float x, float b)
+\item 
+static float \hyperlink{reverb__jot_8c_a23bb515e413d3a0cfea9371ec630309c}{process\-\_\-dc\-\_\-block\-\_\-filter} (struct \hyperlink{structdc__block__filter}{dc\-\_\-block\-\_\-filter} $\ast$dcbf, float x)
+\item 
+\hypertarget{reverb__jot_8c_adb0321d640fc1f107530ad9d150d59ec}{void {\bfseries print\-\_\-reverb\-\_\-parameters} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, struct \hyperlink{structaave__reverb}{aave\-\_\-reverb} $\ast$rev)}\label{reverb__jot_8c_adb0321d640fc1f107530ad9d150d59ec}
+
+\item 
+void \hyperlink{reverb__jot_8c_a63e45c0437fb2667abefcdc67106ce48}{init\-\_\-reverb} (struct \hyperlink{structaave__reverb}{aave\-\_\-reverb} $\ast$reverb, float volume, float area, float abs)
+\item 
+void \hyperlink{reverb__jot_8c_afd05e6fe5d9fd34dbf3b080307623977}{aave\-\_\-reverb\-\_\-jot} (struct \hyperlink{structaave}{aave} $\ast$\hyperlink{structaave}{aave}, short $\ast$audio, unsigned n)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const short \hyperlink{reverb__jot_8c_a9819d92ac0454f28dd7b599c7d5bccd1}{feedback\-\_\-delays} \mbox{[}\hyperlink{aave_8h_aa8ac0978ba9be33dd450abaaa2dda4d9}{F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]} = \{29,53,79,101,127,149,173,197,223,251,277,307,331,353,379,401,431,457,479,503,541,563,587,613,641,673,701,727,751,773,797,821,853,877,907,929,953,977,1009,1031,1061,1087,1109,1151,1181,1213,1237,1259,1283,1307,1361,1399,1423,1447,1471,1493,1523,1549,1571,1597,1619,1657,1693,1721\}
+\item 
+\hypertarget{reverb__jot_8c_ab55b41f55a1c100bf9bfb49407d7e0f0}{struct \hyperlink{structdc__block__filter}{dc\-\_\-block\-\_\-filter} {\bfseries dcbf} \mbox{[}$\,$\mbox{]} = \{\{0,0,0.\-01\},\{0,0,0.\-01\}\}}\label{reverb__jot_8c_ab55b41f55a1c100bf9bfb49407d7e0f0}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{reverb__jot_8c}{reverb\-\_\-jot.\-c} file implements a classic Jot F\-D\-N reverberator to add an artificial reverberation tail to each anechoic sound source pointed by {\ttfamily aave-\/$>$sources}, to simulate the late reflections that the \hyperlink{geometry_8c}{geometry.\-c} part of the auralisation process could not determine in time.
+
+
+\begin{DoxyImage}
+\includegraphics[width=\textwidth]{fdn_diagram}
+\caption{Jot's Feedback Delay Network diagram}
+\end{DoxyImage}
+
+
+N = 64 is the currently adopted circulation matrix order, b\mbox{[}N\mbox{]} is a unitary vector (identity, not implemented) and c\mbox{[}N,2\mbox{]} is a two collumn matrix for decorrelation of stereo output. The circulating matrix a\mbox{[}N,N\mbox{]} is of Householder type, represented by the equation a\mbox{[}N,N\mbox{]} = j\mbox{[}N,N\mbox{]} -\/ 2/\-N $\ast$ u\mbox{[}N\mbox{]} $\ast$ u\mbox{[}N\mbox{]}$^\wedge$\-T where j\mbox{[}N,N\mbox{]} is a permutation matrix and u\mbox{[}N\mbox{]} a unitary collumn vector. Amplitude and high frequency damping are performed by {\ttfamily \hyperlink{structabsorption__filter}{absorption\-\_\-filter}} h(z) and high pass tone correction is performed by {\ttfamily \hyperlink{structtone__correction__filter}{tone\-\_\-correction\-\_\-filter}} t(z), for left and right outputs. {\ttfamily \hyperlink{structdelay__filter}{delay\-\_\-filter}} z sizes {\ttfamily feedback\-\_\-delays} are chosen from a set of prime numbers within the range 0-\/1800.
+
+Reverb predelay {\ttfamily Tmixing} is calculated acording to Jot's aproximation Tmixing = sqrt(\-Volume). Reverb constant amplitude atenuation  is calculated as 1/rc, where rc = pow((area $\ast$ abs)/(16 $\ast$ P\-I),0.\-5) is the critical distance at which direct sound energy is equal to reverberation energy, area is the total surface area for the room and abs is the average absorption coeficient of the room. The {\ttfamily pre\-\_\-delay} value used is the Tmixing predelay value summed with hrtf buffer size to compensate the latency introduced by H\-R\-T\-F processing.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000016}{Todo}]A {\ttfamily \hyperlink{structdc__block__filter}{dc\-\_\-block\-\_\-filter}} was introduced to aproximate low frequency damping. Improve this filter (or introduce another) for flexible bandwidth selection. \end{DoxyRefDesc}
+
+
+Reference\-: Jasmin Frenette, \char`\"{}\-R\-E\-D\-U\-C\-I\-N\-G A\-R\-T\-I\-F\-I\-C\-I\-A\-L R\-E\-V\-E\-R\-B\-E\-R\-A\-T\-I\-O\-N A\-L\-G\-O\-R\-I\-T\-H\-M R\-E\-Q\-U\-I\-R\-E\-M\-E\-N\-T\-S
+\-U\-S\-I\-N\-G T\-I\-M\-E-\/\-V\-A\-R\-I\-A\-N\-T F\-E\-E\-D\-B\-A\-C\-K D\-E\-L\-A\-Y N\-E\-T\-W\-O\-R\-K\-S\char`\"{}, Master Thesis, Dec 2000. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{reverb__jot_8c_a92d268dc3052f4e79fedd139859b0c8f}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!M\-A\-X\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-T\-I\-M\-E@{M\-A\-X\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-T\-I\-M\-E}}
+\index{M\-A\-X\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-T\-I\-M\-E@{M\-A\-X\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-T\-I\-M\-E}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-T\-I\-M\-E~8820}}\label{reverb__jot_8c_a92d268dc3052f4e79fedd139859b0c8f}
+Define a maximum delay time of 200 ms 
+
+\subsection{Function Documentation}
+\hypertarget{reverb__jot_8c_afd05e6fe5d9fd34dbf3b080307623977}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!aave\-\_\-reverb\-\_\-jot@{aave\-\_\-reverb\-\_\-jot}}
+\index{aave\-\_\-reverb\-\_\-jot@{aave\-\_\-reverb\-\_\-jot}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{aave\-\_\-reverb\-\_\-jot}]{\setlength{\rightskip}{0pt plus 5cm}void aave\-\_\-reverb\-\_\-jot (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave} $\ast$}]{aave, }
+\item[{short $\ast$}]{audio, }
+\item[{unsigned}]{n}
+\end{DoxyParamCaption}
+)}}\label{reverb__jot_8c_afd05e6fe5d9fd34dbf3b080307623977}
+Run a Jot F\-D\-N reverberator to add an artificial reverberation tail to the {\ttfamily n} single channel frames ({\ttfamily n} samples) of each anechoic sound source pointed by {\ttfamily aave-\/$>$sources}. Store output in {\ttfamily audio}. 
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{reverb__jot_8c_afd05e6fe5d9fd34dbf3b080307623977_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{reverb__jot_8c_afd05e6fe5d9fd34dbf3b080307623977_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reverb__jot_8c_a63e45c0437fb2667abefcdc67106ce48}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!init\-\_\-reverb@{init\-\_\-reverb}}
+\index{init\-\_\-reverb@{init\-\_\-reverb}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{init\-\_\-reverb}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-reverb (
+\begin{DoxyParamCaption}
+\item[{struct {\bf aave\-\_\-reverb} $\ast$}]{reverb, }
+\item[{float}]{volume, }
+\item[{float}]{area, }
+\item[{float}]{abs}
+\end{DoxyParamCaption}
+)}}\label{reverb__jot_8c_a63e45c0437fb2667abefcdc67106ce48}
+Initialize reverb parameters. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{reverb__jot_8c_a63e45c0437fb2667abefcdc67106ce48_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reverb__jot_8c_a4753c93200af2f79be012df00c909ad2}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!process\-\_\-absorption\-\_\-filter@{process\-\_\-absorption\-\_\-filter}}
+\index{process\-\_\-absorption\-\_\-filter@{process\-\_\-absorption\-\_\-filter}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{process\-\_\-absorption\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}static float process\-\_\-absorption\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{struct {\bf absorption\-\_\-filter} $\ast$}]{af, }
+\item[{float}]{x, }
+\item[{float}]{g, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{reverb__jot_8c_a4753c93200af2f79be012df00c909ad2}
+Execute a low-\/pass filter with gain atenuation\-: y\mbox{[}n\mbox{]} = g $\ast$ (1-\/b) $\ast$ x\mbox{[}n\mbox{]} + b $\ast$ y\mbox{[}n-\/1\mbox{]}. {\ttfamily lp} is the low-\/pass filter data, {\ttfamily x} is the input value, {\ttfamily b} is the bandwidth/damping coefficient. {\ttfamily b} is the gain atenuation. Returns the output value y\mbox{[}n\mbox{]}. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reverb__jot_8c_a4753c93200af2f79be012df00c909ad2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reverb__jot_8c_a23bb515e413d3a0cfea9371ec630309c}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!process\-\_\-dc\-\_\-block\-\_\-filter@{process\-\_\-dc\-\_\-block\-\_\-filter}}
+\index{process\-\_\-dc\-\_\-block\-\_\-filter@{process\-\_\-dc\-\_\-block\-\_\-filter}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{process\-\_\-dc\-\_\-block\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}static float process\-\_\-dc\-\_\-block\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{struct {\bf dc\-\_\-block\-\_\-filter} $\ast$}]{dcbf, }
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{reverb__jot_8c_a23bb515e413d3a0cfea9371ec630309c}
+Execute a dc block filter\-: y\mbox{[}n\mbox{]} = g $\ast$ (x\mbox{[}n\mbox{]} -\/ x\mbox{[}n-\/1\mbox{]}) + (1-\/b) $\ast$ y\mbox{[}n-\/1\mbox{]}. {\ttfamily dcbf} is the dc block filter data, {\ttfamily x} is the input value, Returns the output value dcbf-\/$>$y. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reverb__jot_8c_a23bb515e413d3a0cfea9371ec630309c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reverb__jot_8c_adfb45e598332882d56cac622886147ae}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!process\-\_\-delay\-\_\-filter@{process\-\_\-delay\-\_\-filter}}
+\index{process\-\_\-delay\-\_\-filter@{process\-\_\-delay\-\_\-filter}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{process\-\_\-delay\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}static float process\-\_\-delay\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{struct {\bf delay\-\_\-filter} $\ast$}]{d, }
+\item[{float}]{x, }
+\item[{unsigned}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{reverb__jot_8c_adfb45e598332882d56cac622886147ae}
+Execute a delay block\-: y\mbox{[}n\mbox{]} = x\mbox{[}n -\/ k\mbox{]}. {\ttfamily d} is the delay block data, {\ttfamily x} is the input value, and {\ttfamily k} is the number of samples of delay. Returns the output value y\mbox{[}n\mbox{]}. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reverb__jot_8c_adfb45e598332882d56cac622886147ae_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{reverb__jot_8c_a904becb2ca4872b962837189114bfaab}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!process\-\_\-tone\-\_\-correction\-\_\-filter@{process\-\_\-tone\-\_\-correction\-\_\-filter}}
+\index{process\-\_\-tone\-\_\-correction\-\_\-filter@{process\-\_\-tone\-\_\-correction\-\_\-filter}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{process\-\_\-tone\-\_\-correction\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}static float process\-\_\-tone\-\_\-correction\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{struct {\bf tone\-\_\-correction\-\_\-filter} $\ast$}]{tcf, }
+\item[{float}]{x, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{reverb__jot_8c_a904becb2ca4872b962837189114bfaab}
+Execute a tone correction (high pass) filter\-: y\mbox{[}n\mbox{]} = g $\ast$ (x\mbox{[}n\mbox{]} -\/ b $\ast$ x\mbox{[}n-\/1\mbox{]}) / 1-\/b. {\ttfamily tcf} is the high-\/pass filter data, {\ttfamily x} is the input value, {\ttfamily b} is the bandwidth/damping coefficient. Returns the output value y\mbox{[}n\mbox{]}. 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reverb__jot_8c_a904becb2ca4872b962837189114bfaab_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{reverb__jot_8c_a9819d92ac0454f28dd7b599c7d5bccd1}{\index{reverb\-\_\-jot.\-c@{reverb\-\_\-jot.\-c}!feedback\-\_\-delays@{feedback\-\_\-delays}}
+\index{feedback\-\_\-delays@{feedback\-\_\-delays}!reverb_jot.c@{reverb\-\_\-jot.\-c}}
+\subsubsection[{feedback\-\_\-delays}]{\setlength{\rightskip}{0pt plus 5cm}const short feedback\-\_\-delays\mbox{[}{\bf F\-D\-N\-\_\-\-O\-R\-D\-E\-R}\mbox{]} = \{29,53,79,101,127,149,173,197,223,251,277,307,331,353,379,401,431,457,479,503,541,563,587,613,641,673,701,727,751,773,797,821,853,877,907,929,953,977,1009,1031,1061,1087,1109,1151,1181,1213,1237,1259,1283,1307,1361,1399,1423,1447,1471,1493,1523,1549,1571,1597,1619,1657,1693,1721\}\hspace{0.3cm}{\ttfamily [static]}}}\label{reverb__jot_8c_a9819d92ac0454f28dd7b599c7d5bccd1}
+N = 64 delay sizes for each fdn delay line. Prime numbers within the range 0 -\/ 1800. 

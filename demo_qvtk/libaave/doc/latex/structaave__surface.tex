@@ -1,0 +1,85 @@
+\hypertarget{structaave__surface}{\section{aave\-\_\-surface Struct Reference}
+\label{structaave__surface}\index{aave\-\_\-surface@{aave\-\_\-surface}}
+}
+
+
+{\ttfamily \#include $<$aave.\-h$>$}
+
+
+
+Collaboration diagram for aave\-\_\-surface\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{structaave__surface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$ \hyperlink{structaave__surface_a4437c02a050c5cd3d99272bb3d5ebd7e}{next}
+\item 
+struct \hyperlink{structaave__material}{aave\-\_\-material} $\ast$ \hyperlink{structaave__surface_a6dfe11d4b9e97f9167a39669513a4b0a}{material}
+\item 
+float \hyperlink{structaave__surface_a9a12af46ca455c786a791ce484afdbd4}{avg\-\_\-absorption\-\_\-coef}
+\item 
+float \hyperlink{structaave__surface_a8b5aa68de342d90a056663c90fc31f28}{normal} \mbox{[}3\mbox{]}
+\item 
+\hypertarget{structaave__surface_a6a8499e479693fd5915cc070497b1701}{float {\bfseries distance}}\label{structaave__surface_a6a8499e479693fd5915cc070497b1701}
+
+\item 
+float \hyperlink{structaave__surface_a8724b22799063ed44d691a845f68f768}{versors} \mbox{[}2\mbox{]}\mbox{[}3\mbox{]}
+\item 
+unsigned \hyperlink{structaave__surface_a30f288c41c0a36c0a2492ab100e6c05c}{npoints}
+\item 
+float \hyperlink{structaave__surface_a6bd0e3127c052c7cf3ffa49480acda83}{points} \mbox{[}32\mbox{]}\mbox{[}3+2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data for each surface that makes the auralisation world. A surface is defined as an n-\/point planar polygon. The points are specified in anti-\/clockwise order. 
+
+\subsection{Field Documentation}
+\hypertarget{structaave__surface_a9a12af46ca455c786a791ce484afdbd4}{\index{aave\-\_\-surface@{aave\-\_\-surface}!avg\-\_\-absorption\-\_\-coef@{avg\-\_\-absorption\-\_\-coef}}
+\index{avg\-\_\-absorption\-\_\-coef@{avg\-\_\-absorption\-\_\-coef}!aave_surface@{aave\-\_\-surface}}
+\subsubsection[{avg\-\_\-absorption\-\_\-coef}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-surface\-::avg\-\_\-absorption\-\_\-coef}}\label{structaave__surface_a9a12af46ca455c786a791ce484afdbd4}
+Average absorption coeficient. \hypertarget{structaave__surface_a6dfe11d4b9e97f9167a39669513a4b0a}{\index{aave\-\_\-surface@{aave\-\_\-surface}!material@{material}}
+\index{material@{material}!aave_surface@{aave\-\_\-surface}}
+\subsubsection[{material}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-material}$\ast$ aave\-\_\-surface\-::material}}\label{structaave__surface_a6dfe11d4b9e97f9167a39669513a4b0a}
+Material of the surface. \hypertarget{structaave__surface_a4437c02a050c5cd3d99272bb3d5ebd7e}{\index{aave\-\_\-surface@{aave\-\_\-surface}!next@{next}}
+\index{next@{next}!aave_surface@{aave\-\_\-surface}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-surface}$\ast$ aave\-\_\-surface\-::next}}\label{structaave__surface_a4437c02a050c5cd3d99272bb3d5ebd7e}
+Pointer to the next surface (singly-\/linked list). \hypertarget{structaave__surface_a8b5aa68de342d90a056663c90fc31f28}{\index{aave\-\_\-surface@{aave\-\_\-surface}!normal@{normal}}
+\index{normal@{normal}!aave_surface@{aave\-\_\-surface}}
+\subsubsection[{normal}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-surface\-::normal\mbox{[}3\mbox{]}}}\label{structaave__surface_a8b5aa68de342d90a056663c90fc31f28}
+Specification of the plane where this surface lays, in Hessian normal form\-: unit normal vector and distance from origin. (\href{http://mathworld.wolfram.com/HessianNormalForm.html}{\tt http\-://mathworld.\-wolfram.\-com/\-Hessian\-Normal\-Form.\-html}) The distance is used to calculate the position of the image sources. The unit normal vector is used just about everywhere. \hypertarget{structaave__surface_a30f288c41c0a36c0a2492ab100e6c05c}{\index{aave\-\_\-surface@{aave\-\_\-surface}!npoints@{npoints}}
+\index{npoints@{npoints}!aave_surface@{aave\-\_\-surface}}
+\subsubsection[{npoints}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-\_\-surface\-::npoints}}\label{structaave__surface_a30f288c41c0a36c0a2492ab100e6c05c}
+Number of points of the polygon (minimum 3). \hypertarget{structaave__surface_a6bd0e3127c052c7cf3ffa49480acda83}{\index{aave\-\_\-surface@{aave\-\_\-surface}!points@{points}}
+\index{points@{points}!aave_surface@{aave\-\_\-surface}}
+\subsubsection[{points}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-surface\-::points\mbox{[}32\mbox{]}\mbox{[}3+2\mbox{]}}}\label{structaave__surface_a6bd0e3127c052c7cf3ffa49480acda83}
+Coordinates of each point, in counter-\/clockwise order (counter-\/clockwise normal).
+
+World coordinates\-:
+\begin{DoxyItemize}
+\item x = points\mbox{[}i\mbox{]}\mbox{[}0\mbox{]}
+\item y = points\mbox{[}i\mbox{]}\mbox{[}1\mbox{]}
+\item z = points\mbox{[}i\mbox{]}\mbox{[}2\mbox{]}
+\end{DoxyItemize}
+
+Local coordinates (internally used by the polygon-\/line intersection algorithm)\-:
+\begin{DoxyItemize}
+\item ex = points\mbox{[}i\mbox{]}\mbox{[}3\mbox{]}
+\item ex = points\mbox{[}i\mbox{]}\mbox{[}4\mbox{]}
+\end{DoxyItemize}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]Remove hardcoded maximum number of points per surface. \end{DoxyRefDesc}
+\hypertarget{structaave__surface_a8724b22799063ed44d691a845f68f768}{\index{aave\-\_\-surface@{aave\-\_\-surface}!versors@{versors}}
+\index{versors@{versors}!aave_surface@{aave\-\_\-surface}}
+\subsubsection[{versors}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-\_\-surface\-::versors\mbox{[}2\mbox{]}\mbox{[}3\mbox{]}}}\label{structaave__surface_a8724b22799063ed44d691a845f68f768}
+Alternate specification of the plane where this surface lays using 2 versors and a point (points\mbox{[}0\mbox{]}). This is used to perform calculations in local coordinates, namely the non-\/convex polygon -\/ line intersection algorithm. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aave_8h}{aave.\-h}\end{DoxyCompactItemize}

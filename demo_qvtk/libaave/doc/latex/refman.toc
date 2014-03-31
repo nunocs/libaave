@@ -1,0 +1,310 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Installation}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Coordinates}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Overview}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Acknowledgements}{4}{section.1.4}
+\contentsline {chapter}{\numberline {2}Todo List}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}Data Structure Index}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Data Structures}{7}{section.3.1}
+\contentsline {chapter}{\numberline {4}File Index}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}File List}{9}{section.4.1}
+\contentsline {chapter}{\numberline {5}Data Structure Documentation}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}aave Struct Reference}{11}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{12}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Field Documentation}{12}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}area}{12}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}gain}{12}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.3}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}frames}{12}{subsubsection.5.1.2.3}
+\contentsline {subsubsection}{\numberline {5.1.2.4}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}get}{12}{subsubsection.5.1.2.4}
+\contentsline {subsubsection}{\numberline {5.1.2.5}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}{12}{subsubsection.5.1.2.5}
+\contentsline {subsubsection}{\numberline {5.1.2.6}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer\discretionary {-}{}{}\_\discretionary {-}{}{}index}{13}{subsubsection.5.1.2.6}
+\contentsline {subsubsection}{\numberline {5.1.2.7}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}overlap\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}{13}{subsubsection.5.1.2.7}
+\contentsline {subsubsection}{\numberline {5.1.2.8}nsurfaces}{13}{subsubsection.5.1.2.8}
+\contentsline {subsubsection}{\numberline {5.1.2.9}orientation}{13}{subsubsection.5.1.2.9}
+\contentsline {subsubsection}{\numberline {5.1.2.10}position}{13}{subsubsection.5.1.2.10}
+\contentsline {subsubsection}{\numberline {5.1.2.11}reflections}{13}{subsubsection.5.1.2.11}
+\contentsline {subsubsection}{\numberline {5.1.2.12}reverb}{13}{subsubsection.5.1.2.12}
+\contentsline {subsubsection}{\numberline {5.1.2.13}room\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}absorption}{13}{subsubsection.5.1.2.13}
+\contentsline {subsubsection}{\numberline {5.1.2.14}sounds}{13}{subsubsection.5.1.2.14}
+\contentsline {subsubsection}{\numberline {5.1.2.15}sources}{13}{subsubsection.5.1.2.15}
+\contentsline {subsubsection}{\numberline {5.1.2.16}surfaces}{13}{subsubsection.5.1.2.16}
+\contentsline {subsubsection}{\numberline {5.1.2.17}volume}{14}{subsubsection.5.1.2.17}
+\contentsline {section}{\numberline {5.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}material Struct Reference}{14}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{14}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Field Documentation}{14}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}name}{14}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}reflection\discretionary {-}{}{}\_\discretionary {-}{}{}factors}{14}{subsubsection.5.2.2.2}
+\contentsline {section}{\numberline {5.3}aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb Struct Reference}{14}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Field Documentation}{15}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}bandwidth}{15}{subsubsection.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}gain}{15}{subsubsection.5.3.1.2}
+\contentsline {subsubsection}{\numberline {5.3.1.3}active}{15}{subsubsection.5.3.1.3}
+\contentsline {subsubsection}{\numberline {5.3.1.4}alpha}{15}{subsubsection.5.3.1.4}
+\contentsline {subsubsection}{\numberline {5.3.1.5}beta}{15}{subsubsection.5.3.1.5}
+\contentsline {subsubsection}{\numberline {5.3.1.6}decorrelation\discretionary {-}{}{}\_\discretionary {-}{}{}coefs}{15}{subsubsection.5.3.1.6}
+\contentsline {subsubsection}{\numberline {5.3.1.7}fdn\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}taps}{15}{subsubsection.5.3.1.7}
+\contentsline {subsubsection}{\numberline {5.3.1.8}level}{15}{subsubsection.5.3.1.8}
+\contentsline {subsubsection}{\numberline {5.3.1.9}mix}{15}{subsubsection.5.3.1.9}
+\contentsline {subsubsection}{\numberline {5.3.1.10}pre\discretionary {-}{}{}\_\discretionary {-}{}{}delay}{15}{subsubsection.5.3.1.10}
+\contentsline {subsubsection}{\numberline {5.3.1.11}rc}{15}{subsubsection.5.3.1.11}
+\contentsline {subsubsection}{\numberline {5.3.1.12}R\discretionary {-}{}{}T60}{15}{subsubsection.5.3.1.12}
+\contentsline {subsubsection}{\numberline {5.3.1.13}Tmixing}{16}{subsubsection.5.3.1.13}
+\contentsline {section}{\numberline {5.4}aave\discretionary {-}{}{}\_\discretionary {-}{}{}sound Struct Reference}{16}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{17}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Field Documentation}{17}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}audible}{17}{subsubsection.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.2.2}dft}{17}{subsubsection.5.4.2.2}
+\contentsline {subsubsection}{\numberline {5.4.2.3}distance}{17}{subsubsection.5.4.2.3}
+\contentsline {subsubsection}{\numberline {5.4.2.4}distance\discretionary {-}{}{}\_\discretionary {-}{}{}smooth}{17}{subsubsection.5.4.2.4}
+\contentsline {subsubsection}{\numberline {5.4.2.5}fade\discretionary {-}{}{}\_\discretionary {-}{}{}samples}{17}{subsubsection.5.4.2.5}
+\contentsline {subsubsection}{\numberline {5.4.2.6}filter}{17}{subsubsection.5.4.2.6}
+\contentsline {subsubsection}{\numberline {5.4.2.7}hrtf}{17}{subsubsection.5.4.2.7}
+\contentsline {subsubsection}{\numberline {5.4.2.8}image\discretionary {-}{}{}\_\discretionary {-}{}{}sources}{17}{subsubsection.5.4.2.8}
+\contentsline {subsubsection}{\numberline {5.4.2.9}next}{17}{subsubsection.5.4.2.9}
+\contentsline {subsubsection}{\numberline {5.4.2.10}position}{18}{subsubsection.5.4.2.10}
+\contentsline {subsubsection}{\numberline {5.4.2.11}reflection\discretionary {-}{}{}\_\discretionary {-}{}{}points}{18}{subsubsection.5.4.2.11}
+\contentsline {subsubsection}{\numberline {5.4.2.12}source}{18}{subsubsection.5.4.2.12}
+\contentsline {subsubsection}{\numberline {5.4.2.13}surfaces}{18}{subsubsection.5.4.2.13}
+\contentsline {section}{\numberline {5.5}aave\discretionary {-}{}{}\_\discretionary {-}{}{}source Struct Reference}{18}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{19}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Field Documentation}{19}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}aave}{19}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}buffer}{19}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}buffer\discretionary {-}{}{}\_\discretionary {-}{}{}index}{19}{subsubsection.5.5.2.3}
+\contentsline {subsubsection}{\numberline {5.5.2.4}next}{19}{subsubsection.5.5.2.4}
+\contentsline {subsubsection}{\numberline {5.5.2.5}position}{19}{subsubsection.5.5.2.5}
+\contentsline {section}{\numberline {5.6}aave\discretionary {-}{}{}\_\discretionary {-}{}{}surface Struct Reference}{19}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{20}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Field Documentation}{20}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}avg\discretionary {-}{}{}\_\discretionary {-}{}{}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}coef}{20}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}material}{20}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}next}{20}{subsubsection.5.6.2.3}
+\contentsline {subsubsection}{\numberline {5.6.2.4}normal}{20}{subsubsection.5.6.2.4}
+\contentsline {subsubsection}{\numberline {5.6.2.5}npoints}{21}{subsubsection.5.6.2.5}
+\contentsline {subsubsection}{\numberline {5.6.2.6}points}{21}{subsubsection.5.6.2.6}
+\contentsline {subsubsection}{\numberline {5.6.2.7}versors}{21}{subsubsection.5.6.2.7}
+\contentsline {section}{\numberline {5.7}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}filter Struct Reference}{21}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{21}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Field Documentation}{21}{subsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.2.1}y}{21}{subsubsection.5.7.2.1}
+\contentsline {section}{\numberline {5.8}allpass Struct Reference}{22}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{22}{subsection.5.8.1}
+\contentsline {subsection}{\numberline {5.8.2}Field Documentation}{22}{subsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.2.1}buffer}{22}{subsubsection.5.8.2.1}
+\contentsline {subsubsection}{\numberline {5.8.2.2}index}{22}{subsubsection.5.8.2.2}
+\contentsline {subsubsection}{\numberline {5.8.2.3}tap}{22}{subsubsection.5.8.2.3}
+\contentsline {section}{\numberline {5.9}dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter Struct Reference}{22}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{22}{subsection.5.9.1}
+\contentsline {subsection}{\numberline {5.9.2}Field Documentation}{22}{subsection.5.9.2}
+\contentsline {subsubsection}{\numberline {5.9.2.1}b}{22}{subsubsection.5.9.2.1}
+\contentsline {subsubsection}{\numberline {5.9.2.2}x}{23}{subsubsection.5.9.2.2}
+\contentsline {subsubsection}{\numberline {5.9.2.3}y}{23}{subsubsection.5.9.2.3}
+\contentsline {section}{\numberline {5.10}decay\discretionary {-}{}{}\_\discretionary {-}{}{}block Struct Reference}{23}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}Detailed Description}{23}{subsection.5.10.1}
+\contentsline {subsection}{\numberline {5.10.2}Field Documentation}{23}{subsection.5.10.2}
+\contentsline {subsubsection}{\numberline {5.10.2.1}ap}{23}{subsubsection.5.10.2.1}
+\contentsline {subsubsection}{\numberline {5.10.2.2}delay}{23}{subsubsection.5.10.2.2}
+\contentsline {subsubsection}{\numberline {5.10.2.3}lp}{24}{subsubsection.5.10.2.3}
+\contentsline {subsubsection}{\numberline {5.10.2.4}out}{24}{subsubsection.5.10.2.4}
+\contentsline {section}{\numberline {5.11}delay Struct Reference}{24}{section.5.11}
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{24}{subsection.5.11.1}
+\contentsline {subsection}{\numberline {5.11.2}Field Documentation}{24}{subsection.5.11.2}
+\contentsline {subsubsection}{\numberline {5.11.2.1}buffer}{24}{subsubsection.5.11.2.1}
+\contentsline {subsubsection}{\numberline {5.11.2.2}index}{24}{subsubsection.5.11.2.2}
+\contentsline {section}{\numberline {5.12}delay\discretionary {-}{}{}\_\discretionary {-}{}{}filter Struct Reference}{24}{section.5.12}
+\contentsline {subsection}{\numberline {5.12.1}Detailed Description}{24}{subsection.5.12.1}
+\contentsline {subsection}{\numberline {5.12.2}Field Documentation}{25}{subsection.5.12.2}
+\contentsline {subsubsection}{\numberline {5.12.2.1}buffer}{25}{subsubsection.5.12.2.1}
+\contentsline {subsubsection}{\numberline {5.12.2.2}index}{25}{subsubsection.5.12.2.2}
+\contentsline {section}{\numberline {5.13}lowpass Struct Reference}{25}{section.5.13}
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{25}{subsection.5.13.1}
+\contentsline {subsection}{\numberline {5.13.2}Field Documentation}{25}{subsection.5.13.2}
+\contentsline {subsubsection}{\numberline {5.13.2.1}y}{25}{subsubsection.5.13.2.1}
+\contentsline {section}{\numberline {5.14}tone\discretionary {-}{}{}\_\discretionary {-}{}{}correction\discretionary {-}{}{}\_\discretionary {-}{}{}filter Struct Reference}{25}{section.5.14}
+\contentsline {subsection}{\numberline {5.14.1}Detailed Description}{25}{subsection.5.14.1}
+\contentsline {subsection}{\numberline {5.14.2}Field Documentation}{25}{subsection.5.14.2}
+\contentsline {subsubsection}{\numberline {5.14.2.1}y}{25}{subsubsection.5.14.2.1}
+\contentsline {chapter}{\numberline {6}File Documentation}{27}{chapter.6}
+\contentsline {section}{\numberline {6.1}aave.\discretionary {-}{}{}h File Reference}{27}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{28}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Macro Definition Documentation}{30}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}S}{30}{subsubsection.6.1.2.1}
+\contentsline {subsubsection}{\numberline {6.1.2.2}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}F\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}A\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}S}{30}{subsubsection.6.1.2.2}
+\contentsline {subsubsection}{\numberline {6.1.2.3}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}F}{30}{subsubsection.6.1.2.3}
+\contentsline {subsubsection}{\numberline {6.1.2.4}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}F\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}S}{30}{subsubsection.6.1.2.4}
+\contentsline {subsubsection}{\numberline {6.1.2.5}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}U\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}{30}{subsubsection.6.1.2.5}
+\contentsline {subsubsection}{\numberline {6.1.2.6}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}U\discretionary {-}{}{}R\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}B\discretionary {-}{}{}U\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}{31}{subsubsection.6.1.2.6}
+\contentsline {subsubsection}{\numberline {6.1.2.7}F\discretionary {-}{}{}D\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R}{31}{subsubsection.6.1.2.7}
+\contentsline {subsection}{\numberline {6.1.3}Function Documentation}{31}{subsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}source}{31}{subsubsection.6.1.3.1}
+\contentsline {subsubsection}{\numberline {6.1.3.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}surface}{31}{subsubsection.6.1.3.2}
+\contentsline {subsubsection}{\numberline {6.1.3.3}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}audio}{32}{subsubsection.6.1.3.3}
+\contentsline {subsubsection}{\numberline {6.1.3.4}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}{32}{subsubsection.6.1.3.4}
+\contentsline {subsubsection}{\numberline {6.1.3.5}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material}{33}{subsubsection.6.1.3.5}
+\contentsline {subsubsection}{\numberline {6.1.3.6}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{33}{subsubsection.6.1.3.6}
+\contentsline {subsubsection}{\numberline {6.1.3.7}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic}{34}{subsubsection.6.1.3.7}
+\contentsline {subsubsection}{\numberline {6.1.3.8}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen}{34}{subsubsection.6.1.3.8}
+\contentsline {subsubsection}{\numberline {6.1.3.9}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit}{35}{subsubsection.6.1.3.9}
+\contentsline {subsubsection}{\numberline {6.1.3.10}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub}{35}{subsubsection.6.1.3.10}
+\contentsline {subsubsection}{\numberline {6.1.3.11}aave\discretionary {-}{}{}\_\discretionary {-}{}{}init}{35}{subsubsection.6.1.3.11}
+\contentsline {subsubsection}{\numberline {6.1.3.12}aave\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}source}{36}{subsubsection.6.1.3.12}
+\contentsline {subsubsection}{\numberline {6.1.3.13}aave\discretionary {-}{}{}\_\discretionary {-}{}{}put\discretionary {-}{}{}\_\discretionary {-}{}{}audio}{36}{subsubsection.6.1.3.13}
+\contentsline {subsubsection}{\numberline {6.1.3.14}aave\discretionary {-}{}{}\_\discretionary {-}{}{}read\discretionary {-}{}{}\_\discretionary {-}{}{}obj}{36}{subsubsection.6.1.3.14}
+\contentsline {subsubsection}{\numberline {6.1.3.15}aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro}{37}{subsubsection.6.1.3.15}
+\contentsline {subsubsection}{\numberline {6.1.3.16}aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot}{37}{subsubsection.6.1.3.16}
+\contentsline {subsubsection}{\numberline {6.1.3.17}aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}orientation}{38}{subsubsection.6.1.3.17}
+\contentsline {subsubsection}{\numberline {6.1.3.18}aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}position}{38}{subsubsection.6.1.3.18}
+\contentsline {subsubsection}{\numberline {6.1.3.19}aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}position}{39}{subsubsection.6.1.3.19}
+\contentsline {subsubsection}{\numberline {6.1.3.20}aave\discretionary {-}{}{}\_\discretionary {-}{}{}update}{39}{subsubsection.6.1.3.20}
+\contentsline {subsubsection}{\numberline {6.1.3.21}dft\discretionary {-}{}{}\_\discretionary {-}{}{}index}{39}{subsubsection.6.1.3.21}
+\contentsline {subsubsection}{\numberline {6.1.3.22}init\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}{39}{subsubsection.6.1.3.22}
+\contentsline {subsection}{\numberline {6.1.4}Variable Documentation}{40}{subsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.4.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}none}{40}{subsubsection.6.1.4.1}
+\contentsline {section}{\numberline {6.2}audio.\discretionary {-}{}{}c File Reference}{40}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{41}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Macro Definition Documentation}{44}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}B1}{44}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}A\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}{45}{subsubsection.6.2.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.3}D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{45}{subsubsection.6.2.2.3}
+\contentsline {subsubsection}{\numberline {6.2.2.4}I\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{45}{subsubsection.6.2.2.4}
+\contentsline {subsection}{\numberline {6.2.3}Function Documentation}{45}{subsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.3.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}audio\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}block}{45}{subsubsection.6.2.3.1}
+\contentsline {subsubsection}{\numberline {6.2.3.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}audio}{46}{subsubsection.6.2.3.2}
+\contentsline {subsubsection}{\numberline {6.2.3.3}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}sound}{46}{subsubsection.6.2.3.3}
+\contentsline {subsubsection}{\numberline {6.2.3.4}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}fill\discretionary {-}{}{}\_\discretionary {-}{}{}output\discretionary {-}{}{}\_\discretionary {-}{}{}buffer}{47}{subsubsection.6.2.3.4}
+\contentsline {subsubsection}{\numberline {6.2.3.5}aave\discretionary {-}{}{}\_\discretionary {-}{}{}put\discretionary {-}{}{}\_\discretionary {-}{}{}audio}{48}{subsubsection.6.2.3.5}
+\contentsline {subsubsection}{\numberline {6.2.3.6}attenuation}{48}{subsubsection.6.2.3.6}
+\contentsline {subsubsection}{\numberline {6.2.3.7}cmadd}{48}{subsubsection.6.2.3.7}
+\contentsline {subsubsection}{\numberline {6.2.3.8}cmul}{49}{subsubsection.6.2.3.8}
+\contentsline {subsubsection}{\numberline {6.2.3.9}fade\discretionary {-}{}{}\_\discretionary {-}{}{}in\discretionary {-}{}{}\_\discretionary {-}{}{}gain}{49}{subsubsection.6.2.3.9}
+\contentsline {subsubsection}{\numberline {6.2.3.10}fade\discretionary {-}{}{}\_\discretionary {-}{}{}out\discretionary {-}{}{}\_\discretionary {-}{}{}gain}{49}{subsubsection.6.2.3.10}
+\contentsline {section}{\numberline {6.3}dft.\discretionary {-}{}{}h File Reference}{50}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{50}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Function Documentation}{51}{subsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.2.1}dft}{51}{subsubsection.6.3.2.1}
+\contentsline {subsection}{\numberline {6.3.3}Variable Documentation}{51}{subsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.3.1}dftsincos}{51}{subsubsection.6.3.3.1}
+\contentsline {section}{\numberline {6.4}dftindex.\discretionary {-}{}{}c File Reference}{51}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{52}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Function Documentation}{52}{subsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.2.1}dft\discretionary {-}{}{}\_\discretionary {-}{}{}index}{52}{subsubsection.6.4.2.1}
+\contentsline {subsection}{\numberline {6.4.3}Variable Documentation}{52}{subsection.6.4.3}
+\contentsline {subsubsection}{\numberline {6.4.3.1}dft\discretionary {-}{}{}\_\discretionary {-}{}{}index\discretionary {-}{}{}\_\discretionary {-}{}{}table}{52}{subsubsection.6.4.3.1}
+\contentsline {section}{\numberline {6.5}geometry.\discretionary {-}{}{}c File Reference}{52}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{53}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Function Documentation}{54}{subsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.2.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}source}{54}{subsubsection.6.5.2.1}
+\contentsline {subsubsection}{\numberline {6.5.2.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}surface}{54}{subsubsection.6.5.2.2}
+\contentsline {subsubsection}{\numberline {6.5.2.3}aave\discretionary {-}{}{}\_\discretionary {-}{}{}build\discretionary {-}{}{}\_\discretionary {-}{}{}sound\discretionary {-}{}{}\_\discretionary {-}{}{}path}{54}{subsubsection.6.5.2.3}
+\contentsline {subsubsection}{\numberline {6.5.2.4}aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sound}{55}{subsubsection.6.5.2.4}
+\contentsline {subsubsection}{\numberline {6.5.2.5}aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sounds}{55}{subsubsection.6.5.2.5}
+\contentsline {subsubsection}{\numberline {6.5.2.6}aave\discretionary {-}{}{}\_\discretionary {-}{}{}create\discretionary {-}{}{}\_\discretionary {-}{}{}sounds\discretionary {-}{}{}\_\discretionary {-}{}{}recursively}{56}{subsubsection.6.5.2.6}
+\contentsline {subsubsection}{\numberline {6.5.2.7}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}{57}{subsubsection.6.5.2.7}
+\contentsline {subsubsection}{\numberline {6.5.2.8}aave\discretionary {-}{}{}\_\discretionary {-}{}{}image\discretionary {-}{}{}\_\discretionary {-}{}{}source}{57}{subsubsection.6.5.2.8}
+\contentsline {subsubsection}{\numberline {6.5.2.9}aave\discretionary {-}{}{}\_\discretionary {-}{}{}intersection}{58}{subsubsection.6.5.2.9}
+\contentsline {subsubsection}{\numberline {6.5.2.10}aave\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}visible}{58}{subsubsection.6.5.2.10}
+\contentsline {subsubsection}{\numberline {6.5.2.11}aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}orientation}{59}{subsubsection.6.5.2.11}
+\contentsline {subsubsection}{\numberline {6.5.2.12}aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}listener\discretionary {-}{}{}\_\discretionary {-}{}{}position}{59}{subsubsection.6.5.2.12}
+\contentsline {subsubsection}{\numberline {6.5.2.13}aave\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}source\discretionary {-}{}{}\_\discretionary {-}{}{}position}{59}{subsubsection.6.5.2.13}
+\contentsline {subsubsection}{\numberline {6.5.2.14}aave\discretionary {-}{}{}\_\discretionary {-}{}{}update}{59}{subsubsection.6.5.2.14}
+\contentsline {subsubsection}{\numberline {6.5.2.15}aave\discretionary {-}{}{}\_\discretionary {-}{}{}update\discretionary {-}{}{}\_\discretionary {-}{}{}sound}{59}{subsubsection.6.5.2.15}
+\contentsline {subsubsection}{\numberline {6.5.2.16}cross\discretionary {-}{}{}\_\discretionary {-}{}{}product}{60}{subsubsection.6.5.2.16}
+\contentsline {subsubsection}{\numberline {6.5.2.17}dot\discretionary {-}{}{}\_\discretionary {-}{}{}product}{60}{subsubsection.6.5.2.17}
+\contentsline {subsubsection}{\numberline {6.5.2.18}local\discretionary {-}{}{}\_\discretionary {-}{}{}coordinates}{61}{subsubsection.6.5.2.18}
+\contentsline {subsubsection}{\numberline {6.5.2.19}norm}{61}{subsubsection.6.5.2.19}
+\contentsline {subsubsection}{\numberline {6.5.2.20}normalise}{61}{subsubsection.6.5.2.20}
+\contentsline {section}{\numberline {6.6}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic.\discretionary {-}{}{}c File Reference}{62}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Detailed Description}{62}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Macro Definition Documentation}{63}{subsection.6.6.2}
+\contentsline {subsubsection}{\numberline {6.6.2.1}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}set}{63}{subsubsection.6.6.2.1}
+\contentsline {subsection}{\numberline {6.6.3}Function Documentation}{63}{subsection.6.6.3}
+\contentsline {subsubsection}{\numberline {6.6.3.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic}{63}{subsubsection.6.6.3.1}
+\contentsline {subsubsection}{\numberline {6.6.3.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}get}{63}{subsubsection.6.6.3.2}
+\contentsline {subsection}{\numberline {6.6.4}Variable Documentation}{64}{subsection.6.6.4}
+\contentsline {subsubsection}{\numberline {6.6.4.1}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}cipic\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}008}{64}{subsubsection.6.6.4.1}
+\contentsline {section}{\numberline {6.7}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen.\discretionary {-}{}{}c File Reference}{64}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{64}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Function Documentation}{64}{subsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.2.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen}{64}{subsubsection.6.7.2.1}
+\contentsline {subsubsection}{\numberline {6.7.2.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen\discretionary {-}{}{}\_\discretionary {-}{}{}get}{65}{subsubsection.6.7.2.2}
+\contentsline {subsection}{\numberline {6.7.3}Variable Documentation}{65}{subsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.3.1}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}listen\discretionary {-}{}{}\_\discretionary {-}{}{}set\discretionary {-}{}{}\_\discretionary {-}{}{}1040}{65}{subsubsection.6.7.3.1}
+\contentsline {section}{\numberline {6.8}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit.\discretionary {-}{}{}c File Reference}{66}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Detailed Description}{66}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Function Documentation}{67}{subsection.6.8.2}
+\contentsline {subsubsection}{\numberline {6.8.2.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit}{67}{subsubsection.6.8.2.1}
+\contentsline {subsubsection}{\numberline {6.8.2.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit\discretionary {-}{}{}\_\discretionary {-}{}{}get}{67}{subsubsection.6.8.2.2}
+\contentsline {subsection}{\numberline {6.8.3}Variable Documentation}{67}{subsection.6.8.3}
+\contentsline {subsubsection}{\numberline {6.8.3.1}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}mit\discretionary {-}{}{}\_\discretionary {-}{}{}set}{67}{subsubsection.6.8.3.1}
+\contentsline {section}{\numberline {6.9}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub.\discretionary {-}{}{}c File Reference}{68}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Detailed Description}{68}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}Function Documentation}{68}{subsection.6.9.2}
+\contentsline {subsubsection}{\numberline {6.9.2.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub}{68}{subsubsection.6.9.2.1}
+\contentsline {subsubsection}{\numberline {6.9.2.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub\discretionary {-}{}{}\_\discretionary {-}{}{}get}{69}{subsubsection.6.9.2.2}
+\contentsline {subsection}{\numberline {6.9.3}Variable Documentation}{69}{subsection.6.9.3}
+\contentsline {subsubsection}{\numberline {6.9.3.1}hrtf\discretionary {-}{}{}\_\discretionary {-}{}{}tub\discretionary {-}{}{}\_\discretionary {-}{}{}set}{69}{subsubsection.6.9.3.1}
+\contentsline {section}{\numberline {6.10}idft.\discretionary {-}{}{}h File Reference}{69}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}Detailed Description}{70}{subsection.6.10.1}
+\contentsline {subsection}{\numberline {6.10.2}Function Documentation}{70}{subsection.6.10.2}
+\contentsline {subsubsection}{\numberline {6.10.2.1}idft}{70}{subsubsection.6.10.2.1}
+\contentsline {subsection}{\numberline {6.10.3}Variable Documentation}{70}{subsection.6.10.3}
+\contentsline {subsubsection}{\numberline {6.10.3.1}dftsincos}{70}{subsubsection.6.10.3.1}
+\contentsline {section}{\numberline {6.11}init.\discretionary {-}{}{}c File Reference}{71}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Detailed Description}{71}{subsection.6.11.1}
+\contentsline {subsection}{\numberline {6.11.2}Function Documentation}{71}{subsection.6.11.2}
+\contentsline {subsubsection}{\numberline {6.11.2.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}init}{71}{subsubsection.6.11.2.1}
+\contentsline {subsubsection}{\numberline {6.11.2.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}source}{72}{subsubsection.6.11.2.2}
+\contentsline {section}{\numberline {6.12}material.\discretionary {-}{}{}c File Reference}{72}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}Detailed Description}{72}{subsection.6.12.1}
+\contentsline {subsection}{\numberline {6.12.2}Macro Definition Documentation}{73}{subsection.6.12.2}
+\contentsline {subsubsection}{\numberline {6.12.2.1}D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{73}{subsubsection.6.12.2.1}
+\contentsline {subsubsection}{\numberline {6.12.2.2}I\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{73}{subsubsection.6.12.2.2}
+\contentsline {subsubsection}{\numberline {6.12.2.3}N}{73}{subsubsection.6.12.2.3}
+\contentsline {subsection}{\numberline {6.12.3}Function Documentation}{73}{subsection.6.12.3}
+\contentsline {subsubsection}{\numberline {6.12.3.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material}{73}{subsubsection.6.12.3.1}
+\contentsline {subsubsection}{\numberline {6.12.3.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{73}{subsubsection.6.12.3.2}
+\contentsline {subsubsection}{\numberline {6.12.3.3}aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{74}{subsubsection.6.12.3.3}
+\contentsline {subsection}{\numberline {6.12.4}Variable Documentation}{75}{subsection.6.12.4}
+\contentsline {subsubsection}{\numberline {6.12.4.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}material\discretionary {-}{}{}\_\discretionary {-}{}{}none}{75}{subsubsection.6.12.4.1}
+\contentsline {subsubsection}{\numberline {6.12.4.2}aave\discretionary {-}{}{}\_\discretionary {-}{}{}materials}{75}{subsubsection.6.12.4.2}
+\contentsline {section}{\numberline {6.13}obj.\discretionary {-}{}{}c File Reference}{75}{section.6.13}
+\contentsline {subsection}{\numberline {6.13.1}Detailed Description}{76}{subsection.6.13.1}
+\contentsline {subsection}{\numberline {6.13.2}Macro Definition Documentation}{76}{subsection.6.13.2}
+\contentsline {subsubsection}{\numberline {6.13.2.1}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}S}{76}{subsubsection.6.13.2.1}
+\contentsline {subsection}{\numberline {6.13.3}Function Documentation}{76}{subsection.6.13.3}
+\contentsline {subsubsection}{\numberline {6.13.3.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}read\discretionary {-}{}{}\_\discretionary {-}{}{}obj}{76}{subsubsection.6.13.3.1}
+\contentsline {section}{\numberline {6.14}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro.\discretionary {-}{}{}c File Reference}{77}{section.6.14}
+\contentsline {subsection}{\numberline {6.14.1}Detailed Description}{78}{subsection.6.14.1}
+\contentsline {subsection}{\numberline {6.14.2}Macro Definition Documentation}{78}{subsection.6.14.2}
+\contentsline {subsubsection}{\numberline {6.14.2.1}B\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}{78}{subsubsection.6.14.2.1}
+\contentsline {subsubsection}{\numberline {6.14.2.2}D\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G}{78}{subsubsection.6.14.2.2}
+\contentsline {subsubsection}{\numberline {6.14.2.3}D\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}Y}{78}{subsubsection.6.14.2.3}
+\contentsline {subsubsection}{\numberline {6.14.2.4}D\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}F\discretionary {-}{}{}F\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}1}{78}{subsubsection.6.14.2.4}
+\contentsline {subsubsection}{\numberline {6.14.2.5}I\discretionary {-}{}{}N\discretionary {-}{}{}P\discretionary {-}{}{}U\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}F\discretionary {-}{}{}F\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}1}{78}{subsubsection.6.14.2.5}
+\contentsline {subsubsection}{\numberline {6.14.2.6}P\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y}{78}{subsubsection.6.14.2.6}
+\contentsline {subsubsection}{\numberline {6.14.2.7}W\discretionary {-}{}{}E\discretionary {-}{}{}T}{78}{subsubsection.6.14.2.7}
+\contentsline {subsection}{\numberline {6.14.3}Function Documentation}{79}{subsection.6.14.3}
+\contentsline {subsubsection}{\numberline {6.14.3.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}dattorro}{79}{subsubsection.6.14.3.1}
+\contentsline {subsubsection}{\numberline {6.14.3.2}allpass}{79}{subsubsection.6.14.3.2}
+\contentsline {subsubsection}{\numberline {6.14.3.3}decay\discretionary {-}{}{}\_\discretionary {-}{}{}block}{79}{subsubsection.6.14.3.3}
+\contentsline {subsubsection}{\numberline {6.14.3.4}delay}{80}{subsubsection.6.14.3.4}
+\contentsline {subsubsection}{\numberline {6.14.3.5}lowpass}{80}{subsubsection.6.14.3.5}
+\contentsline {section}{\numberline {6.15}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot.\discretionary {-}{}{}c File Reference}{81}{section.6.15}
+\contentsline {subsection}{\numberline {6.15.1}Detailed Description}{82}{subsection.6.15.1}
+\contentsline {subsection}{\numberline {6.15.2}Macro Definition Documentation}{83}{subsection.6.15.2}
+\contentsline {subsubsection}{\numberline {6.15.2.1}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}M\discretionary {-}{}{}E}{83}{subsubsection.6.15.2.1}
+\contentsline {subsection}{\numberline {6.15.3}Function Documentation}{83}{subsection.6.15.3}
+\contentsline {subsubsection}{\numberline {6.15.3.1}aave\discretionary {-}{}{}\_\discretionary {-}{}{}reverb\discretionary {-}{}{}\_\discretionary {-}{}{}jot}{83}{subsubsection.6.15.3.1}
+\contentsline {subsubsection}{\numberline {6.15.3.2}init\discretionary {-}{}{}\_\discretionary {-}{}{}reverb}{83}{subsubsection.6.15.3.2}
+\contentsline {subsubsection}{\numberline {6.15.3.3}process\discretionary {-}{}{}\_\discretionary {-}{}{}absorption\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{84}{subsubsection.6.15.3.3}
+\contentsline {subsubsection}{\numberline {6.15.3.4}process\discretionary {-}{}{}\_\discretionary {-}{}{}dc\discretionary {-}{}{}\_\discretionary {-}{}{}block\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{84}{subsubsection.6.15.3.4}
+\contentsline {subsubsection}{\numberline {6.15.3.5}process\discretionary {-}{}{}\_\discretionary {-}{}{}delay\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{84}{subsubsection.6.15.3.5}
+\contentsline {subsubsection}{\numberline {6.15.3.6}process\discretionary {-}{}{}\_\discretionary {-}{}{}tone\discretionary {-}{}{}\_\discretionary {-}{}{}correction\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{85}{subsubsection.6.15.3.6}
+\contentsline {subsection}{\numberline {6.15.4}Variable Documentation}{85}{subsection.6.15.4}
+\contentsline {subsubsection}{\numberline {6.15.4.1}feedback\discretionary {-}{}{}\_\discretionary {-}{}{}delays}{85}{subsubsection.6.15.4.1}
+\contentsline {chapter}{\numberline {7}Example Documentation}{87}{chapter.7}
+\contentsline {section}{\numberline {7.1}examples/circle.\discretionary {-}{}{}c}{87}{section.7.1}
+\contentsline {section}{\numberline {7.2}examples/elevation.\discretionary {-}{}{}c}{88}{section.7.2}
+\contentsline {section}{\numberline {7.3}examples/line.\discretionary {-}{}{}c}{89}{section.7.3}
+\contentsline {section}{\numberline {7.4}examples/stream.\discretionary {-}{}{}c}{90}{section.7.4}
+\contentsline {part}{Index}{93}{section*.51}

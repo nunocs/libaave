@@ -1,0 +1,91 @@
+\hypertarget{examples_2line_8c-example}{\section{examples/line.\-c}
+}
+An example of auralisation of a sound source moving on a straight line passing by the listener.
+
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{ * libaave/examples/line.c: sound source moving on a straight line}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Copyright 2013 Universidade de Aveiro}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)}
+\textcolor{comment}{ *}
+\textcolor{comment}{ * Written by Andre B. Oliveira <abo@ua.pt>}
+\textcolor{comment}{ */}
+
+\textcolor{comment}{/*}
+\textcolor{comment}{ * Usage: ./line < mono.raw > binaural.raw}
+\textcolor{comment}{ */}
+
+\textcolor{preprocessor}{#include <math.h>}
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <stdlib.h>}
+\textcolor{preprocessor}{#include "\hyperlink{aave_8h}{aave.h}"}
+
+\textcolor{comment}{/* The velocity that the sound source is moving at (m/s). */}
+\textcolor{preprocessor}{#define V (40 }\textcolor{comment}{/* km/h */}\textcolor{preprocessor}{ * 1000 / 3600.)}
+\textcolor{preprocessor}{}
+\textcolor{comment}{/* The initial Y coordinate position of the sound source (m). */}
+\textcolor{preprocessor}{#define Y0 -60}
+\textcolor{preprocessor}{}
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv)
+\{
+    \textcolor{keyword}{struct }\hyperlink{structaave}{aave} *\hyperlink{structaave}{aave};
+    \textcolor{keyword}{struct }\hyperlink{structaave__source}{aave\_source} *source;
+    \textcolor{keywordtype}{short} in[1], out[2];
+    \textcolor{keywordtype}{float} y;
+
+    \textcolor{comment}{/* Initialise the auralisation engine. */}
+    aave = malloc(\textcolor{keyword}{sizeof} *aave);
+    \hyperlink{aave_8h_a044e13c0826108a728f0b6324c23fbab}{aave\_init}(aave);
+
+    \textcolor{comment}{/* Select the HRTF set to use. */}
+    \textcolor{comment}{/* aave\_hrtf\_cipic(aave); */}
+    \textcolor{comment}{/* aave\_hrtf\_listen(aave); */}
+    \hyperlink{aave_8h_aad4aa8bf733bedef0ee981bbeffc1b12}{aave\_hrtf\_mit}(aave);
+    \textcolor{comment}{/* aave\_hrtf\_tub(aave); */}
+
+    \textcolor{comment}{/* Set the position and orientation of the listener. */}
+    \hyperlink{aave_8h_a41a4224263cd8432d79099871d542b2e}{aave\_set\_listener\_position}(aave, 0, 0, 0);
+    \hyperlink{aave_8h_aee300969973298dab868f91f7b94724d}{aave\_set\_listener\_orientation}(aave, 0, 0, 0);
+
+    \textcolor{comment}{/* Load a room model file, if specified on the arguments. */}
+    \textcolor{keywordflow}{if} (argc == 2)
+        \hyperlink{aave_8h_a7e664852f336438524336bdcac8be8bc}{aave\_read\_obj}(aave, argv[1]);
+
+    \textcolor{comment}{/* Add a sound source to the auralisation world. */}
+    source = malloc(\textcolor{keyword}{sizeof} *source);
+    \hyperlink{aave_8h_a3682cd98f3556ad2b8c8e0bc8502371c}{aave\_init\_source}(aave, source);
+    \hyperlink{aave_8h_af609d22b339f6a53d988e4c73f4b7dfb}{aave\_add\_source}(aave, source);
+
+    \textcolor{comment}{/* Initial position of the sound source. */}
+    y = Y0;
+
+    \textcolor{comment}{/* Read and process one sample at a time from the sound file. */}
+    \textcolor{keywordflow}{while} (fread(in, \textcolor{keyword}{sizeof}(in[0]), 1, stdin) == 1) \{
+
+        \textcolor{comment}{/* Set the position of the source for this sound sample. */}
+        \hyperlink{aave_8h_ad48ffc19be78794acb7bf0f9a6397c11}{aave\_set\_source\_position}(source, 2, y, 0);
+
+        \textcolor{comment}{/* Update the geometry state of the auralisation engine. */}
+        \hyperlink{aave_8h_a5acfa7c6e7e714ff364cda9dabd7a2f8}{aave\_update}(aave);
+
+        \textcolor{comment}{/* Pass this sound sample to the auralization engine. */}
+        \hyperlink{aave_8h_a546bf3fff8b9009ddc744a6908154f5e}{aave\_put\_audio}(source, in, 1);
+
+        \textcolor{comment}{/* Run the engine to get the corresponding binaural frame. */}
+        \hyperlink{aave_8h_a8a63aae9a55200e05235e6e89990f1c6}{aave\_get\_audio}(aave, out, 1);
+
+        \textcolor{comment}{/* Write the binaural frame (2 samples) to stdout. */}
+        \textcolor{keywordflow}{if} (fwrite(out, \textcolor{keyword}{sizeof}(out[0]), 2, stdout) != 2)
+            \textcolor{keywordflow}{return} 1;
+
+        \textcolor{comment}{/* Update the position of the source for the next sample. */}
+        y += V / \hyperlink{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{AAVE\_FS};
+    \}
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ 

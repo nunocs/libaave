@@ -1,0 +1,54 @@
+
+\begin{DoxyRefList}
+\item[\label{todo__todo000007}%
+\hypertarget{todo__todo000007}{}%
+Global \hyperlink{geometry_8c_a2c55d6e06ff73570a887d18807442412}{aave\-\_\-create\-\_\-sounds\-\_\-recursively} (struct aave $\ast$aave, struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$source, unsigned order, unsigned o, struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$surfaces\mbox{[}\mbox{]}, float image\-\_\-sources\mbox{[}\mbox{]}\mbox{[}3\mbox{]})]Implement the iterative version of this recursive algorithm.  
+\item[\label{todo__todo000001}%
+\hypertarget{todo__todo000001}{}%
+Global \hyperlink{aave_8h_aff6fdc3178c7698a824bf53f79d0bdd1}{A\-A\-V\-E\-\_\-\-F\-S} ]To support different audio sampling frequencies without having to recompile the library, this value would be set in a member of the aave structure at runtime instead. Of course, that would incur in performance penalties, most importantly in the audio processing (one floating-\/point division per audio sample per auralised sound). Furthermore, the H\-R\-T\-F data sets would have to be resampled to the desired sampling frequency.  
+\item[\label{todo__todo000008}%
+\hypertarget{todo__todo000008}{}%
+Global \hyperlink{hrtf__cipic_8c_a4b3a15263cf86760cf69027db5aab73a}{aave\-\_\-hrtf\-\_\-cipic\-\_\-get} (const float $\ast$hrtf\mbox{[}2\mbox{]}, int elevation, int azimuth)]Use all elevation measures available, not just 0 degrees.  
+\item[\label{todo__todo000009}%
+\hypertarget{todo__todo000009}{}%
+Global \hyperlink{hrtf__listen_8c_a3239bc0a4a965c5da5334695d4f39c06}{aave\-\_\-hrtf\-\_\-listen\-\_\-get} (const float $\ast$hrtf\mbox{[}2\mbox{]}, int elevation, int azimuth)]Elevations 60, 75 and 90.  
+\item[\label{todo__todo000003}%
+\hypertarget{todo__todo000003}{}%
+Global \hyperlink{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} ]When using H\-R\-T\-Fs with less frames (M\-I\-T only has 128) there is a considerable waste of memory throughout the library. However, this way the code is much simpler, and slightly faster. Nevertheless, it would be nice if this value could be changed at runtime when the user selects the H\-R\-T\-F set to use.  
+\item[\label{todo__todo000002}%
+\hypertarget{todo__todo000002}{}%
+Global \hyperlink{aave_8h_a5cc7807cca10cf0933038ad388171181}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S} ]To support different maximum orders of reflections per instance, this value would be set in a member of the aave structure at runtime and the sounds hash table allocated accordingly. However, I think this is not worth the trouble. Just change this value and recompile, if you want more orders of reflections (and your computer can handle them). The waste is only 4 or 8 bytes per reflection order that is not used, for 32-\/bit or 64-\/bit processors respectively.  
+\item[\label{todo__todo000004}%
+\hypertarget{todo__todo000004}{}%
+Global \hyperlink{structaave__surface_a6bd0e3127c052c7cf3ffa49480acda83}{aave\-\_\-surface\-:\-:points} \mbox{[}32\mbox{]}\mbox{[}3+2\mbox{]}]Remove hardcoded maximum number of points per surface.  
+\item[\label{todo__todo000013}%
+\hypertarget{todo__todo000013}{}%
+Global \hyperlink{reverb__dattorro_8c_a63533538546edde6ae7f3c88192ae6a3}{allpass} (struct allpass $\ast$ap, float x, float g, unsigned delay)]Check if the tap is really x1 or x2.  
+\item[\label{todo__todo000015}%
+\hypertarget{todo__todo000015}{}%
+Global \hyperlink{structallpass_a9a88e7125eb10d734a1a408c26cebe49}{allpass\-:\-:buffer} \mbox{[}2656\mbox{]}]Set maximum delay from the delays of all all-\/pass blocks.  
+\item[\label{todo__todo000005}%
+\hypertarget{todo__todo000005}{}%
+File \hyperlink{audio_8c}{audio.c} ]Here, it might be more efficient to use the overlap-\/save method instead of the overlap-\/add method. 
+\item[\label{todo__todo000017}%
+\hypertarget{todo__todo000017}{}%
+Class \hyperlink{structdc__block__filter}{dc\-\_\-block\-\_\-filter} ]Improve bandwidth definition.  
+\item[\label{todo__todo000014}%
+\hypertarget{todo__todo000014}{}%
+Global \hyperlink{structdelay_a655d8b9f8d1bcd90764042b7e6e58ea7}{delay\-:\-:buffer} \mbox{[}16384\mbox{]}]Set maximum delay from the delays of all delay blocks.  
+\item[\label{todo__todo000006}%
+\hypertarget{todo__todo000006}{}%
+Global \hyperlink{dftindex_8c_ad9fc4c6b2778357224f5341cf268f78c}{dft\-\_\-index\-\_\-table} \mbox{[}\mbox{]}]If the order of the material absorption filter designed in \hyperlink{material_8c}{material.\-c} increases to N $>$ 128, increase this table accordingly.  
+\item[\label{todo__todo000010}%
+\hypertarget{todo__todo000010}{}%
+Global \hyperlink{idft_8h_a797484e3f3d53d566ececbcfcd90f537}{idft} (I\-D\-F\-T\-\_\-\-T\-Y\-P\-E $\ast$x, float $\ast$\-X, unsigned n)]round instead of truncate  
+\item[\label{todo__todo000011}%
+\hypertarget{todo__todo000011}{}%
+Global \hyperlink{obj_8c_a0fdb7b933ef091574ff57d1f36dd4167}{M\-A\-X\-\_\-\-V\-E\-R\-T\-I\-C\-E\-S} ]Use dynamic memory allocation for the array of vertices to support \char`\"{}unlimited\char`\"{} number of vertices.  
+\item[\label{todo__todo000012}%
+\hypertarget{todo__todo000012}{}%
+File \hyperlink{reverb__dattorro_8c}{reverb\-\_\-dattorro.c} ]Make the code reentrant (move the static structures to aave). 
+\item[\label{todo__todo000016}%
+\hypertarget{todo__todo000016}{}%
+File \hyperlink{reverb__jot_8c}{reverb\-\_\-jot.c} ]A {\ttfamily \hyperlink{structdc__block__filter}{dc\-\_\-block\-\_\-filter}} was introduced to aproximate low frequency damping. Improve this filter (or introduce another) for flexible bandwidth selection. 
+\end{DoxyRefList}

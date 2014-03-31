@@ -1,0 +1,7 @@
+<map id="aave_source" name="aave_source">
+<area shape="rect" id="node2" href="$structaave.html" title="aave" alt="" coords="142,293,193,323"/>
+<area shape="rect" id="node4" href="$structaave__sound.html" title="aave_sound" alt="" coords="122,197,213,227"/>
+<area shape="rect" id="node6" href="$structaave__surface.html" title="aave_surface" alt="" coords="227,101,326,131"/>
+<area shape="rect" id="node9" href="$structaave__material.html" title="aave_material" alt="" coords="226,5,327,35"/>
+<area shape="rect" id="node15" href="$structaave__reverb.html" title="aave_reverb" alt="" coords="393,197,486,227"/>
+</map>

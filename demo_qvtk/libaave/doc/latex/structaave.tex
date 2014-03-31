@@ -1,0 +1,121 @@
+\hypertarget{structaave}{\section{aave Struct Reference}
+\label{structaave}\index{aave@{aave}}
+}
+
+
+{\ttfamily \#include $<$aave.\-h$>$}
+
+
+
+Collaboration diagram for aave\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{structaave__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{structaave_aa592d293dfb41b86d48c0529fd3549d6}{position} \mbox{[}3\mbox{]}
+\item 
+float \hyperlink{structaave_a1380ca0c5d7610cf1b409043b93b2680}{orientation} \mbox{[}3\mbox{]}\mbox{[}3\mbox{]}
+\item 
+struct \hyperlink{structaave__surface}{aave\-\_\-surface} $\ast$ \hyperlink{structaave_ad7a69df05d26827f132c742551fb8871}{surfaces}
+\item 
+unsigned \hyperlink{structaave_a46897bdef9912d50cecb6b93c8c894a6}{nsurfaces}
+\item 
+float \hyperlink{structaave_afe632929215cd44b7344bb4380df1c69}{room\-\_\-material\-\_\-absorption}
+\item 
+unsigned \hyperlink{structaave_a6d16180d7cb50c0255180a0102abfc2e}{volume}
+\item 
+unsigned \hyperlink{structaave_ad7a37d4250667623a1cd209b5aa421dd}{area}
+\item 
+struct \hyperlink{structaave__source}{aave\-\_\-source} $\ast$ \hyperlink{structaave_ad6f8dfdcb3403e1cf8e8b42c16851317}{sources}
+\item 
+struct \hyperlink{structaave__sound}{aave\-\_\-sound} $\ast$ \hyperlink{structaave_aa637fd7286c95ab8322e391f461e825d}{sounds} \mbox{[}\hyperlink{aave_8h_a5cc7807cca10cf0933038ad388171181}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}
+\item 
+unsigned \hyperlink{structaave_a89d048be9cbd805d11b23d0c8d118eb8}{reflections}
+\item 
+struct \hyperlink{structaave__reverb}{aave\-\_\-reverb} $\ast$ \hyperlink{structaave_ad2e95c7026a1361aebbd89107903c4be}{reverb}
+\item 
+float \hyperlink{structaave_a8cb46909713b403fa7f54b75dee1e81f}{gain}
+\item 
+unsigned \hyperlink{structaave_a41b7518a03a90f29e627adf308e68200}{hrtf\-\_\-frames}
+\item 
+void($\ast$ \hyperlink{structaave_a5ab930083fffbd9efe3bffe51dae585b}{hrtf\-\_\-get} )(const float $\ast$hrtf\mbox{[}2\mbox{]}, int elevation, int azimuth)
+\item 
+unsigned \hyperlink{structaave_a50881090e68ae1bde54b091757b99d64}{hrtf\-\_\-output\-\_\-buffer\-\_\-index}
+\item 
+short \hyperlink{structaave_a4aabeeaaa2fd6eecaa74cf9ff6a4a75c}{hrtf\-\_\-output\-\_\-buffer} \mbox{[}\hyperlink{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$4\mbox{]}
+\item 
+int \hyperlink{structaave_a591c8877020f861da25632f35f67c3b4}{hrtf\-\_\-overlap\-\_\-add\-\_\-buffer} \mbox{[}2\mbox{]}\mbox{[}\hyperlink{aave_8h_a19ea3a18eb313fc3b825f522245d19d3}{A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Acoustic\-A\-V\-E main data structure. It contains all the information that defines one acoustic world and its present auralisation state. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2circle_8c-example}{examples/circle.\-c}, \hyperlink{examples_2elevation_8c-example}{examples/elevation.\-c}, \hyperlink{examples_2line_8c-example}{examples/line.\-c}, and \hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+
+
+\subsection{Field Documentation}
+\hypertarget{structaave_ad7a37d4250667623a1cd209b5aa421dd}{\index{aave@{aave}!area@{area}}
+\index{area@{area}!aave@{aave}}
+\subsubsection[{area}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-::area}}\label{structaave_ad7a37d4250667623a1cd209b5aa421dd}
+Sum of all room surface areas. \hypertarget{structaave_a8cb46909713b403fa7f54b75dee1e81f}{\index{aave@{aave}!gain@{gain}}
+\index{gain@{gain}!aave@{aave}}
+\subsubsection[{gain}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-::gain}}\label{structaave_a8cb46909713b403fa7f54b75dee1e81f}
+Gain to apply to the output sound. \hypertarget{structaave_a41b7518a03a90f29e627adf308e68200}{\index{aave@{aave}!hrtf\-\_\-frames@{hrtf\-\_\-frames}}
+\index{hrtf\-\_\-frames@{hrtf\-\_\-frames}!aave@{aave}}
+\subsubsection[{hrtf\-\_\-frames}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-::hrtf\-\_\-frames}}\label{structaave_a41b7518a03a90f29e627adf308e68200}
+The number of frames of the H\-R\-T\-Fs currently in use (power of 2). \hypertarget{structaave_a5ab930083fffbd9efe3bffe51dae585b}{\index{aave@{aave}!hrtf\-\_\-get@{hrtf\-\_\-get}}
+\index{hrtf\-\_\-get@{hrtf\-\_\-get}!aave@{aave}}
+\subsubsection[{hrtf\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ aave\-::hrtf\-\_\-get)(const float $\ast$hrtf\mbox{[}2\mbox{]}, int elevation, int azimuth)}}\label{structaave_a5ab930083fffbd9efe3bffe51dae585b}
+Function to get the H\-R\-T\-F pair for some elevation and azimuth. \hypertarget{structaave_a4aabeeaaa2fd6eecaa74cf9ff6a4a75c}{\index{aave@{aave}!hrtf\-\_\-output\-\_\-buffer@{hrtf\-\_\-output\-\_\-buffer}}
+\index{hrtf\-\_\-output\-\_\-buffer@{hrtf\-\_\-output\-\_\-buffer}!aave@{aave}}
+\subsubsection[{hrtf\-\_\-output\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}short aave\-::hrtf\-\_\-output\-\_\-buffer\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$4\mbox{]}}}\label{structaave_a4aabeeaaa2fd6eecaa74cf9ff6a4a75c}
+H\-R\-T\-F audio block output buffer (2 16-\/bit channels interleaved). \hypertarget{structaave_a50881090e68ae1bde54b091757b99d64}{\index{aave@{aave}!hrtf\-\_\-output\-\_\-buffer\-\_\-index@{hrtf\-\_\-output\-\_\-buffer\-\_\-index}}
+\index{hrtf\-\_\-output\-\_\-buffer\-\_\-index@{hrtf\-\_\-output\-\_\-buffer\-\_\-index}!aave@{aave}}
+\subsubsection[{hrtf\-\_\-output\-\_\-buffer\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-::hrtf\-\_\-output\-\_\-buffer\-\_\-index}}\label{structaave_a50881090e68ae1bde54b091757b99d64}
+Index of the next frame of the H\-R\-T\-F output buffer to be consumed. \hypertarget{structaave_a591c8877020f861da25632f35f67c3b4}{\index{aave@{aave}!hrtf\-\_\-overlap\-\_\-add\-\_\-buffer@{hrtf\-\_\-overlap\-\_\-add\-\_\-buffer}}
+\index{hrtf\-\_\-overlap\-\_\-add\-\_\-buffer@{hrtf\-\_\-overlap\-\_\-add\-\_\-buffer}!aave@{aave}}
+\subsubsection[{hrtf\-\_\-overlap\-\_\-add\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}int aave\-::hrtf\-\_\-overlap\-\_\-add\-\_\-buffer\mbox{[}2\mbox{]}\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-H\-R\-T\-F} $\ast$2\mbox{]}}}\label{structaave_a591c8877020f861da25632f35f67c3b4}
+H\-R\-T\-F overlap-\/add buffer (2 32-\/bit channels). \hypertarget{structaave_a46897bdef9912d50cecb6b93c8c894a6}{\index{aave@{aave}!nsurfaces@{nsurfaces}}
+\index{nsurfaces@{nsurfaces}!aave@{aave}}
+\subsubsection[{nsurfaces}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-::nsurfaces}}\label{structaave_a46897bdef9912d50cecb6b93c8c894a6}
+Number of surfaces in the list of surfaces. \hypertarget{structaave_a1380ca0c5d7610cf1b409043b93b2680}{\index{aave@{aave}!orientation@{orientation}}
+\index{orientation@{orientation}!aave@{aave}}
+\subsubsection[{orientation}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-::orientation\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}}\label{structaave_a1380ca0c5d7610cf1b409043b93b2680}
+Listener head orientation (inertial-\/to-\/body rotation matrix). \hypertarget{structaave_aa592d293dfb41b86d48c0529fd3549d6}{\index{aave@{aave}!position@{position}}
+\index{position@{position}!aave@{aave}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-::position\mbox{[}3\mbox{]}}}\label{structaave_aa592d293dfb41b86d48c0529fd3549d6}
+Position of the listener in the auralization world \mbox{[}x,y,z\mbox{]} (m). \hypertarget{structaave_a89d048be9cbd805d11b23d0c8d118eb8}{\index{aave@{aave}!reflections@{reflections}}
+\index{reflections@{reflections}!aave@{aave}}
+\subsubsection[{reflections}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-::reflections}}\label{structaave_a89d048be9cbd805d11b23d0c8d118eb8}
+Maximum number of reflections to calculate for each source. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{examples_2stream_8c-example}{examples/stream.\-c}.\end{Desc}
+\hypertarget{structaave_ad2e95c7026a1361aebbd89107903c4be}{\index{aave@{aave}!reverb@{reverb}}
+\index{reverb@{reverb}!aave@{aave}}
+\subsubsection[{reverb}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-reverb}$\ast$ aave\-::reverb}}\label{structaave_ad2e95c7026a1361aebbd89107903c4be}
+Late reverberation parameters. \hypertarget{structaave_afe632929215cd44b7344bb4380df1c69}{\index{aave@{aave}!room\-\_\-material\-\_\-absorption@{room\-\_\-material\-\_\-absorption}}
+\index{room\-\_\-material\-\_\-absorption@{room\-\_\-material\-\_\-absorption}!aave@{aave}}
+\subsubsection[{room\-\_\-material\-\_\-absorption}]{\setlength{\rightskip}{0pt plus 5cm}float aave\-::room\-\_\-material\-\_\-absorption}}\label{structaave_afe632929215cd44b7344bb4380df1c69}
+Average of all room surface absorption coeficients. \hypertarget{structaave_aa637fd7286c95ab8322e391f461e825d}{\index{aave@{aave}!sounds@{sounds}}
+\index{sounds@{sounds}!aave@{aave}}
+\subsubsection[{sounds}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-sound}$\ast$ aave\-::sounds\mbox{[}{\bf A\-A\-V\-E\-\_\-\-M\-A\-X\-\_\-\-R\-E\-F\-L\-E\-C\-T\-I\-O\-N\-S}\mbox{]}}}\label{structaave_aa637fd7286c95ab8322e391f461e825d}
+Hash table of sounds to auralise, indexed by reflection order. \hypertarget{structaave_ad6f8dfdcb3403e1cf8e8b42c16851317}{\index{aave@{aave}!sources@{sources}}
+\index{sources@{sources}!aave@{aave}}
+\subsubsection[{sources}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-source}$\ast$ aave\-::sources}}\label{structaave_ad6f8dfdcb3403e1cf8e8b42c16851317}
+Singly-\/linked list of sound sources in the auralisation world. \hypertarget{structaave_ad7a69df05d26827f132c742551fb8871}{\index{aave@{aave}!surfaces@{surfaces}}
+\index{surfaces@{surfaces}!aave@{aave}}
+\subsubsection[{surfaces}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf aave\-\_\-surface}$\ast$ aave\-::surfaces}}\label{structaave_ad7a69df05d26827f132c742551fb8871}
+Singly-\/linked list of surfaces in the auralisation world. \hypertarget{structaave_a6d16180d7cb50c0255180a0102abfc2e}{\index{aave@{aave}!volume@{volume}}
+\index{volume@{volume}!aave@{aave}}
+\subsubsection[{volume}]{\setlength{\rightskip}{0pt plus 5cm}unsigned aave\-::volume}}\label{structaave_a6d16180d7cb50c0255180a0102abfc2e}
+Room volume (m3). 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aave_8h}{aave.\-h}\end{DoxyCompactItemize}
