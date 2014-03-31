@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -pedantic -I.. -O2 -flto
-LDFLAGS = ../libaave.a
+LDFLAGS = ../../libaave/libaave.a
 
 programs = benchaud dftidft dftindex material
 

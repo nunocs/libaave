@@ -16,8 +16,8 @@ objects += hrtf_tub_set.o
 objects += init.o
 objects += material.o
 objects += obj.o
-objects += reverb.o
 objects += reverb_dattorro.o
+objects += reverb_jot.o
 
 libaave.a: $(objects)
 	$(AR) crs $@ $+

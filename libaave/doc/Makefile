@@ -1,4 +1,4 @@
-images := aave audio1 audio2 audio3 libaave reverb usage1 usage2
+images := aave audio1 audio2 audio3 libaave reverb usage1 usage2 fdn_diagram
 images := $(foreach i,$(images),$(i:%=images/%.eps) $(i:%=images/%.png))
 
 all: $(images)

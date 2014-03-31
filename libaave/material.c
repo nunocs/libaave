@@ -31,6 +31,7 @@
 
 #include <math.h>	/* M_PI, cos(), sin() */
 #include <string.h>	/* strcmp() */
+#include <stdio.h>
 #include "aave.h"
 
 /**
@@ -127,7 +128,7 @@ static void print_dft(const float *x, unsigned n)
 		j = dft_index(n - i, n);
 		printf(" %g-j*%g", x[j*2], x[j*2+1]);
 	}
-	printf("];\n");
+	printf("];\n\n");
 }
 static void print_vec(const float *y, unsigned n)
 {
@@ -136,7 +137,7 @@ static void print_vec(const float *y, unsigned n)
 	printf("vec%u=[", n);
 	for (i = 0; i < n; i++)
 		printf(" %g", y[i]);
-	printf("];\n");
+	printf("];\n\n");
 }
 #else
 #define print_dft(x,n)
@@ -155,8 +156,13 @@ static void print_vec(const float *y, unsigned n)
  */
 static void aave_material_filter(const float *k, float *x, unsigned n)
 {
-	static const unsigned short fc[AAVE_MATERIAL_REFLECTION_FACTORS] = {
+	/*static const unsigned short fc[AAVE_MATERIAL_REFLECTION_FACTORS] = {
 		125, 250, 500, 1000, 2000, 4000, 8000
+	}; */
+
+	/* upper limits for frequency bands */
+	static const unsigned short fc[AAVE_MATERIAL_REFLECTION_FACTORS] = {
+		177, 355, 710, 1420, 2840, 5680, 11360
 	};
 	unsigned i, j, w;
 	float f, mag, arg, real, imag, a;
@@ -168,12 +174,13 @@ static void aave_material_filter(const float *k, float *x, unsigned n)
 	j = 1;
 	for (i = 1; i < N / 2; i++) {
 		f = i * ((float)AAVE_FS / N);
-
 		/* Calculate the magnitude (linear interpolation). */
-		if (f <= fc[0])
+		if (f <= fc[0]) {
 			mag = k[0];
-		else if (f >= fc[AAVE_MATERIAL_REFLECTION_FACTORS - 1])
+		}
+		else if (f >= fc[AAVE_MATERIAL_REFLECTION_FACTORS - 1]) {
 			mag = k[AAVE_MATERIAL_REFLECTION_FACTORS - 1];
+		}
 		else {
 			while (f > fc[j])
 				j++;

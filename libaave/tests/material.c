@@ -10,16 +10,17 @@
 
 #include <stdio.h>	/* printf() */
 #include <stdlib.h>	/* malloc() */
-#include "aave.h"
+#include "../../libaave/aave.h"
 
 /* The number of coefficients of the filter. */
 #define N 128
 
 /* The combination of materials. */
 static const char *material_names[] = {
-	"glass_window",
-	"thin_plywood",
+//	"glass_window",
+//	"thin_plywood",
 	"carpet",
+//	"cotton_curtains",
 };
 
 int main()
@@ -46,7 +47,6 @@ int main()
 
 	/* Design the total material absortion filter. */
 	aave_get_material_filter(aave, surfaces, n, x);
-
 #if 0
 	/* Print the frequency response of the designed filter. */
 	printf("x = [ %e", x[0]);
@@ -61,6 +61,5 @@ int main()
 	}
 	printf(" ];\n");
 #endif
-
 	return 0;
 }

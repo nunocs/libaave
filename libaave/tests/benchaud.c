@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include "aave.h"
+#include "../../libaave/aave.h"
 
 /* Number of frames to process at a time. */
 #define FRAMES 1024

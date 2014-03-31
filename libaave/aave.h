@@ -251,22 +251,6 @@
 #define AAVE_SOURCE_BUFSIZE 131072
 
 /**
- * Reverb pre-delay buffer size, in samples (must be a power of 2).
- * This defines the maximum reverberation pre-delay time (echo):
- *
- * AAVE_REVERB_BUFSIZE1 / AAVE_FS = 32768 / 44100 ~= 743 ms
- */
-#define AAVE_REVERB_BUFSIZE1 32768
-
-/**
- * Reverb feedback delay buffer size, in samples (must be a power of 2).
- * This defines the maximum reverberation feedback delay time (density):
- *
- * AAVE_REVERB_BUFSIZE2 / AAVE_FS = 1024 / 44100 ~= 23 ms
- */
-#define AAVE_REVERB_BUFSIZE2 1024
-
-/**
  * The number of reflection factors that specify each material.
  * The corresponding frequencies are:
  * 125, 250, 500, 1000, 2000, 4000, 8000 Hz.
@@ -279,6 +263,11 @@
  * Reference: https://en.wikipedia.org/wiki/Speed_of_sound
  */
 #define AAVE_SOUND_SPEED 343.2
+
+/**
+ * The order of the circulation matrix for the FDN late reverberator.
+ */
+#define FDN_ORDER 64
 
 /**
  * The AcousticAVE main data structure. It contains all the information
@@ -298,6 +287,18 @@ struct aave {
 	/** Number of surfaces in the list of surfaces. */
 	unsigned nsurfaces;
 
+	/** Average of all room surface absorption coeficients. */
+	float room_material_absorption;
+
+	/** Room volume (m3). */
+	unsigned volume;
+
+	/** Sum of all room surface areas. */
+	unsigned area;
+
+	/** Reverberation time (miliseconds). */
+	unsigned rt60; 
+
 	/** Singly-linked list of sound sources in the auralisation world. */
 	struct aave_source *sources;
 
@@ -307,11 +308,8 @@ struct aave {
 	/** Maximum number of reflections to calculate for each source. */
 	unsigned reflections;
 
-	/**
-	 * Flag to indicate whether to enable (1) or disable (0)
-	 * the artificial reverberation tail.
-	 */
-	int reverb;
+	/** Late reverberation parameters. */
+	struct aave_reverb *reverb;
 
 	/** Gain to apply to the output sound. */
 	float gain;
@@ -330,18 +328,6 @@ struct aave {
 
 	/** HRTF overlap-add buffer (2 32-bit channels). */
 	int hrtf_overlap_add_buffer[2][AAVE_MAX_HRTF * 2];
-
-	/** Reverb pre-delay buffer index. */
-	unsigned reverb_buffer1_index[2];
-
-	/** Reverb delay buffer index. */
-	unsigned reverb_buffer2_index[2];
-
-	/** Reverb pre-delay buffer. */
-	float reverb_buffer1[AAVE_REVERB_BUFSIZE1][2];
-
-	/** Reverb delay buffer. */
-	float reverb_buffer2[AAVE_REVERB_BUFSIZE2][2];
 };
 
 /**
@@ -361,7 +347,7 @@ struct aave_source {
 	/** Index of the most recently inserted sample. */
 	unsigned buffer_index;
 
-	/** Ring buffer to store the recent past anechoid samples. */
+	/** Ring buffer to store the recent past anechoic samples. */
 	short buffer[AAVE_SOURCE_BUFSIZE];
 };
 
@@ -377,6 +363,9 @@ struct aave_surface {
 
 	/** Material of the surface. */
 	const struct aave_material *material;
+
+	/** Average absorption coeficient. */
+	float avg_absorption_coef; 
 
 	/**
 	 * Specification of the plane where this surface lays, in
@@ -482,6 +471,45 @@ struct aave_material {
 	const unsigned char reflection_factors[AAVE_MATERIAL_REFLECTION_FACTORS];
 };
 
+struct aave_reverb {
+
+	/** Tmixing = sqrt(Volume) (miliseconds). Predelay of the late reverberation. */
+	float Tmixing;
+
+	/** Crital distance at which the direct sound preassure is equal to the reverberation sound pressure. */
+	float rc;
+
+	/** Reverb predelay (samples). Sum of perceptual delay (Tmixing) and latency due to HRTF buffering. */
+	float pre_delay;
+
+	/** alpha = Tr(pi) / Tr(0). Ratio of the RT at the Nyquist frequency and the DC frequency. */
+	float alpha;
+
+	/** Decorrelation coeficients for producing a decorrelated stereo output.  */
+	short decorrelation_coefs[FDN_ORDER][2];
+
+	/** beta = 1 - sqrt(alpha) / 1 + sqrt(alpha). Bandwidth coeficient for the tone correction (highpass) filter. */
+	float beta;
+
+	/** Circulating matrix outputs storage after every multiplication. */
+	float fdn_output_taps[FDN_ORDER];
+
+	/** Amplitude attenuation for the absorption (lowpass) filters. */
+	float absorption_gain[FDN_ORDER];
+
+	/** Bandwidth for the absorption (lowpass) filters. */
+	float absorption_bandwidth[FDN_ORDER];
+
+	/** Constant attenuation to the stereo output of the reverberator. */
+	float mix;
+
+	/** Gain/attenuation for managing the level of the late reverberation. */
+	float level;
+
+	/** Flag to activate/deactivate late reverberation. */
+	short active;
+};
+
 /* audio.c */
 extern void aave_get_audio(struct aave *, short *, unsigned);
 extern void aave_put_audio(struct aave_source *, const short *, unsigned);
@@ -522,8 +550,11 @@ extern void aave_get_material_filter(struct aave *, struct aave_surface **, unsi
 /* obj.c */
 extern void aave_read_obj(struct aave *, const char *);
 
-/* reverb.c */
-extern void aave_reverb(struct aave *, short *, unsigned);
-
 /* reverb_dattorro.c */
 extern void aave_reverb_dattorro(struct aave *, short *, unsigned);
+
+/* reverb_jot.c */
+extern void aave_reverb_jot(struct aave *, short *, unsigned);
+extern void init_reverb(struct aave_reverb *, float, float, float, unsigned);
+extern void print_reverb_parameters(struct aave*, struct aave_reverb *);
+

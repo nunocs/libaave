@@ -74,6 +74,12 @@ void aave_read_obj(struct aave *aave, const char *filename)
 				continue;
 			surface->material = material;
 			surface->npoints = 0;
+
+			surface->avg_absorption_coef = 0;
+			for (i = 0; i < AAVE_MATERIAL_REFLECTION_FACTORS; i++) {
+				surface->avg_absorption_coef += (0.01 * material->reflection_factors[i]) / AAVE_MATERIAL_REFLECTION_FACTORS;
+			}
+
 			for (i = 0; s[i]; i++) {
 				if (s[i] != ' ')
 					continue;

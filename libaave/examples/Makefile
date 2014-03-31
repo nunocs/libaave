@@ -2,7 +2,7 @@
 LIBAAVE = ..
 
 CC = gcc
-CFLAGS = -Wall -pedantic -I$(LIBAAVE) -O2 -flto
+CFLAGS = -Wall -pedantic -I$(LIBAAVE) -O2 #-flto
 LDFLAGS = $(LIBAAVE)/libaave.a -lm
 
 programs = circle elevation line stream

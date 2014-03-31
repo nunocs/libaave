@@ -152,6 +152,7 @@
 
 #include <math.h> /* M_PI */
 #include <string.h> /* memcpy() */
+#include <stdio.h>
 #include "aave.h"
 
 /** Create a dft() function to convert 16-bit audio samples to frequency. */
@@ -425,11 +426,11 @@ static void aave_hrtf_fill_output_buffer(struct aave *aave, unsigned delay,
 			idft(y[i], ydft[i][c], frames * 2);
 
 		for (i = 0; i < frames; i++) {
-			x = aave->gain *
-				((overlap_add_buffer[i] + y[0][i])
+			x = ((overlap_add_buffer[i] + y[0][i])
 						* fade_out_gain(i, frames)
 				+ (y[1][i+frames] + y[2][i])
 						* fade_in_gain(i, frames));
+			if (!aave->reverb->active) x *= aave->gain;
 			/* Clip samples that overflow signed 16 bits. */
 			if (x > 32767)
 				x = 32767;
@@ -451,6 +452,9 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
 {
 	unsigned frames, index;
 	unsigned k;
+	
+	short* reverb_buf = buf;
+	unsigned l = n;
 
 	frames = 2 * aave->hrtf_frames;
 	index = aave->hrtf_output_buffer_index;
@@ -462,19 +466,20 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
 			index = 0;
 			k = frames;
 		}
-		if (k > n)
-			k = n;
+		if (k > n) k = n;
+
 		memcpy(buf, aave->hrtf_output_buffer + index * 2, k * 4);
-		if (aave->reverb) {
-			/* aave_reverb(aave, buf, k); */
-			aave_reverb_dattorro(aave, buf, k);
-		}
+
 		n -= k;
 		index += k;
 		buf += k * 2;
 	}
 
-	aave->hrtf_output_buffer_index = index;
+	aave->hrtf_output_buffer_index = index;	
+		
+	if (aave->reverb->active) {
+        aave_reverb_jot(aave,reverb_buf,l);
+    }	
 }
 
 /**
@@ -483,7 +488,7 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
 void aave_put_audio(struct aave_source *source, const short *audio, unsigned n)
 {
 	unsigned i = source->buffer_index;
-	short *buf = source->buffer;
+	short *buf = source->buffer;	
 
 	while (n--) {
 		i = (i + 1) & (AAVE_SOURCE_BUFSIZE - 1);

@@ -9,11 +9,12 @@
  */
 
 #include <stdio.h>
+#include <unistd.h>
 #include <alsa/asoundlib.h>
 #include "aave.h"
 
 /* Number of frames to capture/playback per loop. */
-#define FRAMES 2048
+#define FRAMES 512
 
 int main(int argc, char **argv)
 {
@@ -29,18 +30,24 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	/* Initialise auralisation engine. */
 	aave = malloc(sizeof *aave);
-	aave_init(aave);
+	
+	/* Set auralization parameters. */
+	aave->volume = 1200;
+	aave->area = 1000;
+	aave->rt60 = 6000;
+	
+	/* Read the room model file. */
+	aave_read_obj(aave, argv[1]);	
 
 	/* Select the HRTF set to use. */
 	/* aave_hrtf_cipic(aave); */
 	/* aave_hrtf_listen(aave); */
 	aave_hrtf_mit(aave);
 	/* aave_hrtf_tub(aave); */
-
-	/* Read the room model file. */
-	aave_read_obj(aave, argv[1]);
+	
+	/* Initialise auralisation engine. */	
+	aave_init(aave);
 
 	/* Set the highest order of reflections to generate. */
 	aave->reflections = atoi(argv[2]);
@@ -57,6 +64,8 @@ int main(int argc, char **argv)
 
 	/* Perform the geometry calculations. */
 	aave_update(aave);
+	
+	//sleep(2);
 
 	/* Open ALSA capture device. */
 	n = snd_pcm_open(&capture, "default", SND_PCM_STREAM_CAPTURE, 0);
@@ -66,7 +75,7 @@ int main(int argc, char **argv)
 	}
 	n = snd_pcm_set_params(capture, SND_PCM_FORMAT_S16,
 				SND_PCM_ACCESS_RW_INTERLEAVED,
-				1, 44100, 0, 100000); /* 100ms latency */
+				1, 44100, 0, 5000); /* 100ms latency */
 	if (n < 0) {
 		fprintf(stderr, "snd_pcm_set_params: %s\n", snd_strerror(n));
 		return 1;
@@ -80,12 +89,12 @@ int main(int argc, char **argv)
 	}
 	n = snd_pcm_set_params(playback, SND_PCM_FORMAT_S16,
 				SND_PCM_ACCESS_RW_INTERLEAVED,
-				2, 44100, 0, 100000); /* 100ms latency */
+				2, 44100, 0, 30000); /* 100ms latency */
 	if (n < 0) {
 		fprintf(stderr, "snd_pcm_set_params: %s\n", snd_strerror(n));
 		return 1;
 	}
-
+	
 	for (;;) {
 		/* Read the mono frames from the capture device. */
 		n = snd_pcm_readi(capture, buffer, FRAMES);
