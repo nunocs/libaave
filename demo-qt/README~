@@ -1,0 +1,73 @@
+/*   This file is part of LibAAVE.
+ * 
+ *   LibAAVE is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   LibAAVE is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with LibAAVE.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *   Copyright 2013 André Oliveira, Nuno Silva, Guilherme Campos,
+ *   Paulo Dias, José Vieira
+ *
+ *
+ *   demo-qt/README.txt: demo-qt build instructions
+ */
+
+SETUP
+
+1) Copy a room model file, in Wavefront .OBJ format, to model.obj.
+
+2) Copy an anechoic sound, in 16-bit mono 44100Hz raw format, to source.raw
+
+BUILD
+
+GNU/Linux
+
+Uses the Advanced Linux Sound Architecture library (libasound)
+for sound output and thus is compatible with both Qt4 and Qt5.
+
+1) Edit demo.pro and uncomment the line appropriate for your CPU
+#LIBS += -Lisense -lisense64
+#LIBS += -Lisense -lisense32
+
+2) Build the program
+$ qmake
+$ make
+
+3) Edit isports.ini and edit the name of the device connected to the sensor
+Example: Port1 = /dev/ttyUSB0
+
+4) Set the library path to include the isense directory
+$ export LD_LIBRARY_PATH=$PWD/isense
+
+5) Run the program
+$ ./demo
+
+Windows
+
+Uses the Qt multimedia module and thus requires Qt5.
+
+1) Edit demo.pro and uncomment the line appropriate for your CPU
+#LIBS += -Lisense -lisense64
+#LIBS += -Lisense -lisense32
+
+2) Build the program
+> qmake
+> mingw32-make
+
+3) Copy the appropriate dll to the program's directory
+> copy isense\isense32.dll isense.dll
+> copy isense\isense64.dll isense.dll
+
+4) Edit isports.ini and edit the name of the device connected to the sensor
+Example: Port1 = COM13
+
+5) Run the program
+> release\demo

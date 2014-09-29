@@ -7,8 +7,8 @@
 //
 //  Copyright:     InterSense 2002 - All rights Reserved.
 //
-//
 //=============================================================================
+
 #ifndef _ISENSE_INC_types_h
 #define _ISENSE_INC_types_h
 

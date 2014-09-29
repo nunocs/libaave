@@ -1,11 +1,23 @@
-/*
- * demo-qt5/view.h: view of the auralisation world
+/*   This file is part of LibAAVE.
+ * 
+ *   LibAAVE is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * Copyright 2013 Universidade de Aveiro
+ *   LibAAVE is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)
+ *   You should have received a copy of the GNU General Public License
+ *   along with LibAAVE.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Written by Andre B. Oliveira <abo@ua.pt>
+ *   Copyright 2013 André Oliveira, Nuno Silva, Guilherme Campos,
+ *   Paulo Dias, José Vieira/IEETA - Universidade de Aveiro
+ *
+ *
+ *   demo-qt/view.cpp: view of the auralisation world
  */
 
 #include <QWidget>
@@ -28,9 +40,6 @@ private slots:
 	void setOrientation(float, float, float);
 
 private:
-	/* The auralisation engine. */
-	struct aave *aave;
-
 	/*
 	 * Pointer to the currently selected item (the item being dragged).
 	 * It is a struct aave_source * if the currently selected item

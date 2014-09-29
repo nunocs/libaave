@@ -1,4 +1,5 @@
-# AcousticAVE auralisation library
+# LibAAVE auralisation library: demo-qt/demo.pro: QTCreator makefile
+
 INCLUDEPATH += ../libaave
 LIBS += ../libaave/libaave.a
 

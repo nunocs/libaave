@@ -1,11 +1,23 @@
-/*
- * demo-qt5/view.cpp: view of the auralisation world
+/*   This file is part of LibAAVE.
+ * 
+ *   LibAAVE is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * Copyright 2013 Universidade de Aveiro
+ *   LibAAVE is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)
+ *   You should have received a copy of the GNU General Public License
+ *   along with LibAAVE.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Written by Andre B. Oliveira <abo@ua.pt>
+ *   Copyright 2013 André Oliveira, Nuno Silva, Guilherme Campos,
+ *   Paulo Dias, José Vieira/IEETA - Universidade de Aveiro
+ *
+ *
+ *   demo-qt/view.cpp: view of the auralisation world
  */
 
 #include <QMouseEvent>
@@ -22,6 +34,14 @@ extern "C" {
 #include <aave.h>
 }
 
+#define VOLUME 1600
+#define AREA 1120
+#define RT60 2110
+
+/* Create and initialise the auralisation engine. */
+struct aave *aave = (struct aave *)malloc(sizeof *aave);
+
+
 View::View()
 	: QWidget()
 	, selectedItem(0)
@@ -32,9 +52,12 @@ View::View()
 	setFocusPolicy(Qt::StrongFocus);
 	setMinimumSize(400, 250);
 
-	/* Create and initialise the auralisation engine. */
-	aave = (struct aave *)malloc(sizeof *aave);
-	aave_init(aave);
+	aave->area = AREA;
+  	aave->volume = VOLUME;
+  	aave->rt60 = RT60;
+
+	/* Read room model. */
+	aave_read_obj(aave,"model.obj");
 
 	/* Select the HRTF set to use. */
 	aave_hrtf_mit(aave);
@@ -42,8 +65,8 @@ View::View()
 	/* aave_hrtf_listen(aave); */
 	/* aave_hrtf_tub(aave); */
 
-	/* Read room model. */
-	aave_read_obj(aave, "model.obj");
+	/* Initialize geometry parameters. */
+	aave_init(aave);
 
 	/* Set initial position and orientation of the listener. */
 	aave_set_listener_position(aave, -4, -2, 1);
@@ -57,6 +80,7 @@ View::View()
 	aave_set_source_position(source, 4, 2, 1);
 
 	/* Calculate the boundary box of the room. */
+	
 	float c;
 	struct aave_surface *surface;
 	xmin = ymin = zmin = +9999;
@@ -180,7 +204,7 @@ void View::keyPressEvent(QKeyEvent *event)
 		aave->gain /= 2;
 		break;
 	case Qt::Key_R:
-		aave->reverb ^= 1;
+		aave->reverb->active ^= 1;
 		break;
 	default:
 		QWidget::keyPressEvent(event);

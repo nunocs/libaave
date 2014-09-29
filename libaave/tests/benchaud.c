@@ -1,11 +1,23 @@
-/*
- * libaave/tools/benchaud.c: benchmark of the audio processing
+/*   This file is part of LibAAVE.
+ * 
+ *   LibAAVE is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * Copyright 2013 Universidade de Aveiro
+ *   LibAAVE is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)
+ *   You should have received a copy of the GNU General Public License
+ *   along with LibAAVE.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Written by Andre B. Oliveira <abo@ua.pt>
+ *   Copyright 2013 André Oliveira, Nuno Silva, Guilherme Campos,
+ *   Paulo Dias, José Vieira/IEETA - Universidade de Aveiro
+ *
+ *
+ *   libaave/tools/benchaud.c: benchmark of the audio processing
  */
 
 #include <stdio.h>
@@ -19,6 +31,10 @@
 /* Number of iterations to measure for each added sound source. */
 #define N 100
 
+#define VOLUME 5000
+#define AREA 5000
+#define RT60 5000
+
 int main()
 {
 	struct aave *aave;
@@ -30,8 +46,14 @@ int main()
 
 	/* Create auralisation engine. */
 	aave = malloc(sizeof *aave);
-	aave_init(aave);
+  	aave->area = AREA;
+  	aave->volume = VOLUME;
+  	aave->rt60 = RT60;
+	aave_read_obj(aave, "model.obj");
 	aave_hrtf_mit(aave);
+	aave_init(aave);
+	aave->reverb->active = 1;
+	aave->reflections = 3;
 	aave_set_listener_position(aave, 0, 0, 0);
 	aave_set_listener_orientation(aave, 0, 0, 0);
 

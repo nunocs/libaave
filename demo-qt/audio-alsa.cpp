@@ -1,11 +1,23 @@
-/*
- * demo-qt5/audio-alsa.cpp: audio output with Advanced Linux Sound Architecture
+/*   This file is part of LibAAVE.
+ * 
+ *   LibAAVE is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * Copyright 2012,2013 Universidade de Aveiro
+ *   LibAAVE is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)
+ *   You should have received a copy of the GNU General Public License
+ *   along with LibAAVE.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Written by Andre B. Oliveira <abo@ua.pt>
+ *   Copyright 2012,2013 André Oliveira, Nuno Silva, Guilherme Campos,
+ *   Paulo Dias, José Vieira/IEETA - Universidade de Aveiro
+ *
+ *
+ *   demo-qt/audio-alsa.cpp: audio output with Advanced Linux Sound Architecture
  */
 
 #include <QFile>
@@ -46,9 +58,8 @@ void Audio::run()
 	file.close();
 
 	/* Open the ALSA audio device. */
-	// const char device[] = "hw:Loopback,0,0";
-	// const char device[] = "default";
-	const char device[] = "hw";
+	 const char device[] = "default";
+	//const char device[] = "hw";
 	snd_pcm_t *handle;
 	short buffer[2 * FRAMES];
 	int err;
@@ -66,6 +77,7 @@ void Audio::run()
 	}
 
 	struct aave_source *source = aave->sources;
+
 	unsigned n;
 	for (;;) {
 		/*

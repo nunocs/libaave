@@ -1,11 +1,23 @@
-/*
- * libaave/init.c: initialisation routines
+/*   This file is part of LibAAVE.
+ * 
+ *   LibAAVE is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
  *
- * Copyright 2013 Universidade de Aveiro
+ *   LibAAVE is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- * Funded by FCT project AcousticAVE (PTDC/EEA-ELC/112137/2009)
+ *   You should have received a copy of the GNU General Public License
+ *   along with LibAAVE.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Written by Andre B. Oliveira <abo@ua.pt>
+ *   Copyright 2013,2014 André Oliveira, Nuno Silva, Guilherme Campos,
+ *   Paulo Dias, José Vieira/IEETA - Universidade de Aveiro
+ *
+ *
+ *   libaave/init.c: initialisation routines
  */
 
 /**
@@ -37,19 +49,11 @@ void aave_init(struct aave *aave)
 	struct aave_surface *surface;
 
 	aave->gain = 1;
-	aave->reflections = 0;
+	aave->reflections = 3;
 	aave->room_material_absorption = 0;
 
-	for (surface = aave->surfaces; surface; surface = surface->next) {
+	for (surface = aave->surfaces; surface; surface = surface->next) 
 		aave->room_material_absorption += surface->avg_absorption_coef / aave->nsurfaces;
-	}
-
-	/*while (nsources--) {
-		printf("init 1 source\n");
-		source = (struct aave_source *)malloc(sizeof *source);
-    	aave_init_source(aave, source);
-    	aave_add_source(aave, source);
-	}*/
 
 	aave->reverb = (struct aave_reverb*) malloc(sizeof(struct aave_reverb));
 
