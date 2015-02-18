@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -pedantic -O2 -flto # -g
+CFLAGS = -Wall -pedantic -O2 -flto -fPIC # -g
 
 objects += audio.o
 objects += dftindex.o

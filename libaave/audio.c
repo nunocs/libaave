@@ -442,7 +442,7 @@ static void aave_hrtf_fill_output_buffer(struct aave *aave, unsigned delay,
 						* fade_out_gain(i, frames)
 				+ (y[1][i+frames] + y[2][i])
 						* fade_in_gain(i, frames));
-			if (!aave->reverb->active) x *= aave->gain;
+			if (!aave->reverb_active) x *= aave->gain;
 			/* Clip samples that overflow signed 16 bits. */
 			if (x > 32767)
 				x = 32767;
@@ -489,7 +489,7 @@ void aave_get_audio(struct aave *aave, short *buf, unsigned n)
 
 	aave->hrtf_output_buffer_index = index;	
 		
-	if (aave->reverb->active) {
+	if (aave->reverb_active) {
         aave_reverb_jot(aave,reverb_buf,l);
     }	
 }

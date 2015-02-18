@@ -320,6 +320,9 @@ struct aave {
 	/** Maximum number of reflections to calculate for each source. */
 	unsigned reflections;
 
+    /** Flag to signal the use of artificial reverberation tail. */
+    unsigned short reverb_active;
+
 	/** Late reverberation parameters. */
 	struct aave_reverb *reverb;
 
@@ -375,6 +378,9 @@ struct aave_surface {
 
 	/** Material of the surface. */
 	const struct aave_material *material;
+
+    /** ID of the set of surfaces this surface belongs to. */
+	unsigned geometry;
 
 	/** Average absorption coeficient. */
 	float avg_absorption_coef; 
@@ -485,6 +491,15 @@ struct aave_material {
 
 struct aave_reverb {
 
+    /** Room volume (m3). */
+	unsigned volume;
+
+	/** Sum of all room surface areas. */
+	unsigned area;
+
+	/** Reverberation time (miliseconds). */
+	unsigned rt60;
+
 	/** Tmixing = sqrt(Volume) (miliseconds). Predelay of the late reverberation. */
 	float Tmixing;
 
@@ -517,9 +532,6 @@ struct aave_reverb {
 
 	/** Gain/attenuation for managing the level of the late reverberation. */
 	float level;
-
-	/** Flag to activate/deactivate late reverberation. */
-	short active;
 };
 
 /* audio.c */
@@ -567,6 +579,9 @@ extern void aave_reverb_dattorro(struct aave *, short *, unsigned);
 
 /* reverb_jot.c */
 extern void aave_reverb_jot(struct aave *, short *, unsigned);
-extern void init_reverb(struct aave_reverb *, float, float, float, unsigned);
-extern void print_reverb_parameters(struct aave*, struct aave_reverb *);
+extern void aave_reverb_init(struct aave *);
+extern void aave_reverb_set_rt60(struct aave *, unsigned short );
+extern void aave_reverb_set_area(struct aave *, unsigned short );
+extern void aave_reverb_set_volume(struct aave *, unsigned short );
+extern void aave_reverb_print_parameters(struct aave*, struct aave_reverb *);
 

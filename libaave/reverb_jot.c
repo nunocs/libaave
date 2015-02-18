@@ -17,7 +17,7 @@
  *   Paulo Dias, José Vieira/IEETA - Universidade de Aveiro
  *
  *
- *   libaave/reverb_jot.c: Jot feedback delay network artificial reverberation tail
+ *   libaave/reverb_jot.c: Jot feedback delay network artificial reverberation tail.
  */
 
 /**
@@ -59,6 +59,7 @@
 #include "aave.h"
 #include "math.h"
 #include "stdio.h"
+#include "stdlib.h"
 
 /** Define a maximum delay time of 200 ms */
 #define MAX_DELAY_TIME 8820
@@ -189,50 +190,128 @@ static float process_dc_block_filter(struct dc_block_filter *dcbf, float x)
     return dcbf->y;
 }
 
-void print_reverb_parameters(struct aave* aave, struct aave_reverb *rev) {
+void aave_reverb_print_parameters(struct aave* aave, struct aave_reverb *rev) {
 
 	printf("\n** LATE REVERB PARAMETERS **\n\n");
-	printf(" ROOM VOLUME = %d (m3)\n",aave->volume);
-	printf(" ROOM AREA = %d (m2)\n",aave->area);
+	printf(" ROOM VOLUME = %d (m3)\n",aave->reverb->volume);
+	printf(" ROOM AREA = %d (m2)\n",aave->reverb->area);
 	printf(" ROOM ABS COEF = %f\n",aave->room_material_absorption);
 	printf(" REVERB MIX = %.2f\n",rev->mix);
 	printf(" CRITICAL DISTANCE = %.2f (m)\n",rev->rc);
 	printf(" FDN ORDER = %d\n",FDN_ORDER);
-	printf(" RT60 = %.2d (ms)\n",aave->rt60);
+	printf(" RT60 = %.2d (ms)\n",aave->reverb->rt60);
 	printf(" ALPHA = %.2f\n",rev->alpha);	
 	printf(" PREDELAY = %.2f (ms)\n",rev->Tmixing);
 	printf("\n****************************\n\n");
 }
 
 /**
- * Initialize reverb parameters.
+ * Initialize late reverberation unit parameters.
+ * Default values for room volume, area and rt60 will be used.
  */
-void init_reverb(struct aave_reverb *reverb, float volume, float area, float abs, unsigned RT60) {
+void aave_reverb_init(struct aave *aave) {
 
     int i;
+    struct aave_surface *surface;
 
-    reverb->level = 1;
-    reverb->active = 1;
-    reverb->Tmixing = sqrt(volume);
-	reverb->pre_delay += reverb->Tmixing * 0.001 * AAVE_FS;
-    reverb->alpha = 0.15;
-    reverb->beta = (1-sqrt(reverb->alpha))/(1+sqrt(reverb->alpha));
-    reverb->rc = pow( (area * abs) / (16 * M_PI), 0.5);
-    reverb->mix = 1 / reverb->rc;
+    /* Default values for room area, volume and rt60. */
+    unsigned short volume = 5000;
+    unsigned short area   = 5000;
+    unsigned short RT60   = 2000;
+
+    if (aave->reverb != NULL)
+		return;
+
+    aave->reverb = (struct aave_reverb*) malloc(sizeof(struct aave_reverb));
+    aave->reverb_active = 1;
+
+    aave->reverb->level = 1;
+    aave->reverb_active = 1;
+
+    aave->reverb->pre_delay = aave->hrtf_frames * 2;
+    aave->reverb->Tmixing = sqrt((float) volume);
+	aave->reverb->pre_delay += aave->reverb->Tmixing * 0.001 * AAVE_FS;
+
+    aave->reverb->alpha = 0.15;
+    aave->reverb->beta = (1-sqrt(aave->reverb->alpha))/(1+sqrt(aave->reverb->alpha));
+
+    for (surface = aave->surfaces; surface; surface = surface->next)
+	    aave->room_material_absorption += surface->avg_absorption_coef / aave->nsurfaces;
+
+    aave->reverb->rc = pow( (area * aave->room_material_absorption) / (16 * M_PI), 0.5);
+    aave->reverb->mix = 1 / aave->reverb->rc;
 
     for (i=0;i<FDN_ORDER;i++) {
 
-        if (i%2) reverb->decorrelation_coefs[i][0]=-1;
-        else reverb->decorrelation_coefs[i][0]=1;
+        if (i%2) aave->reverb->decorrelation_coefs[i][0]=-1;
+        else aave->reverb->decorrelation_coefs[i][0]=1;
 
-        reverb->fdn_output_taps[i]=0;
-        reverb->absorption_gain[i] = pow(10,(-3*feedback_delays[i]*(1000./ AAVE_FS))/RT60);
-        reverb->absorption_bandwidth[i] = 1 - ( 2 / (1+pow(reverb->absorption_gain[i],1 - 1./reverb->alpha)));
+        aave->reverb->fdn_output_taps[i]=0;
+        aave->reverb->absorption_gain[i] = pow(10,(-3*feedback_delays[i]*(1000./ AAVE_FS))/RT60);
+        aave->reverb->absorption_bandwidth[i] = 1 - ( 2 / (1+pow(aave->reverb->absorption_gain[i],1 - 1./aave->reverb->alpha)));
     }
 
     for (i=0;i<FDN_ORDER;i+=2) {
-        if( i/2 % 2) reverb->decorrelation_coefs[i][1] = reverb->decorrelation_coefs[i+1][1]=-1;
-        else reverb->decorrelation_coefs[i][1] = reverb->decorrelation_coefs[i+1][1] = 1;
+        if( i/2 % 2) aave->reverb->decorrelation_coefs[i][1] = aave->reverb->decorrelation_coefs[i+1][1]=-1;
+        else aave->reverb->decorrelation_coefs[i][1] = aave->reverb->decorrelation_coefs[i+1][1] = 1;
+    }
+}
+
+/**
+ * Set room volume for late reverberation parametrization.
+ * Reverberation unit must already be initialized.
+ */
+void aave_reverb_set_volume(struct aave *aave, unsigned short volume)
+{
+	aave->reverb->pre_delay = aave->hrtf_frames * 2;
+    aave->reverb->volume = volume;
+    aave->reverb->Tmixing = sqrt(volume);
+	aave->reverb->pre_delay = aave->reverb->Tmixing * 0.001 * AAVE_FS;
+}
+
+/**
+ * Set room area for late reverberation parametrization.
+ * Reverberation unit must already be initialized.
+ */
+void aave_reverb_set_area(struct aave *aave, unsigned short area)
+{
+    struct aave_surface *surface;
+
+    aave->reverb->area = area;
+
+    for (surface = aave->surfaces; surface; surface = surface->next)
+	    aave->room_material_absorption += surface->avg_absorption_coef / aave->nsurfaces;
+
+    aave->reverb->rc = pow( (area * aave->room_material_absorption) / (16 * M_PI), 0.5);
+    aave->reverb->mix = 1 / aave->reverb->rc;
+}
+
+/**
+ * Set room rt60 for late reverberation parametrization.
+ * Reverberation unit must already be initialized.
+ */
+void aave_reverb_set_rt60(struct aave *aave, unsigned short RT60)
+{
+    unsigned short i;
+
+    aave->reverb->rt60 = RT60;
+
+    aave->reverb->alpha = 0.15;
+    aave->reverb->beta = (1-sqrt(aave->reverb->alpha))/(1+sqrt(aave->reverb->alpha));
+
+    for (i=0;i<FDN_ORDER;i++) {
+
+        if (i%2) aave->reverb->decorrelation_coefs[i][0]=-1;
+        else aave->reverb->decorrelation_coefs[i][0]=1;
+
+        aave->reverb->fdn_output_taps[i]=0;
+        aave->reverb->absorption_gain[i] = pow(10,(-3*feedback_delays[i]*(1000./ AAVE_FS))/RT60);
+        aave->reverb->absorption_bandwidth[i] = 1 - (2 / (1+pow(aave->reverb->absorption_gain[i],1 - 1./aave->reverb->alpha)));
+    }
+
+    for (i=0;i<FDN_ORDER;i+=2) {
+        if( i/2 % 2) aave->reverb->decorrelation_coefs[i][1] = aave->reverb->decorrelation_coefs[i+1][1]=-1;
+        else aave->reverb->decorrelation_coefs[i][1] = aave->reverb->decorrelation_coefs[i+1][1] = 1;
     }
 }
 
@@ -263,7 +342,7 @@ void aave_reverb_jot(struct aave *aave, short *audio, unsigned n)
 	source = aave->sources;
 	
 	while (source) {
-            x += source->buffer[ (source->buffer_index - n + i) & (AAVE_SOURCE_BUFSIZE - 1)];
+        x += source->buffer[ (source->buffer_index - n + i) & (AAVE_SOURCE_BUFSIZE - 1)];
 	    source = source->next;
 	}
         
