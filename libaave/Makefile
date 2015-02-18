@@ -13,6 +13,7 @@ objects += hrtf_mit.o
 objects += hrtf_mit_set.o
 objects += hrtf_tub.o
 objects += hrtf_tub_set.o
+objects += hrtf_id.o
 objects += init.o
 objects += material.o
 objects += obj.o

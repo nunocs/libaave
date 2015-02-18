@@ -562,6 +562,9 @@ extern void aave_hrtf_mit(struct aave *);
 /* hrtf_tub.c */
 extern void aave_hrtf_tub(struct aave *);
 
+/* hrtf_id.c */
+extern void aave_hrtf_identity(struct aave *);
+
 /* init.c */
 extern void aave_init(struct aave *);
 extern void aave_init_source(struct aave *, struct aave_source *);
